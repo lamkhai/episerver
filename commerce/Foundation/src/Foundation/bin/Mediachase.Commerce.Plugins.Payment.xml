@@ -1,0 +1,1326 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mediachase.Commerce.Plugins.Payment</name>
+    </assembly>
+    <members>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.AbstractPaymentGateway">
+            <summary>
+            Base class for payment gateway.
+            </summary>
+        </member>
+        <member name="P:Mediachase.Commerce.Plugins.Payment.AbstractPaymentGateway.Settings">
+            <summary>
+            Returns the configuration data associated with a gateway.
+            Sets the configuration gateway data. This data typically includes
+            information like gateway URL, account info and so on.
+            </summary>
+            <value>The settings.</value>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.AbstractPaymentGateway.ProcessPayment(Mediachase.Commerce.Orders.Payment,System.String@)">
+            <summary>
+            Processes the payment. Can be used for both positive and negative transactions.
+            </summary>
+            <param name="payment">The payment.</param>
+            <param name="message">The message.</param>
+            <returns><c>True</c> if payment processed successfully, otherwise <c>False</c></returns>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.Address">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.Address.street">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.Address.city">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.Address.state">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.Address.zipCode">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.Address.countryCode">
+            <summary></summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.Address.MakeAddressString">
+            <summary></summary>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.ANetApiResponse">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ANetApiResponse.refId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ANetApiResponse.messages">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.messagesType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.messagesType.resultCode">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.messagesType.message">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.messageTypeEnum">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.messageTypeEnum.Ok">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.messageTypeEnum.Error">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.messagesTypeMessage">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.messagesTypeMessage.code">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.messagesTypeMessage.text">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.lineItemType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.lineItemType.itemId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.lineItemType.name">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.lineItemType.description">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.lineItemType.quantity">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.lineItemType.unitPrice">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.lineItemType.taxable">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.lineItemType.taxableSpecified">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.extendedAmountType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.extendedAmountType.amount">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.extendedAmountType.name">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.extendedAmountType.description">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransAmountType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransAmountType.amount">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransAmountType.tax">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransAmountType.shipping">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransAmountType.duty">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransAmountType.lineItems">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransOrderType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransOrderType.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransOrderType.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransOrderType.customerShippingAddressId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransOrderType.order">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransOrderType.taxExempt">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransOrderType.taxExemptSpecified">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransOrderType.recurringBilling">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransOrderType.recurringBillingSpecified">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransOrderType.cardCode">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.orderExType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.orderExType.purchaseOrderNumber">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.orderType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.orderType.invoiceNumber">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.orderType.description">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransCaptureOnlyType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransCaptureOnlyType.approvalCode">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransAuthOnlyType">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransAuthCaptureType">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransactionType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.profileTransactionType.Item">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.driversLicenseMaskedType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.driversLicenseMaskedType.number">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.driversLicenseMaskedType.state">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.driversLicenseMaskedType.dateOfBirth">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountMaskedType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountMaskedType.accountType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountMaskedType.accountTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountMaskedType.routingNumber">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountMaskedType.accountNumber">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountMaskedType.nameOnAccount">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountMaskedType.echeckType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountMaskedType.echeckTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountMaskedType.bankName">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountTypeEnum">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountTypeEnum.checking">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountTypeEnum.savings">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountTypeEnum.businessChecking">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.echeckTypeEnum">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.echeckTypeEnum.PPD">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.echeckTypeEnum.WEB">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.echeckTypeEnum.CCD">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.echeckTypeEnum.TEL">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.creditCardMaskedType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.creditCardMaskedType.cardNumber">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.creditCardMaskedType.expirationDate">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.paymentMaskedType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.paymentMaskedType.Item">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.paymentSimpleType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.paymentSimpleType.Item">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountType.accountType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountType.accountTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountType.routingNumber">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountType.accountNumber">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountType.nameOnAccount">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountType.echeckType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountType.echeckTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.bankAccountType.bankName">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.creditCardSimpleType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.creditCardSimpleType.cardNumber">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.creditCardSimpleType.expirationDate">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.creditCardType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.creditCardType.cardCode">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileBaseType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileBaseType.customerType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileBaseType.customerTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileBaseType.billTo">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.customerTypeEnum">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerTypeEnum.individual">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerTypeEnum.business">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.customerAddressType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerAddressType.phoneNumber">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerAddressType.faxNumber">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.nameAndAddressType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.nameAndAddressType.firstName">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.nameAndAddressType.lastName">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.nameAndAddressType.company">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.nameAndAddressType.address">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.nameAndAddressType.city">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.nameAndAddressType.state">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.nameAndAddressType.zip">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.nameAndAddressType.country">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.customerAddressExType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerAddressExType.customerAddressId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileMaskedType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileMaskedType.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileMaskedType.payment">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileMaskedType.driversLicense">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileMaskedType.taxId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileType.payment">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileType.driversLicense">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileType.taxId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.driversLicenseType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.driversLicenseType.number">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.driversLicenseType.state">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.driversLicenseType.dateOfBirth">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileExType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerPaymentProfileExType.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.customerProfileBaseType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerProfileBaseType.merchantCustomerId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerProfileBaseType.description">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerProfileBaseType.email">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.customerProfileExType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerProfileExType.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.customerProfileMaskedType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerProfileMaskedType.paymentProfiles">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerProfileMaskedType.shipToList">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.customerProfileType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerProfileType.paymentProfiles">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerProfileType.shipToList">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.customerType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerType.type">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerType.typeSpecified">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerType.id">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerType.email">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerType.phoneNumber">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerType.faxNumber">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerType.driversLicense">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.customerType.taxId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.paymentType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.paymentType.Item">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.paymentScheduleType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.paymentScheduleType.interval">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.paymentScheduleType.startDate">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.paymentScheduleType.startDateSpecified">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.paymentScheduleType.totalOccurrences">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.paymentScheduleType.totalOccurrencesSpecified">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.paymentScheduleType.trialOccurrences">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.paymentScheduleType.trialOccurrencesSpecified">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.paymentScheduleTypeInterval">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.paymentScheduleTypeInterval.length">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.paymentScheduleTypeInterval.unit">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionUnitEnum">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionUnitEnum.days">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionUnitEnum.months">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionType.name">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionType.paymentSchedule">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionType.amount">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionType.amountSpecified">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionType.trialAmount">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionType.trialAmountSpecified">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionType.payment">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionType.order">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionType.customer">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionType.billTo">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBSubscriptionType.shipTo">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.merchantAuthenticationType">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.merchantAuthenticationType.name">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.merchantAuthenticationType.transactionKey">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.ANetApiRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ANetApiRequest.merchantAuthentication">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ANetApiRequest.refId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.isAliveRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.isAliveRequest.refId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.isAliveResponse">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.authenticateTestRequest">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.authenticateTestResponse">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.ARBCreateSubscriptionRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBCreateSubscriptionRequest.subscription">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.ARBCreateSubscriptionResponse">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBCreateSubscriptionResponse.subscriptionId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.ARBUpdateSubscriptionRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBUpdateSubscriptionRequest.subscriptionId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBUpdateSubscriptionRequest.subscription">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.ARBUpdateSubscriptionResponse">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.ARBCancelSubscriptionRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ARBCancelSubscriptionRequest.subscriptionId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.ARBCancelSubscriptionResponse">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerProfileRequest.profile">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerProfileResponse">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerProfileResponse.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerPaymentProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerPaymentProfileRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerPaymentProfileRequest.paymentProfile">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerPaymentProfileRequest.validationMode">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerPaymentProfileRequest.validationModeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.validationModeEnum">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.validationModeEnum.none">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.validationModeEnum.testMode">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.validationModeEnum.liveMode">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerPaymentProfileResponse">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerPaymentProfileResponse.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerPaymentProfileResponse.validationDirectResponse">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerShippingAddressRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerShippingAddressRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerShippingAddressRequest.address">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerShippingAddressResponse">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerShippingAddressResponse.customerAddressId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.getCustomerProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.getCustomerProfileRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.getCustomerProfileResponse">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.getCustomerProfileResponse.profile">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.getCustomerPaymentProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.getCustomerPaymentProfileRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.getCustomerPaymentProfileRequest.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.getCustomerPaymentProfileResponse">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.getCustomerPaymentProfileResponse.paymentProfile">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.getCustomerShippingAddressRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.getCustomerShippingAddressRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.getCustomerShippingAddressRequest.customerAddressId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.getCustomerShippingAddressResponse">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.getCustomerShippingAddressResponse.address">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.updateCustomerProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.updateCustomerProfileRequest.profile">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.updateCustomerProfileResponse">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.updateCustomerPaymentProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.updateCustomerPaymentProfileRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.updateCustomerPaymentProfileRequest.paymentProfile">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.updateCustomerPaymentProfileResponse">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.updateCustomerShippingAddressRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.updateCustomerShippingAddressRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.updateCustomerShippingAddressRequest.address">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.updateCustomerShippingAddressResponse">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.deleteCustomerProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.deleteCustomerProfileRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.deleteCustomerProfileResponse">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.deleteCustomerPaymentProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.deleteCustomerPaymentProfileRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.deleteCustomerPaymentProfileRequest.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.deleteCustomerPaymentProfileResponse">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.deleteCustomerShippingAddressRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.deleteCustomerShippingAddressRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.deleteCustomerShippingAddressRequest.customerAddressId">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.deleteCustomerShippingAddressResponse">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerProfileTransactionRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerProfileTransactionRequest.transaction">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerProfileTransactionRequest.extraOptions">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerProfileTransactionResponse">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerProfileTransactionResponse.directResponse">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.validateCustomerPaymentProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.validateCustomerPaymentProfileRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.validateCustomerPaymentProfileRequest.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.validateCustomerPaymentProfileRequest.customerShippingAddressId">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.validateCustomerPaymentProfileRequest.validationMode">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.validateCustomerPaymentProfileResponse">
+            <remarks/>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.validateCustomerPaymentProfileResponse.directResponse">
+            <remarks/>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizeNetManager">
+            <summary>
+            Authorize Net Manager
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizeNetManager.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizeNetManager"/> class.
+            </summary>
+            <param name="serverURL">The server URL.</param>
+            <param name="user">The user.</param>
+            <param name="password">The password.</param>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizeNetManager.PerformCardTransaction(Mediachase.Commerce.Plugins.Payment.Authorize.TransactionData)">
+            <summary>
+            Performs the card transaction.
+            </summary>
+            <param name="transData">The trans data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizeNetRecurringManager">
+            <summary>
+            AuthorizeNet manager for recurring payments.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizeNetRecurringManager.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizeNetRecurringManager"/>
+            </summary>
+            <param name="serverURL">The URL of the API server</param>
+            <param name="user">The user's Payment Gateway account login name used for transaction processing.</param>
+            <param name="password">The TransactionKey associated with that account.</param>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizeNetRecurringManager.CreateSubscription(Mediachase.Commerce.Plugins.Payment.Authorize.ARBCreateSubscriptionRequest)">
+            <summary>
+            Create a new ARB Subscription.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizeNetRecurringManager.UpdateSubscription(Mediachase.Commerce.Plugins.Payment.Authorize.ARBUpdateSubscriptionRequest)">
+            <summary>
+            Update an existing ARB subscription using the subscription ID returned by the create.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizeNetRecurringManager.CancelSubscription(Mediachase.Commerce.Plugins.Payment.Authorize.ARBCancelSubscriptionRequest)">
+            <summary>
+            Cancel an existing ARB subscription using the subscription ID returned by the create.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizeNetRecurringManager.ProcessRequest(Mediachase.Commerce.Plugins.Payment.Authorize.ANetApiRequest)">
+            <summary>
+            Send the request to the API server and load the response into an XML document.
+            An XmlSerializer is used to form the XML used in the request to the API server. 
+            The response from the server is also XML. An XmlReader is used to process the
+            response stream from the API server so that it can be loaded into an XmlDocument.
+            </summary>
+            <param name="apiRequest"></param>
+            <returns>
+            Object containing the response received from the API server.
+            </returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizeNetRecurringManager.DeserializeResponse(System.Xml.XmlDocument)">
+            <summary>
+            Deserialize the given XML document into the correct object type using the root
+            node to determine the type of output object.
+            For any given API request the response can be one of two types:
+            ErorrResponse or [methodname]Response.
+            For example, the ARBCreateSubscriptionRequest would normally result in a response of
+            ARBCreateSubscriptionResponse. This is also the name of the root node of the response.
+            This name can be used to deserialize the response into local objects.
+            </summary>
+            <param name="xmldoc">This is the XML document to process. It holds the response from the API server.</param>
+            <returns>True if successful, false if not.</returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizeNetRecurringManager.ThrowIfResultIsError(Mediachase.Commerce.Plugins.Payment.Authorize.ANetApiResponse)">
+            <summary>
+            Determine the type of the response object and process accordingly.
+            Since this is just sample code the only processing being done here is to write a few
+            bits of information to the console window.
+            </summary>
+            <param name="response"></param>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizeNetRecurringManager.SetMerchantAuthenticationAndRefId(Mediachase.Commerce.Plugins.Payment.Authorize.ANetApiRequest)">
+            <summary>
+            Fill in the merchant authentication. This data is required for all API methods.
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizePaymentGateway">
+            <summary>
+            AuthorizePaymentGateway
+            </summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizePaymentGateway.ProviderProfileIdPropertyName">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizePaymentGateway.TestParameterName">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizePaymentGateway.UserParameterName">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizePaymentGateway.TransactionKeyParameterName">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizePaymentGateway.PaymentOptionParameterName">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizePaymentGateway.RecurringMethodParameterName">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizePaymentGateway.CancelStatusParameterName">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizePaymentGateway.AuthorizeRecurringMethodParameterValue">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizePaymentGateway.CapturedPendingSettlementStatus">
+            <summary>
+            Transaction details status capturedPendingSettlement. http://developer.authorize.net/api/reference/index.html#transaction-reporting-get-transaction-details
+            </summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizePaymentGateway.SettledStatus">
+            <summary>
+             Transaction details status settledSuccessfully. http://developer.authorize.net/api/reference/index.html#transaction-reporting-get-transaction-details
+             </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizePaymentGateway.ProcessPayment(Mediachase.Commerce.Orders.Payment,System.String@)">
+            <summary>
+            Processes the payment.
+            </summary>
+            <param name="payment">The payment.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizePaymentGateway.ProcessPayment(EPiServer.Commerce.Order.IOrderGroup,EPiServer.Commerce.Order.IPayment)">
+            <summary>
+            Processes the payment.
+            </summary>
+            <param name="orderGroup">The order group.</param>
+            <param name="payment">The payment.</param>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.AuthorizePaymentGateway.PostProcessPayment(EPiServer.Commerce.Order.ICreditCardPayment)">
+            <summary>
+            Post process payment, encrypt or trim the credit card number based on configuration.
+            </summary>
+            <param name="creditCardPayment">Input payment, it is supposed to be a ICreditCardPayment.</param>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.CreditCard">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.CreditCard.cardNr">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.CreditCard.CSC">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.CreditCard.expDate">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.CreditCard.customerFirstName">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.CreditCard.customerLastName">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.CreditCard.customerEMail">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.CreditCard.customerPhone">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.CreditCard.customerFax">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.CreditCard.customerAddress">
+            <summary></summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.CreditCard.MakeCustomerInformationString">
+            <summary></summary>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.ResponsePackage">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ResponsePackage.IsError">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ResponsePackage.responseCode">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ResponsePackage.responseSubcode">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ResponsePackage.responseReasonCode">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ResponsePackage.responseReasonText">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ResponsePackage.approvalCode">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ResponsePackage.AVSResult">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ResponsePackage.transactionID">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ResponsePackage.MD5Hash">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.ResponsePackage.CSCResponse">
+            <summary></summary>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.Authorize.TransactionData">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.TransactionData.type">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.TransactionData.card">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.TransactionData.totalAmount">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.TransactionData.transId">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.TransactionData.invoiceNum">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.TransactionData.purchaseOrderNum">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.TransactionData.description">
+            <summary></summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Plugins.Payment.Authorize.TransactionData.AuthorizationCode">
+            <summary>
+            The authorization code which is used for CAPTURE_ONLY transaction.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.Authorize.TransactionData.GetTransactionType">
+            <summary>
+            Gets the type of the transaction.
+            </summary>
+            <returns></returns>
+            <remarks>Mapping of TransactionType enum values to gateway-specific transaction type strings.</remarks>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Payment.GenericPaymentGateway">
+            <summary>
+            Generic Payment Gateway should be used in the place of gateways that do no provide real time credit card 
+            charges. For instance pay by phone, pay by fax, invoice or gateways that redirect to the gateway website,
+            like PayPal.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.GenericPaymentGateway.ProcessPayment(Mediachase.Commerce.Orders.Payment,System.String@)">
+            <summary>
+            Charges the order, no recurrence pattern is checked.
+            </summary>
+            <param name="payment">The <see cref="T:Mediachase.Commerce.Orders.Payment"/>.</param>
+            <param name="message">The message passed back, most often an error if transaction failed.</param>
+            <returns><c>True</c> if process successfully; otherwise <c>False</c>.</returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Payment.GenericPaymentGateway.ProcessPayment(EPiServer.Commerce.Order.IOrderGroup,EPiServer.Commerce.Order.IPayment)">
+            <summary>
+            Charges the order, no recurrence pattern is checked.
+            </summary>
+            <param name="orderGroup">The order group.</param>
+            <param name="payment">The payment.</param>
+        </member>
+        <member name="T:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService">
+            <summary>
+            AuthorizeNet service class.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService"/>.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.#ctor(EPiServer.Business.Commerce.Plugins.Payment.Authorize.TransactionRequest)">
+            <summary>
+            Initializes a new instance of <see cref="T:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService"/>.
+            </summary>
+            <param name="transactionRequest">Transaction request <see cref="P:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.TransactionRequest"/>.</param>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.GetCustomer(System.String)">
+            <summary>
+            Retrieve an existing customer profile along with all the associated customer
+            payment profiles and customer shipping addresses.
+            </summary>
+            <param name="profileId">The profile ID.</param>
+            <returns>Returns <see cref="T:AuthorizeNet.Customer"/>.</returns>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.CreateCustomer(Mediachase.Commerce.Plugins.Payment.Authorize.TransactionData)">
+            <summary>
+            Creates or gets customer (if already exists).
+            </summary>
+            <param name="transData">Transaction data <see cref="T:Mediachase.Commerce.Plugins.Payment.Authorize.TransactionData"/>.</param>
+            <returns>Returns <see cref="T:AuthorizeNet.Customer"/>.</returns>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.UpdateCustomer(AuthorizeNet.Customer)">
+            <summary>
+            Updates a customer.
+            </summary>
+            <param name="customer">The customer <see cref="T:AuthorizeNet.Customer"/>.</param>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.AddShippingAddress(System.String,AuthorizeNet.Address)">
+            <summary>
+            Adds a Shipping Address to the customer profile.
+            </summary>
+            <param name="customerProfileId">The customer profile ID.</param>
+            <param name="address">The shipping address <see cref="T:AuthorizeNet.Address"/>.</param>
+            <returns>Returns shipping address id.</returns>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.AddCreditCard(System.String,System.String,System.Int32,System.Int32,System.String,AuthorizeNet.Address)">
+            <summary>
+            Adds a credit card profile to the user.
+            </summary>
+            <param name="customerProfileId">The profile ID.</param>
+            <param name="cardNumber">The card number.</param>
+            <param name="expMonth">The expire month.</param>
+            <param name="expYear">The expire year.</param>
+            <param name="cscNumber">The card code.</param>
+            <param name="address">The bill to address <see cref="T:AuthorizeNet.Address"/>.</param>
+            <returns>Returns the profile ID.</returns>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.SendRequest(AuthorizeNet.APICore.createCustomerProfileTransactionRequest)">
+            <summary>
+            Sends a request to AuthorizeNet.
+            </summary>
+            <param name="request">The request <see cref="T:Mediachase.Commerce.Plugins.Payment.Authorize.createCustomerProfileTransactionRequest"/>.</param>
+            <returns>Returns <see cref="T:AuthorizeNet.IGatewayResponse"/>.</returns>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.ProcessVoidRequest(System.String,System.String,System.String)">
+            <summary>
+            Voids a previously authorized transaction.
+            </summary>
+            <param name="profileId">The profile ID.</param>
+            <param name="paymentProfileId">The payment profile ID.</param>
+            <param name="transactionId">The transaction ID.</param>
+            <returns>Returns <see cref="T:AuthorizeNet.IGatewayResponse"/></returns>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.AuthorizeAndCapture(AuthorizeNet.Order)">
+            <summary>
+            Authorizes and Captures a transaction using the supplied profile information,
+            abstracted through an Order object. Using the Order you can add line items, specify
+            shipping and tax, etc.
+            </summary>
+            <param name="order">The order <see cref="T:AuthorizeNet.Order"/>.</param>
+            <returns>Returns <see cref="T:AuthorizeNet.IGatewayResponse"/>.</returns>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.ProcessPriorCaptureRequest(System.String,System.Decimal)">
+            <summary>
+            Captures the specified transaction.
+            </summary>
+            <param name="transactionId">The transaction ID to mark to capture (settle).</param>
+            <param name="amount">The amount.</param>
+            <returns>Returns <see cref="T:AuthorizeNet.IGatewayResponse"/>.</returns>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.ProcessAuthorizeRequest(AuthorizeNet.Order)">
+            <summary>
+            Authorizes a transaction using the supplied profile information, abstracted through
+            an Order object. Using the Order you can add line items, specify shipping and
+            tax, etc.
+            </summary>
+            <param name="order">The order <see cref="T:AuthorizeNet.Order"/>.</param>
+            <returns>Returns <see cref="T:AuthorizeNet.IGatewayResponse"/>.</returns>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.GetTransactionDetails(AuthorizeNet.Api.Contracts.V1.getTransactionDetailsRequest)">
+            <summary>
+            Get transaction details.
+            </summary>
+            <param name="request">The transaction detail request <see cref="T:AuthorizeNet.Api.Contracts.V1.getTransactionDetailsRequest"/>.</param>
+            <returns>Returns <see cref="T:AuthorizeNet.Api.Contracts.V1.transactionDetailsType"/>.</returns>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.GetMerchantCurrency">
+            <summary>
+            Gets merchant currency.
+            </summary>
+            <returns>Returns <see cref="T:Mediachase.Commerce.Currency"/></returns>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.AuthorizeNetService.GetMerchantDetails">
+            <summary>
+            Gets merchant detail.
+            </summary>
+            <returns>Returns <see cref="T:AuthorizeNet.Api.Contracts.V1.getMerchantDetailsResponse"/>.</returns>
+        </member>
+        <member name="T:EPiServer.Business.Commerce.Plugins.Payment.Authorize.TransactionRequest">
+            <summary>
+            Represents a request to AuthorizeNet.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Business.Commerce.Plugins.Payment.Authorize.TransactionRequest.User">
+            <summary>
+            Merchant’s unique API Login ID.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Business.Commerce.Plugins.Payment.Authorize.TransactionRequest.Password">
+            <summary>
+            Merchant’s API Login Password.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Business.Commerce.Plugins.Payment.Authorize.TransactionRequest.TestMode">
+            <summary>
+            Indicates the payment provider environment is test or production.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.TransactionRequest.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:EPiServer.Business.Commerce.Plugins.Payment.Authorize.TransactionRequest"/>.
+            </summary>
+            <param name="user">Merchant’s unique API Login ID.</param>
+            <param name="password">Merchant’s API Login Password.</param>
+            <param name="testMode">Indicates the payment provider environment is test or production.</param>
+        </member>
+        <member name="T:EPiServer.Business.Commerce.Plugins.Payment.Authorize.TransactionResponse">
+            <summary>
+            Represents a response from AuthorizeNet.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Business.Commerce.Plugins.Payment.Authorize.TransactionResponse.Response">
+            <summary>
+            Reponse from AuthorizeNet provider <see cref="T:AuthorizeNet.IGatewayResponse"/>.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Business.Commerce.Plugins.Payment.Authorize.TransactionResponse.IsTransactionCapturedOrSettled">
+            <summary>
+            Indicates the transaction is captured or settled.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.TransactionResponse.#ctor(AuthorizeNet.IGatewayResponse,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:EPiServer.Business.Commerce.Plugins.Payment.Authorize.TransactionResponse"/>.
+            </summary>
+            <param name="response"></param>
+            <param name="isTransactionCapturedOrSettled"></param>
+        </member>
+        <member name="T:EPiServer.Business.Commerce.Plugins.Payment.Authorize.Utilities">
+            <summary>
+            Utilities class for AuthorizeNet.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.Utilities.ToAuthorizeNetAddress(EPiServer.Commerce.Order.IOrderAddress)">
+            <summary>
+            Convert an <see cref="T:EPiServer.Commerce.Order.IOrderAddress"/> address to an <see cref="T:AuthorizeNet.Address"/> address.
+            </summary>
+            <param name="orderAddress">An <see cref="T:EPiServer.Commerce.Order.IOrderAddress"/> address.</param>
+            <returns>An <see cref="T:AuthorizeNet.Address"/> adress.</returns>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.Utilities.ConvertMoney(Mediachase.Commerce.Money,Mediachase.Commerce.Currency)">
+            <summary>
+            Converts a given money to a new money value in a given currency.
+            </summary>
+            <param name="currentMoney">The current money.</param>
+            <param name="toCurrency">The destination currency to convert to.</param>
+        </member>
+        <member name="M:EPiServer.Business.Commerce.Plugins.Payment.Authorize.Utilities.StripPreviewText(System.String,System.Int32)">
+            <summary>
+            Strips a text to a given length.
+            </summary>
+            <param name="source">The source string.</param>
+            <param name="maxLength">Max length of the text.</param>
+            <returns>A shortened version of the given string.</returns>
+            <remarks>Will return empty string if input is null or empty.</remarks>
+        </member>
+    </members>
+</doc>

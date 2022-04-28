@@ -1,0 +1,380 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Episerver.Turnstile.Contracts.Hmac</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Turnstile.Contracts.Hmac.DateTimeExtensions">
+            <summary>
+            The DateTimeExtensions class applies helper methods to support
+            interactions with DateTime values.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DateTimeExtensions.#cctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DateTimeExtensions.AsMillisecondsFromUnixEpoch(System.DateTime)">
+            <summary>
+            Returns a value representing the total number of milliseconds
+            that have elapsed between the Unix epoch and this DateTime.
+            </summary>
+            <param name="dateTime">DateTime value to evaluate</param>
+            <returns>Milliseconds elapsed since the Unix epoch</returns>
+        </member>
+        <member name="T:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacDeclarationFactory">
+            <summary>
+            The DefaultHmacDeclarationFactory class constructs an HmacDeclaration from
+            an HMAC message according to Episerver Turnstile's default procedures.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacDeclarationFactory.#ctor(EPiServer.Turnstile.Contracts.Hmac.IHmacAlgorithm)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="hmacAlgorithm">Algorithm for computing HMAC signatures</param>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacDeclarationFactory.Create(EPiServer.Turnstile.Contracts.Hmac.HmacMessage)">
+            <summary>
+            Creates an HmacDeclaration from the specified HmacMessage.
+            </summary>
+            <param name="message">HmacMessage for which a declaration should be generated</param>
+            <returns>HMAC declaration</returns>
+        </member>
+        <member name="T:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder">
+            <summary>
+            The DefaultHmacMessageBuilder class supports the construction of
+            an HmacMessage, according to a specified configuration, using the
+            default Episerver Turnstile procedures.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.ApplicationKey">
+            <summary>
+            Gets the application key as specified.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.Target">
+            <summary>
+            Gets the request target as specified.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.Method">
+            <summary>
+            Gets the request method as specified.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.Body">
+            <summary>
+            Gets the request body as specified.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.requestHash">
+            <summary>
+            Gets the requestHash as specified.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.Nonce">
+            <summary>
+            Gets the nonce as specified.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.Timestamp">
+            <summary>
+            Gets the timestamp as specified.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.AddApplicationKey(System.String)">
+            <summary>
+            Adds an application key to the message.
+            </summary>
+            <param name="appKey">Application key</param>
+            <returns>Reference to this builder</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.AddTarget(System.Uri)">
+            <summary>
+            Adds a request target to the message by interpreting the absolute path
+            and query of the specified URI. (RFC-7230, Section 5.3.1)
+            </summary>
+            <param name="requestUri">Request URI</param>
+            <returns>Reference to this builder</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.AddTarget(System.String)">
+            <summary>
+            Adds a request target to the message.
+            </summary>
+            <param name="target">Request target</param>
+            <returns>Reference to this builder</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.AddMethod(System.String)">
+            <summary>
+            Adds a request method.
+            </summary>
+            <param name="requestMethod">Request method</param>
+            <returns>Reference to this builder</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.AddBody(System.Byte[])">
+            <summary>
+            Adds a request body.
+            </summary>
+            <param name="requestBody">Request body</param>
+            <returns>Reference to this builder</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.AddRequestHash(System.Byte[])">
+            <summary>
+            Adds a request hash.
+            </summary>
+            <param name="requestHash">Request Hash</param>
+            <returns>Reference to this builder</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.AddNonce(System.String)">
+            <summary>
+            Adds a nonce.
+            </summary>
+            <param name="nonce">Request nonce</param>
+            <returns>Reference to this builder</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.AddTimestamp(System.String)">
+            <summary>
+            Adds a timestamp.
+            </summary>
+            <param name="timestamp">Request timestamp</param>
+            <returns>Reference to this builder</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.ToMessage">
+            <summary>
+            Builds an HmacMessage according to the specified configuration.
+            </summary>
+            <returns>HMAC message</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.AssertMessageComponents">
+            <summary>
+            Ensures that sufficient information has been provided to construct an HmacMessage. An
+            exception will be thrown if insufficient information has been provided.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.Hash(System.Byte[])">
+            <summary>
+            Computes a hash of the specified content.
+            </summary>
+            <param name="content">Content to hash</param>
+            <returns>Hash of the specified content</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.GenerateTimestamp">
+            <summary>
+            Generates a timestamp from the current time.
+            </summary>
+            <returns>Timestamp from the current time</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.DefaultHmacMessageBuilder.GenerateNonce">
+            <summary>
+            Generates a random nonce.
+            </summary>
+            <returns>Random nonce</returns>
+        </member>
+        <member name="T:EPiServer.Turnstile.Contracts.Hmac.HmacDeclaration">
+            <summary>
+            The HmacDeclaration class encapsulates the parts of an HMAC declaration
+            that accompanies an HTTP request.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Turnstile.Contracts.Hmac.HmacDeclaration.None">
+            <summary>
+            Represents an absent HMAC declaration.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.HmacDeclaration.#cctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.HmacDeclaration.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="appKey">Declared application key</param>
+            <param name="timestamp">Declared request timestamp</param>
+            <param name="nonce">Declared request nonce</param>
+            <param name="signature">Declared request signature</param>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.HmacDeclaration.ApplicationKey">
+            <summary>
+            Gets the application key declared by the request.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.HmacDeclaration.Timestamp">
+            <summary>
+            Gets the timestamp declared by the request.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.HmacDeclaration.Nonce">
+            <summary>
+            Gets the nonce declared by the request.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.HmacDeclaration.Signature">
+            <summary>
+            Gets the signature declared by the request.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.HmacDeclaration.ToString">
+            <summary>
+            Gets the string representation of this declaration.
+            </summary>
+            <returns>HMAC declaration as a string</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.HmacDeclaration.Parse(System.String)">
+            <summary>
+            Parses the HMAC declarations that accompany HTTP requests, returning
+            a corresponding HmacDeclaration instance.
+            </summary>
+            <param name="input">Declaration value to parse</param>
+            <returns>A corresponding HmacDecalaration instance</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.HmacDeclaration.IsWellFormed">
+            <summary>
+            Determines if the HmacDeclaration represents a well-formed HMAC.
+            </summary>
+            <returns>True if the HMAC is well-formed, false otherwise</returns>
+        </member>
+        <member name="T:EPiServer.Turnstile.Contracts.Hmac.HmacMessage">
+            <summary>
+            The HmacMessage class encapsulates the components of an HMAC for a
+            a particular HTTP request. The components serve as the input to the
+            HMAC authentication process.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.HmacMessage.#ctor(System.String,System.String,System.String,System.String,System.String,System.Byte[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="appKey">Application key</param>
+            <param name="nonce">Request nonce</param>
+            <param name="timestamp">Request timestamp</param>
+            <param name="requestTarget">Request target</param>
+            <param name="requestMethod">Request method</param>
+            <param name="requestHash">Hash of request content</param>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.HmacMessage.ApplicationKey">
+            <summary>
+            Gets the application key that accompanied the request.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.HmacMessage.Nonce">
+            <summary>
+            Gets the nonce that accompanied the request.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.HmacMessage.Timestamp">
+            <summary>
+            Gets the timestamp that accompanied the request.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.HmacMessage.RequestTarget">
+            <summary>
+            Gets the target for the request.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.HmacMessage.RequestMethod">
+            <summary>
+            Gets the HTTP method for the request.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Turnstile.Contracts.Hmac.HmacMessage.RequestHash">
+            <summary>
+            Gets the unique hash for the request.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.HmacMessage.ToString">
+            <summary>
+            Gets the string representation of this HmacMessage.
+            </summary>
+            <returns>HmacMessage as a string</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.HmacMessage.ToBytes">
+            <summary>
+            Gets a byte array representative of this HmacMessage.
+            </summary>
+            <returns>HmacMessage as a byte array</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.HmacMessage.IsWellFormed">
+            <summary>
+            Determines if the HmacMessage represents a well-formed HMAC.
+            </summary>
+            <returns>True if the HMAC is well-formed, false otherwise</returns>
+        </member>
+        <member name="T:EPiServer.Turnstile.Contracts.Hmac.HmacMessageHandler">
+            <summary>
+            The HmacMessageHandler class is an HTTP message handler, which applies
+            an HMAC declaration as an authorization header to outgoing requests.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.HmacMessageHandler.#ctor(EPiServer.Turnstile.Contracts.Hmac.IHmacDeclarationFactory,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="hmacDeclarationFactory">Factory for constructing HMAC declarations.</param>        
+            <param name="appKey">Application key identifying the requester.</param>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.HmacMessageHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            Applies an HMAC declaration to the specified request as an authorization header.
+            </summary>
+            <param name="request">Request to which an HMAC declaration should be applied.</param>
+            <param name="cancellationToken">A cancellation token to cancel the operation.</param>
+            <returns>The HTTP response.</returns>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.HmacMessageHandler.GetHmacMessage(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Creates a corresponding HmacMessage instance from the specified HTTP request.
+            </summary>
+            <param name="request">Request for which to create an HmacMessage.</param>
+            <returns>A corresponding HmacMessage.</returns>
+        </member>
+        <member name="T:EPiServer.Turnstile.Contracts.Hmac.IHmacAlgorithm">
+            <summary>
+            The IHmacAlgorithm interface describes a component capable of
+            generating a signature certifying the integrity of a message.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.IHmacAlgorithm.Compute(EPiServer.Turnstile.Contracts.Hmac.HmacMessage)">
+            <summary>
+            Computes a signature certifying the integrity of the provided message.        
+            </summary>
+            <param name="message">Message to be signed</param>
+            <returns>Signature of the provided message</returns>
+        </member>
+        <member name="T:EPiServer.Turnstile.Contracts.Hmac.IHmacDeclarationFactory">
+            <summary>
+            The IHmacDeclarationFactory class constructs an HmacDeclaration from
+            an HMAC message.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.IHmacDeclarationFactory.Create(EPiServer.Turnstile.Contracts.Hmac.HmacMessage)">
+            <summary>
+            Creates an HmacDeclaration from the specified HmacMessage.
+            </summary>
+            <param name="message">HmacMessage for which a declaration should be generated</param>
+            <returns>HMAC declaration</returns>
+        </member>
+        <member name="T:EPiServer.Turnstile.Contracts.Hmac.Sha256HmacAlgorithm">
+            <summary>
+            The Sha256HmacAlgorithm class generates a signature certifying the
+            integrity of a message using a SHA256 hash computation.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.Sha256HmacAlgorithm.#ctor(System.Byte[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="secret">Secret key with which to compute signature</param>
+        </member>
+        <member name="M:EPiServer.Turnstile.Contracts.Hmac.Sha256HmacAlgorithm.Compute(EPiServer.Turnstile.Contracts.Hmac.HmacMessage)">
+            <summary>
+            Computes a signature certifying the integrity of the provided message.        
+            </summary>
+            <param name="message">Message to be signed</param>
+            <returns>Signature of the provided message</returns>
+        </member>
+    </members>
+</doc>

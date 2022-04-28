@@ -1,0 +1,751 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Social.Comments.Core</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Social.Comments.Core.CommentSortFields">
+            <summary>
+            The CommentSortFields class exposes the fields of the Comment
+            model which are available to an application in defining sorting
+            rules for comment result sets within the Social platform.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.CommentSortFields.#cctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.CommentSortFields.Author">
+            <summary>
+            Gets the instance of SortField representing the Author field
+            in the Comment data model.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.CommentSortFields.Created">
+            <summary>
+            Gets the instance of SortField representing the Created field
+            in the Comment data model.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.CommentSortFields.Id">
+            <summary>
+            Gets the instance of SortField representing the Id field
+            in the Comment data model.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Comments.Core.CommentId">
+            <summary>
+            The CommentId class is a data model representing
+            an identifier for a moderation workflow within the social
+            platform.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.CommentId.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">the unique comment identifier value to initialize with for the new CommentId instance being constructed.</param>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.CommentId.Create">
+            <summary>
+            Returns a newly created and initialized CommentId instance
+            </summary>
+            <returns>A comment ID.</returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.CommentId.Create(System.String)">
+            <summary>
+            Parses a comment ID from a string-based comment identifier.
+            </summary>
+            <param name="id">the comment identifier value to initialize with for the new CommentId instance being returned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.CommentId.op_Equality(EPiServer.Social.Comments.Core.CommentId,EPiServer.Social.Comments.Core.CommentId)">
+             <summary>
+             Overloads the equality operator on the CommentId class.
+             </summary>
+             <param name="a">The operand on the left side of the equality operator.</param>
+             <param name="b">The operand on the right side of the equality operator.</param>
+             <returns>
+             Returns true if the both objects are null or the same instance or have the same value of the underlying comment identifier.
+             Returns false if either object is null or both objects have different values of the underlying comment identifier.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.CommentId.op_Inequality(EPiServer.Social.Comments.Core.CommentId,EPiServer.Social.Comments.Core.CommentId)">
+            <summary>
+            Overloads the inequality operator on the CommentId class.
+            </summary>
+            <param name="a">The operand on the left side of the inequality operator.</param>
+            <param name="b">The operand on the right side of the inequality operator.</param>
+            <returns>
+            Returns true if either object is null or both objects have different values of the underlying comment identifier.
+            Returns false if the both objects are null or the same instance or have the same value of the underlying comment identifier.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.CommentId.Equals(System.Object)">
+            <summary>
+            Compares this instance with another object.
+            </summary>
+            <param name="obj">the object to compare with this instance.</param>
+            <returns>
+            Returns true if this instance and another specified object, of type CommentId have the same 
+            value of the underlying comment identifier, else returns false.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.CommentId.GetHashCode">
+            <summary>
+            Returns the hash code of the underlying comment identifier of this instance.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.CommentId.Empty">
+            <summary>
+            Returns a newly created CommentId instance whose comment identifier is initialized to an empty string.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Comments.Core.Comment">
+            <summary>
+            The Comment class represents an individual instance of user-generated
+            content within the Episerver Social platform.
+            </summary>    
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.Comment.#ctor(EPiServer.Social.Common.Reference,System.String,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="parent">Reference uniquely identifying the parent entity for the comment</param>        
+            <param name="body">Body content of the comment</param>
+            <param name="isVisible">Indicates whether or not this comment is intended to be displayed</param>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.Comment.#ctor(EPiServer.Social.Comments.Core.CommentId,System.String,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">Unique identifier for the comment</param>
+            <param name="body">Body content of the comment</param>
+            <param name="isVisible">Indicates whether or not this comment is intended to be displayed</param>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.Comment.#ctor(EPiServer.Social.Common.Reference,EPiServer.Social.Common.Reference,System.String,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="parent">Reference uniquely identifying the parent entity for the comment</param>        
+            <param name="author">Reference uniquely identifying the user who contributed the comment</param>
+            <param name="body">Body content of the comment</param>
+            <param name="isVisible">Indicates whether or not this comment is intended to be displayed</param>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.Comment.#ctor(EPiServer.Social.Comments.Core.CommentId,EPiServer.Social.Common.Reference,EPiServer.Social.Common.Reference,System.String,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">Unique identifier for the comment</param>
+            <param name="parent">Reference uniquely identifying the parent entity for the comment</param>        
+            <param name="author">Reference uniquely identifying the contributor of the comment</param>
+            <param name="body">Body content of the comment</param>
+            <param name="isVisible">Indicates whether or not this comment is intended to be displayed</param>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.Comment.#ctor(EPiServer.Social.Comments.Core.CommentId,EPiServer.Social.Common.Reference,EPiServer.Social.Common.Reference,System.String,System.Boolean,System.Collections.Generic.IEnumerable{EPiServer.Social.Common.Reference},System.DateTime,System.Boolean,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">Unique identifier for the comment</param>
+            <param name="parent">Reference uniquely identifying the parent entity for the comment</param>        
+            <param name="author">Reference uniquely identifying the contributor of the comment</param>
+            <param name="body">Body content of the comment</param>
+            <param name="isVisible">Indicates whether or not this comment is intended to be displayed</param>
+            <param name="ancestors">Collection of references representing the ancestral path for this comment</param>
+            <param name="created">Date (UTC) on which this comment was added</param>
+            <param name="hasChildren">Indicates whether or not this comment has any replies</param>
+            <param name="hasVisibleChildren">Indicates whether or not this comment has any replies, which are also visible</param>
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.Comment.Body">
+            <summary>
+            Gets the body content of the comment.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.Comment.IsVisible">
+            <summary>
+            Gets a boolean indicating whether or not this comment
+            is intended to be displayed.
+            </summary>        
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.Comment.Parent">
+            <summary>
+            Gets a reference uniquely identifying the parent entity for
+            the comment. The parent entity may be a resource within your
+            application, such as content or a product. If this comment is
+            intended to represent a reply to an existing comment, the
+            parent reference should identify that existing parent.
+            </summary>       
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.Comment.Ancestors">
+            <summary>
+            Gets a collection of references representing the ancestral
+            path for this comment. The references identify ancestors in
+            order from the root entity to this comment's parent.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.Comment.Id">
+            <summary>
+            Gets the unique identifier for this comment.
+            </summary>
+            <remarks>
+            This identifier is generated automatically by the Episerver Social platform.
+            </remarks>        
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.Comment.Created">
+            <summary>
+            Gets the date (UTC) on which this comment was added.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.Comment.Author">
+            <summary>
+            Gets a reference uniquely identifying the user who
+            contributed this comment.
+            </summary>        
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.Comment.HasChildren">
+            <summary>
+            Gets a boolean indicating whether or not this comment has
+            any replies.
+            </summary>        
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.Comment.HasVisibleChildren">
+            <summary>
+            Gets a boolean indicating whether or not this comment has
+            any replies, which are also visible.
+            </summary>        
+        </member>
+        <member name="T:EPiServer.Social.Comments.Core.CommentFilter">
+            <summary>
+            The CommentFilter represents criteria containing filtering 
+            information for retrieving comments.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.CommentFilter.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.CommentFilter.Visibility">
+            <summary>
+            Gets or sets the the visibility by which to filter comments.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.CommentFilter.Parent">
+            <summary>
+            Gets or sets a reference identifying a parent resource
+            or comment whose immediate child comments should be retrieved.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.CommentFilter.Ancestor">
+            <summary>
+            Gets or sets a reference identifying an ancestor resource
+            or comment whose child comments should be retrieved.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.CommentFilter.Author">
+            <summary>
+            Gets or sets a reference identifying an author reference
+            by which to filter comments.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Comments.Core.CommentDoesNotExistException">
+            <summary>
+            The CommentDoesNotExistException class represents an error occurring 
+            when an operation is attempted on a comment that cannot be found.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.CommentDoesNotExistException.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.CommentDoesNotExistException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Exception message</param>
+        </member>
+        <member name="T:EPiServer.Social.Comments.Core.InvalidCommentErrorCode">
+            <summary>
+            Enumeration used to reflect error codes for invalid comments.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Social.Comments.Core.InvalidCommentErrorCode.UNKNOWN">
+            <summary>
+            Error code reflecting an invalid comment
+            </summary>
+        </member>
+        <member name="F:EPiServer.Social.Comments.Core.InvalidCommentErrorCode.COMMENT_EMPTY">
+            <summary>
+            Error code reflecting that the comment is empty
+            </summary>
+        </member>
+        <member name="F:EPiServer.Social.Comments.Core.InvalidCommentErrorCode.COMMENT_EXCEEDS_MAXLENGTH">
+            <summary>
+            Error code reflecting that the comment exceeds the max length
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Comments.Core.InvalidCommentException">
+            <summary>
+            The InvalidCommentException class represents an error occurring when 
+            a user attempts to create or modify a comment, which contains invalid 
+            data.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.InvalidCommentException.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.InvalidCommentException.#ctor(EPiServer.Social.Comments.Core.InvalidCommentErrorCode)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="errorCode">Code identifying the error, which has occurred.</param>
+        </member>
+        <member name="P:EPiServer.Social.Comments.Core.InvalidCommentException.ErrorCode">
+            <summary>
+            Gets the code identifying the type of error, which has occurred.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Comments.Core.ICommentRepository">
+            <summary>
+            The ICommentRepository interface supports comment management operations, allowing
+            users to contribute comments to entities in a Social environment.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.Get(EPiServer.Social.Comments.Core.CommentId)">
+            <summary>
+            Gets a comment as identified by the specified ID.        
+            </summary>
+            <param name="id">ID of the item to be retrieved</param>
+            <returns>The identified Comment</returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.Get``1(EPiServer.Social.Comments.Core.CommentId)">
+            <summary>
+            Gets a comment composed with associated extension data, 
+            as identified by the specified ID.        
+            </summary>
+            <typeparam name="TExtension">Type of data applied as an extension of the comment</typeparam>
+            <param name="id">ID of the item to be retrieved</param>
+            <returns>A comment composed with associated extension data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Comments.Core.CommentFilter})">
+            <summary>
+            Retrieves a collection of comments that are immediate children of a 
+            particular parent entity, identified with the Parent property of the 
+            criteria parameter.
+            </summary>
+            <param name="criteria">Criteria by which to filter comments</param>        
+            <returns>Page of comments filtered according to the specified criteria</returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Comments.Core.CommentFilter,``0})">
+            <summary>
+            Retrieves a page of comments as specified by the provided criteria. The 
+            comments are filtered by the type of their associated data.
+            </summary>
+            <typeparam name="TExtension">Type of data associated with the desired comments</typeparam>
+            <param name="criteria">Filters the result set of comments</param>
+            <returns>Page of composite comments filtered according to the specified criteria</returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.Add(EPiServer.Social.Comments.Core.Comment)">
+            <summary>
+            Add a new comment.
+            </summary>
+            <param name="comment">Comment to store.</param>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.Add``1(EPiServer.Social.Comments.Core.Comment,``0)">
+            <summary>
+            Adds a new comment with supporting metadata to form a composite.
+            </summary>
+            <typeparam name="TExtension">Type applied as an extension of the comment item</typeparam>
+            <param name="comment">comment item to be added</param>
+            <param name="extension">Extended data related to the comment item</param>
+            <returns>The comment item composed with the extended data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.Update(EPiServer.Social.Comments.Core.Comment)">
+            <summary>
+            Updates an existing comment.
+            </summary>
+            <param name="comment">Comment to store.</param>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.Update``1(EPiServer.Social.Comments.Core.Comment,``0)">
+            <summary>
+            Updates a comment with supporting metadata to form a composite.
+            </summary>
+            <typeparam name="TExtension">Type applied as an extension of the comment</typeparam>
+            <param name="comment">comment to be added</param>
+            <param name="extension">Extended data related to the comment</param>
+            <returns>The comment composed with the extended data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.Remove(EPiServer.Social.Comments.Core.CommentId)">
+            <summary>
+            Removes an existing comment by its comment identifier.
+            </summary>
+            <param name="id">Identifier of the comment to remove.</param>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.GetAsync(EPiServer.Social.Comments.Core.CommentId)">
+            <summary>
+            Asynchronously gets a comment as identified by the specified ID.        
+            </summary>
+            <param name="id">ID of the item to be retrieved</param>
+            <returns>The identified Comment</returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.GetAsync``1(EPiServer.Social.Comments.Core.CommentId)">
+            <summary>
+            Asynchronously gets a comment composed with associated extension data, 
+            as identified by the specified ID.        
+            </summary>
+            <typeparam name="TExtension">Type of data applied as an extension of the comment</typeparam>
+            <param name="id">ID of the item to be retrieved</param>
+            <returns>A comment composed with associated extension data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Comments.Core.CommentFilter})">
+            <summary>
+            Asynchronously retrieves a collection of comments that are immediate children of a 
+            particular parent entity, identified with the Parent property of the 
+            criteria parameter.
+            </summary>
+            <param name="criteria">Criteria by which to filter comments</param>        
+            <returns>Page of comments filtered according to the specified criteria</returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Comments.Core.CommentFilter,``0})">
+            <summary>
+            Asynchronously retrieves a page of comments as specified by the provided criteria. The 
+            comments are filtered by the type of their associated data.
+            </summary>
+            <typeparam name="TExtension">Type of data associated with the desired comments</typeparam>
+            <param name="criteria">Filters the result set of comments</param>
+            <returns>Page of composite comments filtered according to the specified criteria</returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.AddAsync(EPiServer.Social.Comments.Core.Comment)">
+            <summary>
+            Asynchronously add a new comment.
+            </summary>
+            <param name="comment">Comment to store.</param>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.AddAsync``1(EPiServer.Social.Comments.Core.Comment,``0)">
+            <summary>
+            Asynchronously adds a new comment with supporting metadata to form a composite.
+            </summary>
+            <typeparam name="TExtension">Type applied as an extension of the comment item</typeparam>
+            <param name="comment">comment item to be added</param>
+            <param name="extension">Extended data related to the comment item</param>
+            <returns>The comment item composed with the extended data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.UpdateAsync(EPiServer.Social.Comments.Core.Comment)">
+            <summary>
+            Asynchronously updates an existing comment.
+            </summary>
+            <param name="comment">Comment to store.</param>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.UpdateAsync``1(EPiServer.Social.Comments.Core.Comment,``0)">
+            <summary>
+            Asynchronously updates a comment with supporting metadata to form a composite.
+            </summary>
+            <typeparam name="TExtension">Type applied as an extension of the comment</typeparam>
+            <param name="comment">comment to be added</param>
+            <param name="extension">Extended data related to the comment</param>
+            <returns>The comment composed with the extended data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentRepository.RemoveAsync(EPiServer.Social.Comments.Core.CommentId)">
+            <summary>
+            Asynchronously removes an existing comment by its comment identifier.
+            </summary>
+            <param name="id">Identifier of the comment to remove.</param>
+        </member>
+        <member name="T:EPiServer.Social.Comments.Core.ICommentService">
+            <summary>
+            The ICommentService interface supports comment management operations, allowing
+            users to contribute comments to entities in a Social environment.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.Get(EPiServer.Social.Comments.Core.CommentId)">
+            <summary>
+            Gets a comment as identified by the specified ID.        
+            </summary>
+            <param name="id">ID of the item to be retrieved</param>
+            <returns>The identified Comment</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the comment id passed in is null or empty.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.CommentDoesNotExistException">Thrown when the identified comment does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.GetAsync(EPiServer.Social.Comments.Core.CommentId)">
+            <summary>
+            Asynchronously gets a comment as identified by the specified ID.        
+            </summary>
+            <param name="id">ID of the item to be retrieved</param>
+            <returns>The identified Comment</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the comment id passed in is null or empty.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.CommentDoesNotExistException">Thrown when the identified comment does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.Get``1(EPiServer.Social.Comments.Core.CommentId)">
+            <summary>
+            Gets a comment composed with associated extension data, 
+            as identified by the specified ID.        
+            </summary>
+            <typeparam name="TExtension">Type of data applied as an extension of the comment</typeparam>
+            <param name="id">ID of the item to be retrieved</param>
+            <returns>A comment composed with associated extension data</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the comment id passed in is null or empty.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.CommentDoesNotExistException">Thrown when the identified comment does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.GetAsync``1(EPiServer.Social.Comments.Core.CommentId)">
+            <summary>
+            Asynchronously gets a comment composed with associated extension data, 
+            as identified by the specified ID.        
+            </summary>
+            <typeparam name="TExtension">Type of data applied as an extension of the comment</typeparam>
+            <param name="id">ID of the item to be retrieved</param>
+            <returns>A comment composed with associated extension data</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the comment id passed in is null or empty.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.CommentDoesNotExistException">Thrown when the identified comment does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Comments.Core.CommentFilter})">
+            <summary>
+            Retrieves a collection of comments as specified by the provided criteria.
+            </summary>
+            <param name="criteria">Criteria by which to filter comments</param>        
+            <returns>Page of comments filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Comments.Core.CommentFilter})">
+            <summary>
+            Asynchronously retrieves a collection of comments as specified by the provided criteria.
+            </summary>
+            <param name="criteria">Criteria by which to filter comments</param>        
+            <returns>Page of comments filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Comments.Core.CommentFilter,``0})">
+            <summary>
+            Retrieves a page of comments as specified by the provided criteria. The 
+            comments are filtered by the type of their associated data.
+            </summary>
+            <typeparam name="TExtension">Type of data associated with the desired comments</typeparam>
+            <param name="criteria">Filters the result set of comments</param>
+            <returns>Page of composite comments filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Comments.Core.CommentFilter,``0})">
+            <summary>
+            Asynchronously retrieves a page of comments as specified by the provided criteria. The 
+            comments are filtered by the type of their associated data.
+            </summary>
+            <typeparam name="TExtension">Type of data associated with the desired comments</typeparam>
+            <param name="criteria">Filters the result set of comments</param>
+            <returns>Page of composite comments filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.Add(EPiServer.Social.Comments.Core.Comment)">
+            <summary>
+            Adds a new comment.
+            </summary>
+            <param name="comment">Comment to be added</param>
+            <returns>Comment that was added</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.InvalidCommentException">Thrown when the comment body being added is empty.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.AddAsync(EPiServer.Social.Comments.Core.Comment)">
+            <summary>
+            Asynchronously adds a new comment.
+            </summary>
+            <param name="comment">Comment to be added</param>
+            <returns>Comment that was added</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.InvalidCommentException">Thrown when the comment body being added is empty.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.Add``1(EPiServer.Social.Comments.Core.Comment,``0)">
+            <summary>
+            Adds a new comment with supporting metadata to form a composite.
+            </summary>
+            <typeparam name="TExtension">Type applied as an extension of the comment</typeparam>
+            <param name="comment">Comment to be added</param>
+            <param name="extension">Extended data related to the comment</param>
+            <returns>A comment composed with the extended data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.InvalidCommentException">Thrown when the comment body being added is empty.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.AddAsync``1(EPiServer.Social.Comments.Core.Comment,``0)">
+            <summary>
+            Asynchronously adds a new comment with supporting metadata to form a composite.
+            </summary>
+            <typeparam name="TExtension">Type applied as an extension of the comment</typeparam>
+            <param name="comment">Comment to be added</param>
+            <param name="extension">Extended data related to the comment</param>
+            <returns>A comment composed with the extended data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.InvalidCommentException">Thrown when the comment body being added is empty.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.Update(EPiServer.Social.Comments.Core.Comment)">
+            <summary>
+            Updates an existing comment.
+            </summary>
+            <param name="comment">Comment to be updated</param>        
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.InvalidCommentException">Thrown when the comment body being updated is empty.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.CommentDoesNotExistException">Thrown when the identified comment does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.UpdateAsync(EPiServer.Social.Comments.Core.Comment)">
+            <summary>
+            Asynchronously updates an existing comment.
+            </summary>
+            <param name="comment">Comment to be updated</param>        
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.InvalidCommentException">Thrown when the comment body being updated is empty.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.CommentDoesNotExistException">Thrown when the identified comment does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.Update``1(EPiServer.Social.Comments.Core.Comment,``0)">
+            <summary>
+            Updates an existing comment and its supporting metadata to
+            form a composite.
+            </summary>
+            <typeparam name="TExtension">Type applied as an extension of the comment</typeparam>
+            <param name="comment">Comment to be updated</param>
+            <param name="extension">Extended data related to the comment</param>
+            <returns>A comment composed with the extended data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.InvalidCommentException">Thrown when the comment body being updated is empty.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.CommentDoesNotExistException">Thrown when the identified comment does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.UpdateAsync``1(EPiServer.Social.Comments.Core.Comment,``0)">
+            <summary>
+            Asynchronously updates an existing comment and its supporting metadata to
+            form a composite.
+            </summary>
+            <typeparam name="TExtension">Type applied as an extension of the comment</typeparam>
+            <param name="comment">Comment to be updated</param>
+            <param name="extension">Extended data related to the comment</param>
+            <returns>A comment composed with the extended data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.InvalidCommentException">Thrown when the comment body being updated is empty.</exception>
+            <exception cref="T:EPiServer.Social.Comments.Core.CommentDoesNotExistException">Thrown when the identified comment does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.Remove(EPiServer.Social.Comments.Core.CommentId)">
+            <summary>
+            Deletes a comment and any associated extension data, 
+            </summary>
+            <param name="id">ID of the item to be deleted</param>
+            <returns>void</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the comment id passed in is null or empty.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Comments.Core.ICommentService.RemoveAsync(EPiServer.Social.Comments.Core.CommentId)">
+            <summary>
+            Asynchronously deletes a comment and any associated extension data, 
+            </summary>
+            <param name="id">ID of the item to be deleted</param>
+            <returns>void</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the comment id passed in is null or empty.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="T:EPiServer.Social.Comments.Core.Visibility">
+            <summary>
+            The Visibility enumeration describes the values available for
+            filtering comments according to their visibility.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Social.Comments.Core.Visibility.All">
+            <summary>
+            Filter that refers to all comments, regardless of visibility.
+            /// </summary>
+        </member>
+        <member name="F:EPiServer.Social.Comments.Core.Visibility.Visible">
+            <summary>
+            Filter that refers to only comments that are visible.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Social.Comments.Core.Visibility.NotVisible">
+            <summary>
+            Filter that refers to only comments that are not visible.
+            </summary>
+        </member>
+    </members>
+</doc>

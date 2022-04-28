@@ -1,0 +1,447 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.ContentApi.Search</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.ContentApi.Search.ContentApiSearchConfiguration">
+            <summary>
+            Configuration for content search api
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.ContentApiSearchConfiguration.#ctor">
+            <summary>
+            Initialize a new instance of <see cref="T:EPiServer.ContentApi.Search.ContentApiSearchConfiguration"/>
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.ContentApiSearchConfiguration.Default">
+            <summary>
+            Get default options for search. Default() should be used at initialization time to customize/config default value
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.ContentApiSearchConfiguration.GetSearchOptions">
+            <summary>
+            Get options for search. GetSearchOptions() should be used in application for api calling 
+            By using this function, Default value will not be changed if clients using api change some values
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.ContentApiSearchInitialization">
+            <summary>
+            Initialize default settings for search
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.ContentApiSearchInitialization.ConfigureContainer(EPiServer.ServiceLocation.ServiceConfigurationContext)">
+            <summary>
+            Inititalize DJ
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.ContentApiSearchInitialization.InitializeHttpEvents(System.Web.HttpApplication)">
+            <summary>
+            Hook to post authenticatereqeust event
+            </summary>
+            <param name="application"></param>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.ContentApiSearchInitialization.Initialize(EPiServer.Framework.Initialization.InitializationEngine)">
+            <summary>
+            Initialize search and http configuration if enabled.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.ContentApiSearchInitialization.application_PostAuthenticateRequest(System.Object,System.EventArgs)">
+            <summary>
+            Handles the PostAuthenticateRequest event of the application control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.ContentApiSearchInitialization.InitializeContentApiSearch">
+            <summary>
+            Initialize SearchClient
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.ContentApiSearchInitialization.BuildDefaultHttpConfiguration(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Get default http configuration
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.ContentApiSearchModuleSettings">
+            <summary>
+            Contain app settings
+            </summary>
+        </member>
+        <member name="F:EPiServer.ContentApi.Search.ContentApiSearchModuleSettings.ShouldUseDefaultHttpConfiguration">
+            <summary>
+            Indicate whether HttpConfiguration.MapHttpAttributeRoutes() should be called in our api
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.ContentSearchApiOptions">
+            <summary>
+                Options to control behavior of the Content Search Api
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.ContentSearchApiOptions.#ctor">
+            <summary>
+            Initialize a new instance of <see cref="T:EPiServer.ContentApi.Search.ContentSearchApiOptions"/>
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.ContentSearchApiOptions.#ctor(System.TimeSpan,System.Int32)">
+            <summary>
+            Initialize a new instance of <see cref="T:EPiServer.ContentApi.Search.ContentSearchApiOptions"/>
+            </summary>
+            <param name="searchCacheDuration">Length of time that queries to the Search endpoint will be cached via StaticallyCacheFor.</param>
+            <param name="maximumSearchResults">Maximum number of search results to return in a single request. </param>
+        </member>
+        <member name="P:EPiServer.ContentApi.Search.ContentSearchApiOptions.SearchCacheDuration">
+            <summary>
+                Length of time that queries to the Search endpoint will be cached via StaticallyCacheFor.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Search.ContentSearchApiOptions.MaximumSearchResults">
+            <summary>
+                Maximum number of search results to return in a single request. Enforced on the Top parameter of <see cref="T:EPiServer.ContentApi.Search.Internal.SearchRequest"/>
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.ContentSearchApiOptions.SetSearchCacheDuration(System.TimeSpan)">
+            <summary>
+            Set search cache duration
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.ContentSearchApiOptions.SetMaximumSearchResults(System.Int32)">
+            <summary>
+            Set maximum search results
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.ContentSearchApiOptions.Clone">
+            <summary>
+            Clone object
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.Controllers.ContentApiSearchController">
+            <summary>
+            Expose API endpoint for searching content
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Controllers.ContentApiSearchController.Search(EPiServer.ContentApi.Search.Internal.SearchRequest,System.Collections.Generic.List{System.String})">
+            <summary>
+            Search contents based on criteria 
+            </summary>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.FindEventsAssociationService">
+            <summary>
+            Initialize the association between CMS events and EPiServer.Find indexer in order to keep up to date with the latest for Search.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.FindEventsAssociationService.#ctor">
+            <summary>
+            We will inject this service in InitializationModule, so we need a parameterless constructor
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.FindEventsAssociationService.#ctor(EPiServer.Core.IContentEvents,EPiServer.DataAbstraction.IContentSecurityRepository,EPiServer.IContentRepository,EPiServer.ContentApi.Search.Internal.ContentEventIndexerWrapper)">
+            <summary>
+            Initialize a instance of <see cref="T:EPiServer.ContentApi.Search.FindEventsAssociationService"/>  with given parameters
+            </summary>        
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.FindEventsAssociationService.Initialize">
+            <summary>
+            Initialize the association with EPiServer.Find events
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.FindEventsAssociationService.CmsContentEvents(System.Object,EPiServer.ContentEventArgs)">
+            <summary>
+            associate with EPiServer.Find when a content has been changed.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.FindEventsAssociationService.AttachContentSecurityEvent(System.Object,EPiServer.DataAbstraction.ContentSecurityEventArg)">
+            <summary>
+            associate with EPiServer.Find when security descriptor of content has been changed.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.FindEventsAssociationService.IndexContentWhichReferencesContentLink(EPiServer.Core.ContentReference)">
+            <summary>
+            Raise changes to EPiServer.Find
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.IContentApiSearchProvider">
+            <summary>
+                Represents a search provider which can successfully process a SearchRequest and return a SearchResponse for use in the Content Api
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.IContentApiSearchProvider.Search(EPiServer.ContentApi.Search.Internal.SearchRequest,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                Given a OData filter string, parse the filter into a Find's filter
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.Internal.ContentEventIndexerWrapper">
+            <summary>
+            Wrapper for ContentEventIndexer. We need this wrapper to use mock in writing unit test because ContentEventIndexer.SavingContent() is NOT virtual
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.ContentEventIndexerWrapper.#ctor(EPiServer.Find.Cms.ContentEventIndexer)">
+            <summary>
+            Initialize a instance of <see cref="T:EPiServer.ContentApi.Search.Internal.ContentEventIndexerWrapper"/> with given parameters
+            </summary>
+            <param name="contentEventIndexer"></param>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.ContentEventIndexerWrapper.SavingContent(EPiServer.Core.ContentReference)">
+            <summary>
+            Wrap method for ContentEventIndexer.SavingContent()
+            </summary>
+            <param name="contentLink"></param>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.Internal.FilterHelper">
+            <summary>
+                Helper class for working with OData Filter strings
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.Internal.FilterParseException">
+            <summary>
+                Exception thrown when a OData filter cannot be parsed into a filter by a given <see cref="T:EPiServer.ContentApi.Search.IContentApiSearchProvider"/>
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.Internal.FindContentApiSearchProvider">
+            <summary>
+                Implementation of <see cref="T:EPiServer.ContentApi.Search.IContentApiSearchProvider"/> which uses Episerver Find as the search provider
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindContentApiSearchProvider.AttachContentApiRoleFilter(EPiServer.Find.ITypeSearch{EPiServer.Core.IContent},System.String)">
+            <summary>
+            Build filter for EPiServer Find
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.Internal.FindIndexingJobConverterContext">
+            <summary>
+            Context used when indexing content by Find indexing job in admin mode
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.Internal.FindODataParser">
+            <summary>
+                <see cref="T:EPiServer.ContentApi.Search.Internal.IFindODataParser"/> implementation which leverages <see cref="T:System.UriParser"/> in order to parse filter and orderby strings, 
+                and subsequently converts them to <see cref="T:EPiServer.Find.Api.Querying.Filter"/> and <see cref="T:EPiServer.Find.Api.Sorting"/> instances for use with Episerver Find"/>
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.ParseOrderBy(System.String)">
+            <summary>
+                Given a OData orderby string, parse the orderby into a List of Find <see cref="T:EPiServer.Find.Api.Sorting"/> objects
+            </summary>
+            <param name="orderby">Orderby string to process. Example: Changed desc, Name asc</param>
+            <returns>List of <see cref="T:EPiServer.Find.Api.Sorting"/> instances, if successfully parsed from the provided orderby string</returns>
+            <exception cref="T:EPiServer.ContentApi.Search.Internal.OrderByParseException">Thrown when an orderby string cannot be successfully parsed</exception>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.CreateOrderByClause(System.String)">
+            <summary>
+                Given an OData order by clause (like Changed desc, Name asc), construct a <see cref="T:Microsoft.OData.UriParser.OrderByClause"/> via <see cref="T:Microsoft.OData.UriParser.ODataUriParser"/> to represent the orderby in a tree structure.
+            </summary>
+            <param name="orderby">Orderby string to use to generate the FilterClause</param>
+            <returns><see cref="T:Microsoft.OData.UriParser.OrderByClause"/> instance, if successfully parsed from the provided filter string</returns>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.ParseFilter(System.String)">
+            <summary>
+                Given a OData filter string, parse the filter into a Find <see cref="T:EPiServer.Find.Api.Querying.Filter"/>
+            </summary>
+            <param name="filter">Filter string to process. Example: ContentLink.Id</param>
+            <returns><see cref="T:Microsoft.OData.UriParser.FilterClause"/> instance, if successfully parsed from the provided filter string</returns>
+            <exception cref="T:EPiServer.ContentApi.Search.Internal.FilterParseException">Thrown when a filter string cannot be successfully parsed</exception>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.CreateFilterClause(System.String)">
+            <summary>
+                Given an OData string (like ContentLink.Id eq 23), construct a <see cref="T:Microsoft.OData.UriParser.FilterClause"/> via <see cref="T:Microsoft.OData.UriParser.ODataUriParser"/> to represent the filter in a tree structure.
+            </summary>
+            <param name="filter">Filter string to use to generate the FilterClause</param>
+            <returns><see cref="T:Microsoft.OData.UriParser.FilterClause"/> instance, if successfully parsed from the provided filter string</returns>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.ParseFilterInternal(Microsoft.OData.UriParser.SingleValueNode)">
+            <summary>
+                Recursive function for parsing a provided <see cref="T:Microsoft.OData.UriParser.SingleValueNode"/> which may contain multiple And/Or clauses, which contain multiple value-based filters
+            </summary>
+            <param name="singleValueNode">The SingleValueNode to parse</param>
+            <returns>A <see cref="T:EPiServer.Find.Api.Querying.Filter"/> instance which represents the provided <see cref="T:Microsoft.OData.UriParser.SingleValueNode"/> in the form of a Find filter</returns>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.ParseAnyFunction(Microsoft.OData.UriParser.AnyNode)">
+            <summary>
+                Parses an any function into a Term Filter. 
+            </summary>
+            <param name="anyFunctionNode"><see cref="T:Microsoft.OData.UriParser.AnyNode"/> to parse</param>
+            <remarks>Limited support to single property expression lambda - like this: ContentType/any(t:t eq 'CheckoutPage')</remarks>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.ParseContainsFunction(Microsoft.OData.UriParser.SingleValueFunctionCallNode)">
+            <summary>
+                Parses a contains function into a WildcardQuery
+            </summary>
+            <param name="single"><see cref="T:Microsoft.OData.UriParser.SingleValueFunctionCallNode"/> representing the contains function</param>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.ParseValueFilter(Microsoft.OData.UriParser.BinaryOperatorNode)">
+            <summary>
+                Parses a value filter (one that contains a left and right side comparison) from a provided <see cref="T:Microsoft.OData.UriParser.BinaryOperatorNode"/>.
+                Returns a <see cref="T:EPiServer.Find.Api.Querying.Filter"/> instance which may be different types depending on the filters contained within the provided BinaryOperatorNode
+            </summary>
+            <param name="binaryOperator">The BinaryOperatorNode to parse</param>
+            <returns><see cref="T:EPiServer.Find.Api.Querying.Filter"/> object which represents the OData filter converted for use with Find</returns>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.CreateGreaterThanRangeFilter(System.String,Microsoft.OData.Edm.IEdmTypeReference,System.Object,Microsoft.OData.UriParser.BinaryOperatorKind)">
+            <summary>
+                Creates a Greater-than Range filter for a given field, in a given type.
+            </summary>
+            <param name="fieldName">Parsed Episerver Find field name for use in creating the filter</param>
+            <param name="typeReference">Type of the value object for the filter</param>
+            <param name="value">Value of the range filter's lower bound</param>
+            <param name="operatorKind">Operator to use to create the filter (GreaterThan or GreaterThanOrEqual)</param>
+            <returns><see cref="T:EPiServer.Find.Api.Querying.Filters.RangeFilter`1"/> instance for usage with Find</returns>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.CreateLessThanRangeFilter(System.String,Microsoft.OData.Edm.IEdmTypeReference,System.Object,Microsoft.OData.UriParser.BinaryOperatorKind)">
+            <summary>
+                Creates a Less-than Range filter for a given field, in a given type.
+            </summary>
+            <param name="fieldName">Parsed Episerver Find field name for use in creating the filter</param>
+            <param name="typeReference">Type of the value object for the filter</param>
+            <param name="value">Value of the range filter's lower bound</param>
+            <param name="operatorKind">Operator to use to create the filter (LessThan or LessThanOrEqual)</param>
+            <returns><see cref="T:EPiServer.Find.Api.Querying.Filters.RangeFilter`1"/> instance for usage with Find</returns>
+            <exception cref="T:EPiServer.ContentApi.Search.Internal.FilterParseException">Thrown when an</exception>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.ParseSingleValueNode(Microsoft.OData.UriParser.SingleValueNode)">
+            <summary>
+                Extracts an <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> and <see cref="T:System.Object"/> value from a provided <see cref="T:Microsoft.OData.UriParser.SingleValueNode"/>.
+            </summary>
+            <remarks>Type and value objects are hidden behind ConvertNode instances, and also have a variety of types depending on how Odata filter and sort strings are formatted</remarks>
+            <param name="valueNode">The SingleValueNode to parse</param>
+            <returns>Parsed <see cref="T:Microsoft.OData.Edm.IEdmTypeReference"/> and <see cref="T:System.Object"/> value, which both may be null</returns>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.ParseFunctionName(Microsoft.OData.UriParser.SingleValueNode)">
+            <summary>
+                Returns a function name from a <see cref="T:Microsoft.OData.UriParser.SingleValueNode"/> if it exists
+            </summary>
+            <param name="singleValueNode">The SingleValueNode to parse</param>
+            <returns>Function name as string. Example: lowercase</returns>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.ParsePropertyName(Microsoft.OData.UriParser.QueryNode)">
+            <summary>
+                Returns the dot-notation property name from a <see cref="T:Microsoft.OData.UriParser.SingleValueNode"/> if it exists
+            </summary>
+            <param name="queryNode">The QueryNode to parse</param>
+            <returns>Dot-notation syntax string for the property - examle: ContentLink.Id</returns>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.GetBinaryOperatorNode(Microsoft.OData.UriParser.SingleValueNode)">
+            <summary>
+                Given a <see cref="T:Microsoft.OData.UriParser.SingleValueNode"/>, locates the nearest <see cref="T:Microsoft.OData.UriParser.BinaryOperatorNode"/> which may be hidden behind an additional node structure
+            </summary>
+            <param name="singleValueNode">The BinaryOperatorNode to parse</param>
+            <returns>Nearest <see cref="T:Microsoft.OData.UriParser.BinaryOperatorNode"/> instance</returns>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.FindODataParser.CreateFieldNameForSearch(System.String,System.String)">
+            <summary>
+                Creates a field name for use with Find <see cref="T:EPiServer.Find.Api.Querying.Filter"/> objects. Find attaches type information to certain properties, and this ensures that is attached properly when generating filters.
+            </summary>
+            <param name="property">Property name as string in dot syntax - like 'ContentLink.Id'</param>
+            <param name="function">Function to apply to the parsed field. Example: lowercase</param>
+            <returns>Field name suitable for use with <see cref="T:EPiServer.Find.Api.Querying.Filter"/> instances</returns>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.Internal.IClientConventionsExtensions">
+            <summary>
+                Convenience extensions for configuring IClientConventions associated with enabling Content Api Search
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.IClientConventionsExtensions.InitializeContentApiSearch(EPiServer.Find.IClientConventions)">
+            <summary>
+                Initialize Content Api Search using a provided ISerializer implementation
+            </summary>
+            <param name="conventions">Conventions to add to</param>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.Internal.IContentExtensions">
+            <summary>
+                Convenience extensions to working with IContent within the context of ContentApi Search
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.IContentExtensions.ContentApiModel(EPiServer.Core.IContent)">
+            <summary>
+                Extension method for transforming IContent into ContentApiModel for indexing into Find
+            </summary>
+            <param name="content">IContent to convert</param>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.Internal.IFindODataParser">
+            <summary>
+                Interface for parsing OData filter and orderby clauses down for use with Episerver Find
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.IFindODataParser.ParseFilter(System.String)">
+            <summary>
+            Parse filter string to create a Filter
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Search.Internal.IFindODataParser.ParseOrderBy(System.String)">
+            <summary>
+            parse orderby string to create Find's IEnumerable
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.Internal.OrderByParseException">
+            <summary>
+                Exception thrown when a OData orderby clause cannot be parsed into a Find sorting clause by a given <see cref="T:EPiServer.ContentApi.Search.IContentApiSearchProvider"/>
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.Internal.PropertyNameExpressionBuilder`1">
+            <summary>
+                QueryNodeVisitor implementation which traverses the syntax tree, mapping each relevant property as a string for use with Episerver Find
+            </summary>
+            <typeparam name="TSource"></typeparam>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.Internal.SearchRequest">
+            <summary>
+                Represents a search request made to the Content Api
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Search.Internal.SearchRequest.Query">
+            <summary>
+                Optional Free text query string for a search request
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Search.Internal.SearchRequest.Skip">
+            <summary>
+                Number of results to bypass in the response. For use with paginated results.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Search.Internal.SearchRequest.Top">
+            <summary>
+                Number of results to retrieve in the response. For use with paginated results.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Search.Internal.SearchRequest.Personalize">
+            <summary>
+                Indicates whether the response should be personalized when sent back to the user 
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Search.Internal.SearchRequest.Filter">
+            <summary>
+                Filter string based on OData syntax for filtering content
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Search.Internal.SearchRequest.OrderBy">
+            <summary>
+                Order By string for ordering returned search results
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Search.Internal.SearchRequest.Expand">
+            <summary>
+                Comma-separated list of properties to Expand, fetching content in the response
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Search.Internal.SearchResponse">
+            <summary>
+                Represents a search response sent back from the Content Api
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Search.Internal.SearchResponse.TotalMatching">
+            <summary>
+                Total number of matching results from the search request.  For use in calculating pagination on the client, this number may be bigger than the returned total of <see cref="P:EPiServer.ContentApi.Search.Internal.SearchResponse.Results"/>
+                in a single request based on the provider <see cref="P:EPiServer.ContentApi.Search.Internal.SearchRequest.Top"/> value, as well as the <see cref="P:EPiServer.ContentApi.Search.ContentSearchApiOptions.MaximumSearchResults"/> configuration value.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Search.Internal.SearchResponse.Results">
+            <summary>
+                Search Results in the form of <see cref="T:EPiServer.ContentApi.Core.Serialization.Models.ContentApiModel"/> instances
+            </summary>
+        </member>
+    </members>
+</doc>

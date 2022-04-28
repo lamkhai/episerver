@@ -1,0 +1,1078 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Social.Groups.Rest</name>
+    </assembly>
+    <members>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Associations.AssociationAdapter.Adapt(EPiServer.Social.Common.Rest.Contracts.PagedResponse{EPiServer.Social.Groups.Rest.Contracts.AssociationResponse},EPiServer.Social.Common.PageInfo)">
+            <summary>
+            Converts a AssociationResponse and PageInfo object to a corresponding ResultPage of Composites.
+            </summary>
+            <param name="pageOfAssociationResponses">Response to be adapted</param>
+            <returns>A corresponding Composite instance</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Associations.AssociationAdapter.Adapt``1(EPiServer.Social.Common.Rest.Contracts.PagedResponse{EPiServer.Social.Groups.Rest.Contracts.AssociationResponse},EPiServer.Social.Common.PageInfo)">
+            <summary>
+            Converts a AssociationResponse and PagInfo object to a corresponding Resultpage of Composites.
+            </summary>
+            <typeparam name="TExtension">Type of extension data in the composite</typeparam>
+            <param name="pageOfAssociationResponses">response to be adapted</param>
+            <param name="criteriaPageInfo">pageinfo to be adapted</param>
+            <returns>A corresponding ResultPage of Composites</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Associations.AssociationAdapter.HasExtension(EPiServer.Social.Groups.Rest.Contracts.AssociationResponse)">
+            <summary>
+            Returns true if the specified AssociationResponse carries extension
+            data, false otherwise.
+            </summary>
+            <param name="response">AssociationResponse to evaluate</param>
+            <returns>True if the specified response carries extension data, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Associations.AssociationCriteriaAdapter.Adapt(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.AssociationFilter})">
+            <summary>
+            Adapts a Criteria object of type GroupFilter into a GetGroupsByCriteriaRequest.
+            </summary>
+            <param name="criteria"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Associations.AssociationCriteriaAdapter.Adapt``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.AssociationFilter,``0})">
+            <summary>
+            Adapts a CompositeCriteria object of type GroupFilter and TExtension into a GetGroupsByCriteriaRequest.
+            </summary>
+            <typeparam name="TExtension"></typeparam>
+            <param name="criteria"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Members.MemberCriteriaAdapter.Adapt(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.MemberFilter})">
+            <summary>
+            Adapts a Criteria object of type GroupFilter into a GetGroupsByCriteriaRequest.
+            </summary>
+            <param name="criteria"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Members.MemberCriteriaAdapter.Adapt``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.MemberFilter,``0})">
+            <summary>
+            Adapts a CompositeCriteria object of type GroupFilter and TExtension into a GetGroupsByCriteriaRequest.
+            </summary>
+            <typeparam name="TExtension"></typeparam>
+            <param name="criteria"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Members.MemberAdapter.Adapt(EPiServer.Social.Common.Rest.Contracts.PagedResponse{EPiServer.Social.Groups.Rest.Contracts.MemberResponse},EPiServer.Social.Common.PageInfo)">
+            <summary>
+            Converts a MemberResponse and PageInfo object to a corresponding ResultPage of Composites.
+            </summary>
+            <param name="pageOfMemberResponses">Response to be adapted</param>
+            <returns>A corresponding Composite instance</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Members.MemberAdapter.Adapt``1(EPiServer.Social.Common.Rest.Contracts.PagedResponse{EPiServer.Social.Groups.Rest.Contracts.MemberResponse},EPiServer.Social.Common.PageInfo)">
+            <summary>
+            Converts a MemberResponse and PagInfo object to a corresponding Resultpage of Composites.
+            </summary>
+            <typeparam name="TExtension">Type of extension data in the composite</typeparam>
+            <param name="pageOfMemberResponses">response to be adapted</param>
+            <param name="criteriaPageInfo">pageinfo to be adapted</param>
+            <returns>A corresponding ResultPage of Composites</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Members.MemberAdapter.HasExtension(EPiServer.Social.Groups.Rest.Contracts.MemberResponse)">
+            <summary>
+            Returns true if the specified MemberResponse carries extension
+            data, false otherwise.
+            </summary>
+            <param name="response">MemberResponse to evaluate</param>
+            <returns>True if the specified response carries extension data, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Roles.RoleAdapter.Adapt(EPiServer.Social.Common.Rest.Contracts.PagedResponse{EPiServer.Social.Groups.Rest.Contracts.RoleResponse},EPiServer.Social.Common.PageInfo)">
+            <summary>
+            Converts a RoleResponse and PageInfo object to a corresponding ResultPage of Composites.
+            </summary>
+            <param name="pageOfRoleResponses">Response to be adapted</param>
+            <returns>A corresponding Composite instance</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Roles.RoleAdapter.Adapt``1(EPiServer.Social.Common.Rest.Contracts.PagedResponse{EPiServer.Social.Groups.Rest.Contracts.RoleResponse},EPiServer.Social.Common.PageInfo)">
+            <summary>
+            Converts a RoleResponse and PagInfo object to a corresponding Resultpage of Composites.
+            </summary>
+            <typeparam name="TExtension">Type of extension data in the composite</typeparam>
+            <param name="pageOfRoleResponses">response to be adapted</param>
+            <param name="criteriaPageInfo">pageinfo to be adapted</param>
+            <returns>A corresponding ResultPage of Composites</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Roles.RoleAdapter.HasExtension(EPiServer.Social.Groups.Rest.Contracts.RoleResponse)">
+            <summary>
+            Returns true if the specified RoleResponse carries extension
+            data, false otherwise.
+            </summary>
+            <param name="response">RoleResponse to evaluate</param>
+            <returns>True if the specified response carries extension data, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Roles.RoleCriteriaAdapter.Adapt(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.RoleFilter})">
+            <summary>
+            Adapts a Criteria object of type GroupFilter into a GetGroupsByCriteriaRequest.
+            </summary>
+            <param name="criteria"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.Adapters.Roles.RoleCriteriaAdapter.Adapt``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.RoleFilter,``0})">
+            <summary>
+            Adapts a CompositeCriteria object of type GroupFilter and TExtension into a GetGroupsByCriteriaRequest.
+            </summary>
+            <typeparam name="TExtension"></typeparam>
+            <param name="criteria"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.GroupAdapter.Adapt(EPiServer.Social.Common.Rest.Contracts.PagedResponse{EPiServer.Social.Groups.Rest.Contracts.GroupResponse},EPiServer.Social.Common.PageInfo)">
+            <summary>
+            Converts a GroupResponse and PageInfo object to a corresponding ResultPage of Composites.
+            </summary>
+            <param name="pageOfGroupResponses">Response to be adapted</param>
+            <returns>A corresponding Composite instance</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.GroupAdapter.AdaptToComposite``1(EPiServer.Social.Groups.Rest.Contracts.GroupResponse)">
+            <summary>
+            Converts a GroupResponse instance to a corresponding Composite instance.
+            </summary>
+            <typeparam name="TExtension">Type of extension data in the composite</typeparam>
+            <param name="response">Response to be adapted</param>
+            <returns>A corresponding Composite instance</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.GroupAdapter.Adapt``1(EPiServer.Social.Common.Rest.Contracts.PagedResponse{EPiServer.Social.Groups.Rest.Contracts.GroupResponse},EPiServer.Social.Common.PageInfo)">
+            <summary>
+            Converts a GroupResponse and PagInfo object to a corresponding Resultpage of Composites.
+            </summary>
+            <typeparam name="TExtension">Type of extension data in the composite</typeparam>
+            <param name="pageOfGroupResponses">response to be adapted</param>
+            <param name="criteriaPageInfo">pageinfo to be adapted</param>
+            <returns>A corresponding ResultPage of Composites</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.GroupAdapter.HasExtension(EPiServer.Social.Groups.Rest.Contracts.GroupResponse)">
+            <summary>
+            Returns true if the specified GroupResponse carries extension
+            data, false otherwise.
+            </summary>
+            <param name="response">GroupResponse to evaluate</param>
+            <returns>True if the specified response carries extension data, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.GroupCriteriaAdapter.Adapt(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.GroupFilter})">
+            <summary>
+            Adapts a Criteria object of type GroupFilter into a GetGroupsByCriteriaRequest.
+            </summary>
+            <param name="criteria"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.GroupCriteriaAdapter.Adapt``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.GroupFilter,``0})">
+            <summary>
+            Adapts a CompositeCriteria object of type GroupFilter and TExtension into a GetGroupsByCriteriaRequest.
+            </summary>
+            <typeparam name="TExtension"></typeparam>
+            <param name="criteria"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.AssociationRequestFactory.Add(EPiServer.Social.Groups.Rest.Contracts.AddAssociationRequest)">
+            <summary>
+            Receives AddAssociationRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="addRequest">the request object used to add a new Association</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.AssociationRequestFactory.GetByCriteria(EPiServer.Social.Groups.Rest.Contracts.GetAssociationsByCriteriaRequest)">
+            <summary>
+            Receives GetAssociationsByCriteriaRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="getByCriteriaRequest">the request object used to retrieve the desired result page of Associations</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.AssociationRequestFactory.GetById(EPiServer.Social.Groups.Rest.Contracts.GetAssociationByIdRequest)">
+            <summary>
+            Receives GetAssociationByIdRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="getByIdRequest">the request object used to retrieve the desired Association</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.AssociationRequestFactory.Update(System.String,EPiServer.Social.Groups.Rest.Contracts.UpdateAssociationRequest)">
+            <summary>
+            Receives AssociationId and UpdateAssociationRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="associationId">The id of the Association that is to be updated</param>
+            <param name="updateRequest">The request object to be converted to httpcontent</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.AssociationRequestFactory.Remove(System.String)">
+            <summary>
+            Receives AssociationId and returns new HttpRequestMessage 
+            </summary>
+            <param name="associationId">The id of the Association that is to be updated</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.GroupRequestFactory.Add(EPiServer.Social.Groups.Rest.Contracts.AddGroupRequest)">
+            <summary>
+            Receives AddGroupRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="addRequest">the request object used to add a new group</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.GroupRequestFactory.GetByCriteria(EPiServer.Social.Groups.Rest.Contracts.GetGroupsByCriteriaRequest)">
+            <summary>
+            Receives GetGroupsByCriteriaRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="getByCriteriaRequest">the request object used to retrieve the desired result page of groups</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.GroupRequestFactory.GetById(EPiServer.Social.Groups.Rest.Contracts.GetGroupByIdRequest)">
+            <summary>
+            Receives GetGroupByIdRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="getByIdRequest">the request object used to retrieve the desired group</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.GroupRequestFactory.Update(System.String,EPiServer.Social.Groups.Rest.Contracts.UpdateGroupRequest)">
+            <summary>
+            Receives groupId and UpdateGroupRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="groupId">The id of the group that is to be updated</param>
+            <param name="updateRequest">The request object to be converted to httpcontent</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.GroupRequestFactory.Remove(System.String)">
+            <summary>
+            Receives groupId and returns new HttpRequestMessage 
+            </summary>
+            <param name="groupId">The id of the group that is to be updated</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IAssociationRequestFactory.Add(EPiServer.Social.Groups.Rest.Contracts.AddAssociationRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="addRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IAssociationRequestFactory.GetByCriteria(EPiServer.Social.Groups.Rest.Contracts.GetAssociationsByCriteriaRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="getByCriteriaRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IAssociationRequestFactory.GetById(EPiServer.Social.Groups.Rest.Contracts.GetAssociationByIdRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="getByIdRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IAssociationRequestFactory.Update(System.String,EPiServer.Social.Groups.Rest.Contracts.UpdateAssociationRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="updateRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IAssociationRequestFactory.Remove(System.String)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="groupId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IGroupRequestFactory.Add(EPiServer.Social.Groups.Rest.Contracts.AddGroupRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="addRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IGroupRequestFactory.GetByCriteria(EPiServer.Social.Groups.Rest.Contracts.GetGroupsByCriteriaRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="getByCriteriaRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IGroupRequestFactory.GetById(EPiServer.Social.Groups.Rest.Contracts.GetGroupByIdRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="getByIdRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IGroupRequestFactory.Update(System.String,EPiServer.Social.Groups.Rest.Contracts.UpdateGroupRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="updateRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IGroupRequestFactory.Remove(System.String)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="groupId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IMemberRequestFactory.Add(EPiServer.Social.Groups.Rest.Contracts.AddMemberRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="addRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IMemberRequestFactory.GetByCriteria(EPiServer.Social.Groups.Rest.Contracts.GetMembersByCriteriaRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="getByCriteriaRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IMemberRequestFactory.GetById(System.String,EPiServer.Social.Groups.Rest.Contracts.GetMemberByIdRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="memberId"></param>
+            <param name="getByIdRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IMemberRequestFactory.Update(System.String,EPiServer.Social.Groups.Rest.Contracts.UpdateMemberRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="updateRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IMemberRequestFactory.Remove(System.String)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="groupId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IRoleRequestFactory.Add(EPiServer.Social.Groups.Rest.Contracts.AddRoleRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="addRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IRoleRequestFactory.Update(System.String,EPiServer.Social.Groups.Rest.Contracts.UpdateRoleRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="updateRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IRoleRequestFactory.GetByCriteria(EPiServer.Social.Groups.Rest.Contracts.GetRolesByCriteriaRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="getByCriteriaRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IRoleRequestFactory.GetById(System.String,EPiServer.Social.Groups.Rest.Contracts.GetRoleByIdRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="getByIdRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IRoleRequestFactory.Remove(System.String)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IRoleRequestFactory.Assign(System.String,EPiServer.Social.Groups.Rest.Contracts.RoleAssignmentRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IRoleRequestFactory.Unassign(System.String,EPiServer.Social.Groups.Rest.Contracts.RoleAssignmentRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.IRoleRequestFactory.IsAssigned(System.String,EPiServer.Social.Groups.Rest.Contracts.RoleAssignmentRequest)">
+            <summary>
+            Provides the populated HttpRequestMethod based upon the provided request
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.MemberRequestFactory.Add(EPiServer.Social.Groups.Rest.Contracts.AddMemberRequest)">
+            <summary>
+            Receives AddMemberRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="addRequest">the request object used to add a new Member</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.MemberRequestFactory.GetByCriteria(EPiServer.Social.Groups.Rest.Contracts.GetMembersByCriteriaRequest)">
+            <summary>
+            Receives GetMembersByCriteriaRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="getByCriteriaRequest">the request object used to retrieve the desired result page of Members</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.MemberRequestFactory.GetById(System.String,EPiServer.Social.Groups.Rest.Contracts.GetMemberByIdRequest)">
+            <summary>
+            Receives GetMemberByIdRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="getByIdRequest">the request object used to retrieve the desired Member</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.MemberRequestFactory.Update(System.String,EPiServer.Social.Groups.Rest.Contracts.UpdateMemberRequest)">
+            <summary>
+            Receives MemberId and UpdateMemberRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="memberId">The id of the Member that is to be updated</param>
+            <param name="updateRequest">The request object to be converted to httpcontent</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.MemberRequestFactory.Remove(System.String)">
+            <summary>
+            Receives MemberId and returns new HttpRequestMessage 
+            </summary>
+            <param name="memberId">The id of the Member that is to be updated</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.RoleRequestFactory.Add(EPiServer.Social.Groups.Rest.Contracts.AddRoleRequest)">
+            <summary>
+            Receives AddRoleRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="addRequest">the request object used to add a new Role</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.RoleRequestFactory.Update(System.String,EPiServer.Social.Groups.Rest.Contracts.UpdateRoleRequest)">
+            <summary>
+            Receives RoleId and UpdateRoleRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="roleId">The id of the role that is to be updated</param>
+            <param name="updateRequest">The request object to be converted to httpcontent</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.RoleRequestFactory.GetByCriteria(EPiServer.Social.Groups.Rest.Contracts.GetRolesByCriteriaRequest)">
+            <summary>
+            Receives GetRolesByCriteriaRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="getByCriteriaRequest">the request object used to retrieve the desired result page of Roles</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.RoleRequestFactory.GetById(System.String,EPiServer.Social.Groups.Rest.Contracts.GetRoleByIdRequest)">
+            <summary>
+            Receives GetRoleByIdRequest and returns new HttpRequestMessage 
+            </summary>
+            <param name="getByIdRequest">the request object used to retrieve the desired Role</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.RoleRequestFactory.Remove(System.String)">
+            <summary>
+            Receives RoleId and returns new HttpRequestMessage 
+            </summary>
+            <param name="RoleId">The id of the Role that is to be updated</param>
+            <returns>HttpRequestMessage</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.Add(EPiServer.Social.Groups.Core.Association)">
+            <summary>
+            Adds a new association to the underlying data store. 
+            </summary>
+            <param name="association">The partially populated association to be added</param>
+            <returns>The fully populated association that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.Add``1(EPiServer.Social.Groups.Core.Association,``0)">
+            <summary>
+             Adds a new composite association to the underlying data store. 
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the association being added.</typeparam>
+            <param name="association">The partially populated association to be added</param>
+            <returns>The fully populated association that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.AddAsync(EPiServer.Social.Groups.Core.Association)">
+            <summary>
+            Asynchronously adds a new association to the underlying data store. 
+            </summary>
+            <param name="association">The partially populated association to be added</param>
+            <returns>The fully populated association that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.AddAsync``1(EPiServer.Social.Groups.Core.Association,``0)">
+            <summary>
+             Asynchronously adds a new composite association to the underlying data store. 
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the association being added.</typeparam>
+            <param name="association">The partially populated association to be added</param>
+            <returns>The fully populated association that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.AssociationFilter})">
+            <summary>
+            Retrieves a page of association items composed without their extension data 
+            from the database, as described by the specified criteria. 
+            </summary>
+            <param name="criteria">Criteria by which to filter association items</param>
+            <returns>Page of association items</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.AssociationFilter})">
+            <summary>
+            Asynchronously retrieves a page of association items composed without their extension data 
+            from the database, as described by the specified criteria. 
+            </summary>
+            <param name="criteria">Criteria by which to filter association items</param>
+            <returns>Page of association items</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.AssociationFilter,``0})">
+            <summary>
+            Retrieves a page of association items composed with their extension data 
+            from the database, as described by the specified criteria. The result
+            set will be filtered to items of the type supplied as a type param.
+            </summary>
+            <typeparam name="TExtension">Type of extension data associated with the items to be retrieved</typeparam>
+            <param name="criteria">Criteria by which to filter association items</param>
+            <returns>Page of association items composed with their extension data</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.AssociationFilter,``0})">
+            <summary>
+            Asynchronously retrieves a page of association items composed with their extension data 
+            from the database, as described by the specified criteria. The result
+            set will be filtered to items of the type supplied as a type param.
+            </summary>
+            <typeparam name="TExtension">Type of extension data associated with the items to be retrieved</typeparam>
+            <param name="criteria">Criteria by which to filter association items</param>
+            <returns>Page of association items composed with their extension data</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.Get(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Finds a association by its identifier.
+            </summary>
+            <param name="associationId">Id of association to retrieve.</param>
+            <returns>The identified association</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.AssociationDoesNotExistException">Thrown when the identified association 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.GetAsync(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Asynchronously finds a association by its identifier.
+            </summary>
+            <param name="associationId">Id of association to retrieve.</param>
+            <returns>The identified association</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.AssociationDoesNotExistException">Thrown when the identified association 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.Get``1(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Finds a association by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data to retrieve.</typeparam>
+            <param name="id">Id of association to retrieve.</param>
+            <returns>The identified association</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.AssociationDoesNotExistException">Thrown when the identified association 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.GetAsync``1(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Asynchronously finds a association by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data to retrieve.</typeparam>
+            <param name="id">Id of association to retrieve.</param>
+            <returns>The identified association</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.AssociationDoesNotExistException">Thrown when the identified association 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.IsAssociated(EPiServer.Social.Groups.Core.GroupId,EPiServer.Social.Common.Reference)">
+            <summary>
+            Returns true if the specified resource is an association of the specified group,
+            false otherwise.
+            </summary>
+            <param name="group">ID of the group</param>
+            <param name="resource">Reference representing the resource whose associationship should be verfied</param>
+            <returns>True if the specified resource is an association of the specified group, false otherwise</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.Update``1(EPiServer.Social.Groups.Core.AssociationId,``0)">
+            <summary>
+            Updates a association by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the association being updated.</typeparam>
+            <param name="associationId">id of the association to be updated.</param>
+            <param name="extension">updated version of the extension data.</param>
+            <returns>The identified group</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.AssociationDoesNotExistException">Thrown when the identified association 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpAssociationRepository.UpdateAsync``1(EPiServer.Social.Groups.Core.AssociationId,``0)">
+            <summary>
+            Asynchronously updates a association by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the association being updated.</typeparam>
+            <param name="associationId">id of the association to be updated.</param>
+            <param name="extension">updated version of the extension data.</param>
+            <returns>The identified group</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.AssociationDoesNotExistException">Thrown when the identified association 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.Add(EPiServer.Social.Groups.Core.Group)">
+            <summary>
+            Adds a new group to the underlying data store. 
+            </summary>
+            <param name="group">The partially populated group to be added</param>
+            <returns>The fully populated group that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.Add``1(EPiServer.Social.Groups.Core.Group,``0)">
+            <summary>
+             Adds a new composite group to the underlying data store. 
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the group being added.</typeparam>
+            <param name="group">The partially populated group to be added</param>
+            <returns>The fully populated group that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.AddAsync(EPiServer.Social.Groups.Core.Group)">
+            <summary>
+            Asynchronously adds a new group to the underlying data store. 
+            </summary>
+            <param name="group">The partially populated group to be added</param>
+            <returns>The fully populated group that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.AddAsync``1(EPiServer.Social.Groups.Core.Group,``0)">
+            <summary>
+             Asynchronously adds a new composite group to the underlying data store. 
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the group being added.</typeparam>
+            <param name="group">The partially populated group to be added</param>
+            <returns>The fully populated group that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.GroupFilter})">
+            <summary>
+            Retrieves a page of group items composed without their extension data 
+            from the database, as described by the specified criteria. 
+            </summary>
+            <param name="criteria">Criteria by which to filter group items</param>
+            <returns>Page of group items</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.GroupFilter})">
+            <summary>
+            Asynchronously retrieves a page of group items composed without their extension data 
+            from the database, as described by the specified criteria. 
+            </summary>
+            <param name="criteria">Criteria by which to filter group items</param>
+            <returns>Page of group items</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.GroupFilter,``0})">
+            <summary>
+            Retrieves a page of group items composed with their extension data 
+            from the database, as described by the specified criteria. The result
+            set will be filtered to items of the type supplied as a type param.
+            </summary>
+            <typeparam name="TExtension">Type of extension data associated with the items to be retrieved</typeparam>
+            <param name="criteria">Criteria by which to filter group items</param>
+            <returns>Page of group items composed with their extension data</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.GroupFilter,``0})">
+            <summary>
+            Asynchronously retrieves a page of group items composed with their extension data 
+            from the database, as described by the specified criteria. The result
+            set will be filtered to items of the type supplied as a type param.
+            </summary>
+            <typeparam name="TExtension">Type of extension data associated with the items to be retrieved</typeparam>
+            <param name="criteria">Criteria by which to filter group items</param>
+            <returns>Page of group items composed with their extension data</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.Get(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Finds a group by its identifier.
+            </summary>
+            <param name="groupId">Id of group to retrieve.</param>
+            <returns>The identified group</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.GetAsync(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Asynchronously finds a group by its identifier.
+            </summary>
+            <param name="groupId">Id of group to retrieve.</param>
+            <returns>The identified group</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.Get``1(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Finds a group by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data to retrieve.</typeparam>
+            <param name="id">Id of group to retrieve.</param>
+            <returns>The identified group</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.GetAsync``1(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Asynchronously finds a group by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data to retrieve.</typeparam>
+            <param name="id">Id of group to retrieve.</param>
+            <returns>The identified group</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.Update(EPiServer.Social.Groups.Core.Group)">
+            <summary>
+            Updates a group by its identifier.
+            </summary>
+            <param name="group">updated version of the group.</param>
+            <returns>The identified group</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.Update``1(EPiServer.Social.Groups.Core.Group,``0)">
+            <summary>
+            Updates a group by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the group being updated.</typeparam>
+            <param name="group">updated version of the group.</param>
+            <param name="extension">updated version of the extension data.</param>
+            <returns>The identified group</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.UpdateAsync(EPiServer.Social.Groups.Core.Group)">
+            <summary>
+            Asynchronously updates a group by its identifier.
+            </summary>
+            <param name="group">updated version of the group.</param>
+            <returns>The identified group</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpGroupRepository.UpdateAsync``1(EPiServer.Social.Groups.Core.Group,``0)">
+            <summary>
+            Asynchronously updates a group by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the group being updated.</typeparam>
+            <param name="group">updated version of the group.</param>
+            <param name="extension">updated version of the extension data.</param>
+            <returns>The identified group</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.Add(EPiServer.Social.Groups.Core.Member)">
+            <summary>
+            Adds a new member to the underlying data store. 
+            </summary>
+            <param name="member">The partially populated member to be added</param>
+            <returns>The fully populated member that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.Add``1(EPiServer.Social.Groups.Core.Member,``0)">
+            <summary>
+             Adds a new composite member to the underlying data store. 
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the member being added.</typeparam>
+            <param name="member">The partially populated member to be added</param>
+            <returns>The fully populated member that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.AddAsync(EPiServer.Social.Groups.Core.Member)">
+            <summary>
+            Asynchronously adds a new member to the underlying data store. 
+            </summary>
+            <param name="member">The partially populated member to be added</param>
+            <returns>The fully populated member that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.AddAsync``1(EPiServer.Social.Groups.Core.Member,``0)">
+            <summary>
+             Asynchronously adds a new composite member to the underlying data store. 
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the member being added.</typeparam>
+            <param name="member">The partially populated member to be added</param>
+            <returns>The fully populated member that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.MemberFilter})">
+            <summary>
+            Retrieves a page of member items composed without their extension data 
+            from the database, as described by the specified criteria. 
+            </summary>
+            <param name="criteria">Criteria by which to filter member items</param>
+            <returns>Page of member items</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.MemberFilter})">
+            <summary>
+            Asynchronously retrieves a page of member items composed without their extension data 
+            from the database, as described by the specified criteria. 
+            </summary>
+            <param name="criteria">Criteria by which to filter member items</param>
+            <returns>Page of member items</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.MemberFilter,``0})">
+            <summary>
+            Retrieves a page of member items composed with their extension data 
+            from the database, as described by the specified criteria. The result
+            set will be filtered to items of the type supplied as a type param.
+            </summary>
+            <typeparam name="TExtension">Type of extension data associated with the items to be retrieved</typeparam>
+            <param name="criteria">Criteria by which to filter member items</param>
+            <returns>Page of member items composed with their extension data</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.MemberFilter,``0})">
+            <summary>
+            Asynchronously retrieves a page of member items composed with their extension data 
+            from the database, as described by the specified criteria. The result
+            set will be filtered to items of the type supplied as a type param.
+            </summary>
+            <typeparam name="TExtension">Type of extension data associated with the items to be retrieved</typeparam>
+            <param name="criteria">Criteria by which to filter member items</param>
+            <returns>Page of member items composed with their extension data</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.Get(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Finds a member by its identifier.
+            </summary>
+            <param name="memberId">Id of member to retrieve.</param>
+            <returns>The identified member</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.GetAsync(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Asynchronously finds a member by its identifier.
+            </summary>
+            <param name="memberId">Id of member to retrieve.</param>
+            <returns>The identified member</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.Get``1(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Finds a member by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data to retrieve.</typeparam>
+            <param name="id">Id of member to retrieve.</param>
+            <returns>The identified member</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.GetAsync``1(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Asynchronously finds a member by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data to retrieve.</typeparam>
+            <param name="id">Id of member to retrieve.</param>
+            <returns>The identified member</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.IsMember(EPiServer.Social.Groups.Core.GroupId,EPiServer.Social.Common.Reference)">
+            <summary>
+            Returns true if the specified resource is an member of the specified group,
+            false otherwise.
+            </summary>
+            <param name="group">ID of the group</param>
+            <param name="user">Reference representing the user whose membership should be verfied</param>
+            <returns>True if the specified resource is an member of the specified group, false otherwise</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.Update``1(EPiServer.Social.Groups.Core.MemberId,``0)">
+            <summary>
+            Updates a member by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the member being updated.</typeparam>
+            <param name="memberId">id of the member to be updated.</param>
+            <param name="extension">updated version of the extension data.</param>
+            <returns>The identified group</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpMemberRepository.UpdateAsync``1(EPiServer.Social.Groups.Core.MemberId,``0)">
+            <summary>
+            Asynchronously updates a member by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the member being updated.</typeparam>
+            <param name="memberId">id of the member to be updated.</param>
+            <param name="extension">updated version of the extension data.</param>
+            <returns>The identified group</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpRoleRepository.Add(EPiServer.Social.Groups.Core.Role)">
+            <summary>
+            Adds a new role to the underlying data store. 
+            </summary>
+            <param name="role">The partially populated role to be added</param>
+            <returns>The fully populated role that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpRoleRepository.Add``1(EPiServer.Social.Groups.Core.Role,``0)">
+            <summary>
+             Adds a new composite role to the underlying data store. 
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the role being added.</typeparam>
+            <param name="role">The partially populated role to be added</param>
+            <returns>The fully populated role that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpRoleRepository.AddAsync(EPiServer.Social.Groups.Core.Role)">
+            <summary>
+            Asynchronously adds a new role to the underlying data store. 
+            </summary>
+            <param name="role">The partially populated role to be added</param>
+            <returns>The fully populated role that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpRoleRepository.AddAsync``1(EPiServer.Social.Groups.Core.Role,``0)">
+            <summary>
+             Asynchronously adds a new composite role to the underlying data store. 
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the role being added.</typeparam>
+            <param name="role">The partially populated role to be added</param>
+            <returns>The fully populated role that was added.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpRoleRepository.Update``1(EPiServer.Social.Groups.Core.RoleId,``0)">
+            <summary>
+            Updates a role by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the role being updated.</typeparam>
+            <param name="roleId">id of the role to be updated.</param>
+            <param name="extension">updated version of the extension data.</param>
+            <returns>The updated composite</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.RoleDoesNotExistException">Thrown when the identified role 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpRoleRepository.UpdateAsync``1(EPiServer.Social.Groups.Core.RoleId,``0)">
+            <summary>
+            Asynchronously updates a role by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data for the role being updated.</typeparam>
+            <param name="roleId">id of the role to be updated.</param>
+            <param name="extension">updated version of the extension data.</param>
+            <returns>The identified group</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified role 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpRoleRepository.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.RoleFilter})">
+            <summary>
+            Retrieves a page of role items composed without their extension data 
+            from the database, as described by the specified criteria. 
+            </summary>
+            <param name="criteria">Criteria by which to filter role items</param>
+            <returns>Page of role items</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpRoleRepository.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.RoleFilter})">
+            <summary>
+            Asynchronously retrieves a page of role items composed without their extension data 
+            from the database, as described by the specified criteria. 
+            </summary>
+            <param name="criteria">Criteria by which to filter role items</param>
+            <returns>Page of role items</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpRoleRepository.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.RoleFilter,``0})">
+            <summary>
+            Retrieves a page of role items composed with their extension data 
+            from the database, as described by the specified criteria. The result
+            set will be filtered to items of the type supplied as a type param.
+            </summary>
+            <typeparam name="TExtension">Type of extension data associated with the items to be retrieved</typeparam>
+            <param name="criteria">Criteria by which to filter role items</param>
+            <returns>Page of role items composed with their extension data</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpRoleRepository.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.RoleFilter,``0})">
+            <summary>
+            Asynchronously retrieves a page of role items composed with their extension data 
+            from the database, as described by the specified criteria. The result
+            set will be filtered to items of the type supplied as a type param.
+            </summary>
+            <typeparam name="TExtension">Type of extension data associated with the items to be retrieved</typeparam>
+            <param name="criteria">Criteria by which to filter role items</param>
+            <returns>Page of role items composed with their extension data</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpRoleRepository.Get(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Finds a role by its identifier.
+            </summary>
+            <param name="roleId">Id of role to retrieve.</param>
+            <returns>The identified role</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.RoleDoesNotExistException">Thrown when the identified role 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpRoleRepository.GetAsync(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Asynchronously finds a role by its identifier.
+            </summary>
+            <param name="roleId">Id of role to retrieve.</param>
+            <returns>The identified role</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.RoleDoesNotExistException">Thrown when the identified role 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpRoleRepository.Get``1(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Finds a role by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data to retrieve.</typeparam>
+            <param name="id">Id of role to retrieve.</param>
+            <returns>The identified role</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.RoleDoesNotExistException">Thrown when the identified role 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Rest.HttpRoleRepository.GetAsync``1(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Asynchronously finds a role by its identifier.
+            </summary>
+            <typeparam name="TExtension">Type of extension data to retrieve.</typeparam>
+            <param name="id">Id of role to retrieve.</param>
+            <returns>The identified role</returns>
+            <exception cref="T:EPiServer.Social.Groups.Core.RoleDoesNotExistException">Thrown when the identified role 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+    </members>
+</doc>

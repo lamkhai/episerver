@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Social.ActivityStreams.Rest</name>
+    </assembly>
+    <members>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.FeedItemAdapter.AdaptToComposite``1(EPiServer.Social.ActivityStreams.Rest.Contracts.FeedResponse)">
+            <summary>
+            Converts a FeedResponse instance to a corresponding Composite instance.
+            </summary>
+            <typeparam name="TExtension">Type of extension data in the composite</typeparam>
+            <param name="document">Document to be adapted</param>
+            <returns>A corresponding Composite instance</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.FeedItemAdapter.HasExtension(EPiServer.Social.ActivityStreams.Rest.Contracts.FeedResponse)">
+            <summary>
+            Returns true if the specified response has an extension
+            data, false otherwise.
+            </summary>
+            <param name="response">FeedResponse to evaluate</param>
+            <returns>True if the specified FeedResponse has extension data, false otherwise</returns>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Rest.SubscriptionRequestFactory">
+            <summary>
+            The SubscriptionRequestFactory implements the requests to the cloud-based subscription service.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.SubscriptionRequestFactory.Add(EPiServer.Social.ActivityStreams.Rest.Contracts.AddSubscriptionRequest)">
+            <summary>
+            Receives an AddSubscriptionRequest and returns a properly formed HttpRequestMessage.
+            </summary>
+            <param name="request">An instance of AddSubscriptionRequest.</param>
+            <returns>An instance of HttpRequestMessage.</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.SubscriptionRequestFactory.Get(EPiServer.Social.ActivityStreams.Rest.Contracts.GetSubscriptionsByCriteriaRequest)">
+            <summary>
+            Receives an GetSubscriptionsByCriteriaRequest and returns a properly formed HttpRequestMessage.
+            </summary>
+            <param name="request">An instance of GetSubscriptionsByCriteriaRequest.</param>
+            <returns>An instance of HttpRequestMessage.</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.SubscriptionRequestFactory.Delete(System.String)">
+            <summary>
+            Receives a subscription Id and returns a properly formed HttpRequestMessage.
+            </summary>
+            <param name="id">The subscription Id to delete.</param>
+            <returns>An instance of HttpRequestMessage.</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.SubscriptionRequestFactory.Delete(EPiServer.Social.ActivityStreams.Rest.Contracts.DeleteSubscriptionsByCriteriaRequest)">
+            <summary>
+            Receives an DeleteSubscriptionsByCriteriaRequest and returns a properly formed HttpRequestMessage.
+            </summary>
+            <param name="request">An instance of DeleteSubscriptionsByCriteriaRequest.</param>
+            <returns>An instance of HttpRequestMessage.</returns>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Rest.ActivityRequestFactory">
+            <summary>
+            The ActivityRequestFactory implements the requests to the cloud-based activity service.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.ActivityRequestFactory.Add(EPiServer.Social.ActivityStreams.Rest.Contracts.AddActivityRequest)">
+            <summary>
+            Receives an AddActivityRequest and returns a properly formed HttpRequestMessage.
+            </summary>
+            <param name="addActivityRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.HttpSubscriptionRepository.Add(EPiServer.Social.ActivityStreams.Core.Subscription)">
+            <summary>
+            Adds a new subscription to the cloud subscription store. 
+            </summary>
+            <param name="subscription">The subscription to be added</param>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.HttpSubscriptionRepository.AddAsync(EPiServer.Social.ActivityStreams.Core.Subscription)">
+            <summary>
+            Asynchronously adds a new subscription to the cloud subscription store. 
+            </summary>
+            <param name="subscription">The subscription to be added</param>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.HttpSubscriptionRepository.Remove(EPiServer.Social.ActivityStreams.Core.SubscriptionId)">
+            <summary>
+            Removes a subscription from the cloud subscription store using the specified subscription Id.
+            </summary>
+            <param name="id">Id of subscription to remove.</param>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.HttpSubscriptionRepository.RemoveAsync(EPiServer.Social.ActivityStreams.Core.SubscriptionId)">
+            <summary>
+            Asynchronously removes a subscription from the cloud subscription store using the specified subscription Id.
+            </summary>
+            <param name="id">Id of subscription to remove.</param>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.HttpSubscriptionRepository.Remove(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Removes subscriptions from the cloud subscription store using the specified criteria.
+            </summary>
+            <param name="criteria">The criteria for removing subscriptions.</param>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.HttpSubscriptionRepository.RemoveAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Asynchronously removes subscriptions from the cloud subscription store using the specified criteria.
+            </summary>
+            <param name="criteria">The criteria for removing subscriptions.</param>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.HttpSubscriptionRepository.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Gets a page of subscriptions from the cloud subscription store using 
+            the specified criteria.
+            </summary>
+            <param name="criteria">The criteria for retrieving subscriptions.</param>
+            <returns>A page of subscriptions.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.HttpSubscriptionRepository.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Asynchronously gets a page of subscriptions from the cloud subscription store using 
+            the specified criteria.
+            </summary>
+            <param name="criteria">The criteria for retrieving subscriptions.</param>
+            <returns>A page of subscriptions.</returns>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.HttpActivityRepository.Add``1(EPiServer.Social.ActivityStreams.Core.Activity,``0)">
+            <summary>
+            Adds a new activity to the cloud activity store. 
+            </summary>
+            <param name="activity">The activity to be added</param>
+            <param name="extension">The activity payload</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.HttpActivityRepository.AddAsync``1(EPiServer.Social.ActivityStreams.Core.Activity,``0)">
+            <summary>
+            Asynchronously adds a new activity to the cloud activity store. 
+            </summary>
+            <param name="activity">The activity to be added</param>
+            <param name="extension">The activity payload</param>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when the cloud service cannot be reached.</exception>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Rest.ISubscriptionRequestFactory">
+            <summary>
+            The ISubscriptionRequestFactory describes requests to a cloud-based subscription service.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.ISubscriptionRequestFactory.Add(EPiServer.Social.ActivityStreams.Rest.Contracts.AddSubscriptionRequest)">
+            <summary>
+            Receives an AddSubscriptionRequest and returns a properly formed HttpRequestMessage.
+            </summary>
+            <param name="request">An instance of AddSubscriptionRequest.</param>
+            <returns>An instance of HttpRequestMessage.</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.ISubscriptionRequestFactory.Get(EPiServer.Social.ActivityStreams.Rest.Contracts.GetSubscriptionsByCriteriaRequest)">
+            <summary>
+            Receives an GetSubscriptionsByCriteriaRequest and returns a properly formed HttpRequestMessage.
+            </summary>
+            <param name="request">An instance of GetSubscriptionsByCriteriaRequest.</param>
+            <returns>An instance of HttpRequestMessage.</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.ISubscriptionRequestFactory.Delete(System.String)">
+            <summary>
+            Receives a subscription Id and returns a properly formed HttpRequestMessage.
+            </summary>
+            <param name="id">The subscription Id to delete.</param>
+            <returns>An instance of HttpRequestMessage.</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.ISubscriptionRequestFactory.Delete(EPiServer.Social.ActivityStreams.Rest.Contracts.DeleteSubscriptionsByCriteriaRequest)">
+            <summary>
+            Receives an DeleteSubscriptionsByCriteriaRequest and returns a properly formed HttpRequestMessage.
+            </summary>
+            <param name="request">An instance of DeleteSubscriptionsByCriteriaRequest.</param>
+            <returns>An instance of HttpRequestMessage.</returns>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Rest.IActivityRequestFactory">
+            <summary>
+            The IActivityRequestFactory describes requests to a cloud-based activity service.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Rest.IActivityRequestFactory.Add(EPiServer.Social.ActivityStreams.Rest.Contracts.AddActivityRequest)">
+            <summary>
+            Receives an AddActivityRequest and returns a properly formed HttpRequestMessage.
+            </summary>
+            <param name="addActivityRequest"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

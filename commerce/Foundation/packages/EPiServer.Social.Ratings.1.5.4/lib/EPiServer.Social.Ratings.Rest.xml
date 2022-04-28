@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Social.Ratings.Rest</name>
+    </assembly>
+    <members>
+        <member name="M:EPiServer.Social.Ratings.Rest.StatisticsAdapter.Adapt``1(EPiServer.Social.Common.Rest.Contracts.PagedResponse{EPiServer.Social.Ratings.Rest.Contracts.RatingStatisticsResponse},EPiServer.Social.Common.PageInfo)">
+            <summary>
+            Converts a RatingStatisticsResponse and PagInfo object to a Resultpage of composites.
+            </summary>
+            <typeparam name="TExtension">Type of extension data in the composite</typeparam>
+            <param name="pageOfRatingStatisticsResponses">response to be adapted</param>
+            <param name="criteriaPageInfo">pageinfo to be adapted</param>
+            <returns>A ResultPage of composite rating statistics.</returns>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Rest.StatisticsAdapter.HasExtension(EPiServer.Social.Ratings.Rest.Contracts.RatingStatisticsResponse)">
+            <summary>
+            Returns true if the specified RatingStatisticsResponse carries extension
+            data, false otherwise.
+            </summary>
+            <param name="response">RatingStatisticsResponse to evaluate</param>
+            <returns>boolean reflecting if the specified response carries extension data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Rest.RatingAdapter.AdaptToComposite``1(EPiServer.Social.Ratings.Rest.Contracts.RatingResponse)">
+            <summary>
+            Converts a ratingResponse instance to a corresponding Composite instance.
+            </summary>
+            <typeparam name="TExtension">Type of extension data in the composite</typeparam>
+            <param name="document">Document to be adapted</param>
+            <returns>A corresponding Composite instance</returns>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Rest.RatingAdapter.HasExtension(EPiServer.Social.Ratings.Rest.Contracts.RatingResponse)">
+            <summary>
+            Returns true if the specified response has an extension
+            data, false otherwise.
+            </summary>
+            <param name="response">RatingResponse to evaluate</param>
+            <returns>True if the specified RatingResponse has extension data, false otherwise</returns>
+        </member>
+    </members>
+</doc>

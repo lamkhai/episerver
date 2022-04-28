@@ -1,0 +1,481 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Social.Ratings</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Social.Ratings.DefaultRatingStatisticsServiceFactory">
+            <summary>
+            The DefaultRatingStatisticsServiceFactory class encapsulates the platform's 
+            default construction of an IRatingStatisticsService implementation.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.DefaultRatingStatisticsServiceFactory.Create">
+            <summary>
+            Creates a new rating service according to platform defaults.
+            </summary>
+            <returns>New rating service</returns>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.DefaultRatingStatisticsServiceFactory.GetRepository">
+            <summary>
+            Gets an instance of the repository intended to support the service
+            constructed by this factory. Override this method to introduce
+            a custom repository.
+            </summary>
+            <returns>Repository intended to support this service</returns>
+        </member>
+        <member name="T:EPiServer.Social.Ratings.DefaultRatingServiceFactory">
+            <summary>
+            The DefaultRatingServiceFactory class encapsulates the platform's 
+            default construction of an IRatingService implementation.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.DefaultRatingServiceFactory.Create">
+            <summary>
+            Creates a new rating service according to platform defaults.
+            </summary>
+            <returns>New rating service</returns>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.DefaultRatingServiceFactory.GetRepository">
+            <summary>
+            Gets an instance of the repository intended to support the service
+            constructed by this factory. Override this method to introduce
+            a custom repository.
+            </summary>
+            <returns>Repository intended to support this service</returns>
+        </member>
+        <member name="T:EPiServer.Social.Ratings.Services.RatingStatisticsService">
+            <summary>
+            This class exposes functionality to retrieve and update rating statistics.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingStatisticsService.#ctor(EPiServer.Social.Ratings.Core.IRatingStatisticsRepository)">
+            <summary>
+            Creates a RatingStatisticsService instance.
+            </summary>
+            <param name="repository">An interface to the rating statistics repository.</param>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingStatisticsService.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Ratings.Core.RatingStatisticsFilter})">
+            <summary>
+            Gets a page of existing rating statistics filtered by the specified criteria.
+            </summary>
+            <param name="criteria">The criteria for retrieving rating statistics.</param>
+            <returns>Page of rating statistics filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingStatisticsService.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Ratings.Core.RatingStatisticsFilter})">
+            <summary>
+            Gets a page of existing rating statistics filtered by the specified criteria.
+            </summary>
+            <param name="criteria">The criteria for retrieving rating statistics.</param>
+            <returns>Page of rating statistics filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingStatisticsService.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Ratings.Core.RatingStatisticsFilter,``0})">
+            <summary>
+            Gets a page of composite rating statistics filtered by the specified criteria.
+            </summary>
+            <param name="criteria">The criteria for retrieving composite rating statistics.</param>
+            <returns>Page of composite rating statistics filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingStatisticsService.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Ratings.Core.RatingStatisticsFilter,``0})">
+            <summary>
+            Gets a page of composite rating statistics filtered by the specified criteria.
+            </summary>
+            <param name="criteria">The criteria for retrieving composite rating statistics.</param>
+            <returns>Page of composite rating statistics filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingStatisticsService.Update``1(EPiServer.Social.Common.Reference,``0)">
+            <summary>
+            Updates the extension data for a rating statistic with the specified target.
+            </summary>
+            <typeparam name="TExtension">Type of data applied as an extension of the rating statistics</typeparam>
+            <param name="target">Target of the rating statistics to be updated</param>
+            <param name="extension">Extended data supporting the rating statistic</param>
+            <returns>An rating statistic composed with the specified extension data</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the specified statistics data is invalid.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown when the specified statistics data is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Ratings.Core.RatingStatisticsDoNotExistException">Thrown when the rating statistics 
+            for the specified target does not exists.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingStatisticsService.UpdateAsync``1(EPiServer.Social.Common.Reference,``0)">
+            <summary>
+            Updates the extension data for a rating statistic with the specified target.
+            </summary>
+            <typeparam name="TExtension">Type of data applied as an extension of the rating statistics</typeparam>
+            <param name="target">Target of the rating statistics to be updated</param>
+            <param name="extension">Extended data supporting the rating statistic</param>
+            <returns>An rating statistic composed with the specified extension data</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the specified statistics data is invalid.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown when the specified statistics data is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Ratings.Core.RatingStatisticsDoNotExistException">Thrown when the rating statistics 
+            for the specified target does not exists.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="T:EPiServer.Social.Ratings.Services.RatingService">
+            <summary>
+            This class exposes functionality to rate items, delete ratings, and 
+            retrieve user ratings and statistics.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.#ctor(EPiServer.Social.Ratings.Core.IRatingRepository)">
+            <summary>
+            Creates a RatingService instance.
+            </summary>
+            <param name="repository">An interface to the rating repository.</param>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.Add(EPiServer.Social.Ratings.Core.Rating)">
+            <summary>
+            Adds a new rating for a referenced item and user.
+            </summary>
+            <param name="rating">Rating to add.</param>
+            <returns>The added rating.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Ratings.Core.DuplicateRatingException">Thrown when rating for target resource by user already exists.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.AddAsync(EPiServer.Social.Ratings.Core.Rating)">
+            <summary>
+            Asynchronously adds a new rating for a referenced item and user.
+            </summary>
+            <param name="rating">Rating to add.</param>
+            <returns>The added rating.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Ratings.Core.DuplicateRatingException">Thrown when rating for target resource by user already exists.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.Update(EPiServer.Social.Ratings.Core.RatingId,EPiServer.Social.Ratings.Core.RatingValue,EPiServer.Social.Ratings.Core.RatingValue)">
+            <summary>
+            Updates the rating value of an existing rating.
+            </summary>
+            <param name="id">Identifier of the rating to update.</param>
+            <param name="currentValue">The current value of the identified rating. This value is used to ensure consistency in statistical calculations.</param>
+            <param name="newValue">The new rating value to set in the rating.</param>
+            <returns>The updated rating.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Ratings.Core.RatingDoesNotExistException">Thrown when rating for the identified rating 
+            could not be found or its value was updated in another context and is no longer consistent 
+            with the specified parameters.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.UpdateAsync(EPiServer.Social.Ratings.Core.RatingId,EPiServer.Social.Ratings.Core.RatingValue,EPiServer.Social.Ratings.Core.RatingValue)">
+            <summary>
+            Asynchronously updates the rating value of an existing rating.
+            </summary>
+            <param name="id">Identifier of the rating to update.</param>
+            <param name="currentValue">The current value of the identified rating. This value is used to ensure consistency in statistical calculations.</param>
+            <param name="newValue">The new rating value to set in the rating.</param>
+            <returns>The updated rating.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Ratings.Core.RatingDoesNotExistException">Thrown when rating for the identified rating 
+            could not be found or its value was updated in another context and is no longer consistent 
+            with the specified parameters.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.Remove(EPiServer.Social.Ratings.Core.RatingId)">
+            <summary>
+            Removes an existing rating by its entity Id.
+            </summary>
+            <param name="id">RatingId to delete.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the rating passed in is null or empty.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.RemoveAsync(EPiServer.Social.Ratings.Core.RatingId)">
+            <summary>
+            Asynchronously removes an existing rating by its entity Id.
+            </summary>
+            <param name="id">RatingId to delete.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the rating passed in is null or empty.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.Get(EPiServer.Social.Ratings.Core.RatingId)">
+            <summary>
+            Get an existing rating by its identifier.
+            </summary>
+            <param name="id">Identifier of the rating to delete.</param>
+            <returns>The rating with the specified identifier.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the rating passed in is null or empty.</exception>
+            <exception cref="T:EPiServer.Social.Ratings.Core.RatingDoesNotExistException">Thrown when the identified rating 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.GetAsync(EPiServer.Social.Ratings.Core.RatingId)">
+            <summary>
+            Asynchronously get an existing rating by its identifier.
+            </summary>
+            <param name="id">Identifier of the rating to delete.</param>
+            <returns>The rating with the specified identifier.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the rating passed in is null or empty.</exception>
+            <exception cref="T:EPiServer.Social.Ratings.Core.RatingDoesNotExistException">Thrown when the identified rating 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.Add``1(EPiServer.Social.Ratings.Core.Rating,``0)">
+            <summary>
+            Adds a new rating with supporting extension metadata for a referenced item and user.
+            </summary>
+            <typeparam name="TExtension">Type of data applied as an extension of the rating</typeparam>
+            <param name="rating">Rating to be added</param>
+            <param name="extension">Extended data supporting the rating</param>
+            <returns>An rating composed with the specified extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Ratings.Core.DuplicateRatingException">Thrown then rating for target resource by user already exists.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.AddAsync``1(EPiServer.Social.Ratings.Core.Rating,``0)">
+            <summary>
+            Asynchronously adds a new rating with supporting extension metadata for a referenced item and user.
+            </summary>
+            <typeparam name="TExtension">Type of data applied as an extension of the rating</typeparam>
+            <param name="rating">Rating to be added</param>
+            <param name="extension">Extended data supporting the rating</param>
+            <returns>An rating composed with the specified extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Ratings.Core.DuplicateRatingException">Thrown then rating for target resource by user already exists.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.Update``1(EPiServer.Social.Ratings.Core.RatingId,EPiServer.Social.Ratings.Core.RatingValue,EPiServer.Social.Ratings.Core.RatingValue,``0)">
+            <summary>
+            Updates the rating value of an existing rating with supporting extension metadata.
+            </summary>
+            <typeparam name="TExtension">Type of data applied as an extension of the rating</typeparam>
+            <param name="id">Identifier of the rating to update.</param>
+            <param name="currentValue">The current value of the identified rating. This value is used to ensure consistency in statistical calculations.</param>
+            <param name="newValue">The new rating value to set in the rating.</param>
+            <param name="extension">Extended data supporting the rating</param>
+            <returns>An rating composed with the specified extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Ratings.Core.RatingDoesNotExistException">Thrown when rating for the identified rating 
+            could not be found or its value was updated in another context and is no longer consistent 
+            with the specified parameters.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.UpdateAsync``1(EPiServer.Social.Ratings.Core.RatingId,EPiServer.Social.Ratings.Core.RatingValue,EPiServer.Social.Ratings.Core.RatingValue,``0)">
+            <summary>
+            Asynchronously updates the rating value of an existing rating with supporting extension metadata.
+            </summary>
+            <typeparam name="TExtension">Type of data applied as an extension of the rating</typeparam>
+            <param name="id">Identifier of the rating to update.</param>
+            <param name="currentValue">The current value of the identified rating. This value is used to ensure consistency in statistical calculations.</param>
+            <param name="newValue">The new rating value to set in the rating.</param>
+            <param name="extension">Extended data supporting the rating</param>
+            <returns>An rating composed with the specified extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Ratings.Core.RatingDoesNotExistException">Thrown when rating for the identified rating 
+            could not be found or its value was updated in another context and is no longer consistent 
+            with the specified parameters.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Ratings.Core.RatingFilter})">
+            <summary>
+            Gets a page of existing ratings filtered by the criteria, if any are specified.
+            </summary>
+            <param name="criteria">The criteria for retrieving ratings.</param>
+            <remarks>Filtering using criteria works as described below:
+            a. To retrieve a user rating for a target resource, specify both, Target and Rater in criteria.
+            b. To retrieve all ratings by a user, specify Rater in criteria. 
+            c. To retrieve all ratings by a target resource, specify Target in criteria. 
+            d. To retrieve all ratings in the datastore, specify neither Target nor Rater in criteria. 
+            Note: In all cases above PageInfo is optional unless you want to retrieve a specific page of ratings.
+            </remarks>
+            <returns>Page of ratings filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Ratings.Core.RatingFilter})">
+            <summary>
+            Asynchronously gets a page of existing ratings filtered by the criteria, if any are specified.
+            </summary>
+            <param name="criteria">The criteria for retrieving ratings.</param>
+            <remarks>Filtering using criteria works as described below:
+            a. To retrieve a user rating for a target resource, specify both, Target and Rater in criteria.
+            b. To retrieve all ratings by a user, specify Rater in criteria. 
+            c. To retrieve all ratings by a target resource, specify Target in criteria. 
+            d. To retrieve all ratings in the datastore, specify neither Target nor Rater in criteria. 
+            Note: In all cases above PageInfo is optional unless you want to retrieve a specific page of ratings.
+            </remarks>
+            <returns>Page of ratings filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.Get``1(EPiServer.Social.Ratings.Core.RatingId)">
+            <summary>
+            Gets a rating with extension data by its rating identifier. 
+            </summary>
+            <typeparam name="TExtension">Type of data associated with the desired ratings</typeparam>
+            <param name="id">Identifier of the rating to get.</param>
+            <returns>The composite rating.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when invalid data passed for id.</exception>
+            <exception cref="T:EPiServer.Social.Ratings.Core.RatingDoesNotExistException">Thrown when the identified rating 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.GetAsync``1(EPiServer.Social.Ratings.Core.RatingId)">
+            <summary>
+            Asynchronously gets a rating with extension data by its rating identifier. 
+            </summary>
+            <typeparam name="TExtension">Type of data associated with the desired ratings</typeparam>
+            <param name="id">Identifier of the rating to get.</param>
+            <returns>The composite rating.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when invalid data passed for id.</exception>
+            <exception cref="T:EPiServer.Social.Ratings.Core.RatingDoesNotExistException">Thrown when the identified rating 
+            does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Ratings.Core.RatingFilter,``0})">
+            <summary>
+            Retrieves a page of ratings from the underlying data store, as described 
+            by the specified criteria. The ratings are filtered by the type of their
+            associated data.
+            </summary>
+            <typeparam name="TExtension">Type of data associated with the desired ratings</typeparam>
+            <param name="criteria">Criteria by which to filter ratings</param>
+            <returns>Page of composite ratings</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Ratings.Core.RatingFilter,``0})">
+            <summary>
+            Asynchronously retrieves a page of ratings from the underlying data store, as described 
+            by the specified criteria. The ratings are filtered by the type of their
+            associated data.
+            </summary>
+            <typeparam name="TExtension">Type of data associated with the desired ratings</typeparam>
+            <param name="criteria">Criteria by which to filter ratings</param>
+            <returns>Page of composite ratings</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Ratings.Core.RatingStatisticsFilter})">
+            <summary>
+            Gets a page of existing rating statistics filtered by the criteria, if any are specified.
+            </summary>
+            <param name="criteria">The criteria for retrieving rating statistics.</param>
+            <returns>Page of rating statistics filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Ratings.Services.RatingService.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Ratings.Core.RatingStatisticsFilter})">
+             <summary>
+            Asynchronously gets a page of existing rating statistics filtered by the criteria, if any are specified.
+             </summary>
+             <param name="criteria">The criteria for retrieving rating statistics.</param>
+             <returns>Page of rating statistics filtered according to the specified criteria</returns>
+             <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+             <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+             a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+             <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+             <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+             <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+             <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+    </members>
+</doc>

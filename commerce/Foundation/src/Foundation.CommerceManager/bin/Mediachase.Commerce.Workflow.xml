@@ -1,0 +1,337 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mediachase.Commerce.Workflow</name>
+    </assembly>
+    <members>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.Cart.AdjustInventoryActivity.Execute(Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext)">
+            <summary>
+            Called by the workflow runtime to execute an activity.
+            </summary>
+            <param name="executionContext">The <see cref="T:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext"/> to associate with this <see cref="T:Mediachase.Commerce.WorkflowCompatibility.Activity"/> and execution.</param>
+            <returns>
+            The <see cref="T:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionStatus"/> of the run task, which determines whether the activity remains in the executing state, or transitions to the closed state.
+            </returns>
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.Activities.Cart.ProcessPaymentActivity">
+            <summary>
+            This activity handles processing different types of payments. It will call the appropriate 
+            payment handler configured in the database and raise exceptions if something goes wrong.
+            It also deals with removing sensitive data for credit card types of payments depending on the 
+            configuration settings.
+            </summary>
+        </member>
+        <member name="P:Mediachase.Commerce.Workflow.Activities.Cart.ProcessPaymentActivity.Payment">
+            <summary>
+            Gets or sets the payment.
+            </summary>
+            <value>The payment.</value>
+        </member>
+        <member name="P:Mediachase.Commerce.Workflow.Activities.Cart.ProcessPaymentActivity.Shipment">
+            <summary>
+            Gets or sets the shipment.
+            </summary>
+            <value>The shipment.</value>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.Cart.ProcessPaymentActivity.Execute(Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext)">
+            <summary>
+            Executes the specified execution context.
+            </summary>
+            <param name="executionContext">The execution context.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.Cart.ProcessPaymentActivity.ValidateOrderProperties(Mediachase.Commerce.WorkflowCompatibility.ValidationErrorCollection)">
+            <summary>
+            Validates the order properties.
+            </summary>
+            <param name="validationErrors">The validation errors.</param>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.Cart.ProcessPaymentActivity.ProcessPayment">
+            <summary>
+            Processes the payment.
+            </summary>
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.Activities.Cart.ShipmentSplitActivity">
+            <summary>
+            This activity will look into LineItems defined and will split items based on the address and shipping method id specified 
+            into different shipments.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.Cart.ShipmentSplitActivity.SplitShipments">
+            <summary>
+            Splits the shipments according to address and shipping method specified.
+            </summary>
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.Activities.CalculateDiscountsActivity">
+            <summary>
+            Calculate discounts using the new promotion engine
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.CalculateDiscountsActivity.Execute(Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext)">
+            <summary>
+            Executes the specified execution context.
+            </summary>
+            <param name="executionContext">The execution context.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.CalculateTotalsActivity.Execute(Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext)">
+            <summary>
+            Called by the workflow runtime to execute an activity.
+            </summary>
+            <param name="executionContext">The <see cref="T:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext"/> to associate with this <see cref="T:Mediachase.Commerce.WorkflowCompatibility.Activity"/> and execution.</param>
+            <returns>
+            The <see cref="T:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionStatus"/> of the run task, which determines whether the activity remains in the executing state, or transitions to the closed state.
+            </returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.CalculateTotalsActivity.CalculateTotals">
+            <summary>
+            Calculates the totals.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.CalculateTotalsActivity.CalculateTotalsOrderForms(Mediachase.Commerce.Orders.OrderForm,Mediachase.Commerce.IMarket,Mediachase.Commerce.Currency)">
+            <summary>
+            Calculates the totals order forms.
+            </summary>
+            <param name="form">The form.</param>
+            <param name="market">The market.</param>
+            <param name="currency">The currency.</param>
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.Activities.CapturePaymentActivity">
+            <summary>
+            This activity is responsible for calculating the shipping prices for Payments defined for order group.
+            It calls the appropriate interface defined by the shipping option table and passes the method id and Payment object.
+            </summary>
+        </member>
+        <member name="P:Mediachase.Commerce.Workflow.Activities.CapturePaymentActivity.Shipment">
+            <summary>
+            Gets or sets the shipment.
+            </summary>
+            <value>The shipment.</value>
+        </member>
+        <member name="F:Mediachase.Commerce.Workflow.Activities.CapturePaymentActivity.ProcessingPaymentEvent">
+            <summary>
+            Occurs when [processing payment].
+            </summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Workflow.Activities.CapturePaymentActivity.ProcessedPaymentEvent">
+            <summary>
+            Occurs when [processed payment].
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.CapturePaymentActivity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mediachase.Commerce.Workflow.Activities.CapturePaymentActivity"/> class.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.CapturePaymentActivity.Execute(Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext)">
+            <summary>
+            Called by the workflow runtime to execute an activity.
+            </summary>
+            <param name="executionContext">The <see cref="T:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext"/> to associate with this <see cref="T:Mediachase.Commerce.WorkflowCompatibility.Activity"/> and execution.</param>
+            <returns>
+            The <see cref="T:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionStatus"/> of the run task, which determines whether the activity remains in the executing state, or transitions to the closed state.
+            </returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.CapturePaymentActivity.ValidateOrderProperties(Mediachase.Commerce.WorkflowCompatibility.ValidationErrorCollection)">
+            <summary>
+            Validates the order properties.
+            </summary>
+            <param name="validationErrors">The validation errors.</param>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.CapturePaymentActivity.ProcessPayment">
+            <summary>
+            Processes the payment.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.CheckInventoryActivity.Execute(Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext)">
+            <summary>
+            Called by the workflow runtime to execute an activity.
+            </summary>
+            <param name="executionContext">The <see cref="T:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext"/> to associate with this <see cref="T:Mediachase.Commerce.WorkflowCompatibility.Activity"/> and execution.</param>
+            <returns>
+            The <see cref="T:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionStatus"/> of the run task, which determines whether the activity remains in the executing state, or transitions to the closed state.
+            </returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.CheckInventoryActivity.ValidateItems">
+            <summary>
+            Validate inventory in the order group.
+            </summary>
+            <remarks>We don't need to validate quantity in the wishlist.</remarks>
+        </member>
+        <member name="P:Mediachase.Commerce.Workflow.Activities.OrderGroupActivityBase.OrderGroup">
+            <summary>
+            Gets or sets the order group.
+            </summary>
+            <value>The order group.</value>
+        </member>
+        <member name="P:Mediachase.Commerce.Workflow.Activities.OrderGroupActivityBase.Warnings">
+            <summary>
+            Gets or sets the warnings.
+            </summary>
+            <value>The warnings.</value>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.OrderGroupActivityBase.ValidateRuntime">
+            <summary>
+            Validates the runtime.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.OrderGroupActivityBase.ValidateOrderProperties(Mediachase.Commerce.WorkflowCompatibility.ValidationErrorCollection)">
+            <summary>
+            Validates the order properties.
+            </summary>
+            <param name="validationErrors">The validation errors.</param>
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.Activities.RemoveDiscountsActivity">
+            <summary>
+            Activity for removing discounts.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.RemoveDiscountsActivity.Execute(Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext)">
+            <summary>
+            Called by the workflow runtime to execute an activity.
+            </summary>
+            <param name="executionContext">The <see cref="T:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext"/> to associate with this <see cref="T:Mediachase.Commerce.WorkflowCompatibility.Activity"/> and execution.</param>
+            <returns>
+            The <see cref="T:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionStatus"/> of the run task, which determines whether the activity remains in the executing state, or transitions to the closed state.
+            </returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.RemoveDiscountsActivity.RemoveDiscounts">
+            <summary>
+            Removes the discounts.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.OrderGroupActivities.UpdateTotalsActivity.Execute(Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext)">
+            <summary>
+            Gets the totals, and updates the order group with the calculated values.
+            </summary>
+            <param name="executionContext"></param>
+            <returns><see cref="F:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionStatus.Closed"/></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.OrderGroupActivities.UpdateTotalsActivity.UpdateOrderFormPaymentTotals(Mediachase.Commerce.Orders.OrderForm)">
+            <summary>
+            Updates the payment totals for an order form.
+            </summary>
+            <param name="orderForm">The order form</param>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.ValidateLineItemsActivity.Execute(Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext)">
+            <summary>
+            Called by the workflow runtime to execute an activity.
+            </summary>
+            <param name="executionContext">The <see cref="T:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext"/> to associate with this <see cref="T:Mediachase.Commerce.WorkflowCompatibility.Activity"/> and execution.</param>
+            <returns>
+            The <see cref="T:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionStatus"/> of the run task, which determines whether the activity remains in the executing state, or transitions to the closed state.
+            </returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.PurchaseOrderActivities.CalculatePurchaseOrderStatusActivity.Execute(Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext)">
+            <summary>
+            Executes the activity.
+            </summary>
+            <param name="executionContext">The <see cref="T:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionContext"/> to associate with this <see cref="T:Mediachase.Commerce.WorkflowCompatibility.Activity"/> and execution.</param>
+            <returns>
+            The <see cref="T:Mediachase.Commerce.WorkflowCompatibility.ActivityExecutionStatus"/> of the run task, which determines whether the activity remains in the executing state, or transitions to the closed state.
+            </returns>
+        </member>
+        <member name="F:Mediachase.Commerce.Workflow.Activities.PurchaseOrderActivities.PurchaseOrderBaseActivity.ChangingOrderStatusEvent">
+            <summary>
+            Occurs when [changing order status].
+            </summary>
+        </member>
+        <member name="F:Mediachase.Commerce.Workflow.Activities.PurchaseOrderActivities.PurchaseOrderBaseActivity.ChangedOrderStatusEvent">
+            <summary>
+            Occurs when [changing order status].
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.Activities.ReturnForm.CalculateReturnFormTotalsActivity.CalculateTotalsReturnOrderForm">
+            <summary>
+            Calculates the totals for return order form.
+            </summary>
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.CartCheckoutActivityFlow">
+            <summary>
+            This class represents the Cart Checkout workflow
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.CartCheckoutActivityFlow.Configure(Mediachase.Commerce.Engine.ActivityFlowRunner)">
+            <inheritdoc />
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.CartPrepareActivityFlow">
+            <summary>
+            Activity flow that should be used before the checkout phase. 
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.CartPrepareActivityFlow.Configure(Mediachase.Commerce.Engine.ActivityFlowRunner)">
+            <inheritdoc />
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.CartValidateActivityFlow">
+            <summary>
+            Activity flow that validates an order. 
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.CartValidateActivityFlow.Configure(Mediachase.Commerce.Engine.ActivityFlowRunner)">
+            <inheritdoc />
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.CheckAndReserveInstorePickupActivityFlow">
+            <summary>
+            This class represents the CheckAndReserveInstorePickup workflow.
+            It checks Inventory for in-store pickup and reserves items accordingly
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.CheckAndReserveInstorePickupActivityFlow.Configure(Mediachase.Commerce.Engine.ActivityFlowRunner)">
+            <inheritdoc />
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.POCalculateTotalsActivityFlow">
+            <summary>
+            Activity flow that is used to update all the discounts for an order.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.POCalculateTotalsActivityFlow.Configure(Mediachase.Commerce.Engine.ActivityFlowRunner)">
+            <inheritdoc />
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.POCompleteShipmentActivityFlow">
+            <summary>
+            This class represents the Purchase Order Complete Shipment workflow
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.POCompleteShipmentActivityFlow.Configure(Mediachase.Commerce.Engine.ActivityFlowRunner)">
+            <inheritdoc />
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.PORecalculateActivityFlow">
+            <summary>
+            Activity flow that validates and updates a purchase order.
+            </summary>
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.POSaveChangesActivityFlow">
+            <summary>
+            This class represents the Purchase Order Save Changes workflow
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.POSaveChangesActivityFlow.Configure(Mediachase.Commerce.Engine.ActivityFlowRunner)">
+            <inheritdoc />
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.POSplitShipmentsActivityFlow">
+            <summary>
+            This class represents the Purchase Order Split Shipment workflow
+            </summary>    
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.POSplitShipmentsActivityFlow.Configure(Mediachase.Commerce.Engine.ActivityFlowRunner)">
+            <inheritdoc />
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.ReturnFormCompleteActivityFlow">
+            <summary>
+            This class represents the ReturnFormComplete workflow
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.ReturnFormCompleteActivityFlow.Configure(Mediachase.Commerce.Engine.ActivityFlowRunner)">
+            <inheritdoc />
+        </member>
+        <member name="T:Mediachase.Commerce.Workflow.ReturnFormRecalculateActivityFlow">
+            <summary>
+            This class represents the ReturnFormRecalculate workflow
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Workflow.ReturnFormRecalculateActivityFlow.Configure(Mediachase.Commerce.Engine.ActivityFlowRunner)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

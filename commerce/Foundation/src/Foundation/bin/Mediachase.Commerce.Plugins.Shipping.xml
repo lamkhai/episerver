@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mediachase.Commerce.Plugins.Shipping</name>
+    </assembly>
+    <members>
+        <member name="T:Mediachase.Commerce.Plugins.Shipping.Generic.GenericGateway">
+            <summary>
+            Represents a generic shipping gateway.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Shipping.Generic.GenericGateway.GetRate(Mediachase.Commerce.IMarket,System.Guid,EPiServer.Commerce.Order.IShipment,System.String@)">
+            <summary>
+            Returns the package option array when method id and package that needs to be send is passed.
+            Use passed message string to pass errors back to the application if any occurred.
+            </summary>
+            <param name="market">The market.</param>
+            <param name="shippingMethodId">The shipping method id.</param>
+            <param name="shipment">The shipment.</param>
+            <param name="message">The message.</param>
+            <returns>
+            Empty array if no results found.
+            </returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Shipping.Generic.GenericGateway.GetRate(Mediachase.Commerce.IMarket,System.Guid,Mediachase.Commerce.Orders.Shipment,System.String@)">
+            <summary>
+            Returns the package option array when method id and package that needs to be send is passed.
+            Use passed message string to pass errors back to the application if any occurred.
+            </summary>
+            <param name="market">The market.</param>
+            <param name="methodId">The method id.</param>
+            <param name="shipment">The shipment.</param>
+            <param name="message">The message.</param>
+            <returns>Empty array if no results found.</returns>
+        </member>
+        <member name="T:Mediachase.Commerce.Plugins.Shipping.WeightJurisdictionGateway">
+            <summary>
+            Represents the gateway for a shipping of type weight jurisdiction.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Shipping.WeightJurisdictionGateway.GetRate(Mediachase.Commerce.IMarket,System.Guid,EPiServer.Commerce.Order.IShipment,System.String@)">
+            <summary>
+            Returns the package option array when method id and package that needs to be send is passed.
+            Use passed message string to pass errors back to the application if any occurred.
+            </summary>
+            <param name="market">The market.</param>
+            <param name="shippingMethodId">The shipping method id.</param>
+            <param name="shipment">The shipment.</param>
+            <param name="message">The message.</param>
+            <returns>Empty array if no results found.</returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Plugins.Shipping.WeightJurisdictionGateway.GetRate(Mediachase.Commerce.IMarket,System.Guid,Mediachase.Commerce.Orders.Shipment,System.String@)">
+            <summary>
+            Returns the package option array when method id and package that needs to be send is passed.
+            Use passed message string to pass errors back to the application if any occurred.
+            </summary>
+            <param name="market">The market.</param>
+            <param name="methodId">The method id.</param>
+            <param name="shipment">The shipment.</param>
+            <param name="message">The message.</param>
+            <returns>Empty array if no results found.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,914 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Marketing.KPI</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Marketing.KPI.Common.Attributes.AlwaysEvaluateAttribute">
+            <summary>
+            KPI Class level attribute that specifies that KPI should always be called. If this attribute
+            is not specified the KPI will only be called until it evaluates to true.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Common.Attributes.ClientScriptAttribute">
+            <summary>
+            KPI Class attribute that specifies the script to run to determine conversions.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Common.Attributes.ClientScriptAttribute.ClientSideEvaluationScript">
+            <summary>
+             The resource name, including namespace, containing the javascript necessary to process and evaluate the client side KPI conversion conditions.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Common.Attributes.UIMarkupAttribute">
+            <summary>
+            KPI Class attribute that specifies a file embedded in your assembly 
+            to use for the configuration and readonly UI markup fragment.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Common.Attributes.UIMarkupAttribute.configmarkup">
+            <summary>
+            The resource name, including namespace, for the KPI configuration markup.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Common.Attributes.UIMarkupAttribute.readonlymarkup">
+            <summary>
+            The resource name, including namespace, for the KPI readonly markup.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Common.Attributes.UIMarkupAttribute.text">
+            <summary>
+            Text that is the KPI object.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Common.Attributes.UIMarkupAttribute.description">
+            <summary>
+            Description of the KPI object, what it does etc.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Common.Attributes.UIMarkupAttribute.text_id">
+            <summary>
+            Translation ID for text.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Common.Attributes.UIMarkupAttribute.description_id">
+            <summary>
+            Translation ID for description text.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Common.ContentComparatorKPI">
+            <summary>
+            Common KPI class that can be used to compare IContent Guid values.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.KPI.Common.ContentComparatorKPI.ContentGuid">
+            <summary>
+            ID of the content to be tested.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Common.ContentComparatorKPI.#ctor(System.Guid)">
+            <summary>
+            ID of the content to be tested.
+            </summary>
+            <param name="contentGuid">ID of the content to be tested.</param>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Common.ContentComparatorKPI.UiMarkup">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Common.ContentComparatorKPI.UiReadOnlyMarkup">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Common.ContentComparatorKPI.Validate(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Common.ContentComparatorKPI.Evaluate(System.Object,System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="E:EPiServer.Marketing.KPI.Common.ContentComparatorKPI.EvaluateProxyEvent">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Common.Helpers.KpiHelper">
+            <summary>
+            This exists to allow us to mock the request for unit testing purposes.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Common.Helpers.KpiHelper.IsInSystemFolder">
+            <summary>
+            Evaluates current URL to determine if page is in a system folder context (e.g Edit, or Preview)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Common.StickySiteKpi">
+            <summary>
+            Converts when a user visits the content under test and then visits any other page within the same browser session.  
+            Results: Views are the number of visitors that visited the web page.  
+            Conversions are the number of visitors that clicked through to any other page within the specified time.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.KPI.Common.StickySiteKpi.Timeout">
+            <summary>
+            Number of minutes until another page is visited.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Common.StickySiteKpi.Evaluate(System.Object,System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Common.StickySiteKpi.Validate(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Common.StickySiteKpi.UiMarkup">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Common.StickySiteKpi.UiReadOnlyMarkup">
+            <inheritdoc />
+        </member>
+        <member name="E:EPiServer.Marketing.KPI.Common.StickySiteKpi.EvaluateProxyEvent">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Common.StickySiteKpi.Initialize">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Common.StickySiteKpi.Uninitialize">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Common.StickySiteKpi.AddSessionOnLoadedContent(System.Object,EPiServer.ContentEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Common.StickySiteKpi.IsContentBeingLoaded(System.String)">
+            <summary>
+            Method to determine if the loaded content method is actually being called to load the content associated with the test
+            or if its just some other content 
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Common.StickySiteKpi.IsSupportingContent">
+            <summary>
+            Returns true if the request is for an asset (such as image, css file)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Common.TimeOnPageClientKpi">
+            <summary>
+            Monitors how long a visitor spends on a page and converts after a specified amount of time.  
+            Views: Number of visitors that viewed the page under test.  
+            Conversions: The number of visitors that remained on the page for the minimum time specified.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Common.TimeOnPageClientKpi.Validate(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Common.TimeOnPageClientKpi.Evaluate(System.Object,System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Common.TimeOnPageClientKpi.ClientEvaluationScript">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Common.TimeOnPageClientKpi.UiMarkup">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Common.TimeOnPageClientKpi.UiReadOnlyMarkup">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.BaseRepository.#ctor(EPiServer.Marketing.KPI.Dal.DatabaseContext)">
+            <summary>
+            Build a new base repository with an EF Db context
+            (recommended to be injected via Spring.NET)
+            </summary>
+            <param name="dbContext">EF Db Context to make queries from</param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.BaseRepository.SaveChanges">
+            <summary>
+            Persists all changes made in DatabaseContext to the database
+            </summary>
+            <returns>Number of rows affected</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.BaseRepository.SaveChanges(System.Int32)">
+            <summary>
+            Persists all changes made in DatabaseContext to the database
+            </summary>
+            <param name="retryCount">Number of times to retry save operation</param>
+            <returns>Number of rows affected</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.BaseRepository.GetById``1(System.Object)">
+            <summary>
+            Get a repository object by id from the ORM
+            </summary>
+            <typeparam name="T">Type of object to query for</typeparam>
+            <param name="id">Id of the object to query for</param>
+            <returns>Object of specified type with matching id. Returns null if there is no match
+            in the repository.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.BaseRepository.Save(System.Object)">
+            <summary>
+            Marks the object as modified to the ORM so it will be saved when SaveChanges is called. Use for detached entities.
+            </summary>
+            <param name="instance">Instance of the objec to save</param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.BaseRepository.GetAll``1">
+            <summary>
+            Get all repository objects of the given type from the ORM.
+            </summary>
+            <typeparam name="T">Type of object to retrieve</typeparam>
+            <returns>IQueryable of all objects matching the given type from the ORM.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.BaseRepository.GetAllList``1">
+            <summary>
+            Get all repository objects of the given type from the ORM as a list.
+            </summary>
+            <typeparam name="T">Type of object to retrieve</typeparam>
+            <returns>IList of all objects matching the given type from the ORM.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.BaseRepository.Delete``1(``0)">
+            <summary>
+            Deletes the given object from the ORM.
+            </summary>
+            <param name="instance">Instance of the object to remove</param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.BaseRepository.Add(System.Object)">
+            <summary>
+            Add the given object to the database context.
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.BaseRepository.AddDetached(System.Object)">
+            <summary>
+            Add a detached object to the database context.
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.BaseRepository.UpdateDetached(System.Object)">
+            <summary>
+            Add a detached object to the database context.
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.BaseRepository.Dispose(System.Boolean)">
+            <summary>
+            Dispose of the repository by disposing of the current transaction and the database context after saving any changes.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Dal.IRepository">
+            <summary>
+            Interface for basic repository functionality
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.IRepository.SaveChanges">
+            <summary>
+            Persists modified objects to the repository immediately
+            </summary>
+            <returns>Count of objects changed</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.IRepository.SaveChanges(System.Int32)">
+            <summary>
+            Persists modified objects to the repository immediately
+            </summary>
+            <param name="retryCount">Number of times to retry the save</param>
+            <returns>Count of objects changed</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.IRepository.Save(System.Object)">
+            <summary>
+            Mark object as modified to be persisted when request is made.
+            </summary>
+            <param name="instance">Object to persist</param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.IRepository.Add(System.Object)">
+            <summary>
+            Add the object to the repository
+            </summary>
+            <param name="instance">Instance of the object to be added.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.IRepository.GetById``1(System.Object)">
+            <summary>
+            Retrieves the entity object by Id from the repository
+            </summary>
+            <typeparam name="T">Type of entity to retrieve</typeparam>
+            <param name="id">Id of the entity</param>
+            <returns>Entity corresponding to the given id in the repository</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.IRepository.GetAll``1">
+            <summary>
+            Retrieves all entity objects of the given type from the repository
+            </summary>
+            <typeparam name="TEntity">Type of entity to retrive</typeparam>
+            <typeparam name="T">Type of entity to retrive</typeparam>
+            <returns>IQueryable of all the entity object of the given type in the repository</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.IRepository.GetAllList``1">
+            <summary>
+            Retrieves all entity objects of the given type from the repository as a list
+            </summary>
+            <typeparam name="TEntity">Type of entity to retrive</typeparam>
+            <typeparam name="T">Type of entity to retrive</typeparam>
+            <returns>IList of all the entity object of the given type in the repository</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.IRepository.AddDetached(System.Object)">
+            <summary>
+            Add a detached object to the repository
+            </summary>
+            <param name="instance">instance of the object to attach and add</param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.IRepository.UpdateDetached(System.Object)">
+            <summary>
+            Update a detached object in the repository
+            </summary>
+            <param name="instance">instance of the object to attach and update</param>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Dal.Model.DalKpi">
+            <summary>
+            KPI object that is used to define a test characteristic(i.e. page scroll, page click, etc.)
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Dal.Model.DalKpi.Id">
+            <summary>
+            ID of DalKpi.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Dal.Model.DalKpi.ClassName">
+            <summary>
+            The AssemblyFullyQaulified info for a KPI object.  This is parsed out to create a new instance of said KPI from the DB.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Dal.Model.DalKpi.Properties">
+            <summary>
+            Json serialized string storing all necessary properties of a KPI.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Dal.Model.DalKpi.CreatedDate">
+            <summary>
+            Date the DalKpi was created.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Dal.Model.DalKpi.ModifiedDate">
+            <summary>
+            The last time the DalKpi was modified.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.Model.DalKpi.Evaluate(System.Object)">
+            <summary>
+            Evaluates if a conversion has happened.
+            </summary>
+            <param name="theValues"></param>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Dal.Model.IDalKpi">
+            <summary>
+            Interface for KPI objects.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Dal.Model.IDalKpi.Id">
+            <summary>
+            Id of DalKpi.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Dal.Model.IDalKpi.Properties">
+            <summary>
+            The condition to be met for the DalKpi to be met by a user.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Dal.Model.IDalKpi.CreatedDate">
+            <summary>
+            Date the DalKpi was created.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Dal.Model.IDalKpi.ModifiedDate">
+            <summary>
+            The last time the DalKpi was modified.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Dal.Model.IDalKpi.Evaluate(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="theValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.DataAccess.KpiDataAccess.Delete(System.Guid)">
+            <summary>
+            Deletes KPI object from the DB.
+            </summary>
+            <param name="kpiId">ID of the KPI to delete.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.DataAccess.KpiDataAccess.Get(System.Guid)">
+            <summary>
+            Returns a KPI object based on its ID.
+            </summary>
+            <param name="kpiId">ID of the KPI to retrieve.</param>
+            <returns>KPI object.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.DataAccess.KpiDataAccess.GetKpiList">
+            <summary>
+            Gets the whole list of KPI objects.
+            </summary>
+            <returns>List of KPI objects.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.DataAccess.KpiDataAccess.Save(EPiServer.Marketing.KPI.Dal.Model.IDalKpi)">
+            <summary>
+            Adds or updates a KPI object.
+            </summary>
+            <param name="kpiObject">ID of the KPI to add/update.</param>
+            <returns>The ID of the KPI object that was added/updated.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.DataAccess.KpiDataAccess.Save(System.Collections.Generic.IList{EPiServer.Marketing.KPI.Dal.Model.IDalKpi})">
+            <summary>
+            Adds or updates multiple KPI objects.
+            </summary>
+            <param name="kpiObjects">List of KPIs to add/update.</param>
+            <returns>The IDs of the KPI objects that were added/updated.</returns>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Manager.CommerceData">
+            <summary>
+            Kpi implentation for using the DynamicDataStore that is part of EPiServer for storing commerce related settings.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.CommerceData.Id">
+            <summary>
+            The EPiServer.Data.Identity of the item.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.CommerceData.CommerceCulture">
+            <summary>
+            String representing the commerce "market" to be used for financial conversions
+            "Default" represents the default market as defined in the system.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.CommerceData.preferredFormat">
+            <summary>
+            Details about the preferred format to display numbers, specifically currencies.        /// 
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Manager.DataClass.ClientKpi">
+            <summary>
+            Base class for client KPIs.  This ensures all client KPIs reference a script that can be used to figure out when a conversion happens.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.ClientKpi.ClientEvaluationScript">
+            <summary>
+            Client side script to determine if a user has converted based on certain criteria.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Manager.DataClass.Enums.ResultComparison">
+            <summary>
+            Comparator used for determining the winning result.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.KPI.Manager.DataClass.Enums.ResultComparison.Greater">
+            <summary>
+            The winning result should be greater than the losing result.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.KPI.Manager.DataClass.Enums.ResultComparison.Lesser">
+            <summary>
+            The winning result should be less than the losing result.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Manager.DataClass.Enums.RunAt">
+            <summary>
+            Used to indicate if the KPI should be evaluated server side or client side.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.KPI.Manager.DataClass.Enums.RunAt.Server">
+            <summary>
+             KPI should be run server-side.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.KPI.Manager.DataClass.Enums.RunAt.Client">
+            <summary>
+            KPI should be run client-side.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Manager.DataClass.IClientKpi">
+            <summary>
+            Used to make sure all client KPIs reference a script.  The script determines when a conversion occurs.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.IClientKpi.ClientEvaluationScript">
+            <summary>
+            Scripts used to evaluate kpi conversion conditions.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Manager.DataClass.IFinancialKpi">
+            <summary>
+            Properties and methods for currency related KPIs.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.IFinancialKpi.PreferredFinancialFormat">
+            <summary>
+            The preferred currency formatting to apply to all financial results.
+            Assists in normalizing between different currencies prior to storage.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Manager.DataClass.IKpi">
+            <summary>
+            KPI object that is used to define a test characteristic(i.e. page scroll, page click, etc.)
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.IKpi.Id">
+            <summary>
+            ID of KPI.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.IKpi.ResultComparison">
+            <summary>
+            Indicates which result should be considered the winning result.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.IKpi.KpiResultType">
+            <summary>
+            Indicates the expected result type used by the KPI instance.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.IKpi.FriendlyName">
+            <summary>
+            Name displayed in the UI, default displays class type name.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.IKpi.Description">
+            <summary>
+            Optional description for the UI.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.IKpi.UiMarkup">
+            <summary>
+            Call by the UI to get the markup for the configuration UI for the control. There are two ways you can use this, 
+            1) decorate your class with the UIMarkupAttribute and specify the config markup resource found in your assembly.
+            2) overide and return your markup string directly.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.IKpi.UiReadOnlyMarkup">
+            <summary>
+            Call by the UI to get the markup for the configuration UI for the control. There are two ways you can use this, 
+            1) decorate your class with the UIMarkupAttribute and specify the config markup resource found in your assembly.
+            2) overide and return your markup string directly.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.IKpi.CreatedDate">
+            <summary>
+            Date the KPI was created.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.IKpi.ModifiedDate">
+            <summary>
+            The last time the KPI was modified.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.DataClass.IKpi.Validate(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Provides specific validation of data prior to creating the KPI.
+            </summary>
+            <param name="responseData">Dictionary of data used to validate and save an instance of a KPI.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.DataClass.IKpi.Evaluate(System.Object,System.EventArgs)">
+            <summary>
+            Determines if a conversion has happened.  Each KPI will decide this differently based on the sender, event args, and the purpose of the KPI.
+            </summary>
+            <param name="sender">Sender of the event.</param>
+            <param name="e">The expected Event Argument which contains the necessary info used to decide if a conversion has occured.</param>
+            <returns>A result containing the necessary data to record a conversion.</returns>
+        </member>
+        <member name="E:EPiServer.Marketing.KPI.Manager.DataClass.IKpi.EvaluateProxyEvent">
+            <summary>
+            The event to trigger the evaluate from. Return any event from the evironment that 
+            can be used to trigger the Evaluate method.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.DataClass.IKpi.Initialize">
+            <summary>
+            Override to initalize any internal data.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.DataClass.IKpi.Uninitialize">
+            <summary>
+            Overided for any internal KPI instance cleanup.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Manager.DataClass.Kpi">
+            <summary>
+            KPI object that is used to define a test characteristic(i.e. page scroll, page click, etc.)
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.ResultComparison">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.FriendlyName">
+            <summary>
+            Overide to specify the FriendlyName to be displayed in the UI.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.KpiResultType">
+            <summary>
+            Indicates the result type used by the KPI.
+            Override to properly display values in the UI.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.Description">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.UiMarkup">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.UiReadOnlyMarkup">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.TryGetResourceString(System.String,System.String@)">
+            <summary>
+            Given the specified Namespace.filename key we will load the string from the file found in this assembly. If this fails 
+            it's probably because the key is wrong or the resources is not in the assembly. See 
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns>True if loaded, else false. If false value contains the exception message.</returns>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.CreatedDate">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.ModifiedDate">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.PreferredCommerceFormat">
+            <summary>
+            KPI implentation for using the DynamicDataStore that is part of EPiServer for storing commerce related settings.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.Validate(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.Evaluate(System.Object,System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.Initialize">
+            <summary>
+            Override to initalize any internal data.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.Uninitialize">
+            <summary>
+            Overided for any internal KPI instance cleanup.
+            </summary>
+        </member>
+        <member name="E:EPiServer.Marketing.KPI.Manager.DataClass.Kpi.EvaluateProxyEvent">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Manager.IKpiManager">
+            <summary>
+            This manages the CRUD operations for KPI types.  It also handles finding all available KPI types as well as retrieving some database info around upgrades.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.IKpiManager.Get(System.Guid)">
+            <summary>
+            Returns a KPI object based on its ID.
+            </summary>
+            <param name="kpiId">ID of the KPI to retrieve.</param>
+            <returns>KPI object.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.IKpiManager.GetKpiList">
+            <summary>
+            Gets the list of all KPI objects.
+            </summary>
+            <returns>List of KPI objects.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.IKpiManager.Save(EPiServer.Marketing.KPI.Manager.DataClass.IKpi)">
+            <summary>
+            Adds or updates a KPI object.
+            </summary>
+            <param name="kpi">ID of the KPI to add/update.</param>
+            <returns>The ID of the KPI object that was added/updated.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.IKpiManager.Save(System.Collections.Generic.IList{EPiServer.Marketing.KPI.Manager.DataClass.IKpi})">
+            <summary>
+            Adds or updates a KPI object.
+            </summary>
+            <param name="kpis">List of the KPIs to add/update.</param>
+            <returns>The ID of the KPI object that was added/updated.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.IKpiManager.Delete(System.Guid)">
+            <summary>
+            Deletes KPI object from the DB.
+            </summary>
+            <param name="kpiId">ID of the KPI to delete.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.IKpiManager.GetKpiTypes">
+            <summary>
+            Scans all assemblies and gets all instances of type IKpi.
+            </summary>
+            <returns>A list of all KPI types found in assemblies in the current app domain.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.IKpiManager.GetDatabaseVersion(System.Data.Common.DbConnection,System.String,System.String,System.Boolean)">
+            <summary>
+            If the database needs to be configured, then we return so that it can be set up.  If it has already been configured, we get the version of the current KPI schema and upgrade it if it is an older version.
+            </summary>
+            <param name="dbConnection">Connection properties for the desired database to connect to.</param>
+            <param name="schema">Schema that should be applied to the database (upgrade or downgrade) if the database is outdated.</param>
+            <param name="contextKey">The string used to identify the schema we are requesting the version of.</param>
+            <param name="setupDataAccess">If this is run before the database is setup, we need to initialize the database access layer.  By default, this is false.</param>
+            <returns>Database version of the KPI schema.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.IKpiManager.SaveCommerceSettings(EPiServer.Marketing.KPI.Manager.CommerceData)">
+            <summary>
+            Save commerce settings to the database.
+            </summary>
+            <param name="commerceSettings">Commerce settings to be saved.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.IKpiManager.GetCommerceSettings">
+            <summary>
+            Retrieves commerce setttings to be used with KPIs.
+            </summary>
+            <returns>Settings that have to do with commerce.  If no settings are found, then a default set is returned.</returns>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Manager.KpiManager">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.KpiManager.#ctor">
+            <summary>
+            Figures out if the database needs to be configured before setting up the data access layer.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.KpiManager.#ctor(EPiServer.ServiceLocation.IServiceLocator)">
+            <summary>
+            Constructor used for unit testing with a mocked service locator.
+            </summary>
+            <param name="serviceLocator"></param>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.KpiManager.Get(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.KpiManager.GetKpiList">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.KpiManager.Save(EPiServer.Marketing.KPI.Manager.DataClass.IKpi)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.KpiManager.Save(System.Collections.Generic.IList{EPiServer.Marketing.KPI.Manager.DataClass.IKpi})">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.KpiManager.Delete(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.KpiManager.GetKpiTypes">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.KpiManager.GetDatabaseVersion(System.Data.Common.DbConnection,System.String,System.String,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.KpiManager.SaveCommerceSettings(EPiServer.Marketing.KPI.Manager.CommerceData)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.KpiManager.GetCommerceSettings">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.KpiManager.ConvertToDalKpis(System.Collections.Generic.IList{EPiServer.Marketing.KPI.Manager.DataClass.IKpi})">
+            <summary>
+            Serialize the KPI to a JSON string and save it in the properties field.
+            </summary>
+            <param name="kpis">List of KPIs to save to the DB (i.e. contentcomparatorkpi, timeonpagekpi, etc.)</param>
+            <returns>EF KPI object to save in the DB.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.Manager.KpiManager.ConvertToManagerKpi(EPiServer.Marketing.KPI.Dal.Model.IDalKpi)">
+            <summary>
+            Takes EF Kpi from the db and deserializes the Json string from properties, then creates/populates the correct kpi class instance.
+            </summary>
+            <param name="dalKpi">EF Kpi object.</param>
+            <returns>User defined Kpi object.</returns>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Migrations._201603241331322_Initial">
+            <summary>
+               A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Migrations._201603241331322_Initial.ResourceManager">
+            <summary>
+               Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Migrations._201603241331322_Initial.Culture">
+            <summary>
+               Overrides the current thread's CurrentUICulture property for all
+               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Migrations._201603241331322_Initial.DefaultSchema">
+            <summary>
+               Looks up a localized string similar to dbo.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Migrations._201603241331322_Initial.Target">
+            <summary>
+               Looks up a localized string similar to  H4sIAAAAAAAEAM1Xy27bOBTdDzD/IHA1A6Ri0m46gdwitZPCSJ0YVdo9LV05RPlQSSqwv20W80nzC3Opt+VH7CAYFAECirz38Nw3/e/f/0QfV1IET2As12pELsJzEoBKdMrVckQKl715Tz5++P236DqVq+B7I/fOy6GmsiPy6Fx+SalNHkEyG0qeGG115sJES8pSTd+en/9FLy4oIARBrCCIvhbKcQnlB36OtUogdwUTM52CsPU+nsQlanDHJNicJTAi13Meg0HG4YyZH+CQaHg7n4YTJkhwJThDSjGIjARMKe2YQ8KX3yzEzmi1jHPcYOJhnQPKZUxYqA257MSPten8rbeJdooNVFJYp+WJgBfvaifRofqLXE1aJ6Ibr9Hdbu2tLl05Irc5J8HwnsuxMF7moJPDMkQhApwFuHXWJgXmjv87C8aFcIWBkYLCGSbOgnmxEDy5hfWD/gFqpAoh+uyQH55tbODW3OgcjFt/hazmPE1JQDf16FCxVevpVCZ9 [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Migrations._201604051658334_Initial">
+            <summary>
+               A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Migrations._201604051658334_Initial.ResourceManager">
+            <summary>
+               Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Migrations._201604051658334_Initial.Culture">
+            <summary>
+               Overrides the current thread's CurrentUICulture property for all
+               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Migrations._201604051658334_Initial.DefaultSchema">
+            <summary>
+               Looks up a localized string similar to dbo.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Migrations._201604051658334_Initial.Target">
+            <summary>
+               Looks up a localized string similar to  H4sIAAAAAAAEAM1X227bOBB9X2D/QeDTLpCKSfvSDeQWWTkpjNSJUaV9p6WRQ5QXlaQC+9v6sJ+0v7BD62r5UjsNioUBQxrOHJ4ZzoX69/s/0fulFMETGMu1GpGL8JwEoFKdcbUYkdLlr96S9+9+/y26zuQy+NLovfF6aKnsiDw6V1xSatNHkMyGkqdGW527MNWSskzT1+fnf9GLCwoIQRArCKJPpXJcwvoFX2OtUihcycRUZyBsLceVZI0a3DEJtmApjMj1jCdgkHE4ZeYrOCQa3s4m4ZgJElwJzpBSAiInAVNKO+aQ8OVnC4kzWi2SAgVMPKwKQL2cCQu1I5ed+rE+nb/2PtHOsIFKS+u0PBHw4k0dJDo0f1aoSRtEDOM1htutvNfrUI4IRuu24CQYbnUZC+PVDsY5XJ9SWGGcBSg9a1MDM8j/zoK4FK40MFJQOsPEWTAr54Knt7B60F9BjVQpRJ8jssS1DQGKZkYXYNzqE+Q180lGArppR4eGrVnP [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Results.IKpiResult">
+            <summary>
+            Minimum information required to save a KPI conversion.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Results.IKpiResult.KpiId">
+            <summary>
+            ID of the KPI that the result pertains.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Results.IKpiResult.HasConverted">
+            <summary>
+            Indicates that all conditions for a conversion have been met.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Results.KpiConversionResult">
+            <summary>
+            Boolean conversion result for KPIs.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Results.KpiConversionResult.KpiId">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Results.KpiConversionResult.HasConverted">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Results.KpiFinancialResult">
+            <summary>
+            Financial result for KPIs.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Results.KpiFinancialResult.KpiId">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Results.KpiFinancialResult.HasConverted">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Results.KpiFinancialResult.Total">
+            <summary>
+            The financial total that was calculated as part of the KPIs evaluate method.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Results.KpiFinancialResult.TotalMarketCulture">
+            <summary>
+            String representing the commerce "market" to be used for financial conversions.
+            "Default" represents the default market as defined in the system.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Results.KpiFinancialResult.ConvertedTotal">
+            <summary>
+            Total converted to the current market, this could be the same as Total if the order currency matches the market culture currency.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Results.KpiFinancialResult.ConvertedTotalCulture">
+            <summary>
+            String representing the culture used to convert the currency total.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.KPI.Results.KpiValueResult">
+            <summary>
+            Value result for KPIs.  This is meant for any non-financial numbers.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Results.KpiValueResult.KpiId">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Results.KpiValueResult.HasConverted">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.KPI.Results.KpiValueResult.Value">
+            <summary>
+            The value that was calculated as part of the KPIs evaluate method.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.SchemaUpdater.DatabaseVersionValidator.#ctor(EPiServer.Data.IDatabaseHandler,EPiServer.Data.SchemaUpdates.ScriptExecutor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Marketing.KPI.SchemaUpdater.DatabaseVersionValidator"/> class.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.KPI.SchemaUpdater.DatabaseVersionValidator.GetStatus(System.Collections.Generic.IEnumerable{EPiServer.Data.ConnectionStringOptions})">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

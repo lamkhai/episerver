@@ -1,0 +1,1380 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Marketing.Testing.Core</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.ABTest">
+            <summary>
+            Central test object that keeps track of everything related to a marketing test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.Title">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.Description">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.Owner">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.OriginalItemId">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.State">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.StartDate">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.EndDate">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.ParticipationPercentage">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.ConfidenceLevel">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.ZScore">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.IsSignificant">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.LastModifiedBy">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.ContentLanguage">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.Variants">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTest.KpiInstances">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.CoreEntityBase">
+            <summary>
+            Base class used for A/B test model objects.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.CoreEntityBase.Id">
+            <summary>
+            ID of an AB Test object.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.CoreEntityBase.CreatedDate">
+            <summary>
+            Date this object was created.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.CoreEntityBase.ModifiedDate">
+            <summary>
+            Date this object was updated or modified.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.Enums.CountType">
+            <summary>
+            IncrementCount call uses this to know which increase.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.DataClass.Enums.CountType.View">
+            <summary>
+            Represents when a user views the item under test.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.DataClass.Enums.CountType.Conversion">
+            <summary>
+            Represents when a user converts based on the KPI(s) associated with a test.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.Enums.KeyResultType">
+            <summary>
+            Type of KPI data to save.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.DataClass.Enums.KeyResultType.Financial">
+            <summary>
+            A monetary value.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.DataClass.Enums.KeyResultType.Value">
+            <summary>
+            Any non monetary amount.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.DataClass.Enums.KeyResultType.Conversion">
+            <summary>
+            Boolean conversion result used with multiple KPIs.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.Enums.TestState">
+            <summary>
+            Defines the possible states that a test can be in at any given time.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.DataClass.Enums.TestState.Inactive">
+            <summary>
+            Test has been created and scheduled to be run but has not reached its start date yet.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.DataClass.Enums.TestState.Active">
+            <summary>
+            Test has started and is currently running.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.DataClass.Enums.TestState.Done">
+            <summary>
+            Test has completed by reaching its end date.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.DataClass.Enums.TestState.Archived">
+            <summary>
+            A winning variant has been picked and published.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.IKeyResult">
+            <summary>
+            This interface defines the minimal required fields for a KPI result to contain in order to be tied to a KPI that is part of a test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IKeyResult.Id">
+            <summary>
+            ID of a result recored.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IKeyResult.KpiId">
+            <summary>
+            ID of KPI this result is associated with.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IKeyResult.CreatedDate">
+            <summary>
+            Date this result was created.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IKeyResult.ModifiedDate">
+            <summary>
+            Date this result was modified. 
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest">
+            <summary>
+            Defines the minimum data set required for a marketing test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.Id">
+            <summary>
+            Test ID.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.Title">
+            <summary>
+            Test name.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.Description">
+            <summary>
+            Test Description.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.Owner">
+            <summary>
+            Creator of the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.OriginalItemId">
+            <summary>
+            Item being tested against.  This is the current published version of content.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.State">
+            <summary>
+            Current state of the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.StartDate">
+            <summary>
+            Date and time the test is scheduled to start.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.EndDate">
+            <summary>
+            Date and time the test is scheduled to end.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.ParticipationPercentage">
+            <summary>
+            Percentage of users that visit the site to include in the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.ConfidenceLevel">
+            <summary>
+            Percentage of accuracy required.
+            Default: 95 %
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.ZScore">
+            <summary>
+            Calculated Z-Score to determine statistical significance.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.IsSignificant">
+            <summary>
+            Once the test is completed, this is filled in based on the statistical calculations around significance.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.ContentLanguage">
+            <summary>
+            Language of the site for the content being tested.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.LastModifiedBy">
+            <summary>
+            The person that last changed the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.CreatedDate">
+            <summary>
+            Date and time the test was created.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.ModifiedDate">
+            <summary>
+            Last time the test was modified.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.Variants">
+            <summary>
+            List of variant items.  These replace the OriginalItem during the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest.KpiInstances">
+            <summary>
+            List of KPIs.  These can be time on a page, form submission, etc.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.KeyConversionResult">
+            <summary>
+            Used to track conversions for a given KPI and content item(variant).
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyConversionResult.KpiId">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyConversionResult.Conversions">
+            <summary>
+            Number of conversions for a KPI.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyConversionResult.Weight">
+            <summary>
+            Weight given to a KPI.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyConversionResult.SelectedWeight">
+            <summary>
+            Weight box that was chosen during test creation.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyConversionResult.Performance">
+            <summary>
+            Percentage of overal conversion rate that a specific KPI contributed.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyConversionResult.VariantId">
+            <summary>
+            ID of the variant the result pertains to.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyConversionResult.Variant">
+            <summary>
+            The variant the result pertains to.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.KeyFinancialResult">
+            <summary>
+            KPI result that handles any type of financial values.  It can also handle conversions between currencies.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyFinancialResult.KpiId">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyFinancialResult.Total">
+            <summary>
+            Financial value to be saved.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyFinancialResult.TotalMarketCulture">
+            <summary>
+            String representing the commerce "market" to be used for financial conversions
+            "Default" represents the default market as defined in the system.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyFinancialResult.ConvertedTotal">
+            <summary>
+            Total converted to the current market, this could be the same as Total if the order currency matches the market culture currency.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyFinancialResult.ConvertedTotalCulture">
+            <summary>
+            String representing the culture used to convert the currency total.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyFinancialResult.VariantId">
+            <summary>
+            ID of the variant the result pertains to.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyFinancialResult.Variant">
+            <summary>
+            The variant the result pertains to.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.KeyValueResult">
+            <summary>
+            KPI result that handles any numerical value.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyValueResult.KpiId">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyValueResult.Value">
+            <summary>
+            Numerical value to bs saved.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyValueResult.VariantId">
+            <summary>
+            ID of the variant the result pertains to.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.KeyValueResult.Variant">
+            <summary>
+            The variant the result pertains to.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.TestCriteria">
+            <summary>
+            Used to filter testing data from the database.  Multiple filters can be combined to create a criteria.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.DataClass.TestCriteria.AddFilter(EPiServer.Marketing.Testing.Core.DataClass.ABTestFilter)">
+            <summary>
+            Adds the given filter to the collection of criteria filters if the property on the filter doesn't exist.
+            If the filter exists the filter will not be added.
+            </summary>
+            <param name="filter">The filter to add.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.DataClass.TestCriteria.GetFilters">
+            <summary>
+            Returns the list of filters that are part of the criteria.
+            </summary>
+            <returns>List of filters that are part of the criteria.</returns>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.ABTestFilter">
+            <summary>
+            Filters are added to a Test Criteria to build up a query to limit what data is returned.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.DataClass.ABTestFilter.#ctor(EPiServer.Marketing.Testing.Core.DataClass.ABTestProperty,EPiServer.Marketing.Testing.Core.DataClass.FilterOperator,System.Object)">
+            <summary>
+            Used to filter test query results. 
+            </summary>
+            <param name="theProperty">Test property to filter against.</param>
+            <param name="theOperator">AND or OR.</param>
+            <param name="theValue">Value used to filter against(i.e. contentId, Active test state, etc.)</param>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTestFilter.Property">
+            <summary>
+            The A/B test property that the filter will be based on.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTestFilter.Operator">
+            <summary>
+            The operation that will be performed to filter the result set.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.ABTestFilter.Value">
+            <summary>
+            The limiter value that will be used to filter the result set.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.ABTestProperty">
+            <summary>
+            Available test properties that can be used as filters.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.DataClass.ABTestProperty.State">
+            <summary>
+            State of the test(Active, Inactive, etc).
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.DataClass.ABTestProperty.OriginalItemId">
+            <summary>
+            ID of the content item under test.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.DataClass.ABTestProperty.VariantId">
+            <summary>
+            ID of the variant item under test.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.FilterOperator">
+            <summary>
+            Available operators used for combining multiple filters.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.DataClass.FilterOperator.And">
+            <summary>
+            Binary AND operator.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.DataClass.FilterOperator.Or">
+            <summary>
+            Binary OR operator.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.TestDataCookie">
+            <summary>
+            Represents the data stored in session cookies for users that visit an item under test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.TestDataCookie.TestStart">
+            <summary>
+            Date and time the test is set to start
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.TestDataCookie.TestId">
+            <summary>
+            Test ID.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.TestDataCookie.TestContentId">
+            <summary>
+            ID of item under test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.TestDataCookie.TestVariantId">
+            <summary>
+            ID of item variant being tested.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.TestDataCookie.ShowVariant">
+            <summary>
+            States whether the current user sees the original item or the variant being tested.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.TestDataCookie.Viewed">
+            <summary>
+            Has the current user viewed the item.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.TestDataCookie.Converted">
+            <summary>
+            Has the current user converted based on the KPI(s) associated with the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.TestDataCookie.AlwaysEval">
+            <summary>
+            States whether multiple conversions are possible.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.TestDataCookie.KpiConversionDictionary">
+            <summary>
+            Keeps track of each kpi and its conversion state(i.e. converted or not).
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.DataClass.Variant">
+            <summary>
+            Object that stores all info related to an item under test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.Variant.TestId">
+            <summary>
+            ID of the test this variant is associated with.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.Variant.ItemId">
+            <summary>
+            ID of modified content to use instead of the original item for a test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.Variant.ItemVersion">
+            <summary>
+            Version of the content.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.Variant.IsWinner">
+            <summary>
+            This is calculated and updated upon the completeion of a test or when a winner is chosen.  
+            True if variant won the test, false otherwise.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.Variant.Conversions">
+            <summary>
+            A running count of how many users have converted after viewing the item under test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.Variant.Views">
+            <summary>
+            A running count of how many users have viewed the item under test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.Variant.IsPublished">
+            <summary>
+            States whether this version of the content is the currently puublished one or not at the start of the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.Variant.ABTest">
+            <summary>
+            Reference to the test this is associated with.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.Variant.KeyFinancialResults">
+            <summary>
+            A list of any financial results that are the result of a KPI associated with the test this variant is part of.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.Variant.KeyValueResults">
+            <summary>
+            A list of any value results(i.e. any numerical value that is not fiancial in nature) that are the result of a KPI associated with the test this variant is part of.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.DataClass.Variant.KeyConversionResults">
+            <summary>
+            A list of conversion results that are related to a KPI.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager">
+            <summary>
+            The CachingTestManager class delivers marketing tests from a cache ,
+            if possible, prior to deferring to another test manager.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.#ctor(EPiServer.Framework.Cache.ISynchronizedObjectInstanceCache,EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents,EPiServer.Marketing.Testing.Core.Manager.ITestManager,EPiServer.Logging.ILogger,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="cache">Cache in which to store tests and related data</param>
+            <param name="events">Marketing event publisher</param>
+            <param name="inner">Test manager to defer to when tests are not in the cache</param>
+            <param name="logger">A logger.</param>
+            <param name="cacheTimeout">Cache timeout in seconds.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.Archive(System.Guid,System.Guid,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.Delete(System.Guid,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.EvaluateKPIs(System.Collections.Generic.IList{EPiServer.Marketing.KPI.Manager.DataClass.IKpi},System.Object,System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.Get(System.Guid,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.GetActiveTests">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.GetActiveTestsByOriginalItemId(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.GetActiveTestsByOriginalItemId(System.Guid,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.GetDatabaseVersion(System.Data.Common.DbConnection,System.String,System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.GetTestByItemId(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.GetTestList(EPiServer.Marketing.Testing.Core.DataClass.TestCriteria)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.GetVariantContent(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.GetVariantContent(System.Guid,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.IncrementCount(EPiServer.Marketing.Testing.Core.Manager.IncrementCountCriteria)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.IncrementCount(System.Guid,System.Int32,EPiServer.Marketing.Testing.Core.DataClass.Enums.CountType,System.Guid,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.ReturnLandingPage(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.Save(EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.SaveKpiResultData(System.Guid,System.Int32,EPiServer.Marketing.Testing.Core.DataClass.IKeyResult,EPiServer.Marketing.Testing.Core.DataClass.Enums.KeyResultType,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.Start(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.Stop(System.Guid,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.RefreshCache">
+            <summary>
+            Removes all tests from the cache and repopulates it from the test manager
+            that this class decorates.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.AddTestToCache(EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest)">
+            <summary>
+            Adds the specified test to the cache.
+            </summary>
+            <param name="test">Test to cache</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.AddVariantToCache(System.Guid,System.Globalization.CultureInfo,EPiServer.Core.IContent)">
+            <summary>
+            Adds a variant to the cache.
+            </summary>
+            <param name="originalItemId">ID of the original content item</param>
+            <param name="culture">Culture of the original content item</param>
+            <param name="variant">Variant content to cache</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.RemoveFromCache(System.Guid)">
+            <summary>
+            Removes the specified test from the cache. Remote nodes maintaining
+            a cache will also be signaled.
+            </summary>
+            <param name="testId">ID of test to remove</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.CachingTestManager.GetCacheKeyForVariant(System.Guid,System.String)">
+            <summary>
+            Gets the cache key for a variant.
+            </summary>
+            <param name="contentGuid">ID of original content item</param>
+            <param name="contentLanguage">Content language of original content item</param>
+            <returns>Cache key</returns>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents">
+            <summary>
+            Contains all the events related to testing that can be listened for.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.TestSavedEvent">
+            <summary>
+            TestSavedEvent
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.TestDeletedEvent">
+            <summary>
+            TestDeletedEvent
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.TestStartedEvent">
+            <summary>
+            TestStartedEvent
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.TestStoppedEvent">
+            <summary>
+            TestStoppedEvent
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.TestArchivedEvent">
+            <summary>
+            TestArchivedEvent
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.TestAddedToCacheEvent">
+            <summary>
+            TestAddedToCacheEvent
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.TestRemovedFromCacheEvent">
+            <summary>
+            TestRemovedFromCacheEvent
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.ContentSwitchedEvent">
+            <summary>
+            ContentSwitchedEvent
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.UserIncludedInTestEvent">
+            <summary>
+            UserIncludedInTestEvent
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.KpiConvertedEvent">
+            <summary>
+            KpiConvertedEvent
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.AllKpisConvertedEvent">
+            <summary>
+            AllKpisConvertedEvent
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.Instance">
+            <summary>
+            Instance used to fire events.
+            </summary>
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.TestSaved">
+            <inheritdoc />
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.TestDeleted">
+            <inheritdoc />
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.TestStarted">
+            <inheritdoc />
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.TestStopped">
+            <inheritdoc />
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.TestArchived">
+            <inheritdoc />
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.TestAddedToCache">
+            <inheritdoc />
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.TestRemovedFromCache">
+            <inheritdoc />
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.ContentSwitched">
+            <inheritdoc />
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.UserIncludedInTest">
+            <inheritdoc />
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.KpiConverted">
+            <inheritdoc />
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.AllKpisConverted">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.RaiseMarketingTestingEvent(System.String,EPiServer.Marketing.Testing.Core.Manager.TestEventArgs)">
+            <summary>
+            Fires off an event based off the key passed in and containing the args passed in.
+            </summary>
+            <param name="key">Name of the event to fire.</param>
+            <param name="eventArgs">Test details pertaining to the event.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.DefaultMarketingTestingEvents.RaiseMarketingTestingEvent(System.String,EPiServer.Marketing.Testing.Core.Manager.KpiEventArgs)">
+            <summary>
+            Fires off an event based off the key passed in and containing the args passed in.
+            </summary>
+            <param name="key">Name of the event to fire.</param>
+            <param name="eventArgs">KPI details pertaining to the event.</param>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.Manager.ICacheSignal">
+            <summary>
+            The ICacheSignal interface defines a component that is capable
+            of signaling a cache's validity.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ICacheSignal.Monitor(System.Action)">
+            <summary>
+            Registers a callback which will be invoked when a
+            the cache has been invalidated.
+            </summary>
+            <param name="onInvalidation"></param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ICacheSignal.Reset">
+            <summary>
+            Signals that the cache is invalid.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ICacheSignal.Set">
+            <summary>
+            Signals that the cache is now valid.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.Manager.IMarketingTestingEvents">
+            <summary>
+            Defines all the events that the testing service can produce.
+            </summary>
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.IMarketingTestingEvents.TestSaved">
+            <summary>
+            Occurs after a test has been created or updated.
+            have been made.
+            </summary>
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.IMarketingTestingEvents.TestDeleted">
+            <summary>
+            Occurs after a test has been deleted.
+            have been made
+            </summary>
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.IMarketingTestingEvents.TestStarted">
+            <summary>
+            Occurs after a test has transitioned to the started state and cache changes made.
+            </summary>
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.IMarketingTestingEvents.TestStopped">
+            <summary>
+            Occurs after a test has transitioned to the stopped state and cache changes made.
+            </summary>
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.IMarketingTestingEvents.TestArchived">
+            <summary>
+            Occurs after a test has transitioned to the archived state. Content has been published
+            and cache changes have been made.
+            </summary>
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.IMarketingTestingEvents.TestAddedToCache">
+            <summary>
+            Occurs after a test has been added to the active test cache.
+            </summary>
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.IMarketingTestingEvents.TestRemovedFromCache">
+            <summary>
+            Occurs after a test has been removed from the active test cache.
+            </summary>
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.IMarketingTestingEvents.ContentSwitched">
+            <summary>
+            Occurs when content has the published content has been switched out with the
+            test variant. This event will often fire multiple times for a single IContent.
+            </summary>
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.IMarketingTestingEvents.UserIncludedInTest">
+            <summary>
+            Occurs when a user is included in an active test.
+            </summary>
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.IMarketingTestingEvents.KpiConverted">
+            <summary>
+            Occurs when a Kpi is successfully converted.
+            </summary>
+        </member>
+        <member name="E:EPiServer.Marketing.Testing.Core.Manager.IMarketingTestingEvents.AllKpisConverted">
+            <summary>
+            Occurs when all Kpis associated with a given test have been converted.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.Manager.IncrementCountCriteria">
+            <summary>
+            Used to sepcify that type of count to increment.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Manager.IncrementCountCriteria.testId">
+            <summary>
+            ID of a test to save the result to.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Manager.IncrementCountCriteria.itemVersion">
+            <summary>
+            Version of the variant that should be updated.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Manager.IncrementCountCriteria.resultType">
+            <summary>
+            Saves a KPI result.  The result is appended to the list of results for a given variant version for a test for both historical and statistical calculations.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Manager.IncrementCountCriteria.kpiId">
+            <summary>
+            ID of the KPI count to increment.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Manager.IncrementCountCriteria.asynch">
+            <summary>
+            Boolean stating whether the result should be saved asynchronously or not.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Manager.IncrementCountCriteria.clientId">
+            <summary>
+            A unique identifier to throttle overly agressive clients when performing a conversion update.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.Manager.ITestManager">
+            <summary>
+            Central point of access for test data and test manipulation.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.Get(System.Guid,System.Boolean)">
+            <summary>
+            Gets a test based on the supplied id from the database.
+            </summary>
+            <param name="testObjectId">ID of the test to retrieve.</param>
+            <returns>IMarketing Test</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.GetActiveTests">
+            <summary>
+            Gets a collection of tests that are currently active.
+            </summary>        
+            <returns>List of tests</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.GetActiveTestsByOriginalItemId(System.Guid)">
+            <summary>
+            Retrieves all active tests that have the supplied OriginalItemId from the cache.  The associated data for each 
+            test returned may not be current.  If the most current data is required 'Get' should be used instead.
+            </summary>
+            <param name="originalItemId">ID of the item under test.</param>
+            <returns>List of tests.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.GetActiveTestsByOriginalItemId(System.Guid,System.Globalization.CultureInfo)">
+            <summary>
+            Retrieves all active tests that have the supplied OriginalItemId and ContentCulture name. The associated data for each
+            test returned may not be current.  If the most current data is required 'Get' should be used instead.
+            </summary>
+            <param name="originalItemId">ID of the item under test.</param>
+            <param name="contentCulture">Content Culture of the current loaded content.</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.GetTestByItemId(System.Guid)">
+            <summary>
+            Retrieves all tests, regardless of test state, that have the supplied OriginalItemId.
+            </summary>
+            <param name="originalItemId">ID of the item under test.</param>
+            <returns>List of tests.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.GetTestList(EPiServer.Marketing.Testing.Core.DataClass.TestCriteria)">
+            <summary>
+            Don't want to use refernce the cache here.  The criteria could be anything, not just active tests which
+            is what the cache is intended to have in it.
+            </summary>
+            <param name="criteria">A group of filters that are applied to the list of tests in order to limit what is returned.</param>
+            <returns>A list of tests based on the criteria passed in.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.Save(EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest)">
+            <summary>
+            Saves a test to the database.
+            </summary>
+            <param name="testObject">A test.</param>
+            <returns>ID of the test.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.Delete(System.Guid,System.Globalization.CultureInfo)">
+            <summary>
+            Removes a test from the database.
+            </summary>
+            <param name="testObjectId">ID of a test.</param>
+            <param name="cultureInfo">Content Culture of the current loaded content.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.Start(System.Guid)">
+            <summary>
+            Starts a test.
+            </summary>
+            <param name="testObjectId">ID of a test.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.Stop(System.Guid,System.Globalization.CultureInfo)">
+            <summary>
+            Stops a test.
+            </summary>
+            <param name="testObjectId">ID of a test.</param>
+            <param name="cultureInfo">Content Culture of the current loaded content.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.Archive(System.Guid,System.Guid,System.Globalization.CultureInfo)">
+            <summary>
+            Archives a test.
+            </summary>
+            <param name="testObjectId">ID of a test.</param>
+            <param name="winningVariantId">ID of the variant that was declared the winner.</param>
+            <param name="cultureInfo">Content Culture of the current loaded content.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.SaveKpiResultData(System.Guid,System.Int32,EPiServer.Marketing.Testing.Core.DataClass.IKeyResult,EPiServer.Marketing.Testing.Core.DataClass.Enums.KeyResultType,System.Boolean)">
+            <summary>
+            Saves a KPI result.  The result is appended to the list of results for a given variant version for a test for both historical and statistical calculations.
+            </summary>
+            <param name="testId">ID of a test to save the result to.</param>
+            <param name="itemVersion">Version of the variant the result pertains to.</param>
+            <param name="keyResult">The result to save.</param>
+            <param name="type">Type of the result to save.</param>
+            <param name="aSynch">Boolean stating whether the result should be saved asynchronously or not.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.IncrementCount(EPiServer.Marketing.Testing.Core.Manager.IncrementCountCriteria)">
+            <summary>
+            Increments a view or conversion by 1 for a given variant that is part of a given test.
+            </summary>
+            <param name="criteria">Critera class to define what to increment.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.IncrementCount(System.Guid,System.Int32,EPiServer.Marketing.Testing.Core.DataClass.Enums.CountType,System.Guid,System.Boolean)">
+            <summary>
+            Increments a view or conversion by 1 for a given variant that is part of a given test.
+            </summary>
+            <param name="testId">ID of a test.</param>
+            <param name="itemVersion">Version of the variant that should be updated.</param>
+            <param name="kpiId">ID of the KPI count to increment.</param>
+            /// <param name="resultType">Type of count to increment.</param>
+            <param name="asynch">Boolean stating whether the result should be saved asynchronously or not.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.ReturnLandingPage(System.Guid)">
+            <summary>
+            Randomly decides if a new user is to be part of the ongoing test.  If so, chooses 1 of the 2 variants that are part of the test to display to the user.
+            </summary>
+            <param name="testId">ID of a test.</param>
+            <returns>The original or variant item under test.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.GetVariantContent(System.Guid)">
+            <summary>
+            Gets the variant content from the variant cache.
+            </summary>
+            <param name="contentGuid">ID of the content to retrieve.</param>
+            <returns>A content item.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.GetVariantContent(System.Guid,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the variant content from the variant cache for the specified language.
+            </summary>
+            <param name="contentGuid">ID of the content to retrieve.</param>
+            <param name="cultureInfo">Content Culture of the current loaded content.</param>
+            <returns>A content item.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.EvaluateKPIs(System.Collections.Generic.IList{EPiServer.Marketing.KPI.Manager.DataClass.IKpi},System.Object,System.EventArgs)">
+            <summary>
+            Given a list of KPIs and an EventArg object, each KPI will be evaluated and a list of KPI instances 
+            that have been evaluated will be returned.
+            </summary>
+            <param name="kpis">List of KPIs to evaluate for conersion.</param>
+            <param name="sender">Sender of the event that pertains to the KPI.</param>
+            <param name="e">Args associated with the KPIs.</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.ITestManager.GetDatabaseVersion(System.Data.Common.DbConnection,System.String,System.String,System.Boolean)">
+            <summary>
+            If the database needs to be configured, then we return so that it can be set up.  If it has already been configured, we get the version of the current KPI schema and upgrade it if it is an older version.
+            </summary>
+            <param name="dbConnection">Connection properties for the desired database to connect to.</param>
+            <param name="schema">Schema that should be applied to the database (upgrade or downgrade) if the database is outdated.</param>
+            <param name="contextKey">The string used to identify the schema we are requesting the version of.</param>
+            <param name="populateCache">If this is run before the site is set up, we want to populate the cache with all active tests.  By default, this is false.</param>
+            <returns>Database version of the testing schema.</returns>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.Manager.KpiEventArgs">
+            <summary>
+            Used with testmanager KPI related events.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Manager.KpiEventArgs.Kpi">
+            <summary>
+            The KPI that the event relates to.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Manager.KpiEventArgs.KpiConversionDictionary">
+            <summary>
+            Keeps track of all the KPIs for a test and used to determine when they have all converted.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.KpiEventArgs.#ctor(EPiServer.Marketing.KPI.Manager.DataClass.IKpi,EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest)">
+            <summary>
+            
+            </summary>
+            <param name="kpi">The KPI that the event pertains to.</param>
+            <param name="marketingTest">The test the event pertains to.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.KpiEventArgs.#ctor(System.Collections.Generic.IDictionary{System.Guid,System.Boolean},EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest)">
+            <summary>
+            
+            </summary>
+            <param name="kpiConversionDictionary">Keeps track of each KPI that is part of the test and whether it has converted or not.</param>
+            <param name="marketingTest">The test the event pertains to.</param>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.Manager.RemoteCacheSignal">
+            <summary>
+            The RemoteCacheSignal is a component that is capable of signaling
+            the validity of a cache which must be synchronized with other 
+            remote nodes.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.RemoteCacheSignal.#ctor(EPiServer.Framework.Cache.ISynchronizedObjectInstanceCache,EPiServer.Logging.ILogger,System.String,System.TimeSpan)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="cacheToMonitor">The cache to monitor for validity</param>
+            <param name="keyToMonitor">The key whose presence indicates validity</param>
+            <param name="frequency">The frequency which which the cache should check for validity</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.RemoteCacheSignal.Monitor(System.Action)">
+            <summary>
+            Registers a callback which will be invoked if a node has indicated that caches
+            should be invalidated.
+            </summary>
+            <param name="onInvalidation">Callback to execute</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.RemoteCacheSignal.Reset">
+            <summary>
+            Signals to remote nodes that caches should be invalidated.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.RemoteCacheSignal.Set">
+            <summary>
+            Signals that this node's cache is in a valid state.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.RemoteCacheSignal.PollValidity(System.Object)">
+            <summary>
+            Polls for the validity of the cache. If the cache is found to
+            be invalid, the registered callback will be invoked.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.RemoteCacheSignal.IsCacheInvalid">
+            <summary>
+            Determines whether the cache has been invalidated.
+            </summary>
+            <returns>True if the cache is invalid, false otherwise</returns>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.Manager.TestEventArgs">
+            <summary>
+            Used with testmanager IMarketing Test events as well as a base for KPI events.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestEventArgs.#ctor(EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest)">
+            <summary>
+            
+            </summary>
+            <param name="test">A test.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestEventArgs.#ctor(EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest,EPiServer.Core.IContent)">
+            <summary>
+            
+            </summary>
+            <param name="test">A test.</param>
+            <param name="currentContent">The content to check.</param>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Manager.TestEventArgs.Test">
+            <summary>
+            Test the event pertains to.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Manager.TestEventArgs.CurrentContent">
+            <summary>
+            Content that caused the event to fire.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Manager.TestEventArgs.CurrentUser">
+            <summary>
+            User that caused the event to fire.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.Manager.TestManager">
+            <summary>
+            Central point of access for test data and test manipulation.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.Get(System.Guid,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.GetActiveTests">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.GetActiveTestsByOriginalItemId(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.GetActiveTestsByOriginalItemId(System.Guid,System.Globalization.CultureInfo)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.GetTestByItemId(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.GetTestList(EPiServer.Marketing.Testing.Core.DataClass.TestCriteria)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.Save(EPiServer.Marketing.Testing.Core.DataClass.IMarketingTest)">
+            <summary>
+            Saves a test to the database.
+            </summary>
+            <param name="multivariateTest">A test.</param>
+            <returns>ID of the test.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.Delete(System.Guid,System.Globalization.CultureInfo)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.Start(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.Stop(System.Guid,System.Globalization.CultureInfo)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.Archive(System.Guid,System.Guid,System.Globalization.CultureInfo)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.SaveKpiResultData(System.Guid,System.Int32,EPiServer.Marketing.Testing.Core.DataClass.IKeyResult,EPiServer.Marketing.Testing.Core.DataClass.Enums.KeyResultType,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.ReturnLandingPage(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.GetVariantContent(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.GetVariantContent(System.Guid,System.Globalization.CultureInfo)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.IncrementCount(EPiServer.Marketing.Testing.Core.Manager.IncrementCountCriteria)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.IncrementCount(System.Guid,System.Int32,EPiServer.Marketing.Testing.Core.DataClass.Enums.CountType,System.Guid,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.EvaluateKPIs(System.Collections.Generic.IList{EPiServer.Marketing.KPI.Manager.DataClass.IKpi},System.Object,System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Core.Manager.TestManager.GetDatabaseVersion(System.Data.Common.DbConnection,System.String,System.String,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.Messaging.Messages.AddKeyResultMessage">
+            <summary>
+            Message used for saving any type of KPI result that implements IKeyResult.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Messaging.Messages.AddKeyResultMessage.TestId">
+            <summary>
+            ID of the test that the KPI result pertains to.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Messaging.Messages.AddKeyResultMessage.ItemVersion">
+            <summary>
+            Version of the variant that the KPI result pertains to.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Messaging.Messages.AddKeyResultMessage.Result">
+            <summary>
+            The result data to save.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Messaging.Messages.AddKeyResultMessage.Type">
+            <summary>
+            The type of result data to save.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.Messaging.Messages.UpdateConversionsMessage">
+            <summary>
+            Message used to increment the conversion count for a specific variant version of a test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Messaging.Messages.UpdateConversionsMessage.TestId">
+            <summary>
+            ID of a test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Messaging.Messages.UpdateConversionsMessage.ItemVersion">
+            <summary>
+            Version of the variant to increment its conversion count.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Messaging.Messages.UpdateConversionsMessage.KpiId">
+            <summary>
+            ID of a KPI.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Messaging.Messages.UpdateConversionsMessage.ClientIdentifier">
+            <summary>
+            Set this property to a unique value that is client specific to prevent aggressive clients from triggering multiple conversions.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Core.Messaging.Messages.UpdateViewsMessage">
+            <summary>
+            Message used to increment the view count for a specific variant version of a test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Messaging.Messages.UpdateViewsMessage.TestId">
+            <summary>
+            ID of the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Core.Messaging.Messages.UpdateViewsMessage.ItemVersion">
+            <summary>
+            Version of the variant to increment its view count.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Messaging.IMessagingManager">
+            <summary>
+            Emits asynchronous messages for views, conversions, and KPI results.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Messaging.IMessagingManager.EmitUpdateViews(System.Guid,System.Int32)">
+            <summary>
+            Emits the asynchronous message to update the view result for the specified Variant version.
+            </summary>
+            <param name="testId">ID of a test.</param>
+            <param name="itemVersion">Version of the cms item that was viewed.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Messaging.IMessagingManager.EmitUpdateConversion(System.Guid,System.Int32,System.Guid,System.String)">
+            <summary>
+            Emits the asynchronous message to update a conversion result for the specified Variant version.
+            </summary>
+            <param name="testId">ID of a test.</param>
+            <param name="itemVersion">Version of the CMS item that caused a conversion.</param>
+            <param name="kpiId">ID of the KPI that caused a conversion.</param>
+            <param name="clientId">Optional client ID that will be used to throttle agressive clients and prevent multiple conversions.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Messaging.IMessagingManager.EmitKpiResultData(System.Guid,System.Int32,EPiServer.Marketing.Testing.Core.DataClass.IKeyResult,EPiServer.Marketing.Testing.Core.DataClass.Enums.KeyResultType)">
+            <summary>
+            Emits the asynchronous message to add a KPI result to the specified Variant version.
+            </summary>
+            <param name="testId">ID of a test.</param>
+            <param name="itemVersion">Version of the CMS item that caused a conversion.</param>
+            <param name="keyResult">Result containing data pertinent to the KPI.</param>
+            <param name="type">Type of the KPI result.</param>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Messaging.IMessagingManager.Count">
+            <summary>
+            Returns the number of items in the queue.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Messaging.ITestingMessageHandler">
+            <summary>
+            The message handler simply handles the messages and passes them on the registered
+            ITestingMessageHandler which in turn handles the cache and database layer.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Messaging.MessagingManager">
+            <summary>
+            The messaging manager provides an interface for sending asynchronous messages to update view and 
+            conversion data for a specific test. Since its a service it can be loaded via the standard service 
+            locator methods found in EpiServer.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Messaging.MessagingManager.#ctor(EPiServer.ServiceLocation.IServiceLocator,EPiServer.Marketing.Testing.Messaging.ITestingMessageHandler)">
+            <summary>
+            Used specifically for unit tests.
+            </summary>
+            <param name="locator"></param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Messaging.MessagingManager.Init">
+            <summary>
+            Initializes queue internals and registers the supported messages,
+            note that the ITestingMessageHandler is retrieved from service locator
+            so that we can mock it in tests.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Messaging.MessagingManager.EmitUpdateViews(System.Guid,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Messaging.MessagingManager.EmitUpdateConversion(System.Guid,System.Int32,System.Guid,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Messaging.MessagingManager.EmitKpiResultData(System.Guid,System.Int32,EPiServer.Marketing.Testing.Core.DataClass.IKeyResult,EPiServer.Marketing.Testing.Core.DataClass.Enums.KeyResultType)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Messaging.TestingMessageHandler">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Messaging.TestingMessageHandler.#ctor(EPiServer.ServiceLocation.IServiceLocator)">
+            <summary>
+            Used specifically for unit tests.
+            </summary>
+            <param name="locator"></param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Messaging.TestingMessageHandler.Handle(EPiServer.Marketing.Testing.Core.Messaging.Messages.UpdateViewsMessage)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Messaging.TestingMessageHandler.Handle(EPiServer.Marketing.Testing.Core.Messaging.Messages.UpdateConversionsMessage)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Messaging.TestingMessageHandler.Handle(EPiServer.Marketing.Testing.Core.Messaging.Messages.AddKeyResultMessage)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+    </members>
+</doc>

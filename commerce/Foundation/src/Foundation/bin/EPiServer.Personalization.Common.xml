@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Personalization.Common</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Personalization.Common.AppSettingsReader">
+            <summary>
+            Reads data from the appSettings section of the configuration.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Common.AppSettingsReader.Settings">
+            <summary>
+            All appSettings in the configuration.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Personalization.Common.ChannelConfiguration">
+            <summary>
+            Holds the configuration settings for a defined channel.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.ChannelConfiguration.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Personalization.Common.ChannelConfiguration"/> class.
+            </summary>
+            <param name="name">The name of channel.</param>
+            <param name="clientToken">The clientToken of channel.</param>
+            <param name="scope">The parent scope of channel.</param>
+        </member>
+        <member name="P:EPiServer.Personalization.Common.ChannelConfiguration.Name">
+            <summary>
+            The name of channel.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Common.ChannelConfiguration.ClientToken">
+            <summary>
+            Returns the ClientToken setting.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Common.ChannelConfiguration.Scope">
+            <summary>
+            The parent scope.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Personalization.Common.DefaultCookieService">
+            <summary>
+            The default implementation of <see cref="T:EPiServer.Personalization.Common.ICookieService"/>.
+            </summary>
+            <remarks>
+            This implementation assumes a 1-1 mapping of host and scope and that scope separation is implicit because a cookie
+            is only valid for a sigle host. This means that the scope parameters of all methods is ignored.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.DefaultCookieService.CreateCuidCookie(System.String)">
+            <inheritdoc/>
+            <remarks>
+            This implementation ignores the scope parameter, see remarks for <see cref="T:EPiServer.Personalization.Common.DefaultCookieService"/>.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.DefaultCookieService.GetCuidCookie(System.String,System.Web.HttpRequestBase)">
+            <inheritdoc />
+            <remarks>
+            This implementation ignores the scope parameter, see remarks for <see cref="T:EPiServer.Personalization.Common.DefaultCookieService"/>.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.DefaultCookieService.CreateSessionCookie(System.String)">
+            <inheritdoc />
+            <remarks>
+            This implementation ignores the scope parameter, see remarks for <see cref="T:EPiServer.Personalization.Common.DefaultCookieService"/>.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.DefaultCookieService.GetSessionCookie(System.String,System.Web.HttpRequestBase)">
+            <inheritdoc />
+            <remarks>
+            This implementation ignores the scope parameter, see remarks for <see cref="T:EPiServer.Personalization.Common.DefaultCookieService"/>.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.DefaultCookieService.RemoveCookies(System.String,System.Web.HttpRequestBase)">
+            <inheritdoc />
+            <remarks>
+            This implementation ignores the scope parameter, see remarks for <see cref="T:EPiServer.Personalization.Common.DefaultCookieService"/>.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.DefaultUserIdentityService.GetUserId(System.Web.HttpContextBase)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Personalization.Common.ICookieService">
+            <summary>
+            Handles manipulation of cookies used to store cuid and session id.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.ICookieService.CreateCuidCookie(System.String)">
+            <summary>
+            Creates a cookie used to store cuid.
+            </summary>
+            <param name="scope">The scope for which the cookie should be valid.</param>
+            <returns>An <see cref="T:System.Web.HttpCookie"/> to store the cuid.</returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.ICookieService.GetCuidCookie(System.String,System.Web.HttpRequestBase)">
+            <summary>
+            Gets the cuid cookie for a specific scope from a request.
+            </summary>
+            <param name="scope">The scope for which the cookie should be valid.</param>
+            <param name="httpRequest">The <see cref="T:System.Web.HttpRequestBase"/> that may contain the cookie.</param>
+            <returns>The <see cref="T:System.Web.HttpCookie"/> that stores the cuid or null if the cookie is missing from the request.</returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.ICookieService.CreateSessionCookie(System.String)">
+            <summary>
+            Creates a cookie to store session id.
+            </summary>
+            <param name="scope">The scope for which the cookie should be valid.</param>
+            <returns>An <see cref="T:System.Web.HttpCookie"/> to store the session id.</returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.ICookieService.GetSessionCookie(System.String,System.Web.HttpRequestBase)">
+            <summary>
+            Gets the session id cookie for a specific scope from a request.
+            </summary>
+            <param name="scope">The scope for which the cookie should be valid.</param>
+            <param name="httpRequest">The <see cref="T:System.Web.HttpRequestBase"/> that may contain the cookie.</param>
+            <returns>The <see cref="T:System.Web.HttpCookie"/> that stores the session id or null if the cookie is missing from the request.</returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.ICookieService.RemoveCookies(System.String,System.Web.HttpRequestBase)">
+            <summary>
+            Removes the cuid and session id cookies from the request.
+            </summary>
+            <param name="scope">The scope for which the cookies should be valid.</param>
+            <param name="httpRequest">The <see cref="T:System.Web.HttpRequestBase"/> that may contain the cookies.</param>
+        </member>
+        <member name="T:EPiServer.Personalization.Common.IUserIdentityService">
+            <summary>
+            Gets the identity information about the currently logged in user.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.IUserIdentityService.GetUserId(System.Web.HttpContextBase)">
+            <summary>
+            Gets the ID of the currently logged in user. 
+            </summary>
+            <param name="httpContext">The http context.</param>
+            <returns>The user ID, or null if no user logged in.</returns>
+            <remarks>
+            By default, the user email value is suggested for User Id. 
+            In some cases, you may want it to be pseudonymous, so that it cannot be used 
+            to identify the person behind the user without combining the user ID
+            with more information. E.g. an internal (random) numeric is OK.
+            </remarks>
+        </member>
+        <member name="T:EPiServer.Personalization.Common.PersonalizationConfiguration">
+            <summary>
+            Configuration used by Episerver Personalization.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.PersonalizationConfiguration.#ctor(EPiServer.Personalization.Common.ScopedAppSettingsReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Personalization.Common.PersonalizationConfiguration"/> class.
+            </summary>
+            <param name="scopedAppSettingsReader">Provides access to the AppSettings in the configuration file.</param>
+        </member>
+        <member name="P:EPiServer.Personalization.Common.PersonalizationConfiguration.RequestTimeout">
+            <summary>
+            The time to wait before considering tracking request timeout.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Common.PersonalizationConfiguration.SkipUserHostTracking">
+            <summary>
+            Returns a flag determining whether the user's IP address should be excluded in the
+            tracking data sent to the personalization service.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Common.PersonalizationConfiguration.UsePseudonymousUserId">
+            <summary>
+            Returns a flag determining whether the pseudonymous user identifier should be used 
+            instead of the user's email address in the tracking data sent to the personalization service.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.PersonalizationConfiguration.Validate">
+            <summary>
+            Validates the configuration.
+            </summary>
+            <exception cref="T:System.Configuration.ConfigurationErrorsException">If any of the required values are missing.</exception>
+            <exception cref="T:System.UriFormatException">Thrown if the Uri stored in any of the episerver:personalization.BaseApiUrl keys are invalid.</exception>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.PersonalizationConfiguration.GetConfiguration(System.String)">
+            <summary>
+            Gets the configuration for a specific scope.
+            </summary>
+            <param name="scope">The name of the scope.</param>
+            <returns>
+                The <see cref="T:EPiServer.Personalization.Common.ScopeConfiguration"/> for the passed scope if it is defined in the appSettings.
+                If the scope is not defined the scopeless configuration - i.e. the configuration stored in the keys without scope suffix - is returned.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.PersonalizationConfiguration.GetConfiguration">
+            <summary>
+            Gets the scopeless configuration.
+            </summary>
+            <returns>The <see cref="T:EPiServer.Personalization.Common.ScopeConfiguration"/> stored in the keys without scope suffix.</returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.PersonalizationConfiguration.GetScopes">
+            <summary>
+            Returns a list of the scopes defined in configuration.
+            </summary>
+            <returns>The list of scopes. If a valid scopeless configuration exists the list will contain a null entry.</returns>
+        </member>
+        <member name="T:EPiServer.Personalization.Common.IUserSessionService">
+            <summary>
+            Handles storage of cuid and session id.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.IUserSessionService.SetCuid(System.String,System.String,System.String,System.Web.HttpContextBase)">
+            <summary>
+            Sets the cuid on the http response.
+            </summary>
+            <param name="cuid">The cuid.</param>
+            <param name="email">The current users email address</param>
+            <param name="scope">The scope for which the cuid is valid.</param>
+            <param name="httpContext">The http context.</param>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.IUserSessionService.GetCuid(System.String,System.Web.HttpContextBase)">
+            <summary>
+            Gets the cuid from the http request.
+            </summary>
+            <param name="scope">The scope for which the cuid is valid.</param>
+            <param name="httpContext">The http context.</param>
+            <returns>The cuid.</returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.IUserSessionService.SetTrackingSessionId(System.String,System.String,System.Web.HttpContextBase)">
+            <summary>
+            Sets the session id on the http response.
+            </summary>
+            <param name="sessionId">The session id.</param>
+            <param name="scope">The scope for which the session id is valid.</param>
+            <param name="httpContext">The http context.</param>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.IUserSessionService.GetTrackingSessionId(System.String,System.Web.HttpContextBase)">
+            <summary>
+            Gets the session id from the http request.
+            </summary>
+            <param name="scope">The scope for which the session id is valid.</param>
+            <param name="httpContext">The http context.</param>
+            <returns>The session id.</returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.IUserSessionService.ResetSessionIfChangedUser(System.String,System.String,System.Web.HttpContextBase)">
+            <summary>
+            Resets the current session and CUID if changed user.
+            </summary>
+            <param name="email">The email address of the logged in user, or null if no user logged in</param>
+            <param name="scope">The scope for which the cuid and session id is valid.</param>
+            <param name="httpContext">The http context.</param>
+            <returns>True if the session was reset, otherwise False.</returns>
+            <remarks>
+            This is called before a tracking request is created, to handle the case where a session has been associated 
+            with user X, but X has logged off and user Y has logged in. In this case we need to reset the session and
+            request a new CUID. Otherwise we would associate tracking data coming from user Y, with user X instead. 
+            </remarks>
+        </member>
+        <member name="T:EPiServer.Personalization.Common.ScopeConfiguration">
+            <summary>
+            Holds the configuration settings for a defined scope.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.ScopeConfiguration.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Personalization.Common.ScopeConfiguration"/> class.
+            </summary>
+            <param name="baseApiUrl">The base api url.</param>
+            <param name="site">The site.</param>
+            <param name="clientToken">The client token.</param>
+            <param name="adminToken">The admin token.</param>
+            <param name="alias">The alias.</param>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.ScopeConfiguration.#ctor(System.String,System.String,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{EPiServer.Personalization.Common.ChannelConfiguration})">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Personalization.Common.ScopeConfiguration"/> class.
+            </summary>
+            <param name="baseApiUrl">The base api url.</param>
+            <param name="site">The site.</param>
+            <param name="clientToken">The client token.</param>
+            <param name="adminToken">The admin token.</param>
+            <param name="alias">The alias.</param>
+            <param name="channelConfigurations">The collection of <see cref="T:EPiServer.Personalization.Common.ChannelConfiguration"/>.</param>
+        </member>
+        <member name="P:EPiServer.Personalization.Common.ScopeConfiguration.AdminToken">
+            <summary>
+            Returns the AdminToken setting.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Common.ScopeConfiguration.BaseApiUrl">
+            <summary>
+            Returns the BaseApiUrl setting.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Common.ScopeConfiguration.ClientToken">
+            <summary>
+            Returns the ClientToken setting.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Common.ScopeConfiguration.Site">
+            <summary>
+            Returns the Site setting.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Common.ScopeConfiguration.ChannelConfigurations">
+            <summary>
+            The collection of <see cref="T:EPiServer.Personalization.Common.ChannelConfiguration"/>.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Personalization.Common.ScopedAppSettingsReader">
+            <summary>
+            Reads settings, with or without scope, from the appSettings section of the configuration.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.ScopedAppSettingsReader.#ctor(EPiServer.Personalization.Common.AppSettingsReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Personalization.Common.ScopedAppSettingsReader"/> class.
+            </summary>
+            <param name="appSettingsReader">Provides access to the AppSettings in the configuration file.</param>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.ScopedAppSettingsReader.GetSettingByAlias``1(System.String,System.String)">
+            <summary>
+            Loads a setting from configuration.
+            </summary>
+            <param name="key">The base appSettings key.</param>
+            <param name="scopeAlias">Optional. The scope alias which should be suffixed to the base key.</param>
+            <typeparam name="T">The type which the configuration string value should be converted to.</typeparam>
+            <returns>An object, T, which is constructed from the string value of the specified appSettings key.</returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.ScopedAppSettingsReader.GetSettingByScope``1(System.String,System.String)">
+            <summary>
+            Loads a setting from configuration.
+            </summary>
+            <param name="key">The base appSettings key.</param>
+            <param name="scope">The name of the scope which alias should be suffixed to the base key.</param>
+            <typeparam name="T">The type which the configuration string value should be converted to.</typeparam>
+            <returns>An object, T, which is constructed from the string value of the specified appSettings key.</returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.ScopedAppSettingsReader.GetScopelessSetting``1(System.String)">
+            <summary>
+            Loads a setting from configuration.
+            </summary>
+            <param name="key">The appSettings key.</param>
+            <typeparam name="T">The type which the configuration string value should be converted to.</typeparam>
+            <returns>An object, T, which is constructed from the string value of the specified appSettings key.</returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.ScopedAppSettingsReader.GetScopelessSetting``1(System.String,``0)">
+            <summary>
+            Loads a setting from configuration.
+            </summary>
+            <param name="key">The appSettings key.</param>
+            <param name="defaultValue">The default value will be returned.</param>
+            <typeparam name="T">The type which the configuration string value should be converted to.</typeparam>
+            <returns>An object, T, which is constructed from the string value of the specified appSettings key.</returns>
+        </member>
+        <member name="T:EPiServer.Personalization.Common.UserSessionService">
+            <summary>
+             Handles storage of cuid and session id.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.UserSessionService.GetCuid(System.String,System.Web.HttpContextBase)">
+            <summary>
+            Gets the cuid from the http request.
+            </summary>
+            <param name="scope">The scope for which the cuid is valid.</param>
+            <param name="httpContext">The http context.</param>
+            <returns>The cuid.</returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.UserSessionService.GetTrackingSessionId(System.String,System.Web.HttpContextBase)">
+            <summary>
+            Gets the session id from the http request.
+            </summary>
+            <param name="scope">The scope for which the session id is valid.</param>
+            <param name="httpContext">The http context.</param>
+            <returns>The session id.</returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.UserSessionService.SetTrackingSessionId(System.String,System.String,System.Web.HttpContextBase)">
+            <summary>
+            Sets the session id on the http response.
+            </summary>
+            <param name="sessionId">The session id.</param>
+            <param name="scope">The scope for which the session id is valid.</param>
+            <param name="httpContext">The http context.</param>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.UserSessionService.SetCuid(System.String,System.String,System.String,System.Web.HttpContextBase)">
+            <summary>
+            Sets the cuid on the http response.
+            </summary>
+            <param name="cuid">The cuid.</param>
+            <param name="email">The current users email address</param>
+            <param name="scope">The scope for which the cuid is valid.</param>
+            <param name="httpContext">The http context.</param>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.UserSessionService.ResetSessionIfChangedUser(System.String,System.String,System.Web.HttpContextBase)">
+            <summary>
+            Resets the current session and CUID if changed user.
+            </summary>
+            <param name="email">The email address of the logged in user, or null if no user logged in</param>
+            <param name="scope">The scope for which the cuid is valid.</param>
+            <param name="httpContext">The http context.</param>
+            <returns>True if the session was reset, otherwise False.</returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Common.UserSessionService.CalculateEmailHash(System.String)">
+            <summary>
+            Calculate hash from an email address.
+            </summary>
+            <param name="email">Users email address.</param>
+            <returns>String with hash value. Null if email is null or empty string.</returns>
+        </member>
+    </members>
+</doc>

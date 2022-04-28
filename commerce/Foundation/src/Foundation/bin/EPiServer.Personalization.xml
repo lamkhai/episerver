@@ -1,0 +1,281 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Personalization</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Personalization.Implementation.CryptographyUtility">
+            <summary>
+            Provides solution to login credentials encryption/decryption.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Implementation.CryptographyUtility.Encrypt(System.String)">
+            <summary>
+            Encrypts plain data with provided key.
+            </summary>
+            <param name="plainText">The plain text to be encrypted.</param>
+            <returns>Cypher text.</returns>
+        </member>
+        <member name="M:EPiServer.Personalization.Implementation.CryptographyUtility.Decrypt(System.String)">
+            <summary>
+            Decrypts encoded data.
+            </summary>
+            <param name="cipherText">The encrypted text.</param>
+            <returns>Plain text.</returns>
+        </member>
+        <member name="T:EPiServer.Personalization.Implementation.PersonalizationMenuProvider">
+            <summary>
+            Renders menu items on the top global menu.
+            </summary>
+            <seealso cref="T:EPiServer.Shell.Navigation.IMenuProvider" />
+        </member>
+        <member name="M:EPiServer.Personalization.Implementation.PersonalizationMenuProvider.GetMenuItems">
+            <summary>
+            Gets the menu items that link to Personalization systems.
+            </summary>
+            <returns>Links to Personalization systems.</returns>
+        </member>
+        <member name="P:EPiServer.Personalization.Implementation.PersonalizationMenuProvider.HasAccessToPersonalization">
+            <summary>
+            Gets a value indicating whether this instance has access to personalization.
+            </summary>-
+            <value><c>true</c> if this instance has access to personalization; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:EPiServer.Personalization.Implementation.PersonalizationModule">
+            <summary>
+            Defines Personalization module.
+            </summary>
+            <seealso cref="T:EPiServer.Shell.Modules.ShellModule" />
+        </member>
+        <member name="M:EPiServer.Personalization.Implementation.PersonalizationModule.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Personalization.Implementation.PersonalizationModule"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="routeBasePath">The route base path.</param>
+            <param name="resourceBasePath">The resource base path.</param>
+        </member>
+        <member name="T:EPiServer.Personalization.Implementation.PersonalizationSettings">
+            <summary>
+            Personalization Settings to be stored in the DDS.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Implementation.PersonalizationSettings.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Implementation.PersonalizationSettings.SiteUrl">
+            <summary>
+            Gets or sets URL of the remote site
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Implementation.PersonalizationSettings.Email">
+            <summary>
+            Gets or sets the login email.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Implementation.PersonalizationSettings.Password">
+            <summary>
+            Gets or sets the login password.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Personalization.Implementation.PersonalizationSettings.RandomSeed">
+            <summary>
+            Seed used to generate random string.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Implementation.PersonalizationSettings.LanguageTest">
+            <summary>
+            Gets or sets the encryption initilzation vector.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Implementation.PersonalizationSettings.LanguageIndexTest">
+            <summary>
+            Gets or sets the encryption initilzation vector.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Implementation.PersonalizationSettings.Store">
+            <summary>
+            Gets the Dynamic Data Store store associated to <see cref="T:EPiServer.Personalization.Implementation.PersonalizationSettings"/>.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Implementation.PersonalizationSettings.Current">
+            <summary>
+            Gets the current singleton instance of this settings.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Implementation.PersonalizationSettings.Save">
+            <summary>
+            Saves this settings to Dyanmic Data Store.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Implementation.PersonalizationSettings.GenerateNewKey">
+            <summary>
+            Get crypto key from configuration file.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Implementation.PersonalizationSettings.GenerateNewInitialVector">
+            <summary>
+            Get crypto key from configuration file.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Implementation.PersonalizationSettings.GenerateRandomString(System.Int32)">
+            <summary>
+            Get crypto key from configuration file.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Implementation.PersonalizationSettings.GetLanguage">
+            <summary>
+            Get language property from localization.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Personalization.Views.PersonalizationPortal">
+            <summary>
+            Displays Personalization Portal inside an iframe.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Personalization.Views.PersonalizationPortal.AuthenticationData">
+            <summary>
+            Gets the encrypted data to authenticate against Personalization Portal.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Views.PersonalizationPortal.OnPreInit(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Page.PreInit"/> event at the beginning of page initialization.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:EPiServer.Personalization.Views.PersonalizationPortal.OnInit(System.EventArgs)">
+            <summary>
+            Raises the Init event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="F:EPiServer.Personalization.Views.PersonalizationPortal.GlobalShellMenu">
+            <summary>
+            GlobalShellMenu control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="T:EPiServer.Personalization.Views.Settings">
+            <summary>
+            Access this page from Edit Views/My Settings of current user, it provides guide how to register blog account from MS Word.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Views.Settings.OnInit(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.Init" /> event to initialize the page.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:EPiServer.Personalization.Views.Settings.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender" /> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" /> object that contains the event data.</param>
+        </member>
+        <member name="M:EPiServer.Personalization.Views.Settings.DataBind">
+            <summary>
+            Binds a data source to the invoked server control and all its child controls.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Personalization.Views.Settings.Save_Click(System.Object,System.EventArgs)">
+            <summary>
+            Save the entered settings
+            </summary>
+            <param name="sender">Object that triggered the event</param>
+            <param name="e">Event parameters</param>
+        </member>
+        <member name="M:EPiServer.Personalization.Views.Settings.ShowMessage(System.String,System.Boolean)">
+            <summary>
+            Shows the message information.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="isWarning">if set to <c>true</c> message is a warning.</param>
+        </member>
+        <member name="M:EPiServer.Personalization.Views.Settings.ShowMessage(System.String,System.String,System.Boolean)">
+            <summary>
+            Shows the message information.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="tooltip">The tooltip.</param>
+            <param name="isWarning">if set to <c>true</c> message is a warning.</param>
+        </member>
+        <member name="F:EPiServer.Personalization.Views.Settings.MessagePanel">
+            <summary>
+            MessagePanel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:EPiServer.Personalization.Views.Settings.txtSiteURL">
+            <summary>
+            txtSiteURL control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:EPiServer.Personalization.Views.Settings.SiteURLValidator">
+            <summary>
+            SiteURLValidator control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:EPiServer.Personalization.Views.Settings.txtEmail">
+            <summary>
+            txtEmail control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:EPiServer.Personalization.Views.Settings.EmailValidator">
+            <summary>
+            EmailValidator control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:EPiServer.Personalization.Views.Settings.txtPassword">
+            <summary>
+            txtPassword control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:EPiServer.Personalization.Views.Settings.PassowrdValidator">
+            <summary>
+            PassowrdValidator control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:EPiServer.Personalization.Views.Settings.btnSave">
+            <summary>
+            btnSave control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+    </members>
+</doc>

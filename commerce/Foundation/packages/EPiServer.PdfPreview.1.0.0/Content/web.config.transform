@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<configuration>
+    <system.webServer>
+        <staticContent>
+            <mimeMap fileExtension=".properties" mimeType="application/octet-stream" />
+        </staticContent>
+    </system.webServer>
+    <episerver.shell>
+        <protectedModules>
+            <add name="EPiServer.PdfPreview" />
+        </protectedModules>
+    </episerver.shell>
+</configuration>

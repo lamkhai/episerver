@@ -1,0 +1,2 @@
+﻿The EPiServer.Personalization.MaxMindGeolocation package is distributed without a MaxMind Geolocation database. You can acquire a Geolocation database from MaxMind by downloading the free GeoLite2 database at https://dev.maxmind.com/geoip/geoip2/geolite2/. 
+You will also need to download the database in CSV format for the provider to be able to list all available Locations. The provider will work with both the Country and City database types.

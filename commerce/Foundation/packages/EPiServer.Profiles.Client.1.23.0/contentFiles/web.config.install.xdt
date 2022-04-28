@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <appSettings>
+    <add key="episerver:profiles.TrackingApiBaseUrl" value="ChangeThis" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="episerver:profiles.TrackingApiSubscriptionKey" value="ChangeThis" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="episerver:profiles.ProfileStoreTrackingEnabled" value="false" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+  </appSettings>
+</configuration>

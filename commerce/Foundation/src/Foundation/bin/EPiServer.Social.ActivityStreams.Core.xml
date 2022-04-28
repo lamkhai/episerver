@@ -1,0 +1,1018 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Social.ActivityStreams.Core</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.AssertForSubscription">
+            <summary>
+            Asserts values for criterias. 
+            An exception is thrown if the criteria data is found to be insufficient.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.AssertForSubscription.Add(EPiServer.Social.ActivityStreams.Core.Subscription)">
+            <summary>
+            Assert values for Add with UserSubscription
+            </summary>
+            <param name="subscription">The UserSubscription to assert.</param>
+            <exception cref="T:System.ArgumentException">Subscription data is insufficient.</exception>
+            <exception cref="T:System.ArgumentNullException">The specified criteria data is insufficient.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.AssertForSubscription.Paging(EPiServer.Social.Common.PageInfo)">
+            <summary>
+            Assert values for Paging
+            </summary>
+            <param name="info">The PageInfo to assert.</param>
+            <exception cref="T:System.ArgumentNullException">The specified criteria data is insufficient.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.AssertForSubscription.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Assert values for Get with SubscriptionCriteria
+            </summary>
+            <param name="criteria">The SubscriptionCriteria to assert.</param>
+            <exception cref="T:System.ArgumentException">The specified criteria is insufficient.</exception>
+            <exception cref="T:System.ArgumentNullException">The specified criteria data is insufficient.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.AssertForSubscription.Remove(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Assert values for Remove with SubscriptionCriteria
+            </summary>
+            <param name="criteria">The SubscriptionCriteria to assert.</param>
+            <exception cref="T:System.ArgumentException">The specified criteria is insufficient.</exception>
+            <exception cref="T:System.ArgumentNullException">The specified criteria data is insufficient.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.AssertForSubscription.Get(EPiServer.Social.ActivityStreams.Core.SubscriptionId)">
+            <summary>
+            Assert values for Get with SubscriptionId
+            </summary>
+            <param name="id">Id of subscription.</param>
+            <exception cref="T:System.ArgumentException">The specified criteria data is insufficient.</exception>
+            <exception cref="T:System.ArgumentNullException">The specified criteria data is insufficient.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.AssertForSubscription.Remove(EPiServer.Social.ActivityStreams.Core.SubscriptionId)">
+            <summary>
+            Assert values for SubscriptionId
+            </summary>
+            <param name="id">Id of subscription.</param>
+            <exception cref="T:System.ArgumentException">The specified criteria data is insufficient.</exception>
+            <exception cref="T:System.ArgumentNullException">The specified criteria data is insufficient.</exception>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.DuplicateSubscriptionException">
+            <summary>
+            The DuplicateSubscriptionException represents an error occurring
+            when an attempt is made to add a subscription which already exists
+            for the same subscriber and followed target (resource or user).
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.DuplicateSubscriptionException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Error message</param>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.SubscriptionDoesNotExistException">
+            <summary>
+            Exception thrown when removing a subscription that does not exist.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionDoesNotExistException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">A custom message for the exception.</param>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.ActivityId">
+            <summary>
+            The ActivityId class is a data model representing an identifier for an activity 
+            (of interest to one or more subscribers) for which a feed item was generated when 
+            that activity was received by the ActivityStreams system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ActivityId.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">String-based identifier for an activity.</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ActivityId.IsNullOrEmpty(EPiServer.Social.ActivityStreams.Core.ActivityId)">
+            <summary>
+            Returns true if the specified ActivityId has not been
+            initialized or represents an empty activity identifier,
+            false otherwise.
+            </summary>
+            <param name="id">Activity identifier to evaluate</param>
+            <returns>True if the ActivityId is null or empty, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ActivityId.Create(System.String)">
+            <summary>
+            Parses an activity ID from a string-based identifier.
+            </summary>
+            <param name="id">Identifer for the activity</param>
+            <returns>Instance of ActivityId representing the specified identifier</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ActivityId.Create">
+            <summary>
+            Creates an empty ActivityId.
+            </summary>
+            <returns>Empty ActivityId instance</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ActivityId.op_Equality(EPiServer.Social.ActivityStreams.Core.ActivityId,EPiServer.Social.ActivityStreams.Core.ActivityId)">
+             <summary>
+             Evaluates the equality of two ActivityId instances.
+             </summary>
+             <param name="a">The operand on the left side of the equality operator.</param>
+             <param name="b">The operand on the right side of the equality operator.</param>
+             <returns>
+             Returns true if the specified instances are equivalent, false otherwise.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ActivityId.op_Inequality(EPiServer.Social.ActivityStreams.Core.ActivityId,EPiServer.Social.ActivityStreams.Core.ActivityId)">
+            <summary>
+            Evaluates two ActivityId instances for inequality.
+            </summary>
+            <param name="a">The operand on the left side of the inequality operator.</param>
+            <param name="b">The operand on the right side of the inequality operator.</param>
+            <returns>
+            Returns true if the specified instances are not equivalent, false otherwise.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ActivityId.Equals(System.Object)">
+            <summary>
+            Compares this instance with another object.
+            </summary>
+            <param name="obj">the object to compare with this instance.</param>
+            <returns>
+            Returns true if this instance and another specified object, of type ActivityId have the same 
+            value of the underlying activity identifier, else returns false.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ActivityId.GetHashCode">
+            <summary>
+            Returns a hash code representative of this ActivityId.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.ActivityId.Empty">
+            <summary>
+            Returns a newly created ActivityId instance representing
+            an 'empty' activity ID.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ActivityId.CreateEmptyActivityId">
+            <summary>
+            Creates an instance of an empty ActivityId.
+            </summary>
+            <returns>Empty ActivityId instance</returns>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.FeedItemFilter">
+            <summary>
+            The FeedItemFilter class describes the specifications by which
+            feed items should be retrieved.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.FeedItemFilter.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.FeedItemFilter.Subscriber">
+            <summary>
+            Gets or sets a subscriber by which the result set of
+            feed items should be filtered.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.FeedItemFilter.Actor">
+            <summary>
+            Gets or sets the actor reference of the activity by which the result set of
+            feed items should be filtered.
+            Actor is the reference of an actor who performed an activity on the resource.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.FeedItemFilter.Target">
+            <summary>
+            Gets or sets the target reference of the activity by which the result set of
+            feed items should be filtered.
+            Target is the reference of the resource on which the activity was performed.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.SubscriptionType">
+            <summary>
+            Represents the type of subscription. Subscription type is a user assigned and optional type that can be
+            used to categorize subscriptions. Default is empty string
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionType.IsEmpty">
+            <summary>
+            Checks if the subscriptionType instance has a type.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionType.#ctor">
+            <summary>
+            Returns a newly created and initialized SubscriptionType instance.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionType.#ctor(System.String)">
+            <summary>
+            Returns a newly created and initialized SubscriptionType instance.
+            </summary>
+            <param name="type">String representing the subscription type of this instance.</param>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.SubscriptionType.Empty">
+            <summary>
+            Gets an empty subscription type value.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.SubscriptionType.Type">
+            <summary>
+            Gets or sets the subscription type of this instance.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionType.IsNullOrEmpty(EPiServer.Social.ActivityStreams.Core.SubscriptionType)">
+            <summary>
+            Returns true if the specified SubscriptionType is null or represents
+            an empty SubscriptionType, false otherwise.
+            </summary>
+            <param name="subscriptionType">SubscriptionType instance to verify</param>
+            <returns>True if the SubscriptionType is null or empty, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionType.Create(System.String)">
+            <summary>
+            Creates a SubscriptionType. 
+            </summary>
+            <param name="type">String representing the subscription type.</param>
+            <returns>The created SubscriptionType object.</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionType.op_Equality(EPiServer.Social.ActivityStreams.Core.SubscriptionType,EPiServer.Social.ActivityStreams.Core.SubscriptionType)">
+             <summary>
+             Overloads the equality operator on the SubscriptionType class.
+             </summary>
+             <param name="a">The operand on the left side of the equality operator.</param>
+             <param name="b">The operand on the right side of the equality operator.</param>
+             <returns>
+             Returns true if the both objects are null or the same instance or have the same value of the underlying type string.
+             Returns false if either object is null or both objects have different values of the underlying type string.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionType.op_Inequality(EPiServer.Social.ActivityStreams.Core.SubscriptionType,EPiServer.Social.ActivityStreams.Core.SubscriptionType)">
+            <summary>
+            Overloads the inequality operator on the SubscriptionType class.
+            </summary>
+            <param name="a">The operand on the left side of the inequality operator.</param>
+            <param name="b">The operand on the right side of the inequality operator.</param>
+            <returns>
+            Returns true if either object is null or both objects have different values of the underlying type string.
+            Returns false if the both objects are null or the same instance or have the same value of the underlying type string.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionType.Equals(System.Object)">
+            <summary>
+            Compares this instance with another object.
+            </summary>
+            <param name="obj">the object to compare with this instance.</param>
+            <returns>
+            Returns true if this instance and another specified object, of type SubscriptionType have the same 
+            value of the underlying type string, else returns false.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionType.GetHashCode">
+            <summary>
+            Returns the hash code of the underlying type string of this instance.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionType.ToString">
+            <summary>
+            Returns a string representation of this instance.
+            </summary>
+            <returns>
+            Returns the underlying type of this instance.
+            </returns>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.SubscriptionSortFields">
+            <summary>
+            The SubscriptionSortFields class exposes the fields of the Subscription
+            model which are available for application in defining sorting
+            rules for subscription result sets within the Social platform.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.SubscriptionSortFields.Id">
+            <summary>
+            Gets the FieldExpression representing the ID field of the Subscription
+            data model.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.SubscriptionSortFields.Created">
+            <summary>
+            Gets the FieldExpression representing the Created field of the Subscription
+            data model.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.SubscriptionSortFields.Subscriber">
+            <summary>
+            Gets the FieldExpression representing the Subscriber field of the Subscription
+            data model.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.SubscriptionSortFields.Target">
+            <summary>
+            Gets the FieldExpression representing the target field of the Subscription
+            data model.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.SubscriptionSortFields.Type">
+            <summary>
+            Gets the FieldExpression representing the type field of the Subscription
+            data model.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.SubscriptionFilter">
+            <summary>
+            The SubscriptionFilter class describes the specifications by which
+            subscriptions should be retrieved.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionFilter.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.SubscriptionFilter.Subscriber">
+            <summary>
+            Gets or sets a subscriber by which the result set of
+            subscriptions should be filtered.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.SubscriptionFilter.Target">
+            <summary>
+            Gets or sets the target by which the result set of
+            subscriptions should be filtered.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.SubscriptionFilter.Type">
+            <summary>
+            Gets or sets the type by which the result set of
+            subscriptions should be filtered.
+            </summary>        
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.Subscription">
+            <summary>
+            Represents a subscription in Episerver's Social Activity Streams system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.Subscription.#ctor(EPiServer.Social.Common.Reference,EPiServer.Social.Common.Reference)">
+            <summary>
+            Constructs and returns an initialized Subscription instance.
+            </summary>
+            <param name="subscriber">A reference to the subscriber the subscription applies to.</param>
+            <param name="target">The reference to the target being followed by the subscriber.</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.Subscription.#ctor(EPiServer.Social.Common.Reference,EPiServer.Social.Common.Reference,EPiServer.Social.ActivityStreams.Core.SubscriptionType)">
+            <summary>
+            Constructs and returns an initialized Subscription instance.
+            </summary>
+            <param name="subscriber">A reference to the subscriber the subscription applies to.</param>
+            <param name="target">The reference to the target being followed by the subscriber.</param>
+            <param name="type">A user assigned type or category of the subscription.</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.Subscription.#ctor(EPiServer.Social.ActivityStreams.Core.SubscriptionId,EPiServer.Social.Common.Reference,EPiServer.Social.Common.Reference,EPiServer.Social.ActivityStreams.Core.SubscriptionType,System.DateTime)">
+            <summary>
+            Constructs and returns an initialized Subscription instance.
+            </summary>
+            <param name="id">The subscription id.</param>
+            <param name="subscriber">A reference to the subscriber the subscription applies to.</param>
+            <param name="created">The date the subscription was created.</param>
+            <param name="target">The reference to the target being followed by the subscriber.</param>
+            <param name="type">A user assigned type or category of the subscription.</param>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.Subscription.Id">
+            <summary>
+            Returns the subscription Id.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.Subscription.Subscriber">
+            <summary>
+            Returns the reference to the subscriber the subscription applies to.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.Subscription.Target">
+            <summary>
+            Returns the reference to the target being followed by the subscriber.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.Subscription.Type">
+            <summary>
+            Returns the type of the subscription. 
+            </summary>
+            <remarks>This is a user assigned and optional property that can be
+            used to categorize subscriptions. Default is empty string.</remarks>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.Subscription.Created">
+            <summary>
+            Returns the date/time the subscription was created.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.SubscriptionId">
+            <summary>
+            The SubscriptionId class is a data model representing
+            an identifier for a Subscription within the social
+            platform.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionId.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">String-based identifier for a Subscription</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionId.IsNullOrEmpty(EPiServer.Social.ActivityStreams.Core.SubscriptionId)">
+            <summary>
+            Returns true if the specified SubscriptionId has not been
+            initialized or represents an empty activity identifier,
+            false otherwise.
+            </summary>
+            <param name="id">Subscription identifier to evaluate</param>
+            <returns>True if the SubscriptionId is null or empty, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionId.Create(System.String)">
+            <summary>
+            Parses an activity ID from a string-based identifier.
+            </summary>
+            <param name="id">Identifer for the activity</param>
+            <returns>Instance of SubscriptionId representing the specified identifier</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionId.Create">
+            <summary>
+            Creates an empty SubscriptionId.
+            </summary>
+            <returns>Empty SubscriptionId instance</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionId.op_Equality(EPiServer.Social.ActivityStreams.Core.SubscriptionId,EPiServer.Social.ActivityStreams.Core.SubscriptionId)">
+             <summary>
+             Evaluates the equality of two SubscriptionId instances.
+             </summary>
+             <param name="a">The operand on the left side of the equality operator.</param>
+             <param name="b">The operand on the right side of the equality operator.</param>
+             <returns>
+             Returns true if the specified instances are equivalent, false otherwise.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionId.op_Inequality(EPiServer.Social.ActivityStreams.Core.SubscriptionId,EPiServer.Social.ActivityStreams.Core.SubscriptionId)">
+            <summary>
+            Evaluates two SubscriptionId instances for inequality.
+            </summary>
+            <param name="a">The operand on the left side of the inequality operator.</param>
+            <param name="b">The operand on the right side of the inequality operator.</param>
+            <returns>
+            Returns true if the specified instances are not equivalent, false otherwise.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionId.Equals(System.Object)">
+            <summary>
+            Compares this instance with another object.
+            </summary>
+            <param name="obj">the object to compare with this instance.</param>
+            <returns>
+            Returns true if this instance and another specified object, of type SubscriptionId have the same 
+            value of the underlying subscription identifier, else returns false.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionId.GetHashCode">
+            <summary>
+            Returns a hash code representative of this SubscriptionId.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.SubscriptionId.Empty">
+            <summary>
+            Returns a newly created SubscriptionId instance representing
+            an 'empty' activity ID.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionId.CreateEmptyActivityId">
+            <summary>
+            Creates an instance of an empty SubscriptionId.
+            </summary>
+            <returns>Empty SubscriptionId instance</returns>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.SubscriptionPage`1">
+            <summary>
+            The SubscriptionPage class represents a data structure which contains an 
+            enumerable list of subscriptions along with paging information that enables 
+            retrieving subsequent pages of subscriptions.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.SubscriptionPage`1.#ctor(System.Collections.Generic.IEnumerable{`0},EPiServer.Social.Common.PageInfo,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="subscriptions">The list of subscriptions in this page.</param>
+            <param name="info">The page info for this page.</param>
+            <param name="totalCount">The total count the query for this page would generate.</param>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.SubscriptionPage`1.Subscriptions">
+            <summary>
+            Gets the subscriptions for the current page.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.SubscriptionPage`1.Info">
+            <summary>
+            Gets the page size and offset for the
+            query that produced this page.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.SubscriptionPage`1.TotalCount">
+            <summary>
+            Gets the total count of items comprising the
+            result set for the query that produced this page.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.FeedItemSortFields">
+            <summary>
+            The FeedItemSortFields class exposes the fields of the FeedItem
+            model which are available for application in defining sorting
+            rules for feed item result sets within the Social platform.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.FeedItemSortFields.ActivityId">
+            <summary>
+            Gets the SortField representing the activity identifier of the feed item
+            data model.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.FeedItemSortFields.ActivityDate">
+            <summary>
+            Gets the SortField representing the activity date field of the feed item
+            data model.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.FeedItemSortFields.Actor">
+            <summary>
+            Gets the SortField representing the actor reference field of the feed item
+            data model.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.FeedItemSortFields.Target">
+            <summary>
+            Gets the SortField representing the target reference field of the feed item
+            data model.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.IActivityHandler`1">
+            <summary>
+            The IActivityHandler interface describes a component capable of
+            handling a particular type of activity.
+            </summary>
+            <typeparam name="TExtension">Type of activity to handle</typeparam>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IActivityHandler`1.Handle(EPiServer.Social.ActivityStreams.Core.Activity,`0)">
+            <summary>
+            Handle the specified activity.
+            </summary>
+            <param name="activity">The activity to be handled</param>
+            <param name="extension">The payload of the activity being handled</param>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.FeedItem">
+            <summary>
+            Represents a feed item corresponding to a subscriber feed that is generated for an 
+            activity that was received by the Activity Streams system. 
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.FeedItem.ActivityId">
+            <summary>
+            Gets or sets the ActivityId.
+            ActivityId is the unique identifier of an activity that occurred.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.FeedItem.ActivityDate">
+            <summary>
+            Gets or sets DateTime identifying when the activity, for which the feed item was generated, 
+            was received by the Activity Streams system.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.FeedItem.Actor">
+            <summary>
+            Gets or sets the Actor reference
+            Actor is the reference of an actor who performed an activity 
+            on the resource.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.FeedItem.Target">
+            <summary>
+            Gets or sets the reference to the target resource on which the activity was performed.
+            </summary>
+            <remarks>Target can be a resource or user reference depending on whether
+            the activity was performed on a user or a resource in an application.</remarks>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.IActivityRepository">
+            <summary>
+            The IActivityRepository interface describes a component capable
+            of adding activity data to an underlying data store.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IActivityRepository.Add``1(EPiServer.Social.ActivityStreams.Core.Activity,``0)">
+            <summary>
+            Add an activity synchronously to the underlying data store.  
+            </summary>
+            <typeparam name="TExtension">The activity payload supplied as an extension to the activity.</typeparam>
+            <param name="activity">An activity encapsulating some social activity occurring in an application that was received by the ActivityStreams system for processing.</param>
+            <param name="extension">The type of activity or payload supplied as an extension to the activity</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IActivityRepository.AddAsync``1(EPiServer.Social.ActivityStreams.Core.Activity,``0)">
+            <summary>
+            Add an activity asynchronously to the underlying data store.  
+            </summary>
+            <typeparam name="TExtension">The activity payload supplied as an extension to the activity.</typeparam>
+            <param name="activity">An activity encapsulating some social activity occurring in an application that was received by the ActivityStreams system for processing.</param>
+            <param name="extension">The type of activity or payload supplied as an extension to the activity</param>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.IFeedItemRepository">
+            <summary>
+            The IFeedItemRepository interface describes a component capable
+            of saving and retrieving/filtering feed data from
+            an underlying data store.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IFeedItemRepository.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.FeedItemFilter})">
+            <summary>
+            Retrieves a page of feed items from the underlying data store, as
+            described by the specified criteria.
+            </summary>
+            <param name="criteria">Criteria by which to filter feed items</param>
+            <returns>Page of feed items</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IFeedItemRepository.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.ActivityStreams.Core.FeedItemFilter,``0})">
+            <summary>
+            Retrieves a page of feed items from the underlying data store, as described 
+            by the specified criteria. Feed items are filtered by the type of payload 
+            data associated with the corresponding activity.
+            </summary>
+            <typeparam name="TExtension">Type of data associated with the desired feed items</typeparam>
+            <param name="criteria">Criteria by which to filter feed items</param>
+            <returns>Page of composite feed items</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IFeedItemRepository.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.FeedItemFilter})">
+            <summary>
+            Retrieves a page of feed items from the underlying data store, as
+            described by the specified criteria.
+            </summary>
+            <param name="criteria">Criteria by which to filter feed items</param>
+            <returns>Page of feed items</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IFeedItemRepository.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.ActivityStreams.Core.FeedItemFilter,``0})">
+            <summary>
+            Retrieves a page of feed items from the underlying data store, as described 
+            by the specified criteria. Feed items are filtered by the type of payload 
+            data associated with the corresponding activity.
+            </summary>
+            <typeparam name="TExtension">Type of data associated with the desired feed items</typeparam>
+            <param name="criteria">Criteria by which to filter feed items</param>
+            <returns>Page of composite feed items</returns>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.ISubscriptionRepository">
+            <summary>
+            The ISubscriptionRepository interface describes a component capable
+            of creating, deleting, and reading subscription data from
+            an underlying data store.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionRepository.Add(EPiServer.Social.ActivityStreams.Core.Subscription)">
+            <summary>
+            Adds a subscription in the underlying store.
+            </summary>
+            <param name="subscription">The subscription information.</param>
+            <returns>The created subscription.</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionRepository.AddAsync(EPiServer.Social.ActivityStreams.Core.Subscription)">
+            <summary>
+            Asynchronously adds a subscription in the underlying store.
+            </summary>
+            <param name="subscription">The subscription information.</param>
+            <returns>The created subscription.</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionRepository.Remove(EPiServer.Social.ActivityStreams.Core.SubscriptionId)">
+            <summary>
+            Removes a subscription from the underlying subscription store using the specified subscription Id.
+            </summary>
+            <param name="id">Id of subscription to remove.</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionRepository.RemoveAsync(EPiServer.Social.ActivityStreams.Core.SubscriptionId)">
+            <summary>
+            Asynchronously removes a subscription from the underlying subscription store using the specified subscription Id.
+            </summary>
+            <param name="id">Id of subscription to remove.</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionRepository.Remove(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Removes subscriptions from the underlying subscription store using the specified criteria.
+            </summary>
+            <param name="criteria">The criteria for removing subscriptions.</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionRepository.RemoveAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Asynchronously removes subscriptions from the underlying subscription store using the specified criteria.
+            </summary>
+            <param name="criteria">The criteria for removing subscriptions.</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionRepository.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Gets a page of subscriptions from the underlying subscription 
+            store given some criteria.
+            </summary>
+            <param name="criteria">The criteria for retrieving subscriptions.</param>
+            <returns>A page of subscriptions.</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionRepository.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Asynchronously gets a page of subscriptions from the underlying subscription 
+            store given some criteria.
+            </summary>
+            <param name="criteria">The criteria for retrieving subscriptions.</param>
+            <returns>A page of subscriptions.</returns>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.IFeedService">
+            <summary>
+            Encapsulates the operations supported by a feed service in Episerver's Social Activity Streams system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IFeedService.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.FeedItemFilter})">
+            <summary>
+            Retrieves a page of feed items from the underlying data store, as
+            described by the specified criteria.
+            </summary>
+            <param name="criteria">Criteria by which to filter feed items</param>
+            <returns>Page of feed items</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IFeedService.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.FeedItemFilter})">
+            <summary>
+            Asynchronously retrieves a page of feed items from the underlying data store, as
+            described by the specified criteria.
+            </summary>
+            <param name="criteria">Criteria by which to filter feed items</param>
+            <returns>Page of feed items</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IFeedService.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.ActivityStreams.Core.FeedItemFilter,``0})">
+            <summary>
+            Retrieves a page of feed items from the underlying data store, as described 
+            by the specified criteria. Feed items are filtered by the type of payload 
+            data associated with the corresponding activity.
+            </summary>
+            <typeparam name="TExtension">Type of payload data associated with the desired feed items</typeparam>
+            <param name="criteria">Criteria by which to filter feed items</param>
+            <returns>Page of composite feed items</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IFeedService.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.ActivityStreams.Core.FeedItemFilter,``0})">
+            <summary>
+            Asynchronously retrieves a page of feed items from the underlying data store, as described 
+            by the specified criteria. Feed items are filtered by the type of payload 
+            data associated with the corresponding activity.
+            </summary>
+            <typeparam name="TExtension">Type of payload data associated with the desired feed items</typeparam>
+            <param name="criteria">Criteria by which to filter feed items</param>
+            <returns>Page of composite feed items</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.IActivityService">
+            <summary>
+            The IActivityService interface describes a component capable
+            of adding and watching activities in Episerver's Social Activity Streams system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IActivityService.Add``1(EPiServer.Social.ActivityStreams.Core.Activity,``0)">
+            <summary>
+            Adds an activity with a payload of type TExtension to the Activity Streams system.  
+            The activity will be queued so that the calling thread is not blocked on processing of the activity, 
+            which may be lengthy.
+            </summary>
+            <typeparam name="TExtension">Type of the data supplied as an payload of the activity.</typeparam>
+            <param name="activity">An activity instance encapsulating some social activity that occurred in 
+            an application.</param>
+            <param name="extension">The payload supplied as an extension to the activity</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <remarks>Note that this API is used to publish an activity to the Episerver Social Activity Streams system.
+            Adding an activity is a non-blocking operation. Any activities published to the system by invoking this 
+            API are queued for processing, and control is immediately returned to the calling application. 
+            Any exceptions or errors encountered while processing an activity when it is dequeued at a later time 
+            are logged. 
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IActivityService.Watch``1(EPiServer.Social.ActivityStreams.Core.IActivityHandler{``0})">
+            <summary>
+            Watches an activity of type TExtension.  The Activity Streams system invokes
+            the specified handler when an activity of type TExtension is received by the system.
+            </summary>
+            <typeparam name="TExtension">The type of activity or payload to be watched.</typeparam>
+            <param name="activityHandler">An IActivityHandler handler to invoke when an activity of 
+            type TExtension is received by the activity streams system.</param>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.ISubscriptionService">
+            <summary>
+            Encapsulates the operations supported by a subscription service in a social system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionService.Add(EPiServer.Social.ActivityStreams.Core.Subscription)">
+            <summary>
+            Adds a subscription, which registers the subscribing user to receive feed items 
+            in their activity stream regarding the activities on the followed resource.
+            </summary>
+            <param name="subscription">The subscription information.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.ActivityStreams.Core.DuplicateSubscriptionException">Thrown when subscription for the specified target 
+            and subscriber combination already exists.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+            <returns>Newly added subscription</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionService.AddAsync(EPiServer.Social.ActivityStreams.Core.Subscription)">
+            <summary>
+            Asynchronously adds a subscription, which registers the subscribing user to receive feed items 
+            in their activity stream regarding the activities on the followed resource.
+            </summary>
+            <param name="subscription">The subscription information.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.ActivityStreams.Core.DuplicateSubscriptionException">Thrown when subscription for the specified target 
+            and subscriber combination already exists.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+            <returns>Newly added subscription</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionService.Remove(EPiServer.Social.ActivityStreams.Core.SubscriptionId)">
+            <summary>
+            Removes subscriptions from the social system using the specified subscription Id .
+            </summary>
+            <param name="id">Id of subscription to remove.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when the subscription id passed in is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the subscription id passed in is empty.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionService.RemoveAsync(EPiServer.Social.ActivityStreams.Core.SubscriptionId)">
+            <summary>
+            Asynchronously removes subscriptions from the social system using the specified subscription Id .
+            </summary>
+            <param name="id">Id of subscription to remove.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when the subscription id passed in is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the subscription id passed in is empty.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionService.Remove(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Removes subscriptions from the social system using the specified criteria.
+            </summary>
+            <param name="criteria">The criteria for removing subscriptions.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionService.RemoveAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Asynchronously removes subscriptions from the social system using the specified criteria.
+            </summary>
+            <param name="criteria">The criteria for removing subscriptions.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionService.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Get a page of existing subscriptions by the specified criteria.
+            </summary>
+            <param name="criteria">The criteria for retrieving subscriptions.</param>
+            <returns>A page of existing subscriptions.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.ISubscriptionService.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Asynchronously get a page of existing subscriptions by the specified criteria.
+            </summary>
+            <param name="criteria">The criteria for retrieving subscriptions.</param>
+            <returns>A page of existing subscriptions.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.Activity">
+            <summary>
+            Represents an activity that can be processed by Episerver's Social Activity Streams system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.Activity.#ctor(EPiServer.Social.Common.Reference,EPiServer.Social.Common.Reference)">
+            <summary>
+            Constructs and returns an initialized activity instance.
+            </summary>
+            <param name="actor">The user reference of the actor that triggered the activity.</param>
+            <param name="target">The reference of the target (resource or user) on which the activity was performed.</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.Activity.#ctor(EPiServer.Social.Common.Reference,EPiServer.Social.Common.Reference,System.DateTime)">
+            <summary>
+            Constructs and returns an initialized activity instance.
+            </summary>
+            <param name="actor">The user reference of the actor that triggered the activity.</param>
+            <param name="target">The reference of the target (resource or user) on which the activity was performed.</param>
+            <param name="date">The date on which the activity was received by the Activity Streams system.</param>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.Activity.Actor">
+            <summary>
+            The user reference of the actor that triggered the activity.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.Activity.Target">
+            <summary>
+            The reference to the target resource on which the activity was performed.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.ActivityStreams.Core.Activity.Created">
+            <summary>
+            The date on which the activity was received by the Activity Streams system.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.Core.IActivityDispatcher">
+            <summary>
+            The IActivityDispatcher describes an interface responsible for processing activities that are dispatched to it
+            through default and registered activity handlers of specific activity types.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IActivityDispatcher.Register(EPiServer.Social.ActivityStreams.Core.IActivityHandler{System.Object})">
+            <summary>
+            Registers a default activity handler.
+            The specified activity handler is added to the default ActivityStreams handlers list. All default ActivityStreams 
+            handlers are invoked by the system when an activity is dispatched to the IActivityDispatcher.
+            </summary>
+            <param name="defaultHandler">The activity handler to add to the default ActivityStreams handlers</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IActivityDispatcher.Register``1(EPiServer.Social.ActivityStreams.Core.IActivityHandler{``0})">
+            <summary>
+            Registers an activity handler capable of processing an activity of type TExtension.
+            </summary>
+            <typeparam name="TExtension">The type of activity for which the handler should be registered</typeparam>
+            <param name="handler">The activity handler to be registered</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.Core.IActivityDispatcher.Dispatch(EPiServer.Social.ActivityStreams.Core.Activity,System.Object)">
+            <summary>
+            Further dispatches the activity received to all default handlers and registered activity handlers capable
+            of processing an activity type that matches the type of the extension parameter.
+            </summary>
+            <param name="activity">Aa activity that is dispatched to the ActivityDispatcher</param>
+            <param name="extension">The payload of an activity that is dispatched to the ActivityDispatcher</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Episerver.Marketing.Connector.Forms</name>
+    </assembly>
+    <members>
+        <member name="T:Episerver.Marketing.Connector.Forms.FormsConstants">
+            <summary>
+            Defines constant values used throughout MAI.
+            </summary>
+        </member>
+        <member name="F:Episerver.Marketing.Connector.Forms.FormsConstants.DataSourceIdListSeparator">
+            <summary>
+            Delimiter used to separate data in the ID string.
+            </summary>
+        </member>
+        <member name="T:Episerver.Marketing.Connector.Forms.Implementation.MarketingConnectorActor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Episerver.Marketing.Connector.Forms.Implementation.MarketingConnectorActor.IsSyncedWithSubmissionProcess">
+            <summary>
+            We want to send cookie to Visitor (by modifying the Response), so we need to set this property to true
+            </summary>
+        </member>
+        <member name="P:Episerver.Marketing.Connector.Forms.Implementation.MarketingConnectorActor.PerformOnEveryStepSubmission">
+            <summary>
+            This actor should be run only on the final form step
+            </summary>
+        </member>
+        <member name="P:Episerver.Marketing.Connector.Forms.Implementation.MarketingConnectorActor.AvailableInEditView">
+            <summary>
+            Editor UI is not required for MA
+            </summary>
+        </member>
+        <member name="M:Episerver.Marketing.Connector.Forms.Repositories.FormsRepository.GetConnectorMappedData(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,EPiServer.Forms.Core.Internal.ExternalSystem.RemoteFieldInfo}},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Generates entity data by mapping submitted data based on submitted mapping table
+            </summary>
+            <param name="submittedFieldMappingTable"></param>
+            <param name="submittedData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Episerver.Marketing.Connector.Forms.Repositories.FormsRepository.PushDataToConnector(Episerver.Marketing.Connector.Framework.IMarketingConnector,Episerver.Marketing.Connector.Framework.Data.ConnectorDataSource,System.Collections.Generic.Dictionary{System.String,System.String},System.Int64)">
+            <inheritdoc />
+        </member>
+        <member name="M:Episerver.Marketing.Connector.Forms.Repositories.FormsRepository.ConvertGuidToAdaptedGuid(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="T:Episerver.Marketing.Connector.Forms.Repositories.IFormsRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Episerver.Marketing.Connector.Forms.Repositories.IFormsRepository.IsAutoFillEnabled">
+            <summary>
+            Returns the current status of the AutoFill Setting
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Episerver.Marketing.Connector.Forms.Repositories.IFormsRepository.GetSuggestedFormValues(EPiServer.Forms.Core.Internal.ExternalSystem.IDatasource,System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.Internal.ExternalSystem.RemoteFieldInfo},EPiServer.Forms.Core.ElementBlockBase,EPiServer.Forms.Core.IFormContainerBlock,System.Web.HttpContextBase)">
+            <summary>
+            Get suggested values for a form based on previously supplied data
+            </summary>
+            <param name="selectedDatasource"></param>
+            <param name="remoteFieldInfos"></param>
+            <param name="content"></param>
+            <param name="formContainerBlock"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Episerver.Marketing.Connector.Forms.Repositories.IFormsRepository.PushDataToConnector(Episerver.Marketing.Connector.Framework.IMarketingConnector,Episerver.Marketing.Connector.Framework.Data.ConnectorDataSource,System.Collections.Generic.Dictionary{System.String,System.String},System.Int64)">
+            <summary>
+            Sends data to the provided connector.
+            </summary>
+            <param name="currentConnector"></param>
+            <param name="currentDatasource"></param>
+            <param name="entityData"></param>
+            <param name="submissionTarget">The submission target id, -1 if we are just passing to the data source</param>
+        </member>
+        <member name="M:Episerver.Marketing.Connector.Forms.Repositories.IFormsRepository.GetConnectorMappedData(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,EPiServer.Forms.Core.Internal.ExternalSystem.RemoteFieldInfo}},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Transforms and and correlates mapping table to supplied formdata.
+            </summary>
+            <param name="submittedFieldMappingTable"></param>
+            <param name="formData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Episerver.Marketing.Connector.Forms.Repositories.IFormsRepository.ConvertGuidToAdaptedGuid(System.Guid)">
+            <summary>
+            Convert the Guid format into one that is compatible with the ID property of the Forms DataSource specifically converts
+            dashes into characters that the forms DataSource accepts
+            </summary>
+            <param name="theGuid">a Guid to convert</param>
+            <returns>an adapted Guid for use in the Form DataSource id</returns>
+        </member>
+        <member name="M:Episerver.Marketing.Connector.Forms.Repositories.IFormsRepository.ConvertAdaptedGuidToGuid(System.String)">
+            <summary>
+            Takes a converted Guid string that is used in the Forms DataSource Id and makes it back into a Guid object
+            </summary>
+            <param name="theAdaptedGuid">a guid string that has been converted for use in the DataSource Id property</param>
+            <returns>the converted Guid</returns>
+        </member>
+        <member name="T:Episerver.Marketing.Automation.Forms.Implementation.MarketingConnectorAutofill">
+            <summary>
+            Methods for determining and providing form data suggestions.
+            </summary>
+        </member>
+        <member name="M:Episerver.Marketing.Automation.Forms.Implementation.MarketingConnectorAutofill.GetSuggestedValues(EPiServer.Forms.Core.Internal.ExternalSystem.IDatasource,System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.Internal.ExternalSystem.RemoteFieldInfo},EPiServer.Forms.Core.ElementBlockBase,EPiServer.Forms.Core.IFormContainerBlock,System.Web.HttpContextBase)">
+            <summary>
+            Retrieves suggested values from connector based on current entity and field information.
+            </summary>
+            <param name="selectedDatasource"></param>
+            <param name="remoteFieldInfos"></param>
+            <param name="content"></param>
+            <param name="formContainerBlock"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

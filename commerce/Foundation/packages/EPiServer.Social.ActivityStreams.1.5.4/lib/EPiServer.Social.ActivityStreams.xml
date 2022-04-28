@@ -1,0 +1,478 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Social.ActivityStreams</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Social.ActivityStreams.DefaultActivityHandler">
+            <summary>
+            The DefaultActivityHandler handles activities by adding the activities to the
+            Http repo.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.DefaultActivityHandler.#ctor(EPiServer.Social.Common.ISocialLogger,EPiServer.Social.ActivityStreams.Core.IActivityRepository)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.ActivityHandlerInvoker">
+            <summary>
+            The ActivityHandlerInvoker is responsible for invoking an action,
+            described by a particular activity handler, to process a activity. 
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityHandlerInvoker.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityHandlerInvoker.Invoke(System.Object,EPiServer.Social.ActivityStreams.Core.Activity,System.Object)">
+            <summary>
+            Invokes the specified activity handler to process an activity of a specific type.
+            </summary>
+            <param name="handler">Handler to invoke for the activity</param>
+            <param name="activity">Activity to pass to the activity handler that is invoked</param>
+            <param name="extension">Activity payload to pass to the activity handler that is invoked</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityHandlerInvoker.GetHandlerInvocation(System.Object,System.Type,System.Type)">
+            <summary>
+            Gets the action described by the specified activity handler from the
+            cache. If the action has not been cached, it will be compiled
+            cached prior to retrieving it.
+            </summary>
+            <param name="handler">The activity handler</param>
+            <param name="activityType">The Activity type</param>
+            <param name="extensionType">Activity type or payload</param>
+            <returns>Action described by the specified message handler</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityHandlerInvoker.GetInvocationCacheKey(System.Object,System.Type)">
+            <summary>
+            Returns a key identifying the cached action to invoke to handle the
+            specified activity.
+            </summary>
+            <param name="handler">Handler exposing the action</param>
+            <param name="messageType">Type of message to handle</param>
+            <returns>Key identifying the action</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityHandlerInvoker.CacheHandlerInvocation(System.Object,System.Type,System.Type)">
+            <summary>
+            Compiles the action described by the specified handler and adds
+            it to the cache.
+            </summary>
+            <param name="handler">The activity handler</param>
+            <param name="activityType">The Activity type</param>
+            <param name="extensionType">Activity type or payload</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityHandlerInvoker.CompileHandlerInvocation(System.Object,System.Type,System.Type)">
+            <summary>
+            Dynamically compiles an action to invoke the specified activity 
+            handler's "Handle" method.
+            </summary>
+            <remarks>
+            This method compiles a lambda expression to an Action delegate which 
+            invokes the appropriate "Handle" method on the specified handler. The 
+            compiled action can subsequently be cached and reused. This approach 
+            performs better than more traditional reflection alternatives, such 
+            as MethodInfo.Invoke().
+            </remarks>
+            <param name="handler">The activity handler</param>
+            <param name="activityType">The Activity type</param>
+            <param name="extensionType">Activity type or payload</param>
+            <returns>Compiled action to invoke the specified handler</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityHandlerInvoker.IsHandlerInvocationCached(System.String)">
+            <summary>
+            Returns true if the action described by the specified message
+            handler has been cached, false otherwise.
+            </summary>
+            <param name="invocationCacheKey">Invocation Cache key for the handler</param>
+            <returns>True if the action described by the specified message handler 
+            has been cached, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityHandlerInvoker.GetCachedHandlerInvocation(System.String)">
+            <summary>
+            Retrieves a compiled handler action from the cache.
+            </summary>
+            <param name="invocationCacheKey">Invocation Cache key for the handler</param>
+            <returns>Compiled handler action</returns>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.DefaultActivityStreamsFactory">
+            <summary>
+            The DefaultActivityStreamsFactory class encapsulates the platform's 
+            default construction of various services and components required by 
+            the Social Activity Streams system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.DefaultActivityStreamsFactory.CreateActivityService">
+            <summary>
+            Returns an activity service according to platform defaults.
+            </summary>
+            <returns>New activity service</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.DefaultActivityStreamsFactory.CreateFeedService">
+            <summary>
+            Creates a new feed service according to platform defaults.
+            </summary>
+            <returns>New feed service</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.DefaultActivityStreamsFactory.CreateSubscriptionService">
+            <summary>
+            Creates a new subscription service according to platform defaults.
+            </summary>
+            <returns>New subscription service</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.DefaultActivityStreamsFactory.CreateActivityStreamsLogger">
+            <summary>
+            Returns a new instance of the social logger used by 
+            the Social Activity Streams system.
+            </summary>
+            <returns>New instance of social logger</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.DefaultActivityStreamsFactory.CreateActivityQueue(EPiServer.Social.ActivityStreams.Core.IActivityQueueReceiver)">
+            <summary>
+            Returns a new instance of the activity queue used by 
+            the Social Activity Streams system.
+            </summary>
+            <returns>New activity queue</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.DefaultActivityStreamsFactory.GetActivityStreamsLogger">
+            <summary>
+             Creates a new social logger instance according to platform defaults.
+            </summary>
+            <returns>New social logger instance</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.DefaultActivityStreamsFactory.GetActivityQueue(EPiServer.Social.ActivityStreams.Core.IActivityQueueReceiver)">
+            <summary>
+            Creates a new activity queue according to platform defaults. 
+            Override this method to introduce a custom activity queue.
+            </summary>
+            <param name="activityHandler">The activity handler of the Social Activity 
+            Streams system that processes activities being added to the 
+            activity queue.</param>
+            <returns>New activity queue</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.DefaultActivityStreamsFactory.GetActivityRepository">
+            <summary>
+            Gets an instance of the activity repository intended to support the service
+            constructed by this factory. Override this method to introduce
+            a custom repository.
+            </summary>
+            <returns>Activity Repository intended to support this service</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.DefaultActivityStreamsFactory.GetFeedRepository">
+            <summary>
+            Gets an instance of the feed repository intended to support the service
+            constructed by this factory. Override this method to introduce
+            a custom feed repository.
+            </summary>
+            <returns>Feed repository intended to support this service</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.DefaultActivityStreamsFactory.GetSubscriptionRepository">
+            <summary>
+            Gets an instance of the subscription repository intended to support the service
+            constructed by this factory. Override this method to introduce
+            a custom subscription repository.
+            </summary>
+            <returns>Subscription repository intended to support this service</returns>
+            <summary>
+            Gets an instance of the repository intended to support the service
+            constructed by this factory. Override this method to introduce
+            a custom repository.
+            </summary>
+            <returns>Repository intended to support this service</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.DefaultActivityStreamsFactory.GetHttpClientFactory">
+            <summary>
+            Contructs an CachingHttpClientFactory for used by the Http repositories.
+            </summary>
+            <returns>The CachingHttpClientFactory instance.</returns>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.ActivityService">
+            <summary>
+            A service allowing consumers to add and watch social activities in Episerver's Social Activity Streams system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityService.#ctor(EPiServer.Social.ActivityStreams.Core.IActivityQueue,EPiServer.Social.ActivityStreams.Core.IActivityDispatcher,EPiServer.Social.Common.ISocialLogger)">
+            <summary>
+            Constructs and returns an ActivityService instance.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityService.Add``1(EPiServer.Social.ActivityStreams.Core.Activity,``0)">
+            <summary>
+            Adds an activity with a payload of type TExtension to the activity queue.  
+            As the activity is queued the calling thread is not blocked on processing of the activity, 
+            which may be lengthy.
+            </summary>
+            <typeparam name="TExtension">Type of the activity or payload</typeparam>
+            <param name="activity">An activity sent to the ActivityStreams system</param>
+            <param name="extension">The activity payload supplied as an extension to the activity</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <remarks>Note that this API is used to publish an activity to the Episerver Social Activity Streams system.
+            Adding an activity is a non-blocking operation. Any activities published to the system by invoking this API are 
+            queued for processing, and control is immediately returned to the calling application. 
+            Any exceptions or errors encountered while processing an activity when it is dequeued at a later time 
+            are logged. 
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityService.Watch``1(EPiServer.Social.ActivityStreams.Core.IActivityHandler{``0})">
+            <summary>
+            Watches an activity of type TExtension. The Activity Streams system will invoke the
+            specified activity handler when an activity of type TExtension is received by the system.
+            </summary>
+            <typeparam name="TExtension">The activity serializable .NET type.</typeparam>
+            <param name="activityTypeHandler">The handler to call when the activity being watched is received by the Activity Streams system.</param>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.FeedService">
+            <summary>
+            A service supporting the retrieval and filtering of feed items generated by Episerver's Social Activity Streams system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.FeedService.#ctor(EPiServer.Social.ActivityStreams.Core.IFeedItemRepository)">
+            <summary>
+            Constructs and returns a FeedService instance.
+            </summary>
+            <param name="feedRepository">An implementation of the IFeedDataRepository that can communicate with the underlying data store.</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.FeedService.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.FeedItemFilter})">
+            <summary>
+            Retrieves a page of feed items from the underlying data store, as
+            described by the specified criteria.
+            </summary>
+            <param name="criteria">Criteria by which to filter feed items</param>
+            <returns>Page of feed items</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.FeedService.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.FeedItemFilter})">
+            <summary>
+            Asynchronously retrieves a page of feed items from the underlying data store, as
+            described by the specified criteria.
+            </summary>
+            <param name="criteria">Criteria by which to filter feed items</param>
+            <returns>Page of feed items</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.FeedService.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.ActivityStreams.Core.FeedItemFilter,``0})">
+            <summary>
+            Retrieves a page of feed items from the underlying data store, as described 
+            by the specified criteria. Feed items are filtered by the type of payload
+            data associated with each corresponding activity.
+            </summary>
+            <typeparam name="TExtension">Type of payload data associated with the desired item ratings</typeparam>
+            <param name="criteria">Criteria by which to filter feed items</param>
+            <returns>Page of composite item ratings</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.FeedService.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.ActivityStreams.Core.FeedItemFilter,``0})">
+            <summary>
+            Asynchronously retrieves a page of feed items from the underlying data store, as described 
+            by the specified criteria. Feed items are filtered by the type of payload
+            data associated with each corresponding activity.
+            </summary>
+            <typeparam name="TExtension">Type of payload data associated with the desired item ratings</typeparam>
+            <param name="criteria">Criteria by which to filter feed items</param>
+            <returns>Page of composite item ratings</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when null passed for criteria.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid such as using
+            a negative value for PageOffset or PageSize or using a PageSize that exceeds 1000.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.SubscriptionService">
+            <summary>
+            A subscription service that implements resource subscription operations 
+            supported by an activity streams system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.SubscriptionService.#ctor(EPiServer.Social.ActivityStreams.Core.ISubscriptionRepository)">
+            <summary>
+            Constructs and returns an instance of the SubscriptionService.
+            </summary>
+            <param name="subscriptionRepository">An implementation of the ISubscriptionRepository that can communicate with the underlying data store.</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.SubscriptionService.Add(EPiServer.Social.ActivityStreams.Core.Subscription)">
+            <summary>
+            Adds a subscription, which registers the subscribing user to receive feed items 
+            in their activity stream regarding the activities on the followed resource.
+            </summary>
+            <param name="subscription">The resource subscription information.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.ActivityStreams.Core.DuplicateSubscriptionException">Thrown when subscription for the specified target 
+            and subscriber combination already exists.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.SubscriptionService.AddAsync(EPiServer.Social.ActivityStreams.Core.Subscription)">
+            <summary>
+            Asynchronously adds a subscription, which registers the subscribing user to receive feed items 
+            in their activity stream regarding the activities on the followed resource.
+            </summary>
+            <param name="subscription">The resource subscription information.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.ActivityStreams.Core.DuplicateSubscriptionException">Thrown when subscription for the specified target 
+            and subscriber combination already exists.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.SubscriptionService.Remove(EPiServer.Social.ActivityStreams.Core.SubscriptionId)">
+            <summary>
+            Removes subscriptions by the specified criteria from the social system.
+            </summary>
+            <param name="id">Id of subscription to remove.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when the subscription id passed in is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the subscription id passed in is empty.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.SubscriptionService.RemoveAsync(EPiServer.Social.ActivityStreams.Core.SubscriptionId)">
+            <summary>
+            Asynchronously removes subscriptions by the specified criteria from the social system.
+            </summary>
+            <param name="id">Id of subscription to remove.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when the subscription id passed in is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the subscription id passed in is empty.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.SubscriptionService.Remove(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Removes user subscriptions from the social system using the given criteria.
+            </summary>
+            <param name="criteria">The criteria for removing subscriptions.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.SubscriptionService.RemoveAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Asynchronously removes user subscriptions from the social system using the given criteria.
+            </summary>
+            <param name="criteria">The criteria for removing subscriptions.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.SubscriptionService.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Get a page of existing subscriptions by the given criteria.
+            </summary>
+            <param name="criteria">The criteria for retrieving subscriptions.</param>
+            <returns>A page of existing subscriptions.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.SubscriptionService.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.ActivityStreams.Core.SubscriptionFilter})">
+            <summary>
+            Asynchronously get a page of existing subscriptions by the given criteria.
+            </summary>
+            <param name="criteria">The criteria for retrieving subscriptions.</param>
+            <returns>A page of existing subscriptions.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="T:EPiServer.Social.ActivityStreams.ActivityDispatcher">
+            <summary>
+            The ActivityDispatcher is a component responsible for processing activities that are 
+            dispatched to it by the ActivityReceiver. Every activity dispatched to the ActivityDispatcher
+            is further dispatched to all default Activity Streams handlers, and any externally 
+            registered ActivityHandlers.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityDispatcher.Register(EPiServer.Social.ActivityStreams.Core.IActivityHandler{System.Object})">
+            <summary>
+            Registers a default activity handler.
+            The specified activity handler is added to the default ActivityStreams handlers list. All default ActivityStreams 
+            handlers are invoked by the system when an activity is dispatched to the IActivityDispatcher.
+            </summary>
+            <param name="defaultHandler">The activity handler to add to the default ActivityStreams handlers</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityDispatcher.Register``1(EPiServer.Social.ActivityStreams.Core.IActivityHandler{``0})">
+            <summary>
+            Registers an activity handler capable of processing an activity of type TExtension.
+            </summary>
+            <typeparam name="TExtension">The type of activity for which the handler should be registered</typeparam>
+            <param name="handler">The activity handler to be registered</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityDispatcher.Dispatch(EPiServer.Social.ActivityStreams.Core.Activity,System.Object)">
+            <summary>
+            Further dispatches the activity received to all default handlers and registered activity handlers capable
+            of processing an activity type that matches the type of the extension parameter.
+            </summary>
+            <param name="activity">An activity that is dispatched to the ActivityDispatcher</param>
+            <param name="extension">The payload of an activity that is dispatched to the ActivityDispatcher</param>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityDispatcher.Get(System.Type)">
+            <summary>
+            Gets a collection of activity handlers capable of processing activities
+            of the specified type.
+            </summary>
+            <param name="type">Type of activity to be processed</param>
+            <returns>Collection of activity handlers capable of processing activities of the specified type</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityDispatcher.FindOrCreateHandlerCollection(System.Type)">
+            <summary>
+            Gets a collection of activity handlers registered to process activities
+            of the specified type. If no handlers have been registered for the
+            specified activity type, an empty handler collection will be returned.
+            </summary>
+            <param name="key">Type of activity to be proccessed</param>
+            <returns>Collection of activity handlers capable of processing activities of the specified type</returns>
+        </member>
+        <member name="M:EPiServer.Social.ActivityStreams.ActivityDispatcher.HandleMessage(System.Object,EPiServer.Social.ActivityStreams.Core.Activity,System.Object)">
+            <summary>
+            Directs the specified handler to process an activity.
+            </summary>
+            <param name="handler">Handler to process the activity</param>
+            <param name="activity">Activity to process</param>
+            <param name="extension">Activity payload to be processed</param>
+        </member>
+    </members>
+</doc>

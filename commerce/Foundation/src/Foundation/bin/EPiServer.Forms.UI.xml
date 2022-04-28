@@ -1,0 +1,2125 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Forms.UI</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Forms.EditView.Components.FormsComponent">
+            <summary>
+            Component to render the widget "Forms", in Asset Pane
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.Components.FormsComponent._title">
+            <summary>
+            We need override Title and Description properties for localization, because the ComponentDefinitionBase does not make fallback for these properties.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Components.FormsContentTypesComponent">
+            <summary>
+            Component to render FormElement toolbox in EditView
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.Components.FormsContentTypesComponent._title">
+            <summary>
+            We need override Title and Description properties for localization, because the ComponentDefinitionBase does not make fallback for these properties.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.ConstantsFormsUI.UIHint_FormsParagraphText">
+            <summary>
+            decorate as RichTextBox, with the Insert Placeholder dropdown
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.ConstantsFormsUI.FormsTabName_Authoring">
+            <summary>
+            Tab name for Forms in Edit View / All Properties mode
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.ConstantsFormsUI.CSS_InvisibleElement">
+            <summary>
+            CSS class name for Element which is invisible in View Mode (Hidden field, ...)
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.ConstantsFormsUI.FormsConnectedDataSource_PropertyDefinitionName">
+            <summary>
+            Name of the property to store connected data source in the Form Content
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.ConstantsFormsUI.FormsExternalSystemsFieldMappings_PropertyDefinitionName">
+            <summary>
+            Name of the property (of the FormElement) hold array of selected/mapped columms.
+            <example>FormElement (code = __field_100, friendly name = Email) is mapped to Silverpop$$$Table1###columnSilverpopEmail|||SystemX$$$TableX###Email</example>
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.ConstantsFormsUI.FormsTempFilePrefix">
+            <summary>
+            Prefix for temporary exporting file's name
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.ConstantsFormsUI.DefaultDataExportBlobProviderName">
+            <summary>
+            Default name of the blob provider which is used to store temporary file when exporting data
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Controllers.IDataExportingController">
+            <summary>
+            Controller implement this interface will be used by Form.Core for exporting data into downloadable files.
+            This controller is called in EditView.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Controllers.DataExportingController">
+            <summary>
+            Controller for exporting data into downloadable files. 
+            This controller is called in EditView, so we don't need to expose it to ViewMode by FormsMvcRouteHandler
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.DataExportingController.ExportData(System.String,System.String,System.String)">
+            <summary>
+            Get exported data (in tempFilePath) and return to browser
+            </summary>
+            <param name="fileName"></param>
+            <param name="exportingId"></param>
+            <param name="contentType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.DataExportingController.PrepareExport(EPiServer.Core.ContentReference,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.String,System.String)">
+            <summary>
+            POST: DataExporting/PrepareExport with contentLink=[ContentReference], extension=[string], submissionIds=[Array of string] or
+            POST: DataExporting/PrepareExport with contentLink=[ContentReference], extension=[string], beginDate=[Datetime], endDate=[Datetime]
+            </summary>
+            <param name="contentLink">The FormContainerBlock's ContentReference.</param>
+            <param name="exporterName">Name of the exporter to use</param>        
+            <param name="extension">Format of exported file.</param>
+            <param name="submissionIds">List of submissionId to export.</param>
+            <param name="beginDate">Range begin date for exporting.</param>
+            <param name="endDate">Range end date for exporting.</param>
+            <param name="finalizedOnly">true to only export finalized records</param>
+            <param name="filterText">Input text for filtering</param>
+            <param name="columnSelect">Column selected for searching data</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.DataExportingController.GetAllDataExporters">
+            <summary>
+            Get list of registered Exporters to display as Dropdownlist in EditView
+            </summary>
+            <returns>array of object</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.DataExportingController.GetValidFileName(System.String)">
+            <summary>
+            Remove invalid character for input file name.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.DataExportingController.RemoveBlob(System.Uri)">
+            <summary>
+            Remove a blob
+            </summary>
+            <param name="blobId">Id of the blob to remove</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.ExternalFeedStore.GetFeedItems(System.String)">
+            <summary>
+            Gets feed item collection by its identifier
+            </summary>
+            <param name="feedSelector">The feed identifier</param>
+            <returns>Collection of object that implemented IFeedItem interface</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.ExternalFeedStore.GetConnectedDataSourceItems(System.String)">
+            <summary>
+            Gets connected data source item collection by its system code
+            </summary>
+            <param name="systemCode">The system code</param>
+            <returns>Collection of data source entry</returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Controllers.FormControllerBase">
+            <summary>
+            Base class for MVC Controller using in this Forms Addon.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Controllers.RestActionResult">
+            <summary>
+            internal use.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Controllers.RestActionResult.IsSuccess">
+            <summary>
+            Is the action success or not.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Controllers.RestActionResult.Message">
+            <summary>
+            The message.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Controllers.FormsDataStore">
+            <summary>
+            Rest controller for EditView UI for Forms
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.FormsDataStore.Get(EPiServer.Core.ContentReference,System.String,EPiServer.Shell.Services.Rest.ItemRange,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.String,System.String,System.Collections.Generic.IEnumerable{EPiServer.Shell.Services.Rest.SortColumn})">
+            <summary>
+            Get available Dependee for chosing.
+            </summary>
+            <param name="parent">The parent content reference.</param>
+            <param name="query">The query.</param>
+            <param name="beginDate">The begin date.</param>
+            <param name="endDate">The end date.</param>
+            <param name="finalizedOnly">Filter for finalized records.</param>
+            <param name="filterText">Input text for filtering</param>
+            <param name="sortColumns">Order data by.</param>
+            <param name="columnSelect">Column selected for searching data</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.FormsDataStore.GetAvailableReplacablePlaceHolders(EPiServer.Core.ContentReference)">
+            <summary>
+            Return all available replacable place holder that editor can insert into his template, and the PlaceHolderService will replace them with actual value later.
+            </summary>
+            <param name="contentLink"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.FormsDataStore.DeleteByQuery(EPiServer.Core.ContentReference,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.String,System.String)">
+            <summary>
+            Delete Form submissionData by query
+            </summary>
+            <param name="parent">link to FormContainerBlock</param>
+            <param name="beginDate">The begin date</param>
+            <param name="endDate">The end date.</param>
+            <param name="finalizedOnly">Filter for finalized records.</param>
+            <param name="filterText">Input text for filtering</param>
+            <param name="columnSelect">Column selected for searching data</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.FormsDataStore.DeleteData(EPiServer.Core.ContentReference,System.String[])">
+            <summary>
+            Delete Form submissionData
+            </summary>
+            <param name="contentLink">link to FormContainerBlock</param>
+            <param name="submissionIds">ids to delete</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.FormsDataStore.GetChartData(EPiServer.Forms.Core.Models.FormIdentity,EPiServer.Forms.EditView.Models.Internal.ChartPeriodicity,System.DateTime,System.DateTime,System.Boolean,System.String,System.String,System.Int32)">
+            <summary>
+            Gets the chart data.
+            </summary>
+            <param name="formIden">The form identity.</param>
+            <param name="chartPeriodicity">The chart periodicity.</param>
+            <param name="maxNumberOfPoints">The number of points.</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.FormsDataStore.GetColumns(EPiServer.Forms.Core.Models.FormIdentity)">
+            <summary>
+            Get dgrid column definitions for create grid on client side.
+            </summary>
+            <param name="formIden">The form unique identifier.</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.FormsDataStore.MapHostedPageUrl(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Update <see cref="F:EPiServer.Forms.Constants.SYSTEMCOLUMN_HostedPage"/> column with associate content'd edit mode string path.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.FormsDataStore.GetEditUrl(EPiServer.Core.ContentReference)">
+            <summary>
+            Return concat string from edit mode path and name of a IContent.
+            </summary>
+            <example>CMS/CMS/#context=epi.cms.contentdata:///238#@Content's name</example>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.FormsDataStore.GetPeriodStart(System.DateTime,EPiServer.Forms.EditView.Models.Internal.ChartPeriodicity)">
+            <summary>
+            Get start period for specified ChartPeriodicity
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.FormsDataStore.AddPeriods(System.DateTime,EPiServer.Forms.EditView.Models.Internal.ChartPeriodicity,System.Int32)">
+            <summary>
+            Add time to return next period for specified ChartPeriodicity
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Controllers.FormsElementStore">
+            <summary>
+            Rest controller for EditView UI for Forms
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.FormsElementStore.Get(EPiServer.Core.ContentReference,EPiServer.Core.ContentReference,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="parentLink">The content's parent link.</param>
+            <param name="id">The identifier.</param>
+            <param name="query">The query.</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.FormsElementStore.GetCommonDraft(EPiServer.Core.ContentReference,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the common draft for a particular language
+            </summary>
+            <param name="contentLink"></param>
+            <param name="culture"></param>
+            <returns>The version information for the common draft; or null if no common draft exists</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.FormsElementStore.GetElementByType(System.Int32,System.String)">
+            <summary>
+            Clientside transfers FormElementType, we create a content object with that FormElementType, then we return the newly created ContentReference back to Clientside
+            </summary>
+            <param name="typeId">type of the desire FormElement we want to create</param>
+            <param name="parentLink">link to the FormContainerBlock</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.FormsElementStore.GetElementTypeId(System.String)">
+            <summary>
+            Gets the element type id for specified type name.
+            </summary>
+            <param name="typeName">Element type name.</param>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Controllers.RetentionPolicyStore">
+            <summary>
+            Get data for form's retention policy
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.RetentionPolicyStore.GetNotificationMessage(EPiServer.Core.ContentReference)">
+            <summary>
+            Get current form info for retenton policy notification
+            </summary>
+            <param name="contentLink">id of the current content</param>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Controllers.VisitorDataSourceStore">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.VisitorDataSourceStore.GetVisitorDataSourceProperties(System.String)">
+            <summary>
+            Gets visitor data source properties by its type name
+            </summary>
+            <param name="visitorDataSourceType">Visitor data source type name</param>
+            <returns>Collection of property</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Controllers.VisitorDataSourceStore.GetPropertiesFromType(System.String)">
+            <summary>
+            Gets all properties from visitor data source type name
+            </summary>
+            <param name="typeName">Visitor data source type name</param>
+            <returns>Collection of property</returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.ICustomViewLocation">
+            <summary>
+            Interface provides path for searching element block views. These interfaces will return an array of paths. These paths will be used by Forms Core to lookup view template for Blocks.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.ICustomViewLocation.Paths">
+            <summary>
+            Example: "~/modules/_protected/EPiServer.Forms/Views/ElementBlocks", "~/Views/Shared/ElementBlocks"
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.ICustomViewLocation.Order">
+            <summary>
+            Order of the paths described here in this class. Order=10 will be loaded/searched before Order=20.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.CustomViewLocationBase">
+            <summary>
+            Provide base functionality for implementing ICustomViewLocation. Each module (or Form extended code) should inherit this base class.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.CustomViewLocationBase.GetDefaultViewLocation">
+            <summary>
+            Get default view location of current add-on (EPiServer.Forms, EPiServer.Forms.Samples).
+            Calling this function in concrete type in other assembly (EPiServer.Forms.Samples) will return the path from that assembly's module (~/modules/_protected/EPiServer.Forms.Samples/View/ElementBlocks)
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.DataAnnotations.AvailableValidatorTypesAttribute">
+            <summary>
+            Allows us to set up validators that can be used for FormElement. This attribute should be marked on ElementBlock class.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataAnnotations.AvailableValidatorTypesAttribute.Include">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataAnnotations.AvailableValidatorTypesAttribute.Exclude">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.DataAnnotations.CircularDependencyValidationAttribute">
+            <summary>
+            Validation for circular field dependency.
+            For example:
+            Case 1: If element B depends on element A then element A can not depend on element B
+            Case 2: If element B depends on A, element C depends on B then element A cannot depend on element C
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.DataAnnotations.GreaterThanEqualToAttribute">
+            <summary>
+            Checking whether a value greater than and equal to another property's value.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.DataAnnotations.LessThanEqualToAttribute">
+            <summary>
+            Checking whether a value less than and equal to another property's value.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.DataAnnotations.InRangeAttribute">
+            <summary>
+            Checking whether a value is in a range of other two properties value.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataAnnotations.InRangeAttribute.IsEmptyObject(System.Object)">
+            <summary>
+            Check whether an object is "empty" or not.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+            <remarks>
+            Sometimes checking the object for null is not enough (for example, an object of type string can be empty but not null).
+            We can override the empty-checking logic by creating a class that inherits from this <see cref="T:EPiServer.Forms.EditView.DataAnnotations.InRangeAttribute"/> class,
+            then override this method to implement the custom empty-checking logic.
+            </remarks>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.DataAnnotations.StepInRangeAttribute">
+            <summary>
+            Validate Step in range [1, Max-Min]
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.DataAnnotations.BaseComparableAttribute">
+            <summary>
+            Base validation supports comparing a value (first operand) to another property's value (second operand).
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataAnnotations.BaseComparableAttribute.GetOperand(System.String,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            Get property value as a <see cref="T:System.IComparable"/> or null.
+            </summary>
+            <param name="operandName">The property's name.</param>
+            <param name="validationContext">The <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"/> to get object instance.</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataAnnotations.BaseComparableAttribute.TryConvertValue(System.Object,System.Type,System.Object@,System.String@)">
+            <summary>
+            Try converting a value bases on expected <see cref="T:System.Type"/>.
+            </summary>
+            <param name="sourceValue">Value to convert.</param>
+            <param name="targetType">The target <see cref="T:System.Type"/> to convert to.</param>
+            <param name="targetValue">The result after convert.</param>
+            <param name="failMessage">Fail message if cannot convert.</param>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.DataAnnotations.LocalizedDisplayNameAttribute">
+            <summary>
+            This annotation is used to localize the display name of properties.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataAnnotations.LocalizedDisplayNameAttribute.DisplayName">
+            <summary>
+            This property is used to display the property at GUI layer.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.DataTransfer.BinaryDataExporterBase">
+            <summary>
+            Base class for exporting EPiForm data to binary
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataTransfer.BinaryDataExporterBase.ExportBinary(System.Data.DataTable)">
+            <summary>
+            Export a DataTable to binary data, It can be xlsx, xml, ...
+            Inherited class will implment this method to return data after export.
+            </summary>
+            <param name="dataTable">The data table contains data for exporting.</param>
+            <returns>byte[] contains binary data returned.</returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.DataTransfer.CSVDataExporter">
+            <summary>
+            Default exporter, to export submissionData to CSV
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.CSVDataExporter.Separator">
+            <summary>
+            This is the separator
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.CSVDataExporter.DoubleQuote">
+            This is the wrapper for Text value
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataTransfer.CSVDataExporter.Export(System.Data.DataTable)">
+            <summary>
+            Export a DataSet to a CSV format.
+            </summary>
+            <param name="dataTable">The data table.</param>
+            <returns>
+            string contains data in CSV format.
+            </returns>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.CSVDataExporter.MimeType">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.CSVDataExporter.ExportFileExtension">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.CSVDataExporter.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.CSVDataExporter.Description">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataTransfer.CSVDataExporter.NormalizeData(System.String)">
+            <summary>
+            Normalize the value before writing to CSV format. This add DoubleQuote to value, escape " to "", ...
+            </summary>
+            <param name="value">The input value</param>
+            <returns>string output value</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataTransfer.CSVDataExporter.WriteColumnName(System.Data.DataTable,System.IO.StringWriter)">
+            <summary>
+            Write column name at the begining of the CSV file.
+            </summary>
+            <param name="dataTable">The data table.</param>
+            <param name="writer">The writer.</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataTransfer.CSVDataExporter.EscapeCSV(System.String)">
+            <summary>
+            Escape CSV to prevent attacking when open with MS Excel.
+            </summary>
+            <param name="input">The input string.</param>
+            <returns>Safe string which can be opened by Excel.</returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.DataTransfer.DataExporterBase">
+            <summary>
+            Base class for exporting EPiForm data
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.DataTransfer.DataExporterBase._localizationService">
+            <summary>
+            _localizationService
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataTransfer.DataExporterBase.Export(System.Data.DataTable)">
+            <summary>
+            Export a DataSet to a specified format (XML, JSON,...).
+            Inherited class will implement this method to return data after export.
+            </summary>
+            <param name="dataTable">The data table contains data after exporting.</param>
+            <returns>string contains data returned.</returns>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.DataExporterBase.MimeType">
+            <summary>
+            MimeType to create Response contentType for browser
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.DataExporterBase.ExportFileExtension">
+            <summary>
+            File extension for the exported file.
+            <example>
+            If ExportFileExtension is "pdf", the filename will be xxx.pdf
+            </example>
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.DataExporterBase.Name">
+            <summary>
+            Name of the exporter
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.DataExporterBase.Description">
+            <summary>
+            Description of the exporter
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.DataExporterBase.Order">
+            <summary>
+            Order of the Exporter, default value is 1000. In case several Exporter have same name, same MIMEType or FileExtension, this Order is matter. 
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.DataExporterBase.IsAvailable">
+            <summary>
+            Decide whether this exporter is available.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.DataTransfer.JSONDataExporter">
+            <summary>
+            Export EPiForm data to JSON
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataTransfer.JSONDataExporter.Export(System.Data.DataTable)">
+            <summary>
+            Export a DataSet to JSON format.
+            </summary>
+            <param name="dataTable">The data table.</param>
+            <returns>
+            string contains data returned.
+            </returns>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.JSONDataExporter.MimeType">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.JSONDataExporter.ExportFileExtension">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.JSONDataExporter.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.JSONDataExporter.Description">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.DataTransfer.XLSXDataExporter">
+            <summary>
+            Exporter to export submissionData to XLSX format without using external lib
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataTransfer.XLSXDataExporter.Export(System.Data.DataTable)">
+            <summary>
+            Not implemented method
+            </summary>
+            <param name="dataTable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataTransfer.XLSXDataExporter.ExportBinary(System.Data.DataTable)">
+            <summary>
+            Exports a data table to a XLSX format without using external lib.
+            XLSX is actually a zip file which contains a set of XML files, some files define the data, some define the metadata, some define style sheets
+            This method creates these xml files then compress them into XLSX file
+            </summary>
+            <param name="dataTable">The data table.</param>
+            <returns>
+            byte[] contains binary data returned.
+            </returns>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.XLSXDataExporter.MimeType">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.XLSXDataExporter.ExportFileExtension">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.XLSXDataExporter.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.XLSXDataExporter.Description">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataTransfer.XLSXDataExporter.CreateWorkbook(System.IO.Packaging.PackagePart,System.String,System.String)">
+            <summary>
+            Creates xml workbook document then save it to workbook part
+            </summary>
+            <param name="workbookPart"></param>
+            <param name="sheetName"></param>
+            <param name="relationshipId"></param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataTransfer.XLSXDataExporter.CreateWorksheet(System.IO.Packaging.PackagePart,System.Data.DataTable)">
+            <summary>
+            Creates xml worksheet document then save it to worksheet part
+            </summary>
+            <param name="worksheetPart"></param>
+            <param name="dataTable"></param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataTransfer.XLSXDataExporter.DataTableToRows(System.Data.DataTable)">
+            <summary>
+            Converts data table to list of XElements 
+            </summary>
+            <param name="dataTable"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.DataTransfer.XMLDataExporter">
+            <summary>
+            Export EPiForm data to XML
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.DataTransfer.XMLDataExporter.Export(System.Data.DataTable)">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.XMLDataExporter.MimeType">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.XMLDataExporter.ExportFileExtension">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.XMLDataExporter.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.DataTransfer.XMLDataExporter.Description">
+            <inheritdoc />
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:EPiServer.Forms.EditView.EditorDescriptors.ConditionCollectionEditor" -->
+        <member name="M:EPiServer.Forms.EditView.EditorDescriptors.ConditionCollectionEditor.ModifyMetadata(EPiServer.Shell.ObjectEditing.ExtendedMetadata,System.Collections.Generic.IEnumerable{System.Attribute})">
+            <summary>
+            Inject metadata for editor
+            </summary>
+            <param name="metadata"></param>
+            <param name="attributes"></param>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.DependAllowMultiSelectEditorDescriptor">
+            <summary>
+            Choose manual input for SelectionElementBase (ChoiceElement can select ManualInput, then add values to the grid)
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.ConnectedDataSourceSelectionEditorDescriptor">
+            <summary>
+            Editor descriptor for external system connected data source.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.FieldMappingSelectionEditorDescriptor">
+            <summary>
+            Editor descriptor for external system field mappings.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.EditorDescriptors.FieldMappingSelectionEditorDescriptor.GetFormElementBlocks(EPiServer.Forms.Implementation.Elements.FormContainerBlock,EPiServer.Forms.Core.ElementBlockBase)">
+            <summary>
+            get Form element blocks of current editting form's version
+            </summary>
+            <param name="formContainerBlock"></param>
+            <param name="formsElementBlock"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.SelectionEditorDescriptorBase">
+            <summary>
+            Base editor descriptor class for selection (dojo drop-down list widget in Edit mode)
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.FeedAsCheckBoxEditorDescriptor">
+            <summary>
+            Editor descriptor for display a feed as a checkbox list.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.FeedAsRadioEditorDescriptor">
+            <summary>
+            Editor descriptor for display a feed as a Radio list.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.FeedEditorDescriptorBase">
+            <summary>
+            Base class for all SelectionFactory which is able to take Items from an arbitrary feed.
+            This descriptor will use <see cref="T:EPiServer.Forms.EditView.SelectionFactory.FeedSelectionFactory"/> to build the feed in runtime.
+            <example>Use this descriptor to build a dropdownlist property from a countries feed, or currencies feed</example>
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.FeedSelectionEditorDescriptor">
+            <summary>
+            Editor Descriptor for selecting value from feed.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.VisitorDataSourceSelectionEditorDescriptor">
+            <summary>
+            Editor Descriptor for selecting value from visitor data source.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.FieldSelectorDescriptor">
+            <summary>
+            Register an editor for StringList properties
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.FormContentAreaEditorDescriptor">
+            <summary>
+            Editor descriptor that will create a control to be able to edit Property ContentArea values
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.HideCategoryEditorDescriptor">
+            <summary>
+            EditorDescriptor for hiding Category property in Forms Elements.
+            See http://joelabrahamsson.com/hiding-episervers-standard-category-property/
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.ImageSelectionListEditorDescriptor">
+            <summary>
+            Descriptor to call expected editor for property of <see cref="T:EPiServer.SpecializedProperties.LinkItemCollection"/> and has UIHint of <see cref="!:Constants.UIHint_OptionList"/>
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.ParagraphTextEditorDescriptor">
+            <summary>
+            Extends XhtmlString's editor to configure a placeholder
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.EmailTemplateActorCollectionEditorDescriptor">
+            <summary>
+            Editor descriptor class to show HELP text.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.WebhookActorCollectionEditorDescriptor">
+            <summary>
+            Editor descriptor class for collection of Webhook actor.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.RestrictedContentAreaEditorDescriptor">
+            <summary>
+            Editor descriptor that will restrict form element blocks to be dnd into a default ContentArea
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.SubmissionRetentionPeriodEditorDescriptor">
+            <summary>
+            Editor descriptor for the submission retention period editor.
+            EPiServer Forms element have properties named "PartialSubmissionRetentionPeriod" and "FinalizedSubmissionRetentionPeriod" that will use this descriptor to display. 
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EditorDescriptors.ValidatorEditorDescriptor">
+            <summary>
+            Editor descriptor for validator.
+            EPiServer Forms element have one property named "Validators" that will using this descriptor to display entire validators.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.EditorDescriptors.ValidatorEditorDescriptor.#ctor">
+            <summary>
+             Initializes a new instance of the <see cref="T:EPiServer.Forms.EditView.EditorDescriptors.ValidatorEditorDescriptor"/> class.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.IEPiServerFormsUIConfig">
+            <summary>
+            Interface for configuration of Forms UI
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.IEPiServerFormsUIConfig.MinimumAccessRightLevelToReadFormData">
+            <summary>
+            Minimum access right that an user (editor) need to view Submission Data
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.IEPiServerFormsUIConfig.PreconfiguredFeeds">
+            <summary>
+            Predefined feeds
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.IEPiServerFormsUIConfig.SendMessageInHTMLFormat">
+            <summary>
+            Should send email/message in HTML format
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.IEPiServerFormsUIConfig.SerializingObjectUsingNameValueFormat">
+            <summary>
+            serialize objects using "name-value" format.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.IEPiServerFormsUIConfig.DataExportBlobProviderName">
+            <summary>Name of the blob provider which is used to store temporary file when exporting data.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.EPiServerFormsUIConfig">
+            <summary>
+            Default value for IEPiServerFormsUIConfig
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.EPiServerFormsUIConfig.PreconfiguredFeeds">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.EPiServerFormsUIConfig.MinimumAccessRightLevelToReadFormData">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.EPiServerFormsUIConfig.SendMessageInHTMLFormat">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.EPiServerFormsUIConfig.SerializingObjectUsingNameValueFormat">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.EPiServerFormsUIConfig.DataExportBlobProviderName">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.FormContentTypeRepositoryDescriptor">
+            <summary>
+            For Dojo EditView create FormElementBlock type
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.FormDataView">
+            <summary>
+            Defines "Form data view" for FormContainerBlock in EditView, so Editor can have a panel to view submitted data for current editing Form
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.FormElementUIDescriptor">
+            <summary>
+            For FormElement, when click Edit in EditView, disable the OnPageEditView mode, default view is AllPropertiesView
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.FormElementBlockDescriptor`1">
+            <summary>
+            Using CSS to show image for Form's BlockBase. CSS icon class is IconClass = epi-forms-icon epi-forms-icon--small epi-forms-{0}__icon where {0} is generated by elementBlockClassName.ToLower()
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.FormRepositoryDescriptor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.FormsModuleViewModel">
+            <summary>
+            ViewModel for working in EditView
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.FormsModuleViewModel.ClientResourcePath">
+            <summary>
+            Returns root (to the version folder level) client resources path of this addon module.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.FormsModuleViewModel.MinimumAccessRightLevelToReadFormData">
+            <summary>
+            Access right at minimum level to view form submitted data
+            The minimum level is Edit
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.FormsModuleViewModel.AllowedPreviewableTextBoxTypes">
+            <summary>
+            Allowed types to show PreviewableTextBox widget on client side (CMS Edit mode)
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.FormsModuleViewModel.UseManualInput">
+            <summary>
+            Constant for [Use manual input] when creating Select/Choice elements
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.FormsModuleViewModel.RegisteredElementContentTypes">
+            <summary>
+            Gets all registered Form's element content types
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.FormsModuleViewModel.FormElementContentTypes">
+            <summary>
+            Content type list that will show on the "Forms Elements" component
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.FormsModuleViewModel.ImageChoiceAllowedTypes">
+            <summary>
+            Only image type allowed to show on content selector dialog of Image Choice element block
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.FormsModuleViewModel.ExportingUrl">
+            <summary>
+            Return data exporting Url
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.FormsModuleViewModel.ListOfDataExportersUrl">
+            <summary>
+            Url for clientside getting the list of data exporters
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.FormsModuleViewModel.ResolveUrlFromRoute(System.String)">
+            <summary>
+            Resolves full public URL from the given route
+            </summary>
+            <param name="route">Route used to resolves full public URL</param>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.FormsUIModule">
+            <summary>
+            Shell module for (gadgets of EPiServer Forms) working in EditView
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.FormsWebFormViewEngine">
+            <summary>
+            This is for MVC base website. Custom view engine for searching templates of Forms's Blocks in a EPiServer.Forms block folder.
+            <remarks>This is for MVC base website. This convention will use the ElementBlock name as View name.</remarks>
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.FormsRazorViewEngine">
+            <summary>
+            Razor view engine for render Forms elements.
+            <remarks>This is for MVC base website. This convention will use the ElementBlock name as View name.</remarks>
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.GroupNames">
+            <summary>
+            Group for grouping properties in page type, block type
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.IElementHasFeedItems">
+            <summary>
+            NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version
+            Form Element implements this interface will have data as a Feed of items
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.IElementHasFeedItems.PropertyStoreFeedSelectedItem">
+            <summary>
+            Point to the name of element's property that used to store selected item of the Feed.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.IElementHasFeedItems.GetFeedItems">
+            <summary>
+            Return a list of items to be rendered to the property descriptor's editor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.IExcludeValidatorTypes">
+            <summary>
+            Interface that provides excluded item list.
+            <example>If ExcludedItems return typeof RegularExpressionValidator, 
+            then in EditView, the RegularExpressionValidator will not be displayed to check</example>
+            </summary>    
+        </member>
+        <member name="P:EPiServer.Forms.EditView.IExcludeValidatorTypes.ValidatorTypesToBeExcluded">
+            <summary>
+            <example>
+            return new Type[] {
+            typeof(RegularExpressionValidator),
+            typeof(EmailValidator),
+            typeof(DateDDMMYYYYValidator),
+            typeof(DateMMDDYYYYValidator),
+            typeof(DateYYYYMMDDValidator),
+            typeof(IntegerValidator),
+            typeof(PositiveIntegerValidator)
+            };
+            </example>
+            </summary>        
+        </member>
+        <member name="M:EPiServer.Forms.EditView.InitializationModule.ConfigureContainer(EPiServer.ServiceLocation.ServiceConfigurationContext)">
+            <summary>
+            Configure the container for this module
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.InitializationModule.Initialize(EPiServer.Framework.Initialization.InitializationEngine)">
+            <summary>
+            Initialize this module
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.InitializationModule.InitializeHttpEvents(System.Web.HttpApplication)">
+            <summary>
+            Initializes HTTP events such as attaching HTTP modules to events
+            </summary>
+            <param name="application">The application context</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.InitializationModule.Preload(System.String[])">
+            <summary>
+            Preload for this module (not used)
+            </summary>
+            <param name="parameters">Any parameters required to preload this module</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.InitializationModule.Uninitialize(EPiServer.Framework.Initialization.InitializationEngine)">
+            <summary>
+            Uninitialize this module
+            </summary>
+            <param name="context">The EPiServer initialization context</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.InitializationModule.SetupExternalFeeds">
+            <summary>
+            Initialize for external feeds.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.InitializationModule.UpdateDependencies_ImportedContent(EPiServer.Enterprise.Transfer.ITransferContext,EPiServer.Enterprise.ContentImportedEventArgs)">
+            <summary>
+            Update condition fields of dependencies after importing forms completely (Only for KeepIdentity = false)
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.InitializationModule.SetupFormContainerProperties">
+            <summary>
+            Setup properties for FormContainerBlock content type.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.InitializationModule.SetupFormElementsProperties">
+            <summary>
+            Setup properties for Form's element content type(s).
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.InitializationModule.CreateOrDeleteTab(System.String,System.Boolean)">
+            <summary>
+            Create tab for external systems based on given tab name
+            </summary>
+            <param name="tabName">Tab name</param>
+            <param name="createNew">Flag to indicates should create a new tab or remove existings</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.InitializationModule.CreateUpdatePropertyDefinition(EPiServer.DataAbstraction.ContentType,System.String,System.String,System.Type,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Setup property for a content type.
+            </summary>
+            <param name="contentType">Parent content type</param>
+            <param name="propertyDefinitionName">name of the property</param>
+            <param name="editCaption"></param>
+            <param name="propertyDefinitionType">type of the property. You cannot create property with null type.</param>
+            <param name="tabName"></param>
+            <param name="propertyOrder"></param>
+            <returns>in case of creating new propertyDefinition, this will return null immediately if <paramref name="propertyDefinitionType"/> is null</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.InitializationModule.RemovePropertyDefinition(EPiServer.DataAbstraction.ContentType,System.String)">
+            <summary>
+            Remove a property definition from the given content type
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.InitializationModule.GetPropertyDefinition(EPiServer.DataAbstraction.ContentType,System.String,System.Type)">
+            <summary>
+            Get property definition of contentType
+            </summary>
+            <param name="contentType"></param>
+            <param name="propertyName"></param>
+            <param name="propertyDefinitionType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.InitializationModule.GetSubmissionActorTypes">
+            <summary>
+            Gets available submission actor types
+            </summary>
+            <returns>Collection of submission actor type</returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.CleanupFormInfo">
+            <summary>
+            store form info for data cleanup later on
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Internal.CleanupFormInfo.Id">
+            <summary>
+            CleanupFormInfo's id 
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Internal.CleanupFormInfo.FormGuid">
+            <summary>
+            Form' guid
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Internal.CleanupFormInfo.Name">
+            <summary>
+            Form's name
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Internal.CleanupFormInfo.FormId">
+            <summary>
+            Form's id in database
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Internal.CleanupFormInfo.Language">
+            <summary>
+            Form's language
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.CleanupService">
+            <summary>
+            This service is responsible for cleaning up Form data
+            Currently, Forms clean up 
+             (1) expired submissions after a specific period of time.
+             (2) all submissions of those forms deleted from db 
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.CleanupService.GetExistingForms">
+            <summary>
+            Get all forms that have not been deleted in db
+            </summary>
+            <returns>All forms in database</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.CleanupService.CleanupExpiredSubmissions(EPiServer.Forms.EditView.Internal.CleanupFormInfo)">
+            <summary>
+            After a specific period of time, expired submissions are deleted
+            </summary>
+            <param name="formInfo"></param>
+            <returns>The number of records deleted</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.CleanupService.CleanupPartialSubmissions(EPiServer.Forms.EditView.Internal.CleanupFormInfo,EPiServer.Forms.Core.Models.FormIdentity,System.Int32)">
+            <summary>
+            After a specific period of time, partial submissions are deleted
+            </summary>
+            <param name="form"></param>
+            <param name="formIdentity"></param>
+            <param name="partialSubmissionRetentionDays"></param>
+            <returns>The number of records deleted</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.CleanupService.CleanupFinalizedSubmissions(EPiServer.Forms.EditView.Internal.CleanupFormInfo,EPiServer.Forms.Core.Models.FormIdentity,System.Int32)">
+            <summary>
+            After a specific period of time, finalized submission are deleted
+            </summary>
+            <param name="formInfo"></param>
+            <param name="formIdentity"></param>
+            <param name="finalizedSubmissionRetentionDays"></param>
+            <returns>The number of records deleted</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.CleanupService.CleanupSubmissionsForDeletedForms(EPiServer.Forms.EditView.Internal.CleanupFormInfo)">
+            <summary>
+            Clean submissions of a deleted form
+            </summary>
+            <param name="form"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.CleanupService.AddToCleanupList(EPiServer.Forms.EditView.Internal.CleanupFormInfo)">
+            <summary>
+            Add a form to the clean up list for job scheduler later on
+            </summary>
+            <param name="cleanupFormInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.CleanupService.DeleteFormInfoFromCleanupList(EPiServer.Forms.EditView.Internal.CleanupFormInfo)">
+            <summary>
+             Delete form info from clean up list after its data entirely is removed
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.CleanupService.GetDeletedFormsInCleanupList">
+            <summary>
+            Get all form info in cleanup list. Those ones have been deleted before
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.CleanupService.GetStore">
+            <summary>
+            Get DDS store for CleanupFormInfo.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.CMSEventsHandler">
+            <summary>
+            Defines listeners to core's events
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.CMSEventsHandler.DeletingContent(System.Object,EPiServer.ContentEventArgs)">
+            <summary>
+            this function is called when a content is being deleted
+            if the content is a form, then its info is stored for data cleaning later on
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.CMSEventsHandler.DeletedContentLanguage(System.Object,EPiServer.ContentEventArgs)">
+            <summary>
+            This method is called when a language branch is being deleted.
+            Store the information if the content is a form.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.CMSEventsHandler.DeletedContent(System.Object,EPiServer.DeleteContentEventArgs)">
+            <summary>
+            Hook to CMS's DeletedContent to re-setup the root form folder if it is deleted
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.CMSEventsHandler.PublishedContent(System.Object,EPiServer.ContentEventArgs)">
+            <summary>
+            Hook to CMS's PublishedContent for updating structure if needed.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.CMSEventsHandler.CreatedContent(System.Object,EPiServer.ContentEventArgs)">
+            <summary>
+            Hook to CMS's CreatedContent for updating structure if needed.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.DataExportingService">
+            <summary>
+            Service for extracting data from Forms to other  endpoint
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.DataExportingService.ConvertToValidExportColumnName(System.String)">
+            <summary>
+            change the Columns' <paramref name="rawColName"/> with friendly name but valid for exporting.
+            Invalid character will be replaced by _
+            </summary>
+            <param name="rawColName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.DataExportingService.ConvertSubmissionsToDataTable(System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.Models.Submission},System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.Models.Internal.FriendlyNameInfo})">
+            <summary>
+            Create a datatable, migrate the data from submissions to datatable.
+            Convert the ColumnName to the FriendlyName (with Valid Exporting format. "The Friendly Name" ==> "The_Friendly_Name")
+            </summary>
+            <param name="submissions"></param>
+            <param name="friendlyNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.DataExportingService.CreateDatatableStructure(System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.Models.Internal.FriendlyNameInfo})">
+            <summary>
+            Create a table (tablename = Submission_Data) with its columns from list of friendly name info.
+            ColumnName is ElementId, Caption is FriendlyName
+            </summary>
+            <remarks>SYSTEMCOLUMN_SubmissionId is not included</remarks>
+            <param name="friendlyNames">List of friendly name info.</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.DataExportingService.GetAllRegisteredExporters">
+            <summary>
+            Get all the RegisteredExporters, result is ordered.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.DataExportingService.GetExporter(System.String,System.String)">
+            <summary>
+            Get/instantiate the exporter base on <paramref name="name"/> or <paramref name="extension"/>.
+            If no exporter is registered with name=<paramref name="name"/>, try to find the first exporter work with that extension.
+            </summary>
+            <param name="extension"></param>
+            <returns>Exporter with specific name, or the first exporter for the extension, or null if cannot find appropriate one</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.DataExportingService.ExportFile(EPiServer.Forms.Core.Models.FormIdentity,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.String,System.String,System.String,System.String)">
+            <summary>
+            Export the given submission data to a byte array
+            </summary>
+            <param name="formIdentity">The form identity.</param>
+            <param name="submissionIds">List of submissionId to export.</param>
+            <param name="beginDate">Range begin date for exporting.</param>
+            <param name="endDate">Range end date for exporting.</param>
+            <param name="finalizedOnly">true to only export finalized records.</param>
+            <param name="columnSelect">Column selected for searching data.</param>
+            <param name="filterText">Input text for filtering.</param>
+            <param name="exporterName">Name of the exporter to use.</param>
+            <param name="extension">Name of the extension to use.</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.DataExportingService.ConvertSubmissionTimeToUniversal(EPiServer.Forms.Core.Models.Submission)">
+            <summary>
+            Convert time data in submission from local to UTC. By default, CMS only returns local time.
+            </summary>
+            <param name="submission"></param>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.DefaultFeedProvider">
+            <summary>    
+            Provide default type of XmlFeed, load feeds from configuration
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.DependencyInfoService">
+            <summary>
+            This class is responsible for modeling and transferring dependency information to clientside in order to work with Javascript
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.DependencyInfoService.GetFormDependenciesInfo(System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.ElementBlockBase})">
+            <summary>
+            Get dependencies infomation of all elements in the form (actually dependants information) and transform to simple data type (string, number), transfer to clientside JavaScript
+            </summary>
+            <param name="elementBlocks"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.DependencyStructureHandler">
+            <summary>
+            Handling dependency structure changed
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.DependencyStructureHandler.SynchronizeFieldDependenciesWhenCopyingForms(System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.ElementBlockBase},System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.ElementBlockBase})">
+            <summary>
+            When copy/clone a form, Update dependencies for fields in copied form to corresponding elements
+            </summary>
+            <param name="sourceElements"></param>
+            <param name="targetElements"></param>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.ExternalFieldMappingService">
+            <summary>
+            Service for get information about external field mapping to Form and to FormElement
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ExternalFieldMappingService.GetAllExternalSystems">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ExternalFieldMappingService.GetAllExternalSystemsDatasources">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ExternalFieldMappingService.GetDatasource(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ExternalFieldMappingService.GetActiveFieldMappingTable(EPiServer.Forms.Core.Models.FormIdentity)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ExternalFieldMappingService.GetActiveRemoteFieldInfo(EPiServer.Forms.Core.Models.IFormElement,EPiServer.Forms.Core.Internal.ExternalSystem.IDatasource)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ExternalFieldMappingService.GetSelectedDatasource(EPiServer.Forms.Implementation.Elements.FormContainerBlock)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.FeedService">
+            <summary>
+            Access Feed (list of items in key-value pair), preconfigured feed of items
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Internal.FeedService.AvailableFeeds">
+            <summary>
+            All available feeds that can be use in Forms
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.FeedService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Forms.EditView.Internal.FeedService"/> class.
+            Load feed definitions from config file 
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.FeedService.GetFeed(System.String)">
+            <summary>
+            Get feed associated with the input feedId
+            </summary>
+            <param name="feedId">The feed identifier.</param>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.FileUploadService">
+            <summary>
+                Responsible for handling file upload
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.FileUploadService.FindFormsUploadedFolders(EPiServer.Core.ContentReference)">
+            <summary>
+                Find forms upload folders recursively.
+            </summary>
+            <param name="contentLink">ID of FileUploadElementBlock, FormContainerBlock or Asset Folder</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.FileUploadService.RemoveFormUploadedFiles(EPiServer.Core.ContentReference)">
+            <summary>
+            When copy form, folder contains a form, or FileUpload block, the uploaded files of FileUpload block are also copied.
+            So we need to remove these uploaded files of the new form
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.FormsExtensionsUI">
+            <summary>
+            View model for FormStep object.
+            Internal use for serialize step information to client.
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.FormsExtensionsUI.HasAccessRightToReadFormData(EPiServer.Core.IContent)">
+            <summary>
+            Verifies the current user have access right with given content
+            </summary>
+            <param name="content">Current content</param>
+            <returns>TRUE if the current user have right to access, otherwise FALSE</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.FormsExtensionsUI.GetStepsDescriptor(EPiServer.Forms.Implementation.Elements.FormContainerBlock)">
+            <summary>
+            Get the steps' information in json
+            </summary>
+            <param name="formBlock">The FormContainerBlock has its model built.</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.FormsExtensionsUI.GetElementsDescriptor(EPiServer.Forms.Implementation.Elements.FormContainerBlock)">
+            <summary>
+            Get elements information for serialize to client.
+            </summary>
+            <param name="formBlock">The form block.</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.FormsExtensionsUI.RenderFormElements(System.Web.Mvc.HtmlHelper,System.Int32,System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.Models.IFormElement})">
+            <summary>
+            Renders form elements inside a FormStep
+            </summary>
+            <param name="html">Instance of HtmlHelper class</param>
+            <param name="elements">Form element collection</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.FormsExtensionsUI.RenderWebFormViewToString``1(System.Web.Mvc.ControllerContext,System.String,``0,System.Web.Mvc.ViewDataDictionary)">
+            <summary>
+            Render a WebForm View to string
+            <remarks>Inspire from http://stackoverflow.com/questions/483091/render-a-view-as-a-string</remarks>
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.FormsExtensionsUI.SetCurrentUICultureDependOnFormLanguage(System.String)">
+            <summary>
+            set CurrentUICulture to render content depend on current formLanguage
+            </summary>
+            <param name="formLanguage">The form language.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:EPiServer.Forms.EditView.Internal.FormsExtensionsUI.GetFormDependenciesInfo(EPiServer.Forms.Implementation.Elements.FormContainerBlock)" -->
+        <member name="M:EPiServer.Forms.EditView.Internal.FormsExtensionsUI.GetExistingForms(EPiServer.DataAbstraction.IContentTypeRepository)">
+            <summary>
+            Get all forms that have not been deleted in db
+            </summary>
+            <returns>All forms in database</returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.FormStructureHandler">
+            <inheritdoc />
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.FormStructureHandler.UpdateStructure(EPiServer.Forms.Core.BlockBase)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.FormStructureHandler.UpdateFormStepDependField(EPiServer.Forms.Implementation.Elements.FormStepBlock,System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.ElementBlockBase})">
+            <summary>
+            Removes depend field incase it is not belong to the form and then update this form step.
+            </summary>
+            <param name="step">Current form step</param>
+            <param name="fields">Available form field collection</param>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.FormUIInitializationService">
+            <summary>
+            Initialize some components of Forms UI in edit mode at initialization time. 
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.FormUIInitializationService.SetupRootFolderForForm">
+            <summary>
+            Setup root folder for Form, so all Element, FormContainer (which are blocks) will be placed in this rootFolder.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.MigrationService">
+            <summary>
+            Service for migration
+            </summary>    
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.MigrationService.UpdateMissingValueOfRetentionPolicy">
+            <summary>
+            Migrate old forms that miss retention policy.properties
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.MigrationService.IsFormMissingValueOfRetentionPolicy(EPiServer.Forms.Implementation.Elements.FormContainerBlock)">
+            <summary>
+            Check whether the form has retention policy properties: partial and finalized or not.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.OAuthXmlFeed">
+            <summary>    
+            A feed that take items from a XmlString, fetch from the remote Url, authenticated by OAuth
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.OAuthXmlFeed.LoadItems">
+            Fetch items from feed, require to authenticate by OAuth
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.OAuthResponse">
+            <summary>
+            Model for the response
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.OAuth2Client">
+            <summary>
+            Class for authenticate to get data from FeedUrl
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.OAuth2Client.GetAccessToken(System.String,System.String,System.String)">
+            <summary>
+            Authenticate with the service and get access token.
+            </summary>
+            <param name="accessTokenUrl">URI to get access token.</param>
+            <param name="username">The username.</param>
+            <param name="password">The password.</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.OAuth2Client.GetData(System.String,System.String)">
+            <summary>
+            Get data from specified Uri and access token.
+            </summary>
+            <param name="url">The feed URL.</param>
+            <param name="accessToken">The access token.</param>
+            <returns>Return response content body</returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.SubmissionQueryConditions">
+            <summary>
+            Provide data for submission query
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.SubmissionQueryService">
+            <summary>
+            Internal service for querying submission data
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.SubmissionQueryService.GetSubmissionData(EPiServer.Forms.Core.Data.ISubmissionStorage,EPiServer.Forms.Core.Models.FormIdentity,EPiServer.Forms.EditView.Internal.SubmissionQueryConditions,EPiServer.Shell.Services.Rest.ItemRange,EPiServer.Shell.Services.Rest.ItemRange@)">
+            <summary>
+            Get submission data with additional query conditions
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.SubmissionQueryService.GetSubmissionDataCount(EPiServer.Forms.Core.Data.ISubmissionStorage,EPiServer.Forms.Core.Models.FormIdentity,EPiServer.Forms.EditView.Internal.SubmissionQueryConditions)">
+            <summary>
+            Get submission data count when querying data with additional query conditions
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.SubmissionQueryService.BuildLinqSearchExpression(System.Collections.Generic.IEnumerable{System.String},System.String,System.Collections.Generic.IDictionary{System.String,System.Type})">
+            <summary>
+            Build Linq Expression for filtering data submission
+            for each columnKey build Expression with method based on field's type in activeMappingFields:
+            numeric fields will call Equals method
+            other fields will call Contains method
+            </summary>
+            <param name="columnKeys">Searchable Form fields</param>
+            <param name="searchText">Input text for filtering</param>
+            <param name="activeMappingFields">Collection of field's name and type get from StoreDefinition</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.SubmissionQueryService.IsNumericType(System.Type)">
+            <summary>
+            Check if input type is numeric type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.ValidationService">
+            <summary>
+            Validation processing
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.ValidateFormData(System.Collections.Specialized.NameValueCollection,EPiServer.Forms.Core.Models.Internal.ValidationInfo@)">
+            <summary>
+            Validate submited form data.
+            </summary>
+            <param name="formData">The form data.</param>
+            <param name="validationFailInfo">ValidationInfo of first validation failed element</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.ValidateFormData(System.Collections.Specialized.NameValueCollection,System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.Models.Internal.ValidationInfo}@)">
+            <summary>
+            Validate submited form data.
+            </summary>
+            <param name="formData">The form data.</param>
+            <param name="validationInfos">ValidationInfos of all validation failed elements</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.GetAllValidatorTypes">
+            <summary>
+            Get all Validator and order by ValidationOrder
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.CreateValidatorFromRawString(System.String)">
+            <summary>
+            Create an instance of validator from its information.
+            </summary>
+            <param name="rawString">The validator information string rendered from Edit mode.
+            (Example: "EPiServer.Forms.Implementation.Validation.RequiredValidator or EPiServer.Forms.Implementation.Validation.RegularExpressionValidator###.+")</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.CreateValidatorListFromRawString(System.String)">
+            <summary>
+            parse the raw string to give validator(s)
+            rawString has value like
+            <example>EPiServer.Forms.Implementation.Validation.RequiredValidator|||EPiServer.Forms.Implementation.Validation.RegularExpressionValidator###\d\d\d</example>
+            where after ### (in this case is \d\d\d is the validator model (Editor set it in EditView)
+            </summary>
+            <param name="rawString">The settings from assigned validators (contain many rawstrings of many validators)</param>
+            <returns>return empty list if cannot parse</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.GetFormValidationInfo(EPiServer.Forms.Implementation.Elements.FormContainerBlock)">
+            <summary>
+            Gets validators descriptor object for the given Form container object
+            </summary>
+            <param name="formContainer">Form container object</param>
+            <returns>JSON string</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.GetElementValidators(EPiServer.Forms.Core.Validation.IElementValidatable)">
+            <summary>
+            Gets validator objects (with its model) of Element
+            </summary>
+            <param name="elementValidatable">The element that can be validated. This used to be textbox, ...</param>
+            <returns>Validator objects (Require, Regex, ...). Return empty list if cannot parse</returns>        
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.ToRawString(EPiServer.Forms.Core.Validation.IElementValidator)">
+            <summary>
+            Convert validator object to string representation
+            </summary>
+            <param name="validator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.ToRawString(System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.Validation.IElementValidator})">
+            <summary>
+            Convert validatorList to string representation. This used to be stored in EpiBlock's Property.
+            </summary>
+            <param name="validators"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.GetValidatorMessage(System.Type,System.String)">
+            <summary>
+            Gets validator's message based on the given validator type
+            </summary>
+            <param name="targetType">Target validator type</param>
+            <returns>Validator's message</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.GetValidationHtmlAttributes(EPiServer.Core.IContent)">
+            <summary>
+            Renders validation attributes for an instance of FORM element that implemented IElementValidatable interface
+            </summary>
+            <param name="formElementContent">An instance of IElementValidatable interface</param>
+            <returns>A collection of attributes</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.GetValidationCssClasses(EPiServer.Forms.Core.Validation.IElementValidatable)">
+            <summary>
+            Renders validation CSS classes for an instance of FORM element that implemented IElementValidatable interface
+            </summary>
+            <param name="elementValidatable">An instance of IElementValidatable interface</param>
+            <returns>A collection of CSS classes used for Validation</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.GetValidatorTypesForAnElementTypeInEditView(EPiServer.Forms.Core.Validation.IElementValidatable)">
+            <summary>
+            Get available validators to be displayed on a screen for an specific element type.
+            Search current class for available validators first, if none then search the ancestors
+            </summary>
+            <returns>return a list of validator type to be displayed on the screen </returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.FilteredValidators(System.Collections.Generic.IEnumerable{System.Type},System.Type,System.Boolean)">
+            <summary>
+            Return filtered validator types from all available validator types in EditView
+            </summary>
+            <param name="validatorTypesInEditView">Available validator types in EditView</param>
+            <param name="elementType">Element type</param>
+            <param name="inherit">If true, specifies to also search the ancestors of element</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.GetValidatorTypesIncludedForAnElementType(System.Type,System.Boolean)">
+            <summary>
+            Get all validators registered for a specific element type by developers. 
+            </summary>
+            <param name="elementType">element type</param>
+            <param name="inherit">If true, specifies to also search the ancestors of element.</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.ValidationService.GetValidatorTypesExcludedForAnElementType(System.Type,System.Boolean)">
+            <summary>
+            Get all validators excluded for a specific element type by developers. 
+            </summary>
+            <param name="elementType">element type</param>
+            <param name="inherit">If true, specifies to also search the ancestors of element.</param>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Internal.XmlFeed">
+            <summary>    
+            A feed that take items from a XmlString, fetch from the remote Url
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.XmlFeed.LoadItems">
+            <summary>
+            Involke FeedProvider to get items. Cache it base on Feed.CacheTimeout setting
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Internal.XmlFeed.AvailableInEditView">
+            <summary>
+            Return true for displaying in EditView as normal data source.
+            <remarks>Feed of external system mapping should not be shown for Editor to view as normal feed. Feed defined in configuration files should be shown as default.</remarks>
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.XmlFeed.GetWebResponseAsync(System.String)">
+            <summary>
+            Get application/xml string from the <paramref name="url"/>
+            </summary>
+            <param name="url"></param>
+            <returns>return null if cannot get the response</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.Internal.XmlFeed.GetFeedItemsFromXml(System.String,System.String,System.String)">
+            <summary>
+            Extract list of FeedItem from <paramref name="xmlString"/>.
+            </summary>
+            <param name="xmlString">The XML string.</param>
+            <param name="keyXPath">The XPath to select keys from XML document.</param>
+            <param name="valueXPath">The XPath to select values from XML document.</param>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.IPreviewableTextBox">
+            <summary>
+            Interface to mark a property in CMS EditView can have a PreviewableTextBox widget.
+            <example>This  can be textbox for show/edit regex pattern of RegularExpressionValidator</example>
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.IUIExternalFieldMapping">
+            <summary>
+            Form Element implement this interface will have addition tab "Extra Field Mapping" for editor to work with registered external system(s).
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.IUIPropertyCustomCollection">
+            <summary>
+            UI Property custom collection of Forms, which show up in EditView, should implement this interface to be decorates custom editor collection.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.IUIPropertyCustomCollection.PropertyType">
+            <summary>
+            Indicate the type of editing property.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.JobScheduler.ExpiredFormSubmissionRemoveJob">
+            <summary>
+            Job to remove all partial form submission data from storage
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.JobScheduler.ExpiredFormSubmissionRemoveJob.#ctor(EPiServer.Forms.EditView.Internal.CleanupService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Forms.EditView.JobScheduler.ExpiredFormSubmissionRemoveJob"/> class.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.JobScheduler.ExpiredFormSubmissionRemoveJob.OnStatusChanged(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.EditView.JobScheduler.ExpiredFormSubmissionRemoveJob.Stop">
+            <summary>
+            Stop the job
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.JobScheduler.ExpiredFormSubmissionRemoveJob.Execute">
+            <summary>
+            Start the job
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.JobScheduler.UpdateMissingValueOfRetentionPolicyJob">
+            <summary>
+            Job to update forms with missing retention values.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.JobScheduler.UpdateMissingValueOfRetentionPolicyJob.#ctor(EPiServer.Forms.EditView.Internal.MigrationService,EPiServer.Framework.Localization.LocalizationService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Forms.EditView.JobScheduler.UpdateMissingValueOfRetentionPolicyJob"/> class.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.JobScheduler.UpdateMissingValueOfRetentionPolicyJob.Stop">
+            <summary>
+            Stop the job
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.JobScheduler.UpdateMissingValueOfRetentionPolicyJob.Execute">
+            <summary>
+            Start the job
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Models.Internal.ChartPeriodicity">
+            <summary>
+            Model. Periodicity for Form chart
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.Models.Internal.ChartPeriodicity.Minute">
+            <summary>
+            Once a minute
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.Models.Internal.ChartPeriodicity.Hour">
+            <summary>
+            Once a hour
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.Models.Internal.ChartPeriodicity.Day">
+            <summary>
+            Once a day
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.Models.Internal.ChartPeriodicity.Week">
+            <summary>
+            Once a week
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.EditView.Models.Internal.ChartPeriodicity.Month">
+            <summary>
+            Once a month
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Models.Internal.ConditionViewModel">
+            <summary>
+            ViewModel of a row in Conditions Detail dialog.
+            This is actually <see cref="T:EPiServer.Forms.Core.Internal.Dependency.Condition" />, 
+            but we need to decorate each property with [Display] and [UIHint] attributes, we need to redeclare them here.
+            And there is a problem (with EditView) if we make <see cref="T:EPiServer.Forms.EditView.Models.Internal.ConditionViewModel" /> inherits directly from <see cref="T:EPiServer.Forms.Core.Internal.Dependency.Condition" />
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Models.Internal.ConditionViewModel.Field">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Models.Internal.ConditionViewModel.Operator">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Models.Internal.ConditionViewModel.FieldValue">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Models.Internal.DependencyInfo">
+            <summary>
+            This is a model (of dependency information), which is transfered to clientside
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Models.Internal.DependencyInfo.FieldName">
+            <summary>
+            Name of dependent element on which the action will be triggered when dependency's condition(s) are met
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Models.Internal.DependencyInfo.Action">
+            <summary>
+            Depend action
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Models.Internal.DependencyInfo.ConditionCombination">
+            <summary>
+            Convert from enum <see cref="!:Core.ConditionCombination"/> to text
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Models.Internal.DependencyInfo.Conditions">
+            <summary>
+            List of <see cref="!:Internal.DependencyCondition"/>. 
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Models.Internal.FeedItem">
+            <summary>
+            Model. Represent one item of a Feed
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Models.Internal.IOptionItem">
+            <summary>
+            Item which can be selected in the SelectionBaseElement
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Models.Internal.OptionItem">
+            <summary>
+            Class represented an item with caption and value.
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.Models.Internal.StepDescriptor">
+            <summary>
+            View model for FormStep object.
+            Internal use for serialize step information to client.
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Models.Internal.StepDescriptor.Index">
+            <summary>
+            Index of the step.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Models.Internal.StepDescriptor.AttachedUrl">
+            <summary>
+            Url of the page which the step attached to.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Models.Internal.StepDescriptor.DependField">
+            <summary>
+            Name of field the step depend to.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Models.Internal.StepDescriptor.DependCondition">
+            <summary>
+            Depend condition, ex: "Equals", "NotEquals",...
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.Models.Internal.StepDescriptor.IsActive">
+            <summary>
+            Flag to indicate whether the step is active or not
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.PropertyGenericList`1">
+            <summary>
+            Use PropertyLongString as a base class, extend it to support list of generic item.
+            Generic item can be arbitrary (serializable type) and will be serialized to string, and store as normal PropertyLongString property.
+            <example>This will be used to display EditView UI for configuring ImageChoice, Actor, Validator, ...</example>
+            </summary>
+            <remark>Serialize and Deserialize using Json format.</remark>
+            <typeparam name="T">Any type has a public parameterless constructor.</typeparam>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:EPiServer.Forms.EditView.PropertyGenericList`1.ParseToPropertyObject(System.String)" -->
+        <member name="M:EPiServer.Forms.EditView.PropertyGenericList`1.ParseToObject(System.String)">
+            <summary>
+            Return underlying PropertyData data object from a string.
+            </summary>
+            <param name="value">Json string contains generic list.</param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.PropertyGenericList`1.ParseToSelf(System.String)">
+            <summary>
+            Self initializing an expected list from a string.
+            </summary>
+            <param name="value">Json string contains generic list.</param>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.PropertyGenericList`1.PropertyValueType">
+            <summary>
+            Get the current object's <see cref="T:System.Type"/> data.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.EditView.PropertyGenericList`1.Value">
+            <summary>
+            Override this prop because we need to transform the T[] to string.
+            The base (PropertyLongString) cannot understand and get/set Value with type T[];
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.PropertyGenericList`1.FromLongString(System.String)">
+            <summary>
+            Return the deserialized object from given string.
+            </summary>
+            <param name="str">Json string contains generic list.</param>
+            <returns>return empty list for null-empty string</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.PropertyGenericList`1.ToLongString(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Serialize given list to string.
+            </summary>
+            <param name="list">Generic list for serializing.</param>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.SelectionFactory.ConditionCombinationSelectionFactory">
+            <summary>
+            SelectionFactory for editor to choose how condition is combined.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.SelectionFactory.DependencyActionSelectionFactory">
+            <summary>
+            SelectionFactory for let editor choose the Action when conditions satisfied.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.SelectionFactory.DependConditionSelectionFactory">
+            <summary>
+            Creates selections for enum of type <see cref="T:EPiServer.Forms.Core.DependCondition"/>.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.SelectionFactory.ExternalSystemConnectedDataSourceSelectionFactory">
+            <summary>
+            Selection factory for external system connected data sources.
+            This factory will returns all the mapping configuration of all registered external systems (which implement <see cref="T:EPiServer.Forms.Core.Internal.ExternalSystem.IExternalSystem"/>.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.SelectionFactory.ExternalSystemFieldMappingSelectionFactory">
+            <summary>
+            Selection factory for external system field mappings.
+            This factory will returns all the mapping configuration of all registered external systems (which implement <see cref="!:IFieldMapping"/>.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.SelectionFactory.FeedSelectionFactory">
+            <summary>
+            Selection factory for building the feed of items in runtime.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.SelectionFactory.SelectionFactoryBase">
+            <summary>
+            Base class for EPiServer Forms selection factory
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.SelectionFactory.SelectionFactoryBase.GetSelectionStoreName(EPiServer.Shell.ObjectEditing.ExtendedMetadata)">
+            <summary>
+            Target property name to get selection data from
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.SelectionFactory.SelectionFactoryBase.GetSelectItems(EPiServer.Shell.ObjectEditing.ExtendedMetadata)">
+            <summary>
+            Create a list of filtered selection items for a specific property
+            </summary>
+            <param name="metadata">The metadata for a property</param>
+            <returns>A list of selection items for a specific property</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.SelectionFactory.SelectionFactoryBase.GetExternalSystemDisplayName(EPiServer.Forms.Core.Internal.ExternalSystem.IExternalSystem)">
+            <summary>
+            Get localization resource of ExternalSystem's DisplayName
+            </summary>
+            <param name="system"></param>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.SelectionFactory.SelectionFactoryBase.GetStoredSelectionData(EPiServer.Shell.ObjectEditing.ExtendedMetadata)">
+            <summary>
+            Gets stored selection data from current content data metadata
+            </summary>
+            <param name="metadata">Extended metadata</param>
+            <returns>Selection data in array of string</returns>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.SelectionFactory.SelectionFactoryBase.GetSelectItemValue(System.String,System.String[])">
+            <summary>
+            Gets select item value from given collection by search value
+            </summary>
+            <param name="searchValue">Search value</param>
+            <param name="collection">Collection of string</param>
+            <returns>Matched string</returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.SelectionFactory.SubmissionRetentionPeriodSectionFactory">
+            <summary>
+            This factory will returns all the retention period types.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.SelectionFactory.SubmissionRetentionPeriodSectionFactory.GetSelections(EPiServer.Shell.ObjectEditing.ExtendedMetadata)">
+            <summary>
+            Get all kind of retention period for this system 
+            to build a list of SelectItem to EditView, so editor can select the retention period he wants to apply
+            </summary>
+            <param name="metadata"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.SelectionFactory.ValidatorSelectionFactory">
+            <summary>
+            Selection factory for validators.
+            This factory will returns all registered validators in EPiServer Forms.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.EditView.SelectionFactory.ValidatorSelectionFactory.GetSelections(EPiServer.Shell.ObjectEditing.ExtendedMetadata)">
+            <summary>
+            Get all validators for this system, ignore the non-editMode, 
+            to build a list of SelectItem to EditView, so editor can select the validator he wants to apply
+            </summary>
+            <param name="metadata"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:EPiServer.Forms.EditView.SpecializedProperties.PropertyDependencyConditionsList" -->
+        <member name="T:EPiServer.Forms.EditView.SpecializedProperties.PropertyFieldMappingCollection">
+            <summary>
+            Render UI in EditView for list of options
+            Property field mapping collection for external system
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.SpecializedProperties.PropertyConnectedDataSourceCollection">
+            <summary>
+            Render UI in EditView for list of options
+            Property connected data source collection for external system
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.SpecializedProperties.PropertyOptionList">
+            <summary>
+            Render UI in EditView for list of options
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Actors.CallWebhookAfterSubmissionActor">
+            <summary>
+            Call to a web endpoint to pass SubmissionData.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Actors.CallWebhookAfterSubmissionActor.Run(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Actors.CallWebhookAfterSubmissionActor.GetWebResponseAsync(EPiServer.Forms.Implementation.Actors.WebhookActorModel)">
+            <summary>
+            We have inspired by Github https://developer.github.com/webhooks/
+            <para>
+            As a publisher of the event, we just ring the bell URL, push enough information and send the payload away.
+            It is not a good idea to customized the target URL to received our payload. Someone need our data, they need to read it our way.
+            </para>
+            <para>
+            +	Even that they can customize the URL, they always have to handle it by code, implement a receiver to process our data.
+            +	Instead of customizing the URL in EditView (which is someone as SiteAdmin, not Developer), they should do it in a developer-manner, by taking data structure directly in their HttpHandler, and consume it. 
+            +	It is developer-friendly and less error-prone than managing two places, “URL in the EditView” and “handler in their receiver code”.
+            </para>
+            </summary>
+            <param name="webHookActorModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Actors.CallWebhookAfterSubmissionActor.ConvertSubmitTimeToIsoFormat(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            Convert SubmitTime to string with ISO 8601 format
+            </summary>
+            <param name="passedData"></param>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Actors.CallWebhookAfterSubmissionActor.PropertyType">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Actors.WebhookActorModel">
+            <summary>
+            Entry of a configuration for Webhook Actor
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Actors.SendEmailAfterSubmissionActor">
+            <summary>
+            Post submission actor class implementation for email sender.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Actors.SendEmailAfterSubmissionActor.PerformOnEveryStepSubmission">
+            <summary>
+            Set PerformOnEveryStepSubmission to false to make sure email only sent when form finalize.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Actors.SendEmailAfterSubmissionActor.Run(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Actors.SendEmailAfterSubmissionActor.PropertyType">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Actors.SendEmailAfterSubmissionActor.GetSubjectPlaceHolders(System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.Models.Internal.FriendlyNameInfo})">
+            <summary>
+            Gets placeholders for email's subject.
+            Tokens will not applies HTML encode.
+            </summary>
+            <param name="friendlyNames">Field mapping collection.</param>
+            <returns>Placeholder collection.</returns>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Actors.SendEmailAfterSubmissionActor.GetBodyPlaceHolders(System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.Models.Internal.FriendlyNameInfo})">
+            <summary>
+            Gets placeholders for email's body.
+            Placeholders will applies HTML encode.
+            </summary>
+            <param name="friendlyNames">Field mapping collection.</param>
+            <returns>Placeholder collection.</returns>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Actors.SendEmailAfterSubmissionActor.RewriteUrls(System.String)">
+            <summary>
+            Rewrites all src|href attribute value inside the given content string.
+            </summary>
+            <param name="content">Content string that wanted to rewrite.</param>
+            <returns>Converted content string that ready to show image in email's body.</returns>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.FormStepBlock">
+            <summary>
+            A FormStep, represent a form "page". Using FormStep to split form into several "page". Visitor navigate between "pages" of a form by using the NavigationBar.    
+            This element will not be shown in ViewMode (in summarized dialog, friendly name, ...)
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FormStepBlock.AttachedContentLink">
+            <summary>
+            Use <see cref="T:EPiServer.Url"/> to support E-Commerce Catalog content.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FormStepBlock.DependField">
+            <summary>
+            This step should depend on other (previous) form element (specify here). The editor in EditView is defined by [UIHint("FieldSelector")].
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FormStepBlock.DependCondition">
+            <summary>
+            How to determine this step depend on other (previous) form element.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FormStepBlock.DependValue">
+            <summary>
+            Value to evaluate the dependency
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FormStepBlock.EditViewFriendlyTitle">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FormStepBlock.FormElement">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Core.Models.Internal.FormStep">
+            <summary>
+            Model. Each EPiForm can have one or several steps. Steps can be in single page or multiple pages.
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="P:EPiServer.Forms.Core.Models.Internal.FormStep.AttachedContentLink">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Core.Models.Internal.FormStep.Elements">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Social.Groups.Site</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Social.Groups.Site.DependencyInitializationModule">
+            <summary>
+            The DependencyInitializationModule class prepares the dependencies
+            for the services and components supporting the 'Groups' feature
+            set of the Social platform.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Site.DependencyInitializationModule.ConfigureContainer(EPiServer.ServiceLocation.ServiceConfigurationContext)">
+            <summary>
+            Prepares dependencies for group services and components, and registers
+            them with the site's IoC system.
+            </summary>
+            <param name="context">Service configuration context</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Site.DependencyInitializationModule.CreateGroupService">
+            <summary>
+            Factory method supporting the instantiation of the IGroupService
+            implementation intended to support the site.
+            </summary>
+            <returns>Group service intended to support the site</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Site.DependencyInitializationModule.CreateRoleService">
+            <summary>
+            Factory method supporting the instantiation of the IRoleService
+            implementation intended to support the site.
+            </summary>
+            <returns>Role service intended to support the site</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Site.DependencyInitializationModule.CreateMemberService">
+            <summary>
+            Factory method supporting the instantiation of the IMemberService
+            implementation intended to support the site.
+            </summary>
+            <returns>Member service intended to support the site</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Site.DependencyInitializationModule.CreateAssociationService">
+            <summary>
+            Factory method supporting the instantiation of the IAssociationService
+            implementation intended to support the site.
+            </summary>
+            <returns>Association service intended to support the site</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Site.DependencyInitializationModule.Initialize(EPiServer.Framework.Initialization.InitializationEngine)">
+            <summary>
+            Executes the initialization procedure for this module.
+            </summary>        
+        </member>
+        <member name="M:EPiServer.Social.Groups.Site.DependencyInitializationModule.Uninitialize(EPiServer.Framework.Initialization.InitializationEngine)">
+            <summary>
+            Executes the teardown procedure for this module.
+            </summary>
+        </member>
+    </members>
+</doc>

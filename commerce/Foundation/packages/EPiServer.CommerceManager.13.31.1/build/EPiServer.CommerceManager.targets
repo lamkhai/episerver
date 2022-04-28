@@ -1,0 +1,32 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup Condition="'$(FilesToIncludeForPublish)'!='AllFilesInProjectFolder'">
+			<CopyAllFilesToSingleFolderForPackageDependsOn>CollectCommerceManagerAppFiles;$(CopyAllFilesToSingleFolderForPackageDependsOn);</CopyAllFilesToSingleFolderForPackageDependsOn>
+			<CopyAllFilesToSingleFolderForMsdeployDependsOn>CollectCommerceManagerAppFiles;$(CopyAllFilesToSingleFolderForPackageDependsOn);</CopyAllFilesToSingleFolderForMsdeployDependsOn>
+		</PropertyGroup>
+		<Target Name="CollectCommerceManagerAppFiles">
+			<ItemGroup>
+				<AppsFolder Include="Apps\**" />
+				<FilesForPackagingFromProject Include="%(AppsFolder.Identity)">
+					<DestinationRelativePath>Apps\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+				</FilesForPackagingFromProject>
+			</ItemGroup>
+			<ItemGroup>
+				<AppGlobalResourcesFolder Include="App_GlobalResources\**" />
+				<FilesForPackagingFromProject Include="%(AppGlobalResourcesFolder.Identity)">
+					<DestinationRelativePath>App_GlobalResources\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+				</FilesForPackagingFromProject>
+			</ItemGroup>
+			<ItemGroup>
+				<AppData Include="App_Data\**" />
+				<FilesForPackagingFromProject Include="%(AppData.Identity)">
+					<DestinationRelativePath>App_Data\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+				</FilesForPackagingFromProject>
+			</ItemGroup>
+			<ItemGroup>
+				<CustomeFiles Include="Global.asax;Default.aspx;EPiServerDefault.aspx;EPiServerLog.config" />
+				<FilesForPackagingFromProject Include="%(CustomeFiles.Identity)">
+					<DestinationRelativePath>%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+				</FilesForPackagingFromProject>
+			</ItemGroup>
+		</Target>
+</Project>

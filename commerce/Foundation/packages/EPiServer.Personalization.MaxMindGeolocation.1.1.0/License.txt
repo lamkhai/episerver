@@ -1,0 +1,427 @@
+Episerver      Americas / APAC HQ             +1 603 594 0249            EMEA HQ                         +46 8 55 58 27 00                   1 /5
+
+               542A Amherst Street            www.Episerver.com          Torsgatan 11                    www.Episerver.com
+               Nashua, NH 03063                                          Box 7007                        556208-3435
+               USA                                                       103 86 Stockholm, Sweden
+
+
+Episerver End-User License Agreement (“EULA”)
+READ THE FOLLOWING TERMS, CONDITIONS, DISCLAIMERS AND                              "Product(s)" means the product Episerver Customer-Centric Digital
+RESTRICTIONS OF THIS END USER LICENSE AGREEMENT                                    Experience Platform License (“CCDXP License”) editions (for
+("AGREEMENT") BEFORE YOU (“LICENSEE” or “CUSTOMER”)                                example ‘Episerver CCDXP License Social Commerce’), Find and
+INSTALLS AND/OR USES THE SOFTWARE IN ANY WAY. BY                                   Supplemental Products provided by Episerver as further described
+INSTALLING, COPYING, DOWNLOADING, OR IN ANY OTHER WAY                              in Section 2.1 and 2.2 below.
+USING THE SOFTWARE, CUSTOMER FULLY ACCEPTS THIS
+                                                                                   “Server(s)” means either a Physical Server or a Virtual Server. As
+AGREEMENT, WHICH BECOMES A BINDING OBLIGATION ON AND
+                                                                                   they are treated equally in terms of Episerver licensing, the term
+ENFORCEABLE AGAINST LICENSEE. IF LICENSEE DOES NOT AGREE
+                                                                                   Server can reference either. Server(s) must provide a MAC or IP
+TO THE TERMS OF THIS AGREEMENT, CUSTOMER MAY NOT USE,
+                                                                                   address to which the Software License(s) is bound.
+INSTALL, COPY, DOWNLOAD, OR IN ANY OTHER WAY USE THE
+SOFTWARE. Episerver and Customer are individually referred to as a                 ”Site(s)” is a unique collection of content associated with one or
+“Party” and collectively as the “Parties”.                                         more domain names, using the same start page, also defined under
+                                                                                   the Episerver root node. This can be found under the [CMS] tab,
+Any Software provided by Episerver is licensed, not sold, and only in
+                                                                                   then [Admin], then [Config], then [Manage Websites]. In this view,
+accordance with the terms of this Agreement. Licensee may also
+                                                                                   under [Manage Websites], each Site listed under [Websites]
+have another written and signed agreement directly with Episerver
+                                                                                   constitutes one (1) Site.
+(example, Master License Agreement) that supplements or
+supersedes portions of this Agreement. Use of Episerver and non-                   "Software" means (i) all of the contents of the data, files or other
+Episerver materials and services included in or accessed through                   media in machine-readable form provided under this Agreement,
+the Software may be subject to additional terms and conditions.                    including (a) all software developed and provided by Episerver (b)
+                                                                                   Applied Software, (c) Implemented Software (ii) related explanatory
+1. Definitions
+                                                                                   written material or files ("Documentation"); but excluding any part of
+"Agreement" means this End User License Agreement.                                 the original source code of the Implemented Software.
+"Applied Software" means the third-party software listed in Section                "Third-Party Product(s)" means third-party software provided by a
+12 below.                                                                          third-party which may be installed together with the Software.
+"Development License(s)" means a limited License Type that can                     "Use" means to access, install, download and/or execute the
+only be used for non-commercial purpose(s). They cannot be used                    Software in order to utilize the functionality of the Software.
+for any public facing Site or Server and are typically labeled as, but
+                                                                                   “Virtual Server(s)” mean a virtual operating system environment
+not limited to, "Partner", "Developer", “Demo", “Demonstration” or
+                                                                                   where the operating system instance is used to run hardware
+"Evaluation" license(s). Developer Licenses are limited to Site,
+                                                                                   virtualization software (e.g. Microsoft Virtual Server, VMWare or
+Server and/or usage restrictions.
+                                                                                   similar) or to provide hardware virtualization services (e.g. Microsoft
+“Entitlement” means the collective set of applicable documents,                    virtualization technology or similar) and is considered equal to a
+including, but not limited to, all (including digital) agreement(s),               single physical operating system environment. A virtual operating
+exhibit(s), attachment(s), addendum(s), schedule(s), and/or                        system environment is configured to run on a virtual (or otherwise
+invoice(s) authorized and provided by Episerver evidencing                         emulated) hardware system and thus one (1) Virtual Server.
+Customer’s obligations within this Agreement.
+                                                                                   2. Software License
+"Episerver" means Entitlements issued to Customer from either
+                                                                                   For so long as the Licensee complies with the terms of this
+Episerver AB, a Swedish corporation located at Regeringsgatan 67;
+                                                                                   Agreement and makes full and timely payment of all fees and
+Box 7007; 103 86 Stockholm, Sweden or Episerver Inc. (formerly
+                                                                                   charges due, Episerver grants Licensee a non-exclusive, non-
+known as Ektron, Inc.), a Delaware corporation located at 542
+                                                                                   transferable, non-sublicenseable, limited license to use the
+Amherst Street, Nashua, NH 03063, USA.
+                                                                                   Software solely by Licensee (and its employees) for Licensee’s
+"Implemented Software" means the implemented third-party                           business purposes and in accordance with the following conditions:
+software listed in Section 11 below.
+                                                                                   2.1 General Use of Products. Each Product has its own capability,
+“Instance(s)” means a single (1) web application with a single (1)                 functionality, and fees. Further additional definitions, terms,
+database running on a Virtual Server, not bound by a media access                  conditions and restrictions shall apply depending on the Product’s
+control address (“MAC”) or internet protocol (“IP”) address, primarily             License Type as described below:
+meant to be used in a cloud hosting environment, which must be
+                                                                                   (i) Episerver CCDXP License. The Licensee may install and Use the
+able to persistently contact the Episerver license service.
+                                                                                   Software in machine-readable, object code form on the number of
+"Licensee" means the customer licensing the Software in                            Server(s) or Instance(s) for the number of Site(s) for the Product(s)
+accordance with this Agreement.                                                    purchased.
+"License Type" means the license types provided by Episerver from                  (ii) Episerver Development License(s). The Licensee may install
+time to time.                                                                      Development License(s) of the Software in machine-readable,
+                                                                                   object code form on non-public facing physical developer
+“Physical Server(s)” means a physical hardware system capable of
+                                                                                   computer(s) or on non-public facing virtual developer instance in a
+running server software. A hardware partition or blade is considered
+                                                                                   virtual operating system environment for non-production, non-
+to be a separate single physical hardware system. Thus, one (1)
+                                                                                   commercial Use in a non-Server environment for a single named
+Physical Server, for purposes of Episerver licensing, is equal to one
+                                                                                   user and development purposes only. Development License(s) are
+(1) Server.
+                                                                                   not subject to a fee, are limited to a maximum of one (1) year, and,
+
+
+Episerver End-User License Agreement (EULA)
+Version [2020-01-08]
+Copyright Episerver 2020
+Episerver      Americas / APAC HQ             +1 603 594 0249            EMEA HQ                         +46 8 55 58 27 00                   2 /5
+
+               542A Amherst Street            www.Episerver.com          Torsgatan 11                    www.Episerver.com
+               Nashua, NH 03063                                          Box 7007                        556208-3435
+               USA                                                       103 86 Stockholm, Sweden
+
+with the exception of Section 6.6, are not subject to Section 6                    Failure to allow such service channel to operate correctly will
+herein, they are provided AS—IS.                                                   impede Use of the Software.
+(iii) Episerver Demonstration License(s). The Licensee may install                 3. Restrictions
+Demonstration License(s) of the Software in machine-readable,
+                                                                                   3.1 Transfer. Except as expressly authorized in this Agreement,
+object code form on non-public facing physical developer
+                                                                                   Licensee shall not hire out, lease, lend, assign, sublicense,
+computer(s) or on non-public facing virtual developer instance in a
+                                                                                   distribute (electronically or otherwise), resell, sell, create any
+virtual operating system environment for non-production, non-
+                                                                                   derivative works of, or otherwise transfer all or any portion of the
+commercial Use and for demonstration purposes only.
+                                                                                   Software to a third-party.
+Demonstration License(s) are not subject to a fee, are limited to a
+maximum of thirty (30) days, and, with the exception of Section 6.6,               3.2 Decompilation. Except as expressly authorized in this
+are not subject to Section 6 herein, they are provided AS—IS.                      Agreement, explicit contract bound permission given by Episerver,
+                                                                                   or to the extent expressly permitted by applicable law, Licensee
+(iv) Episerver Intranet License(s). The Licensee may install Episerver
+                                                                                   shall not copy, modify, reverse engineer, decompile, disassemble,
+Intranet License(s) in machine-readable, object code form on the
+                                                                                   translate, make works derivate of the Software or otherwise
+number of Server(s) or Instance(s) for the number of Site(s)
+                                                                                   attempt to discover the source code of the Software. Any violation
+purchased. Episerver Intranet License(s) are a limited License Type
+                                                                                   of this clause shall result in immediate revocation of this license.
+that can only be used for internal purposes by Licensee and only by
+                                                                                   Licensee may request permission from Episerver to decompile the
+personnel within Licensee’s organization. They cannot be used for
+                                                                                   Software for purposes of fault analysis, integration planning and
+any public facing Site, Server or Instance and are typically labeled
+                                                                                   other internal business purposes, such permission to be expressly
+as, but not limited to, "Intranet" licenses.
+                                                                                   granted by Episerver in writing and at its sole discretion.
+(iv) Episerver Find Virtual Appliance/RAW License(s). The Licensee
+                                                                                   3.3 Redirect. The Products shall not be used in solutions that use
+may install Episerver Find Virtual Appliance/RAW License(s) for the
+                                                                                   an internal redirect (automatic server side or client side re-routing
+number of index(s) on the number of Virtual Server(s) purchased.
+                                                                                   of traffic) for purposes of circumventing Episerver license restriction
+Episerver Find Virtual Appliance/RAW may not be used to create a
+                                                                                   software, code, processes, and/or methods.
+hosted index for third-parties. Episerver Find Virtual Appliance/RAW
+License(s) must allow Episerver remote administrative access at all                3.4 Export. The Software may be subject to Swedish, U.S. and
+times.                                                                             foreign export and import control laws, including without limitation
+                                                                                   the U.S. Export Administration Act. Licensee agrees to comply with
+2.2 General Use of Supplemental Products. All Supplemental
+                                                                                   all such regulations and acknowledges that Licensee is responsible
+Products developed by Episerver, and all derivative works shall
+                                                                                   for obtaining any necessary licenses to import and re-export the
+remain the property of Episerver. Further, Episerver offers the
+                                                                                   Software outside the United States of America and Sweden.
+following Supplemental Products on the following conditions:
+                                                                                   4. Ownership and Intellectual Property Rights
+(i) Add-Ons, Modules, Connectors, and Packages of software. The
+Licensee may install the Software in machine-readable, object code                 4.1 Episerver shall have sole and exclusive ownership of all right,
+form on Server(s) or Instance(s) for the number of Site(s)                         title and interest in and to the Software, the Documentation, all
+purchased. Add-Ons, Modules, Connectors, and Packages of                           copies and derivative works thereof (regardless of form or media in
+software can only be used in combination with a Product, may                       or on which the original and other copies may exist), including all
+include Third-Party Product(s) and may require acceptance of                       copyright, trademark, patent, trade secret, know-how, source code,
+additional and/or third-party license and/or service agreements.                   object code, sample code, libraries, application protocols (“API”),
+                                                                                   designs, documentation and other intellectual property rights
+(ii) Developer Add-Ons and Open-Source Packages. The Licensee
+                                                                                   pertaining thereto, subject solely to the limited right and license
+may install Developer Add-Ons and Open-Source Packages in
+                                                                                   expressly granted to Licensee herein. Episerver shall retain all rights
+machine-readable, object code form which may be limited by
+                                                                                   to its name and trademarks. With regard to Applied Software or
+Server, Instance Site, other usage restriction, and may require
+                                                                                   Implemented Software included in Products all the above
+acceptance of additional license agreements.
+                                                                                   mentioned rights shall be owned by the third-party from whom
+2.3 Backup copy. The Licensee may make one (1) backup machine-                     Episerver has acquired the right to use the Applied or Implemented
+readable, object code copy of the Software it has purchased for                    Software, subject solely to the limited right and license expressly
+non-productive, archiving purposes.                                                granted to Licensee herein. The structure and code of the Software
+                                                                                   are valuable trade secrets of Episerver and remain the sole property
+2.4 Modifications. The Licensee may modify the disclosed parts of
+                                                                                   of Episerver or, respectively the third-party who owns the Applied
+the Software solely in connection with Licensee’s internal business
+                                                                                   Software or Implemented Software.
+purposes. Episerver has no liability for any such modifications or for
+any faults or errors caused by it (see Section 6.4 below).                         4.2 The Software, owned by Episerver, is protected by Swedish,
+                                                                                   United States, and international copyright legislations. Customer
+2.5 Third-Party Products. The Software may be installed together
+                                                                                   warrants it shall not infringe on Episerver’s Software intellectual
+with Third Party Product(s). With regards to Third-Party Products, the
+                                                                                   property rights.
+relevant third-party license terms and conditions shall apply.
+Episerver makes no warranties regarding Third-Party Products and                   4.3 This license is not a sale of the Software or any updates or new
+disclaims any and all liability for such products.                                 releases, or any copy. Except for the limited license granted under
+                                                                                   this Agreement, the Licensee obtains no other rights in or to the
+2.6 Service Channel. The Episerver Software has a build-in service
+                                                                                   Software. There are no implied licenses under this Agreement and
+channel used for license key activation, installation, verification
+                                                                                   Episerver reserves any rights not expressly granted to Licensee
+and/or updates, security announcements and other information.
+                                                                                   under this Agreement. This Section 4 shall survive termination of
+Information shall be transmitted and stored at Episerver, including
+                                                                                   this Agreement.
+but not limited to License key information, software version,
+hostname (website URL), host IP/MAC-address and machine name.
+
+Episerver End-User License Agreement (EULA)
+Version [2020-01-08]
+Copyright Episerver 2020
+Episerver      Americas / APAC HQ             +1 603 594 0249            EMEA HQ                         +46 8 55 58 27 00                   3 /5
+
+               542A Amherst Street            www.Episerver.com          Torsgatan 11                    www.Episerver.com
+               Nashua, NH 03063                                          Box 7007                        556208-3435
+               USA                                                       103 86 Stockholm, Sweden
+
+5. United States Government users                                                  not be liable for any faults or errors in any Third-Party Products or
+                                                                                   related to use of the Software in conjunction with any such Third
+The Software is a “Commercial Item”, as that term is defined at 48
+                                                                                   Party Product(s). The Licensee shall contact the relevant third-party
+C.F.R. § 2.101, consisting of “Commercial Computer Software” and
+                                                                                   supplier regarding all matters relating to such Third-Party
+“Commercial Computer Software Documentation,” as such terms
+                                                                                   Product(s).
+are used in 48 C.F.R. § 12.212 and 48 C.F.R. § 227.7202, as
+applicable. Consistent with 48 C.F.R. §§ 12.212, 227.7202-1                        6.5 Except as otherwise set forth in this Agreement and except in
+through 227,7202-4, the Commercial Computer Software and                           the event Licensee is in material breach of this Agreement,
+Commercial Computer Software Documentation are being licensed                      Episerver shall indemnify, defend and hold Licensee harmless
+to U.S. Government end-users (a) only as Commercial Items and (b)                  (including Licensee’s officers, director, agents, representatives and
+with only those rights as are granted to all other end-users pursuant              employees) from: any direct claim, direct liability, direct loss, direct
+to the terms and conditions herein.                                                expense or demand, including legal fees and direct costs and
+                                                                                   including without limitation third-party claims based on infringement
+6. Limited Warranty, Limitation of Liability and Indemnification
+                                                                                   caused solely by the Software owned by Episerver. This indemnity
+6.1 For a period of ninety (90) days following delivery of paid-for                requires that Episerver receive notice immediately of any third-party
+Software, Episerver warrants that the Software will perform                        claims and is in sole control of the defense of such claim, including
+substantially in accordance with the Documentation supplied by                     but not limited to any settlement arrangement.
+Episerver with the Software. Episerver’s sole and exclusive
+                                                                                   6.6 Licensee agrees to indemnify, defend and hold Episerver
+obligation for breach of this limited warranty shall be to use its
+                                                                                   harmless (including Episerver’s officers, director, agents,
+commercially reasonable efforts to remedy or supply a temporary
+                                                                                   representatives and employees) from: any direct claim, direct
+fix, or make an emergency bypass. To the extent Episerver cannot
+                                                                                   liability, direct loss, direct expense or demand, including legal fees
+perform its obligations according to the forgoing sentence,
+                                                                                   and direct costs and including without limitation claims based on
+Episerver shall refund to Licensee the fee paid for such Software.
+                                                                                   copyright infringement, related to Licensee’s modifications of the
+This limited warranty shall not be valid if the Software was
+                                                                                   Software or Licensee’s merging or including the Software with other
+subjected to abuse, misuse, accident, alteration or unauthorized
+                                                                                   software or other violation of this Agreement by the Licensee.
+modification or installation, or for free/non-paid for Software. Other
+than this limited warranty, the Software is provided AS IS.                        7. Maintenance and Support
+6.2 EXCEPT AS SET FORTH IN THIS AGREEMENT AND TO THE                               7.1 No maintenance, support, upgrades or updates are provided
+EXTENT ALLOWED BY LAW, EPISERVER AND ITS RESELLERS MAKE                            under this Agreement. Maintenance and Support may be provided
+NO WARRANTIES OR REPRESENTATIONS, EXPRESS OR IMPLIED,                              by Episerver through purchase, details can be found at
+WHETHER BY STATUTE, COMMON LAW, CUSTOM, USAGE OR                                   http://www.Episerver.com/legal/Episerver-maintenance-and-
+OTHERWISE AS TO ANY MATTERS, AND SPECIFICALLY DISCLAIM                             support-service-description. Additional support for the Software may
+ANY WARRANTY OF MERCHANTABILITY, INTEGRATION, NON-                                 be provided by Episerver or Episerver partner reseller, pursuant to a
+INFRINGEMENT, SATISFACTORY QUALITY, OR FITNESS FOR ANY                             separate support agreement.
+PARTICULAR PURPOSE. WITHOUT LIMITING THE GENERALITY OF
+                                                                                   8. Termination
+THE FOREGOING, EPISERVER DISCLAIMS ANY REPRESENTATIONS
+OR WARRANTIES THAT THE SOFTWARE WILL OPERATE                                       8.1 This Agreement is effective until terminated. In the case that
+UNINTERRUPTED OR ERROR FREE. NO ORAL OR WRITTEN                                    Licensee is in material breach of any of the provisions in this
+INFORMATION OR ADVICE GIVEN BY EPISERVER, ITS DEALERS,                             Agreement, Episerver shall have the right to terminate this
+DISTRIBUTORS, RESELLERS, AGENTS, OR EMPLOYEES SHALL                                Agreement, such termination to be effective immediately. Upon
+CREATE A WARRANTY OR IN ANY WAY INCREASE THE SCOPE OF                              such termination, the Licensee shall delete all copies of the
+THIS WARRANTY, AND LICENSEE MAY NOT RELY ON ANY SUCH                               Software and will provide Episerver certification of destruction of
+INFORMATION OR ADVICE.                                                             the Software, all copies thereof, and all materials and
+                                                                                   Documentation related thereto, at the request of Episerver.
+6.3 UNDER NO CIRCUMSTANCES SHALL EPISERVER, NOR ANYONE
+ELSE WHO HAS BEEN INVOLVED IN THE CREATION, PRODUCTION                             8.2 If Episerver, by any reason, no longer should have the necessary
+OR DELIVERY OF THE SOFTWARE OR PRODUCTS, HAVE ANY                                  licenses for the Implemented Software or the Applied Software
+LIABILITY OF ANY KIND TO LICENSEE, ANY AUTHORIZED USER OR                          Episerver shall within reasonable time and with reasonable effort
+ANY OTHER PERSON FOR ANY SPECIAL, INCIDENTAL,                                      provide a substitute for such software. If no such substitute may be
+CONSEQUENTIAL (INCLUDING LOST PROFITS OR REVENUES),                                found, Episerver may, at its own option, terminate this license and
+PUNITIVE OR OTHER INDIRECT LOSSES OR DAMAGES (EVEN IF                              return any license fee to the user minus any depreciation in the
+EPISERVER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH                              value of such software.
+POTENTIAL LOSS OR DAMAGE) RESULTING FROM OR ARISING OUT
+                                                                                   9. Governing Law and Dispute Resolution
+OF (WHETHER DIRECTLY OR INDIRECTLY) ANY ACT OR OMISSION
+OF ANY KIND HEREUNDER BY EPISERVER, ANY ACCESS TO OR USE                           9.1 General. Governing Law and Jurisdiction depend on where
+BY LICENSEE OR ANY OTHER PERSON OF THE SOFTWARE,                                   Customer is domiciled. In all cases, the Agreement will not be
+WHETHER BASED ON BREACH OF CONTRACT, WARRANTY, TORT,                               governed by the United Nations Convention on Contracts for the
+PRODUCT LIABILITY, NEGLIGENCE, STRICT LIABILITY OR                                 International Sale of Goods, the application of which is expressly
+OTHERWISE. UNDER NO CIRCUMSTANCES SHALL EPISERVER'S                                excluded.
+AGGREGATE LIABILITY TO LICENSEE AND ANY OTHER PERSON FOR                           9.2 Alternative Dispute Resolution. The Parties agree that any and
+LOSSES OR DAMAGES OF ANY KIND ARISING OUT OF OR PURSUANT                           all disputes, claims or controversies arising out of or related to this
+TO THIS AGREEMENT EXCEED THE AGGREGATE OF ALL FEES PAID                            Agreement, including any claims under any statute or regulation
+BY LICENSEE FOR THE SOFTWARE OR PRODUCT AT ISSUE.                                  ("Disputes"), shall be submitted first to non-binding mediation. If the
+6.4 With respect to faults and errors in any Third-Party Products, the             Disputes are not resolved through mediation within sixty (60) days,
+relevant third-party terms and conditions shall apply. Episerver shall
+
+Episerver End-User License Agreement (EULA)
+Version [2020-01-08]
+Copyright Episerver 2020
+Episerver      Americas / APAC HQ             +1 603 594 0249                    EMEA HQ                          +46 8 55 58 27 00                 4 /5
+
+               542A Amherst Street            www.Episerver.com                  Torsgatan 11                     www.Episerver.com
+               Nashua, NH 03063                                                  Box 7007                         556208-3435
+               USA                                                               103 86 Stockholm, Sweden
+
+then, upon the election of either Party, the Disputes shall be                             10.3 Licensee shall not assign or sublicense this Agreement without
+submitted for binding arbitration.                                                         Episerver’s prior written consent, which consent may be withheld for
+                                                                                           any or no reason. Either Party may assign all or part of its rights
+9.3 Unresolved Disputes. Any unresolved controversy or claim
+                                                                                           under this Agreement to an affiliate or to any entity that succeeds to
+arising out of or relating to the Agreement, except for any such
+                                                                                           or acquires all or substantially all of the business or assets of such
+controversies or claims arising out of Episerver’s intellectual
+                                                                                           Party through merger, consolidation, or acquisition of stock or
+property rights for which a provisional remedy or equitable relief is
+                                                                                           assets. This Agreement is binding on any permitted assignees or
+sought, shall be submitted to arbitration in accordance with rules
+                                                                                           sub licensees.
+based on the Domicile of the Customer, indicated below. The
+arbitration shall take place based on the Domicile of the Customer,                        10.4 Licensee shall be subject to all fees and penalties for non-
+indicated above, in accordance with the rules indicated below, and                         payment as defined in the Entitlement(s) attached to the Software.
+judgment upon any award rendered in such arbitration will be
+                                                                                           11. Implemented Software
+binding and may be entered in any court having jurisdiction thereof.
+Each Party will bear its own costs with respect to any disputes                            11.1 The following software has been implemented as a part of the
+arising under this Agreement. Each of the Parties to the Agreement                         Products, under either a permissive or open source license - (i)
+consents to personal jurisdiction for any equitable or other action                        Private port of Lucene dot net, Open Source, (Apache Software
+sought in the location indicated above, based on the domicile of the                       License); (ii) Log4net, Open Source, (Apache Software License
+Customer.                                                                                  Version 2.0); (iii) Simple CSS Parser, (Code Project Open License
+                                                                                           1.02); (iv) CommonServiceLocator, (Microsoft Public License (Ms-
+ Customer is        Governing         Jurisdiction:                                        PL)); (v) Structure Map, (Apache Software License Version 2.0); (vi)
+ Domiciled:         Law:                                                                   NuGet Packet Manager, (Apache Software License Version 2.0); (vii)
+                                                                                           Castle Project - Core 2.5.2, (Apache Software License Version 2.0);
+ United             New               Arbitration according to the rules of                (viii) SGML Reader (Microsoft Public License (Ms-PL)); and (ix)
+ States of          Hampshire         the American Arbitration Association                 EFExtensions, (Microsoft Limited Public License).
+ America,           and               (the “AAA”). Arbitration shall occur in
+                                                                                           11.2 By agreeing to this Agreement the Licensee also
+ Canada,            controlling       the State of New Hampshire. English
+                                                                                           acknowledges that the license agreements for the above listed
+ Mexico or          U.S. Federal      will be the language used.
+                                                                                           software and MIT/BSD licensed components have been made
+ any country        Law.
+                                      Each of the Parties to the Agreement                 available at https://world.episerver.com/services/implemented-
+ in Central or
+                                      consents to personal jurisdiction for                software/; that the Licensee has taken notice of said license
+ South
+                                      any equitable or other action sought                 agreements; and that the Licensee hereby accepts the terms and
+ America or
+                                      with respect to claims arising out of                conditions of these license agreements to be, when applicable,
+ the
+                                      Episerver’s intellectual property rights             binding to the Licensee.
+ Caribbean
+                                      in a U.S. District Court in New
+                                                                                           12. Applied Software
+                                      Hampshire or any court of the State of
+                                      New Hampshire having subject matter                  12.1 JW Player is considered to be a part of the Product however
+                                      jurisdiction.                                        constructed by a third-party (the "Applied Software"). In addition to
+                                                                                           Section 3.1 above, Episerver is not permitted to give authorization
+ United             United            London Court of International                        to a third-party according to said section with respect to the Applied
+ Kingdom            Kingdom           Arbitration Rules. The arbitral tribunal             Software.
+ (including         (including        shall be composed of a sole arbitrator,              13. Compatibility
+ England,           England           to be appointed by agreement
+ Northern           and/or            between the Parties or, in default of                As between Episerver and the Licensee Section 6, 7, 8 and 10 shall
+ Ireland,           Wales)            agreement by the President of the Law                also apply with respect to the Implemented Software, unless the
+ Scotland and       laws.             Society of England and Wales.                        license on the specific Implemented Software explicitly states
+ Wales),                              Arbitration shall occur in London,                   otherwise.
+ Ireland,                             England. English will be the language                14. Audit and Records
+ Australia and                        used.
+ New Zealand                                                                               During the Agreement term and for one (1) year following its
+                                                                                           termination, Licensee shall maintain records regarding Use and
+ Rest of the        Laws of           Rules for Expedited Arbitrations of the              installation of Software (collectively "Records"). Upon request,
+ World              Sweden            Arbitration Institute of the Stockholm               Licensee shall promptly provide such Records to Episerver, for the
+                                      Chamber of Commerce. Arbitration                     purpose of verifying compliance with the Agreement and any other
+                                      shall occur in Stockholm, Sweden.                    agreement, terms and conditions with Episerver. In the event that
+                                      English will be the language used.                   Episerver determines that Customer has underpaid any payment
+                                                                                           due under this Agreement, Episerver shall notify Customer in writing
+10. General provision                                                                      of this alleged discrepancy. Any undisputed underpayment by
+                                                                                           Customer shall be paid to Episerver (plus interest at the rate of
+10.1 Amendments or supplements to this Agreement must be                                   eight and a half (8.5 %) percent per annum above the reference
+made in written form and executed by both Parties hereto in order                          rate under London Interbank Offered Rate (LIBOR) for the US Dollar
+to be valid between the Parties.                                                           within thirty (30) days of such determination.
+10.2 This Agreement is valid for the version(s) of the Software                            15. Subpoena
+released after April 14th, 2016. Episerver may amend the terms and
+conditions of this Agreement for any upcoming versions of the                              Episerver is authorized to comply with any subpoena or similar
+Software.                                                                                  order related to the data in its possession, provided that Episerver
+                                                                                           notifies Customer promptly upon receipt thereof, unless such notice
+
+Episerver End-User License Agreement (EULA)
+Version [2020-01-08]
+Copyright Episerver 2020
+Episerver      Americas / APAC HQ             +1 603 594 0249        EMEA HQ                    +46 8 55 58 27 00   5 /5
+
+               542A Amherst Street            www.Episerver.com      Torsgatan 11               www.Episerver.com
+               Nashua, NH 03063                                      Box 7007                   556208-3435
+               USA                                                   103 86 Stockholm, Sweden
+
+is prohibited by law. Customer shall pay Episerver’s applicable
+charges on a time and materials basis at Episerver’s then-current
+fees for such compliance. Episerver will cooperate with Customer’s
+efforts to quash or limit any subpoena, at Customer’s expense.
+
+
+
+
+Episerver End-User License Agreement (EULA)
+Version [2020-01-08]
+Copyright Episerver 2020
+
+
+This software makes use of third-party software that are licensed under the following terms.
+
+CsvHelper
+
+https://github.com/JoshClose/CsvHelper
+
+Microsoft Public License (MS-PL)
+
+This license governs use of the accompanying software. If you use the software, you accept this license. If you do not accept the license, do not use the software.
+
+   1. Definitions
+      The terms "reproduce," "reproduction," "derivative works," and "distribution" have the same meaning here as under U.S. copyright law. A "contribution" is the original software, or any additions or changes to the software. A "contributor" is any person that distributes its contribution under this license. "Licensed patents" are a contributor's patent claims that read directly on its contribution.
+   2. Grant of Rights
+      (A) Copyright Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, each contributor grants you a non-exclusive, worldwide, royalty-free copyright license to reproduce its contribution, prepare derivative works of its contribution, and distribute its contribution or any derivative works that you create.
+      (B) Patent Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, each contributor grants you a non-exclusive, worldwide, royalty-free license under its licensed patents to make, have made, use, sell, offer for sale, import, and/or otherwise dispose of its contribution in the software or derivative works of the contribution in the software.
+   3. Conditions and Limitations
+      (A) No Trademark License- This license does not grant you rights to use any contributors' name, logo, or trademarks.
+      (B) If you bring a patent claim against any contributor over patents that you claim are infringed by the software, your patent license from such contributor to the software ends automatically.
+      (C) If you distribute any portion of the software, you must retain all copyright, patent, trademark, and attribution notices that are present in the software.
+      (D) If you distribute any portion of the software in source code form, you may do so only under this license by including a complete copy of this license with your distribution. If you distribute any portion of the software in compiled or object code form, you may only do so under a license that complies with this license.
+      (E) The software is licensed "as-is." You bear the risk of using it. The contributors give no express warranties, guarantees, or conditions. You may have additional consumer rights under your local laws which this license cannot change. To the extent permitted under your local laws, the contributors exclude the implied warranties of merchantability, fitness for a particular purpose and non-infringement.

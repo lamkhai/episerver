@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mediachase.Commerce.Website</name>
+    </assembly>
+    <members>
+        <member name="T:Mediachase.Commerce.Website.BaseControls.StoreResourceManager">
+            <summary>
+            The resource manager.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.BaseControls.StoreResourceManager.GetString(System.String)">
+            <summary>
+            Gets the string.
+            </summary>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.ErrorEventArgs.Message">
+            <summary>
+            Gets the message.
+            </summary>
+            <value>The message.</value>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.ErrorEventArgs.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ErrorEventArgs"/> class.
+            </summary>
+            <param name="msg">The MSG.</param>
+        </member>
+        <member name="T:Mediachase.Commerce.Website.ErrorManager">
+            <summary>
+            Summary description for ErrorManager.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.ErrorManager.OnError(Mediachase.Commerce.Website.ErrorEventArgs)">
+            <summary>
+            Raises the <see cref="E:Error"/> event.
+            </summary>
+            <param name="e">The <see cref="T:Mediachase.Commerce.Website.ErrorEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.ErrorManager.Instance">
+            <summary>
+            Gets the instance.
+            </summary>
+            <value>The instance.</value>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.ErrorManager.GenerateError(System.String)">
+            <summary>
+            Generates the error.
+            </summary>
+            <param name="msg">The MSG.</param>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.ErrorManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mediachase.Commerce.Website.ErrorManager"/> class.
+            </summary>
+        </member>
+        <member name="T:Mediachase.Commerce.Website.IPaymentOption">
+            <summary>
+            Summary description for IPaymentOption
+            </summary>
+            <summary>
+            IPaymentOption Interface that all payment gateways must implement.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.IPaymentOption.ValidateData">
+            <summary>
+            Validates input data for the control. In case of Credit card pre authentication will be the best way to
+            validate. The error message if any should be displayed within a control itself.
+            </summary>
+            <returns>Returns false if validation is failed.</returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.IPaymentOption.PreProcess(Mediachase.Commerce.Orders.OrderForm)">
+            <summary>
+            This method is called before the order is completed. This method should check all the parameters
+            and validate the credit card or other parameters accepted.
+            </summary>
+            <param name="form">The form.</param>
+            <returns>
+            The payment information.
+            </returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.IPaymentOption.PostProcess(Mediachase.Commerce.Orders.OrderForm)">
+            <summary>
+            This method is called after the order is placed. This method should be used by the gateways that want to
+            redirect customer to their site.
+            </summary>
+            <param name="orderForm">The order form.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mediachase.Commerce.Website.Search.SearchConfig">
+            <remarks/>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SearchConfig.SearchFilters">
+            <remarks/>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SearchConfig.version">
+            <remarks/>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SearchFilterHelper.Manager">
+            <summary>
+            Gets the manager.
+            </summary>
+            <value>The manager.</value>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SearchFilterHelper.CurrentUrl">
+            <summary>
+            Gets the current URL.
+            </summary>
+            <value>The current URL.</value>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SearchFilterHelper.Current">
+            <summary>
+            Gets the current.
+            </summary>
+            <value>The current.</value>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SearchFilterHelper.Results">
+            <summary>
+            Gets the results.
+            </summary>
+            <value>The results.</value>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SearchFilterHelper.SearchConfigPath">
+            <summary>
+            Gets or sets the search config path.
+            </summary>
+            <value>The search config path.</value>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SearchFilterHelper.SearchConfig">
+            <summary>
+            Gets the search config.
+            </summary>
+            <value>The search config.</value>
+            <returns></returns>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SearchFilterHelper.QueryString">
+            <summary>
+            The query string used for fetching search requests.
+            </summary>
+            <remarks>
+            This will typically be the default value of HttpContext.Current.Request.QueryString.  However,
+            if calling code needs to modify the collection, this can be used to inject a modifiable clone.
+            </remarks>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.HasConfigChanged(System.String)">
+            <summary>
+            Determines whether [has config changed].
+            </summary>
+            <param name="name">The name.</param>
+            <returns>
+            	<c>true</c> if [has config changed]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mediachase.Commerce.Website.Search.SearchFilterHelper"/> class.
+            </summary>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.GetSuggestions">
+            <summary>
+            Gets the suggestion keywords related to the current search.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.GetSuggestions(System.String)">
+            <summary>
+            Gets the suggestion keywords related to the search keyword passed.
+            </summary>
+            <param name="keyword">The keyword.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.GetFacets(System.Boolean,System.TimeSpan)">
+            <summary>
+            Gets the facets.
+            </summary>
+            <param name="cacheResults">if set to <c>true</c> [cache results].</param>
+            <param name="cacheTimeout">The cache timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.SearchEntries">
+            <summary>
+            Searches the entries.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.SearchEntries(System.String,Mediachase.Search.SearchSort)">
+            <summary>
+            Searches the entries.
+            </summary>
+            <param name="keywords">The keywords.</param>
+            <param name="sort">The sort.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.SearchEntries(Mediachase.Search.Extensions.CatalogEntrySearchCriteria)">
+            <summary>
+            Searches the entries.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.CreateSearchCriteria(System.String,Mediachase.Search.SearchSort)">
+            <summary>
+            Creates the search criteria.
+            </summary>
+            <param name="keywords">The keywords.</param>
+            <param name="sort">The sort.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.GetOutlinesForNode(System.String)">
+            <summary>
+            Gets the outlines for node.
+            </summary>
+            <param name="nodeCode">The node code.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.GetCleanUrl">
+            <summary>
+            Gets the clean URL without filters.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.GetQueryStringNavigateUrl(System.String,System.String)">
+            <summary>
+            Gets the query string navigate URL.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.GetQueryStringNavigateUrl(System.String,System.Boolean)">
+            <summary>
+            Gets the query string navigate URL.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="remove">if set to <c>true</c> [remove].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.GetQueryStringNavigateUrl(System.String,System.String,System.Boolean)">
+            <summary>
+            Gets the query string navigate URL.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="key">The key.</param>
+            <param name="remove">if set to <c>true</c> [remove].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SearchFilterHelper.GetQueryStringNavigateUrl(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Gets the query string navigate URL.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="field">The field.</param>
+            <param name="key">The key.</param>
+            <param name="remove">if set to <c>true</c> [remove].</param>
+            <returns></returns>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SearchFilterHelper.SelectedFilters">
+            <summary>
+            Gets the selected filters.
+            </summary>
+            <value>The selected filters.</value>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SelectedFilter.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SelectedFilter.RemoveUrl">
+            <summary>
+            Gets or sets the remove URL.
+            </summary>
+            <value>The remove URL.</value>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SelectedFilter.ValueName">
+            <summary>
+            Gets or sets the name of the value.
+            </summary>
+            <value>The name of the value.</value>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SelectedFilter.Filter">
+            <summary>
+            Gets or sets the filter.
+            </summary>
+            <value>The filter.</value>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SelectedFilter.SimpleValue">
+            <summary>
+            Gets or sets the simple value.
+            </summary>
+            <value>The simple value.</value>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SelectedFilter.RangeValue">
+            <summary>
+            Gets or sets the range value.
+            </summary>
+            <value>The range value.</value>
+        </member>
+        <member name="P:Mediachase.Commerce.Website.Search.SelectedFilter.PriceRangeValue">
+            <summary>
+            Gets or sets the price range value.
+            </summary>
+            <value>The price range value.</value>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SelectedFilter.#ctor(Mediachase.Search.SearchFilter,Mediachase.Search.SimpleValue)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mediachase.Commerce.Website.Search.SelectedFilter"/> class.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SelectedFilter.#ctor(Mediachase.Search.SearchFilter,Mediachase.Search.RangeValue)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mediachase.Commerce.Website.Search.SelectedFilter"/> class.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Mediachase.Commerce.Website.Search.SelectedFilter.#ctor(Mediachase.Search.SearchFilter,Mediachase.Search.PriceRangeValue)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mediachase.Commerce.Website.Search.SelectedFilter"/> class.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="value">The value.</param>
+        </member>
+    </members>
+</doc>

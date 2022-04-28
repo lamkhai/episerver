@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Episerver.Marketing.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Episerver.Marketing.Common.Cookies.CookieReader">
+            <inheritdoc />
+        </member>
+        <member name="M:Episerver.Marketing.Common.Cookies.CookieReader.#ctor(Episerver.Marketing.Common.Cookies.ICookieWriter)">
+            <summary>
+            Takes a writer of your construction, default is CookieWriter
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:Episerver.Marketing.Common.Cookies.CookieReader.Read(System.String,System.Func{System.Web.HttpCookie})">
+            <inheritdoc />
+        </member>
+        <member name="T:Episerver.Marketing.Common.Cookies.CookieRemover">
+            <inheritdoc />
+        </member>
+        <member name="M:Episerver.Marketing.Common.Cookies.CookieRemover.Remove(System.Web.HttpCookie)">
+            <inheritdoc />
+        </member>
+        <member name="M:Episerver.Marketing.Common.Cookies.CookieRemover.Remove(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Episerver.Marketing.Common.Cookies.CookieWriter">
+            <inheritdoc />
+        </member>
+        <member name="M:Episerver.Marketing.Common.Cookies.CookieWriter.Write(System.Web.HttpCookie)">
+            <inheritdoc />
+        </member>
+        <member name="T:Episerver.Marketing.Common.Cookies.ICookieReader">
+            <summary>
+            Reads the specified cookie from request
+            </summary>
+        </member>
+        <member name="M:Episerver.Marketing.Common.Cookies.ICookieReader.Read(System.String,System.Func{System.Web.HttpCookie})">
+            <summary>
+            Reads the specified cookie from the request. Provides an optional method allows getting the value, which in turn will be written to the cookie.
+            </summary>
+            <param name="name"></param>
+            <param name="getFunction"></param>
+            <returns>null if cookie doesnt exist and getfunction was null or didnt get a cookie</returns>
+        </member>
+        <member name="T:Episerver.Marketing.Common.Cookies.ICookieRemover">
+            <summary>
+            Removes the specified cookie from the response.
+            </summary>
+        </member>
+        <member name="M:Episerver.Marketing.Common.Cookies.ICookieRemover.Remove(System.String)">
+            <summary>
+            Removes the cookie by name
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Episerver.Marketing.Common.Cookies.ICookieRemover.Remove(System.Web.HttpCookie)">
+            <summary>
+            Removes the specified cooke from the response
+            </summary>
+            <param name="cookie"></param>
+        </member>
+        <member name="T:Episerver.Marketing.Common.Cookies.ICookieWriter">
+            <summary>
+            Writes the specified cookie to the response.
+            </summary>
+        </member>
+        <member name="M:Episerver.Marketing.Common.Cookies.ICookieWriter.Write(System.Web.HttpCookie)">
+            <summary>
+            Writes the specified cookie to the response.
+            </summary>
+            <param name="cookie"></param>
+        </member>
+        <member name="T:Episerver.Marketing.Common.Exceptions.CancelActionException">
+            <summary>
+            Throw this exception if an action fails and needs to inform the caller that the calling action should be canceled
+            </summary>
+        </member>
+        <member name="T:Episerver.Marketing.Common.Exceptions.CredentialsExpiredException">
+            <summary>
+            Throw this exception when credentials are expired. 
+            </summary>
+        </member>
+        <member name="T:Episerver.Marketing.Common.Exceptions.ConfigurationInvalidException">
+            <summary>
+            Throw this exception if a configuration is invalid. 
+            </summary>
+        </member>
+        <member name="T:Episerver.Marketing.Common.Exceptions.EntityNotFoundException">
+            <summary>
+            Throw this exception if GetEntity cannot retrieve the given entity.
+            </summary>
+        </member>
+        <member name="T:Episerver.Marketing.Common.Exceptions.ServiceUnavailableException">
+            <summary>
+            Throw this exception when the credentials appear to be valid but the service is unreachable (network errors etc). 
+            </summary>
+        </member>
+        <member name="T:Episerver.Marketing.Common.Helpers.IWebClientHelper">
+            <summary>
+            Defines helper methods which make Http requests using a WebClient object.
+            </summary>
+        </member>
+        <member name="M:Episerver.Marketing.Common.Helpers.IWebClientHelper.GetResponse(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Helper method that encapsulates doing a web request. If upload string is null performs a get, else does a post
+            </summary>
+            <param name="address">The Uri of the resource to receive the data</param>
+            <param name="username">Used to created credential object, can be null</param>
+            <param name="password">Used to created credential object, can be null</param>
+            <param name="headers">key value pairs to add to request, can be null</param>
+            <param name="uploadString">data to post, if null, does a get</param>
+            <returns></returns>
+        </member>
+        <member name="M:Episerver.Marketing.Common.Helpers.IWebClientHelper.HttpPostValues(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Helper method that encapsulates doing a web request. post only
+            </summary>
+            <param name="address">The Uri of the resource to receive the data</param>
+            <param name="username">Used to created credential object, can be null</param>
+            <param name="password">Used to created credential object, can be null</param>
+            <param name="headers">key value pairs to add to request, can be null</param>
+            <param name="postData">data to post</param>
+            <returns></returns>
+        </member>
+        <member name="M:Episerver.Marketing.Common.Helpers.IWebClientHelper.HttpPostData(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Helper method that encapsulates doing a web request. post only
+            </summary>
+            <param name="address">The Uri of the resource to receive the data</param>
+            <param name="username">Used to created credential object, can be null</param>
+            <param name="password">Used to created credential object, can be null</param>
+            <param name="headers">key value pairs to add to request, can be null</param>
+            <param name="postData">data to post</param>
+            <returns></returns>
+        </member>
+        <member name="M:Episerver.Marketing.Common.Helpers.IWebClientHelper.HttpDelete(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Helper method that performs a http.delete
+            </summary>
+            <param name="address">The Uri of the resource to receive the data</param>
+            <param name="username">Used to created credential object, can be null</param>
+            <param name="password">Used to created credential object, can be null</param>
+            <param name="headers">key value pairs to add to request, can be null</param>
+            <returns></returns>
+        </member>
+        <member name="M:Episerver.Marketing.Common.Helpers.IWebClientHelper.HttpPut(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Helper method that performs a http.put
+            </summary>
+            <param name="address">The Uri of the resource to receive the data</param>
+            <param name="username">Used to created credential object, can be null</param>
+            <param name="password">Used to created credential object, can be null</param>
+            <param name="headers">key value pairs to add to request, can be null</param>
+            <param name="uploadString">data to upload.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Episerver.Marketing.Common.Helpers.IWebClientHelper.HttpPatch(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Helper method that performs a http.patch
+            </summary>
+            <param name="address">The Uri of the resource to receive the data</param>
+            <param name="username">Used to created credential object, can be null</param>
+            <param name="password">Used to created credential object, can be null</param>
+            <param name="headers">key value pairs to add to request, can be null</param>
+            <param name="uploadString">data to upload.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Episerver.Marketing.Common.Helpers.IWebClientHelper.UploadStringAsync(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Helper method that uploads data as an asynchronous operation using a task object.
+            </summary>
+            <param name="address">The Uri of the resource to receive the data</param>
+            <param name="username">Used to created credential object, can be null</param>
+            <param name="password">Used to created credential object, can be null</param>
+            <param name="headers">key value pairs to add to request, can be null</param>
+            <param name="uploadString">data to upload.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Episerver.Marketing.Common.Helpers.WebClientHelper">
+            <summary>
+            Implementation of <see cref="T:Episerver.Marketing.Common.Helpers.IWebClientHelper"/>.
+            </summary>
+        </member>
+        <member name="M:Episerver.Marketing.Common.Helpers.WebClientHelper.GetResponse(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Episerver.Marketing.Common.Helpers.WebClientHelper.HttpPostValues(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Specialized.NameValueCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Episerver.Marketing.Common.Helpers.WebClientHelper.HttpPostData(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Episerver.Marketing.Common.Helpers.WebClientHelper.HttpDelete(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Episerver.Marketing.Common.Helpers.WebClientHelper.HttpPut(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Episerver.Marketing.Common.Helpers.WebClientHelper.HttpPatch(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Episerver.Marketing.Common.Helpers.WebClientHelper.UploadStringAsync(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

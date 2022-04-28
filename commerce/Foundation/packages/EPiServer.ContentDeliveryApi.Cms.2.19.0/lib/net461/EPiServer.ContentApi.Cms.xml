@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.ContentApi.Cms</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.ContentApi.Cms.ContentApiCmsInitialization">
+            <summary>
+            Initialize Dependency injection and virtual roles for content api
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.ContentApiCmsInitialization.InitializeHttpEvents(System.Web.HttpApplication)">
+            <summary>
+            Hook to post authenticate request event
+            </summary>
+            <param name="application"></param>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.ContentApiCmsInitialization.application_PostAuthenticateRequest(System.Object,System.EventArgs)">
+            <summary>
+            Handles the PostAuthenticateRequest event of the application control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.ContentApiCmsInitialization.Initialize(EPiServer.Framework.Initialization.InitializationEngine)">
+            <summary>
+            Initialize default http configuration
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.ContentApiCmsInitialization.BuildDefaultHttpConfiguration(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Build default http configuration
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Cms.ContentApiModuleSettings">
+            <summary>
+            Contain app settings
+            </summary>
+        </member>
+        <member name="F:EPiServer.ContentApi.Cms.ContentApiModuleSettings.ShouldUseDefaultHttpConfiguration">
+            <summary>
+            Indicate whether HttpConfiguration.MapHttpAttributeRoutes() should be called in our api
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Cms.Controllers.ContentApiController">
+            <summary>
+                Controller for returning requests for IContent from IContentLoader, with appropriate filtering
+            </summary>
+            <summary>
+                Controller for returning requests for IContent from IContentLoader, with appropriate filtering
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.Controllers.ContentApiController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.ContentApi.Cms.Controllers.ContentApiController"/> class.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.Controllers.ContentApiController.Get(System.String,System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            Get content by given content reference and language
+            </summary>
+            <param name="contentReference">Content reference to retrieve data</param>
+            <param name="languages">Language used to retrieve content</param>
+            <param name="expand">List of properties needed to be expanded. The list is separated by comma</param>
+            <param name="select">List of properties needed to be returned. The list is separated by comma. Default are all properties returned</param>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.Controllers.ContentApiController.GetContent(System.Guid,System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            Get content by given content GUID and language
+            </summary>
+            <param name="contentGuid">ContentGuid of the content to retrieve data</param>
+            <param name="languages">Language used to retrieve content</param>
+            <param name="expand">List of properties needed to be expanded. The list is separated by comma</param>
+            <param name="select">List of properties needed to be returned. The list is separated by comma. Default are all properties returned</param>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.Controllers.ContentApiController.GetChildren(System.String,System.Collections.Generic.List{System.String},System.String,System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+             Get the children of the content item with given language
+             </summary>
+             <param name="contentReference">Parent's content reference</param>
+             <param name="languages">Language used to retrieve content</param>
+             <param name="expand">List of properties needed to be expanded. The list is separated by comma</param>
+             <param name="select">List of properties needed to be returned. The list is separated by comma. Default are all properties returned</param>
+             <param name="top">The max number of children to return.</param>
+             <param name="continuationToken">The max number of children to return.</param>
+             <response code="200">Ok</response>
+             <response code="400">Bad Request</response>
+             <response code="403">Forbidden</response>
+             <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.Controllers.ContentApiController.GetChildren(System.Guid,System.Collections.Generic.List{System.String},System.String,System.String,System.Nullable{System.Int32},System.String)">
+            <summary>
+            Preview API: Get the children of the content item with given language
+            </summary>
+            <param name="contentGuid">Parent's guid based reference</param>
+            <param name="languages">Language used to retrieve content</param>
+            <param name="expand">List of properties needed to be expanded. The list is separated by comma</param>
+            <param name="select">List of properties needed to be returned. The list is separated by comma. Default are all properties returned</param>
+            <param name="top">The max number of children to return. Default value is 100 and that is also maximum value</param>
+            <param name="continuationToken">The max number of children to return.</param>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.Controllers.ContentApiController.GetAncestors(System.String,System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            Get the ancestors of the content item with given language
+            </summary>
+            <param name="contentReference">Content reference to retrieve ancestor</param>
+            <param name="languages">Language used to retrieve content</param>
+            <param name="expand">List of properties needed to be expanded. The list is separated by comma</param>
+            <param name="select">List of properties needed to be returned. The list is separated by comma. Default are all properties returned</param>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.Controllers.ContentApiController.GetAncestors(System.Guid,System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            Get the ancestors of the content item with given language
+            </summary>
+            <param name="contentGuid">Content guid based reference to retrieve ancestor</param>
+            <param name="languages">Language used to retrieve content</param>
+            <param name="expand">List of properties needed to be expanded. The list is separated by comma</param>
+            <param name="select">List of properties needed to be returned. The list is separated by comma. Default are all properties returned</param>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.Controllers.ContentApiController.QueryContent(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Get content by given content url or by list of GUID/Reference with given language
+            </summary>
+            <param name="languages">Language used to retrieve content</param>    
+            <param name="guids">List of GUID seperated by ','</param>
+            <param name="references">List of ContentReference seperated by ','</param>
+            <param name="contentUrl">The absolute url to the content</param>
+            <param name="expand">List of properties needed to be expanded. The list is separated by comma</param>
+            <param name="select">List of properties needed to be returned. The list is separated by comma. Default are all properties returned</param>
+            <param name="matchExact">Specifies if the specified <paramref name="contentUrl"/> should match url of the content exactly, that is no additional segments are allowed.</param>
+            <remarks>
+            If <paramref name="matchExact"/>"/> is set to false then it will route to the "nearest" content. Remaining segments are ignored. The url for the returned content can be
+            used to determine if segments where ignored.
+            Only use contentUrl or guids/references for seperate request. Use contentUrl for get content by url and guids for get content by list of GUID/Reference.
+            </remarks>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>           
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.Controllers.ContentApiController.#ctor(EPiServer.ContentApi.Core.Serialization.IContentModelMapper,EPiServer.ContentApi.Core.ContentLoaderService,EPiServer.ContentApi.Core.Security.IContentApiSiteFilter,EPiServer.ContentApi.Core.Security.IContentApiRequiredRoleFilter,EPiServer.ContentApi.Core.Security.ISecurityPrincipal,EPiServer.ContentApi.Core.Internal.UserService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.ContentApi.Cms.Controllers.ContentApiController"/> class.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.Controllers.ContentApiController.#ctor(EPiServer.ContentApi.Core.Serialization.Internal.IContentModelMapperFactory,EPiServer.ContentApi.Core.ContentLoaderService,EPiServer.ContentApi.Core.Security.IContentApiSiteFilter,EPiServer.ContentApi.Core.Security.IContentApiRequiredRoleFilter,EPiServer.ContentApi.Core.Security.ISecurityPrincipal,EPiServer.ContentApi.Core.Internal.UserService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.ContentApi.Cms.Controllers.ContentApiController"/> class.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Cms.Controllers.SiteDefinitionApiController">
+            <summary>
+            Controller for returning requests for SiteDefinition with appropriate filtering
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.Controllers.SiteDefinitionApiController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.ContentApi.Cms.Controllers.SiteDefinitionApiController"/> class.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.Controllers.SiteDefinitionApiController.Get">
+            <summary>
+            Get SiteDefinitionModel of current request
+            </summary>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.Controllers.SiteDefinitionApiController.#ctor(EPiServer.IContentLoader,EPiServer.DataAbstraction.ContentRootRepository,EPiServer.Web.ISiteDefinitionRepository,EPiServer.ContentApi.Core.Serialization.IContentModelReferenceConverter,EPiServer.ContentApi.Core.Configuration.ContentApiConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.ContentApi.Cms.Controllers.SiteDefinitionApiController"/> class.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Cms.Controllers.SiteDefinitionApiController.#ctor(EPiServer.IContentLoader,EPiServer.DataAbstraction.ContentRootRepository,EPiServer.Web.ISiteDefinitionRepository,EPiServer.ContentApi.Core.Serialization.IContentModelReferenceConverter,EPiServer.ContentApi.Core.Configuration.ContentApiConfiguration,EPiServer.ContentApi.Core.Configuration.OptionsResolver,EPiServer.DataAbstraction.ILanguageBranchRepository,EPiServer.ContentApi.Core.Tracking.IContentApiTrackingContextAccessor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.ContentApi.Cms.Controllers.SiteDefinitionApiController"/> class.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Cms.Internal.SiteDefinitionApiFilterAttribute">
+            <summary>
+            Action filter that only allows execution of request if SiteDefinitionApiEnabled option
+            is set to true in the content api options.
+            Otherwise returns Forbidden
+            </summary>
+        </member>
+    </members>
+</doc>

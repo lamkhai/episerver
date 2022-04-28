@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <episerver.shell>
+    <protectedModules>
+      <add name="EPiServer.Commerce.UI.CustomerService" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)"/>
+    </protectedModules>
+  </episerver.shell>
+  <system.webServer>
+    <modules>
+      <remove name="WebDAVModule" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)"/>
+    </modules>
+    <handlers>
+      <remove name="WebDAV" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)"/>
+    </handlers>
+  </system.webServer>
+</configuration>

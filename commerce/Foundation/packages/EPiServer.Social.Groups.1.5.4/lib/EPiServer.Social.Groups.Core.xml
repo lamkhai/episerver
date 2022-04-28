@@ -1,0 +1,2488 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Social.Groups.Core</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Social.Groups.Core.AssociationFilter">
+            <summary>
+            The AssociationFilter class describes the specifications by which
+            association data should be retrieved.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.AssociationFilter.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.AssociationFilter.Group">
+            <summary>
+            Gets or sets the ID of the group to which the result
+            set should be filtered.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.AssociationFilter.Resource">
+            <summary>
+            Gets or sets the ID of the resource to which the result
+            set should be filtered.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.AssociationSortFields">
+            <summary>
+            The AssociationSortFields class exposes the fields of the 
+            Association model which are available for application in 
+            defining sorting rules for association result sets within 
+            the Social platform.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.AssociationSortFields.Group">
+            <summary>
+            Gets the association Group sort field.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.AssociationSortFields.Resource">
+            <summary>
+            Gets the association Resource sort field.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.AssociationSortFields.Id">
+            <summary>
+            Gets the association Id sort field.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.DuplicateAssociationException">
+            <summary>
+            The DuplicateAssociationException represents an error occurring
+            when an attempt is made to add a resource to a group in which
+            they are already associated.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.DuplicateAssociationException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Error message</param>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.DuplicateRoleAssignmentException">
+            <summary>
+            The DuplicateRoleAssignmentException represents an error occurring
+            when an attempt is made to assign a member to a role which
+            they have already been assigned.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.DuplicateRoleAssignmentException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Error message</param>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.DuplicateMemberException">
+            <summary>
+            The DuplicateMemberException represents an error occurring
+            when an attempt is made to add a user to a group in which
+            they are already a member.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.DuplicateMemberException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Error message</param>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">
+            <summary>
+            The GroupDoesNotExistException represents an error occurring
+            when some operation is attempted on a group which does not
+            exist in the system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.GroupDoesNotExistException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Error message</param>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.AssociationDoesNotExistException">
+            <summary>
+            The AssociationDoesNotExistException represents an error occurring
+            when some operation is attempted on a group association which does not
+            exist in the system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.AssociationDoesNotExistException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Error message</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.InvalidRoleAssignmentException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Error message</param>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">
+            <summary>
+            The MemberDoesNotExistException represents an error occurring
+            when some operation is attempted on a group member which does not
+            exist in the system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.MemberDoesNotExistException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Error message</param>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.AssociationStillExistsException">
+            <summary>
+            The AssociationStillExistsException represents an error occurring
+            when a remove operation is attempted on a group for which one or 
+            more associations still exist in the system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.AssociationStillExistsException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Exception message</param>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.MemberStillExistsException">
+            <summary>
+            The MemberStillExistsException represents an error occurring
+            when a remove operation is attempted on a group for which one or 
+            more members still exist in the system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.MemberStillExistsException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Exception message</param>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.RoleDoesNotExistException">
+            <summary>
+            The RoleDoesNotExistException represents an error occurring
+            when some operation is attempted on a role which does not
+            exist in the system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.RoleDoesNotExistException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Error message</param>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.GroupFilter">
+            <summary>
+            The GroupFilter class describes the specifications by which
+            group data should be retrieved.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.GroupFilter.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.GroupFilter.Name">
+            <summary>
+            Gets and sets the name of the groups to be retrieved.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.GroupFilter.GroupIds">
+            <summary>
+            Gets and Sets the desired list of groupIds
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.GroupSortFields">
+            <summary>
+            The GroupSortFields class exposes the fields of the 
+            Group model which are available for application in 
+            defining sorting rules for group result sets within 
+            the Social platform.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.GroupSortFields.Created">
+            <summary>
+            Gets the group Created sort field.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.GroupSortFields.Name">
+            <summary>
+            Gets the group Name sort field.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.GroupSortFields.Id">
+            <summary>
+            Gets the group Id sort field.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.IAssociationService">
+            <summary>
+            The IAssociationService interface describes a component supporting
+            the management of resource associations within groups.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.Add(EPiServer.Social.Groups.Core.Association)">
+            <summary>
+            Adds an association between a resource and an existing group.
+            </summary>
+            <param name="association">Association to be added</param>
+            <returns>Association of the group</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the group specified for association being added does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.DuplicateAssociationException">Thrown when an association already exists between the resource and the group.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.AddAsync(EPiServer.Social.Groups.Core.Association)">
+            <summary>
+            Asynchronously adds an association between a resource and an existing group.
+            </summary>
+            <param name="association">Association to be added</param>
+            <returns>Association of the group</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the group specified for association being added does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.DuplicateAssociationException">Thrown when an association already exists between the resource and the group.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.Add``1(EPiServer.Social.Groups.Core.Association,``0)">
+            <summary>
+             Adds an association between a resource with extension data and an existing group.
+            </summary>
+            <param name="association">Association to be added</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Association and extension data which was added </returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the group specified for association being added does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.DuplicateAssociationException">Thrown when an association already exists between the resource and the group.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.AddAsync``1(EPiServer.Social.Groups.Core.Association,``0)">
+            <summary>
+             Asynchronously adds an association between a resource with extension data and an existing group.
+            </summary>
+            <param name="association">Association to be added</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Association and extension data which was added </returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the group specified for association being added does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.DuplicateAssociationException">Thrown when an association already exists between the resource and the group.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.Update``1(EPiServer.Social.Groups.Core.AssociationId,``0)">
+            <summary>
+            Update an association in the repository with new extension data
+            </summary>
+            <param name="associationId">AssociationId used to filter collection with</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Member of the group and extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.AssociationDoesNotExistException">Thrown when the specified association identifier does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.UpdateAsync``1(EPiServer.Social.Groups.Core.AssociationId,``0)">
+            <summary>
+            Asynchronously update an association in the repository with new extension data
+            </summary>
+            <param name="associationId">AssociationId used to filter collection with</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Member of the group and extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.AssociationDoesNotExistException">Thrown when the specified association identifier does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.Remove(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Removes an association from an existing group.
+            </summary>
+            <param name="associationId">ID of the association to be removed</param>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.RemoveAsync(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Asynchronously removes an association from an existing group.
+            </summary>
+            <param name="associationId">ID of the association to be removed</param>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.Get(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Retrieves a single Assocation based upon an AssociationId
+            </summary>
+            <param name="id">association id of the desired association</param>
+            <returns>The requested association</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.AssociationDoesNotExistException">Thrown when the identified association does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.GetAsync(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Asynchronously retrieves a single Assocation based upon an AssociationId
+            </summary>
+            <param name="id">association id of the desired association</param>
+            <returns>The requested association</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.AssociationDoesNotExistException">Thrown when the identified association does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.Get``1(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Gets an association composed with associated extension data, 
+            as identified by the specified ID.        
+            </summary>
+            <typeparam name="TExtension">Type of data applied as an extension of the association </typeparam>
+            <param name="id">ID of the item to be retrieved</param>
+            <returns>A association composed with associated extension data</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.AssociationDoesNotExistException">Thrown when the identified association does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.GetAsync``1(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Asynchronously gets an association composed with associated extension data, 
+            as identified by the specified ID.        
+            </summary>
+            <typeparam name="TExtension">Type of data applied as an extension of the association </typeparam>
+            <param name="id">ID of the item to be retrieved</param>
+            <returns>A association composed with associated extension data</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.AssociationDoesNotExistException">Thrown when the identified association does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.AssociationFilter})">
+            <summary>
+            Retrieves a page of associations assigned to the specified group.
+            </summary>
+            <param name="criteria">Filters the result set of associations</param>
+            <returns>Page of associations for the specified group</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.AssociationFilter})">
+            <summary>
+            Asynchronously retrieves a page of associations assigned to the specified group.
+            </summary>
+            <param name="criteria">Filters the result set of associations</param>
+            <returns>Page of associations for the specified group</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.AssociationFilter,``0})">
+            <summary>
+            Retrieves a page of group associations and extension data assigned to the specified group,
+            as described by the specified criteria.
+            </summary>
+            <typeparam name="TExtension"></typeparam>
+            <param name="criteria"></param>
+            <returns>A result page of type composite of type group and extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.AssociationFilter,``0})">
+            <summary>
+            Asynchronously retrieves a page of group associations and extension data assigned to the specified group,
+            as described by the specified criteria.
+            </summary>
+            <typeparam name="TExtension"></typeparam>
+            <param name="criteria"></param>
+            <returns>A result page of type composite of type group and extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.IsAssociated(EPiServer.Social.Groups.Core.GroupId,EPiServer.Social.Common.Reference)">
+            <summary>
+            Returns true if the specified resource is associated with the specified group,
+            false otherwise.
+            </summary>
+            <param name="group">Group with which the resource may be associated</param>
+            <param name="resource">Identifies the resource whose association should be verified</param>
+            <returns>True if the specified resource is associated with the specified group, false otherwise.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationService.IsAssociatedAsync(EPiServer.Social.Groups.Core.GroupId,EPiServer.Social.Common.Reference)">
+            <summary>
+            Asynchronously determines if the specified resource is associated with the specified group,
+            and returns true if the association exists, false otherwise.
+            </summary>
+            <param name="group">Group with which the resource may be associated</param>
+            <param name="resource">Identifies the resource whose association should be verified</param>
+            <returns>True if the specified resource is associated with the specified group, false otherwise.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.IGroupRepository">
+            <summary>
+            The IGroupRepository interface describes a component capable
+            of persisting, deleting, and retrieving group data from
+            an underlying data store.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.Add(EPiServer.Social.Groups.Core.Group)">
+            <summary>
+            Adds a group within the underlying data store.
+            </summary>
+            <param name="group">Group to be added</param>
+            <returns>Group which was added</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.Update(EPiServer.Social.Groups.Core.Group)">
+            <summary>
+            Updates an existing group within the underlying data store.
+            </summary>
+            <param name="group">Group to be updated</param>
+            <returns>Group which was updated</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.Remove(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Removes an existing group from the underlying data store.
+            </summary>
+            <param name="groupId">ID of the group to be removed</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.Get(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Retrieves a group, represented by the specified ID, from
+            the underlying data store.
+            </summary>
+            <param name="groupId">ID fo the group to be retrieved</param>
+            <returns>Group which was retrieved</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.GroupFilter})">
+            <summary>
+            Retrieves a page of groups, from the underlying data store, as 
+            specified by the provided criteria.
+            </summary>
+            <param name="criteria">Filters the result set of groups</param>
+            <returns>Page of groups filtered according to the specified criteria</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.Add``1(EPiServer.Social.Groups.Core.Group,``0)">
+            <summary>
+            Adds a group with extension data within the underlying data store.
+            </summary>
+            <param name="group">Group to be added</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Group and TExtension which was added</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.Update``1(EPiServer.Social.Groups.Core.Group,``0)">
+            <summary>
+            Updates an existing group with extension data within the underlying data store
+            </summary>
+            <param name="group">Group to be updated</param>
+            <param name="extension">Extension Data to be updated</param>
+            <returns>Group which was updated</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.Get``1(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Retrieves a group with extension data, represented by the specified ID, from
+            the underlying data store.
+            </summary>
+            <param name="id">ID fo the group to be retrieved</param>
+            <returns>Composite that contains a group and its extension data based on the criteria provided.</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.GroupFilter,``0})">
+            <summary>
+            Retrieves a result page of composites. Each composite contains a group and its extension data, from the underlying data store, as 
+            specified by the provided criteria.
+            </summary>
+            <param name="criteria">Filters the result set of groups and the extension data</param>
+            <returns>Page of composites that contain groups and their extension data filtered according to the specified criteria</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.AddAsync(EPiServer.Social.Groups.Core.Group)">
+            <summary>
+            Asynchronously adds a group within the underlying data store.
+            </summary>
+            <param name="group">Group to be added</param>
+            <returns>Group which was added</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.UpdateAsync(EPiServer.Social.Groups.Core.Group)">
+            <summary>
+            Asynchronously updates an existing group within the underlying data store.
+            </summary>
+            <param name="group">Group to be updated</param>
+            <returns>Group which was updated</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.RemoveAsync(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Asynchronously removes an existing group from the underlying data store.
+            </summary>
+            <param name="groupId">ID of the group to be removed</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.GetAsync(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Asynchronously retrieves a group, represented by the specified ID, from
+            the underlying data store.
+            </summary>
+            <param name="groupId">ID fo the group to be retrieved</param>
+            <returns>Group which was retrieved</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.GroupFilter})">
+            <summary>
+            Asynchronously retrieves a page of groups, from the underlying data store, as 
+            specified by the provided criteria.
+            </summary>
+            <param name="criteria">Filters the result set of groups</param>
+            <returns>Page of groups filtered according to the specified criteria</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.AddAsync``1(EPiServer.Social.Groups.Core.Group,``0)">
+            <summary>
+            Asynchronously adds a group with extension data within the underlying data store.
+            </summary>
+            <param name="group">Group to be added</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Group and TExtension which was added</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.UpdateAsync``1(EPiServer.Social.Groups.Core.Group,``0)">
+            <summary>
+            Asynchronously updates an existing group with extension data within the underlying data store
+            </summary>
+            <param name="group">Group to be updated</param>
+            <param name="extension">Extension Data to be updated</param>
+            <returns>Group which was updated</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.GetAsync``1(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Asynchronously retrieves a group with extension data, represented by the specified ID, from
+            the underlying data store.
+            </summary>
+            <param name="id">ID fo the group to be retrieved</param>
+            <returns>Composite that contains a group and its extension data based on the criteria provided.</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupRepository.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.GroupFilter,``0})">
+            <summary>
+            Asynchronously retrieves a result page of composites. Each composite contains a group and its extension data, from the underlying data store, as 
+            specified by the provided criteria.
+            </summary>
+            <param name="criteria">Filters the result set of groups and the extension data</param>
+            <returns>Page of composites that contain groups and their extension data filtered according to the specified criteria</returns>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.IAssociationRepository">
+            <summary>
+            The IAssociationRepository interface describes a component capable
+            of persisting, deleting, and retrieving group association data from
+            an underlying data store.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.Add(EPiServer.Social.Groups.Core.Association)">
+            <summary>
+            Adds a new group association to the underlying data store.
+            </summary>
+            <param name="association">Association to be added</param>
+            <returns>Association which was added</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.AddAsync(EPiServer.Social.Groups.Core.Association)">
+            <summary>
+            Asynchronously adds a association within the underlying data store.
+            </summary>
+            <param name="association">Association to be added</param>
+            <returns>Association which was added</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.Add``1(EPiServer.Social.Groups.Core.Association,``0)">
+            <summary>
+            Adds a new group association with extension data to the underlying data store.
+            </summary>
+            <param name="association">Association to be added</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Association and extension data which was added </returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.AddAsync``1(EPiServer.Social.Groups.Core.Association,``0)">
+            <summary>
+            Asynchronously adds a association with extension data within the underlying data store.
+            </summary>
+            <param name="association">Association to be added</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Association and TExtension which was added</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.Update``1(EPiServer.Social.Groups.Core.AssociationId,``0)">
+            <summary>
+            Update an association in the repository with new extension data
+            </summary>
+            <param name="associationId">AssociationId used to filter collection with</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of the Association and extension data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.UpdateAsync``1(EPiServer.Social.Groups.Core.AssociationId,``0)">
+            <summary>
+            Asynchronously updates an existing association with extension data within the underlying data store
+            </summary>
+            <param name="associationId">Association to be updated</param>
+            <param name="extension">Extension Data to be updated</param>
+            <returns>Association which was updated</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.Remove(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Removes an existing group association from the underlying data store.
+            </summary>
+            <param name="association">ID of the association to be removed</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.RemoveAsync(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Asynchronously removes an existing association from the underlying data store.
+            </summary>
+            <param name="associationId">ID of the association to be removed</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.IsAssociated(EPiServer.Social.Groups.Core.GroupId,EPiServer.Social.Common.Reference)">
+            <summary>
+            Returns true if the specified resource is an association of the specified group,
+            false otherwise.
+            </summary>
+            <param name="group">ID of the group</param>
+            <param name="resource">Reference representing the resource whose associationship should be verfied</param>
+            <returns>True if the specified resource is an association of the specified group, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.Get(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Retrieves a single Assocation based upon an AssociationId from the underlying data store
+            </summary>
+            <param name="id">association id of the desired association</param>
+            <returns>The requested association</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.GetAsync(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Asynchronously retrieves a association, represented by the specified ID, from
+            the underlying data store.
+            </summary>
+            <param name="associationId">ID fo the association to be retrieved</param>
+            <returns>Association which was retrieved</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.Get``1(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Gets a association composed with associated extension data, 
+            as identified by the specified ID.        
+            </summary>
+            <typeparam name="TExtension">Type of data applied as an extension of the association </typeparam>
+            <param name="id">ID of the item to be retrieved</param>
+            <returns>A association composed with associated extension data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.GetAsync``1(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Asynchronously retrieves a association with extension data, represented by the specified ID, from
+            the underlying data store.
+            </summary>
+            <param name="id">ID fo the association to be retrieved</param>
+            <returns>Composite that contains a association and its extension data based on the criteria provided.</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.AssociationFilter})">
+            <summary>
+            Retrieves a page of group associations from the underlying data store,
+            as described by the specified criteria.
+            </summary>
+            <param name="criteria">Criteria by which to filter group associations</param>
+            <returns>Page of group associations</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.AssociationFilter})">
+            <summary>
+            Asynchronously retrieves a page of associations, from the underlying data store, as 
+            specified by the provided criteria.
+            </summary>
+            <param name="criteria">Filters the result set of associations</param>
+            <returns>Page of associations filtered according to the specified criteria</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.AssociationFilter,``0})">
+            <summary>
+            Retrieves a page of group associations and extension data from the underlying data store,
+            as described by the specified criteria.
+            </summary>
+            <typeparam name="TExtension"></typeparam>
+            <param name="criteria"></param>
+            <returns>A result page of type composite of type group and extension data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IAssociationRepository.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.AssociationFilter,``0})">
+            <summary>
+            Asynchronously retrieves a result page of composites. Each composite contains a association and its extension data, from the underlying data store, as 
+            specified by the provided criteria.
+            </summary>
+            <param name="criteria">Filters the result set of associations and the extension data</param>
+            <returns>Page of composites that contain associations and their extension data filtered according to the specified criteria</returns>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.IGroupService">
+            <summary>
+            The IGroupService interface describes a component responsible for facilitating 
+            the addition, update, removal, and retrieval of social groups.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.Add(EPiServer.Social.Groups.Core.Group)">
+            <summary>
+            Adds a new group.
+            </summary>
+            <param name="group">Group to be added</param>
+            <returns>Group which was just added</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when the parameter passed in is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.AddAsync(EPiServer.Social.Groups.Core.Group)">
+            <summary>
+            Asynchronously adds a new group.
+            </summary>
+            <param name="group">Group to be added</param>
+            <returns>Group which was just added</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when the parameter passed in is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.Add``1(EPiServer.Social.Groups.Core.Group,``0)">
+            <summary>
+            Adds a new group.
+            </summary>
+            <param name="group">Group to be added</param>
+            <param name="extension">Extension data to be created</param>
+            <returns>Group which was just added with extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when the parameter passed in is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.AddAsync``1(EPiServer.Social.Groups.Core.Group,``0)">
+            <summary>
+            Asynchronously adds a new group.
+            </summary>
+            <param name="group">Group to be added</param>
+            <param name="extension">Extension data to be created</param>
+            <returns>Group which was just added with extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when the parameter passed in is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.Update(EPiServer.Social.Groups.Core.Group)">
+            <summary>
+            Saves an update to an existing group.
+            </summary>
+            <param name="group">Group information to be updated</param>
+            <returns>Group which was just updated</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group document does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.UpdateAsync(EPiServer.Social.Groups.Core.Group)">
+            <summary>
+            Asynchronously saves an update to an existing group.
+            </summary>
+            <param name="group">Group information to be updated</param>
+            <returns>Group which was just updated</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group document does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.Update``1(EPiServer.Social.Groups.Core.Group,``0)">
+            <summary>
+            Saves an update to an existing group.
+            </summary>
+            <param name="group">Group information to be updated</param>
+            <param name="extension">Extension Data to be updated</param>
+            <returns>Group which was just updated</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group document does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.UpdateAsync``1(EPiServer.Social.Groups.Core.Group,``0)">
+            <summary>
+            Asynchronously saves an update to an existing group.
+            </summary>
+            <param name="group">Group information to be updated</param>
+            <param name="extension">Extension Data to be updated</param>
+            <returns>Group which was just updated</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group document does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.Remove(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Removes an existing group from the system.
+            </summary>
+            <param name="id">ID of the group to be removed</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberStillExistsException">Thrown when members still exist in the system for the group being deleted.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.AssociationStillExistsException">Thrown when content associations still exist in the system for the group being deleted.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.RemoveAsync(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Asynchronously removes an existing group from the system.
+            </summary>
+            <param name="id">ID of the group to be removed</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberStillExistsException">Thrown when members still exist in the system for the group being deleted.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.AssociationStillExistsException">Thrown when content associations still exist in the system for the group being deleted.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.Get(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Gets a group as identified  by the specified ID.
+            </summary>
+            <param name="id">Group identifier</param>
+            <returns>Group corresponding to the specified ID</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group document does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.GetAsync(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Asynchronously gets a group as identified  by the specified ID.
+            </summary>
+            <param name="id">Group identifier</param>
+            <returns>Group corresponding to the specified ID</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group document does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.GroupFilter})">
+            <summary>
+            Retrieves a page of groups as specified by the provided criteria.
+            </summary>
+            <param name="criteria">Filters the result set of groups</param>
+            <returns>Page of groups filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.GroupFilter})">
+            <summary>
+            Asynchronously retrieves a page of groups as specified by the provided criteria.
+            </summary>
+            <param name="criteria">Filters the result set of groups</param>
+            <returns>Page of groups filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.Get``1(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Gets a group as identified  by the specified ID.
+            </summary>
+            <param name="id">Group identifier</param>
+            <returns>Composite of  a group and its extension data corresponding to the specified ID</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group document does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.GetAsync``1(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Asynchronously gets a group as identified by the specified ID.
+            </summary>
+            <param name="id">Group identifier</param>
+            <returns>Composite of  a group and its extension data corresponding to the specified ID</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the identified group document does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.GroupFilter,``0})">
+            <summary>
+            Retrieves a result page of composites. Each composite contains a group and its extension data, as specified by the provided criteria.
+            </summary>
+            <param name="criteria">Filters the result set of groups and the extension data</param>
+            <returns>Page of composites that contain groups and their extension data filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IGroupService.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.GroupFilter,``0})">
+            <summary>
+            Asynchronously retrieves a result page of composites. Each composite contains a group and its extension data, as specified by the provided criteria.
+            </summary>
+            <param name="criteria">Filters the result set of groups and the extension data</param>
+            <returns>Page of composites that contain groups and their extension data filtered according to the specified criteria</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.IMemberRepository">
+            <summary>
+            The IMemberRepository interface describes a component capable
+            of persisting, deleting, and retrieving member member data from
+            an underlying data store.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.Add(EPiServer.Social.Groups.Core.Member)">
+            <summary>
+            Adds a user as a member to the repository to the underlying data store 
+            </summary>
+            <param name="member">Member to be added</param>
+            <returns>Member of the member</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.AddAsync(EPiServer.Social.Groups.Core.Member)">
+            <summary>
+            Asynchronously adds a member within the underlying data store.
+            </summary>
+            <param name="member">Member to be added</param>
+            <returns>Member which was added</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.Add``1(EPiServer.Social.Groups.Core.Member,``0)">
+            <summary>
+            Adds a user as a member and its corresponding extension data to the underlying data store
+            </summary>
+            <param name="member">Member to be added</param>
+            <param name="extension">extension data to be added</param>
+            <returns>Composite of Member of the member and extension data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.AddAsync``1(EPiServer.Social.Groups.Core.Member,``0)">
+            <summary>
+            Asynchronously adds a member with extension data within the underlying data store.
+            </summary>
+            <param name="member">Member to be added</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Member and TExtension which was added</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.Update``1(EPiServer.Social.Groups.Core.MemberId,``0)">
+            <summary>
+            Update a member in the repository with new extension data
+            </summary>
+            <param name="memberId">MemberId used to filter collection with</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Member of the member and extension data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.UpdateAsync``1(EPiServer.Social.Groups.Core.MemberId,``0)">
+            <summary>
+            Asynchronously updates an existing member with extension data within the underlying data store
+            </summary>
+            <param name="memberId">Member to be updated</param>
+            <param name="extension">Extension Data to be updated</param>
+            <returns>Member which was updated</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.Remove(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Removes a member from an existing member from the underlying data store
+            </summary>
+            <param name="memberId">ID of the member to be removed</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.RemoveAsync(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Asynchronously removes an existing member from the underlying data store.
+            </summary>
+            <param name="memberId">ID of the member to be removed</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.Get(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Gets a member of an existing member from the underlying data store
+            </summary>
+            <param name="memberId">ID of the member to be retrieved</param>
+            <returns>Member with the specified ID</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.GetAsync(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Asynchronously retrieves a member, represented by the specified ID, from
+            the underlying data store.
+            </summary>
+            <param name="memberId">ID fo the member to be retrieved</param>
+            <returns>Member which was retrieved</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.GetAsync``1(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Asynchronously retrieves a member with extension data, represented by the specified ID, from
+            the underlying data store.
+            </summary>
+            <param name="id">ID fo the member to be retrieved</param>
+            <returns>Composite that contains a member and its extension data based on the criteria provided.</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.Get``1(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Gets a member of an existing member and its corresponding extension data from the underlying data store
+            </summary>
+            <param name="memberId">ID of the member to be retrieved</param>
+            <returns>Composite of member and extension data for the specified ID</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.MemberFilter})">
+            <summary>
+            Retrieves a result page of members assigned to the specified member from the underlying data store
+            </summary>
+            <param name="criteria">Filters the result set of members</param>
+            <returns>Page of members of the specified member</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.MemberFilter})">
+            <summary>
+            Asynchronously retrieves a page of members, from the underlying data store, as 
+            specified by the provided criteria.
+            </summary>
+            <param name="criteria">Filters the result set of members</param>
+            <returns>Page of members filtered according to the specified criteria</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.MemberFilter,``0})">
+            <summary>
+            Asynchronously retrieves a result page of composites. Each composite contains a member and its extension data, from the underlying data store, as 
+            specified by the provided criteria.
+            </summary>
+            <param name="criteria">Filters the result set of members and the extension data</param>
+            <returns>Page of composites that contain members and their extension data filtered according to the specified criteria</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.MemberFilter,``0})">
+            <summary>
+            Retrieves a result page of members assigned to the specified member and their extension data from the underlying data store
+            </summary>
+            <param name="criteria">Composite Criteria that contains Filters for the result set of members and extension</param>
+            <returns>Page of members of the specified member and their corresponding extension data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberRepository.IsMember(EPiServer.Social.Groups.Core.GroupId,EPiServer.Social.Common.Reference)">
+            <summary>
+            Returns true if the specified user is a member of the specified member,
+            false otherwise.
+            </summary>
+            <param name="member">Member in which the specified user may be a member</param>
+            <param name="user">Identifies the user for whom member should be verified</param>
+            <returns>True if the specified user is a member of the specified member, false otherwise.</returns>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.IMemberService">
+            <summary>
+            The IMemberService interface describes a component supporting
+            the management of membership within groups.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.Add(EPiServer.Social.Groups.Core.Member)">
+            <summary>
+            Adds a user as a member to the repository.
+            </summary>
+            <param name="member">Member to be added</param>
+            <returns>Member of the group</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the group specified for association being added does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.DuplicateMemberException">Thrown when the user is already a member of the group.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.AddAsync(EPiServer.Social.Groups.Core.Member)">
+            <summary>
+            Adds a user as a member to the repository.
+            </summary>
+            <param name="member">Member to be added</param>
+            <returns>Member of the group</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the group specified for association being added does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.DuplicateMemberException">Thrown when the user is already a member of the group.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.Add``1(EPiServer.Social.Groups.Core.Member,``0)">
+            <summary>
+            Adds a user as a member and its corresponding extension data to the repository.
+            </summary>
+            <param name="member">Member to be added</param>
+            <param name="extension">extension data to be added</param>
+            <returns>Composite of Member of the group and extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the group specified for association being added does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.DuplicateMemberException">Thrown when the user is already a member of the group.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.AddAsync``1(EPiServer.Social.Groups.Core.Member,``0)">
+            <summary>
+            Adds a user as a member and its corresponding extension data to the repository.
+            </summary>
+            <param name="member">Member to be added</param>
+            <param name="extension">extension data to be added</param>
+            <returns>Composite of Member of the group and extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.GroupDoesNotExistException">Thrown when the group specified for association being added does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.DuplicateMemberException">Thrown when the user is already a member of the group.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.Update``1(EPiServer.Social.Groups.Core.MemberId,``0)">
+            <summary>
+            Update a member in the repository with new extension data
+            </summary>
+            <param name="memberId">MemberId used to filter collection with</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Member of the group and extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.UpdateAsync``1(EPiServer.Social.Groups.Core.MemberId,``0)">
+            <summary>
+            Update a member in the repository with new extension data
+            </summary>
+            <param name="memberId">MemberId used to filter collection with</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Member of the group and extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.Remove(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Removes a member from an existing group.
+            </summary>
+            <param name="memberId">ID of the member to be removed</param>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.RemoveAsync(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Removes a member from an existing group.
+            </summary>
+            <param name="memberId">ID of the member to be removed</param>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.Get(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Gets a member of an existing group.
+            </summary>
+            <param name="memberId">ID of the member to be retrieved</param>
+            <returns>Member with the specified ID</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.GetAsync(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Gets a member of an existing group.
+            </summary>
+            <param name="memberId">ID of the member to be retrieved</param>
+            <returns>Member with the specified ID</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.Get``1(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Gets a member of an existing group and its corresponding extension data.
+            </summary>
+            <param name="memberId">ID of the member to be retrieved</param>
+            <returns>Composite of member and extension data for the specified ID</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.GetAsync``1(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Gets a member of an existing group and its corresponding extension data.
+            </summary>
+            <param name="memberId">ID of the member to be retrieved</param>
+            <returns>Composite of member and extension data for the specified ID</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.MemberFilter})">
+            <summary>
+            Retrieves a result page of members assigned to the specified group.
+            </summary>
+            <param name="criteria">Filters the result set of members</param>
+            <returns>Page of members of the specified group</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.MemberFilter})">
+            <summary>
+            Retrieves a result page of members assigned to the specified group.
+            </summary>
+            <param name="criteria">Filters the result set of members</param>
+            <returns>Page of members of the specified group</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.MemberFilter,``0})">
+            <summary>
+            Retrieves a result page of members assigned to the specified group and their extension data.
+            </summary>
+            <param name="criteria">Composite Criteria that contains Filters for the result set of members and extension</param>
+            <returns>Page of members of the specified group and their corresponding extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.MemberFilter,``0})">
+            <summary>
+            Retrieves a result page of members assigned to the specified group and their extension data.
+            </summary>
+            <param name="criteria">Composite Criteria that contains Filters for the result set of members and extension</param>
+            <returns>Page of members of the specified group and their corresponding extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.IsMember(EPiServer.Social.Groups.Core.GroupId,EPiServer.Social.Common.Reference)">
+            <summary>
+            Returns true if the specified user is a member of the specified group,
+            false otherwise.
+            </summary>
+            <param name="group">Group in which the specified user may be a member</param>
+            <param name="user">Identifies the user for whom membership should be verified</param>
+            <returns>True if the specified user is a member of the specified group, false otherwise.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IMemberService.IsMemberAsync(EPiServer.Social.Groups.Core.GroupId,EPiServer.Social.Common.Reference)">
+            <summary>
+            Returns true if the specified user is a member of the specified group,
+            false otherwise.
+            </summary>
+            <param name="group">Group in which the specified user may be a member</param>
+            <param name="user">Identifies the user for whom membership should be verified</param>
+            <returns>True if the specified user is a member of the specified group, false otherwise.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are null or invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.IRoleRepository">
+            <summary>
+            The IRoleRepository interface describes a component capable
+            of persisting, deleting, and retrieving role data from
+            an underlying data store.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.Add(EPiServer.Social.Groups.Core.Role)">
+            <summary>
+            Adds a user as a role to the repository to the underlying data store 
+            </summary>
+            <param name="role">Role to be added</param>
+            <returns>Role of the role</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.AddAsync(EPiServer.Social.Groups.Core.Role)">
+            <summary>
+            Asynchronously adds a role within the underlying data store.
+            </summary>
+            <param name="role">Role to be added</param>
+            <returns>Role which was added</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.Add``1(EPiServer.Social.Groups.Core.Role,``0)">
+            <summary>
+            Adds a user as a role and its corresponding extension data to the underlying data store
+            </summary>
+            <param name="role">Role to be added</param>
+            <param name="extension">extension data to be added</param>
+            <returns>Composite of Role of the role and extension data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.AddAsync``1(EPiServer.Social.Groups.Core.Role,``0)">
+            <summary>
+            Asynchronously adds a user as a role and its corresponding extension data to the underlying data store
+            </summary>
+            <param name="role">Role to be added</param>
+            <param name="extension">extension data to be added</param>
+            <returns>Composite of Role of the role and extension data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.Update``1(EPiServer.Social.Groups.Core.RoleId,``0)">
+            <summary>
+            Update a role in the repository with new extension data
+            </summary>
+            <param name="roleId">RoleId used to filter collection with</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Role of the role and extension data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.UpdateAsync``1(EPiServer.Social.Groups.Core.RoleId,``0)">
+            <summary>
+            Asynchronously updates an existing role with extension data within the underlying data store
+            </summary>
+            <param name="roleId">role to be updated</param>
+            <param name="extension">Extension Data to be updated</param>
+            <returns>Role which was updated</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.Remove(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Removes a role from an existing role from the underlying data store
+            </summary>
+            <param name="roleId">ID of the role to be removed</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.RemoveAsync(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Asynchronously removes an existing role from the underlying data store.
+            </summary>
+            <param name="roleId">ID of the role to be removed</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.Get(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Gets a role of an existing role from the underlying data store
+            </summary>
+            <param name="roleId">ID of the role to be retrieved</param>
+            <returns>Role with the specified ID</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.GetAsync(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Asynchronously retrieves a role, represented by the specified ID, from
+            the underlying data store.
+            </summary>
+            <param name="roleId">ID fo the role to be retrieved</param>
+            <returns>Role which was retrieved</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.GetAsync``1(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Asynchronously retrieves a role with extension data, represented by the specified ID, from
+            the underlying data store.
+            </summary>
+            <param name="id">ID fo the role to be retrieved</param>
+            <returns>Composite that contains a role and its extension data based on the criteria provided.</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.Get``1(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Gets a role of an existing role and its corresponding extension data from the underlying data store
+            </summary>
+            <param name="roleId">ID of the role to be retrieved</param>
+            <returns>Composite of role and extension data for the specified ID</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.RoleFilter})">
+            <summary>
+            Retrieves a result page of roles assigned to the specified role from the underlying data store
+            </summary>
+            <param name="criteria">Filters the result set of roles</param>
+            <returns>Page of roles of the specified role</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.RoleFilter})">
+            <summary>
+            Asynchronously retrieves a page of roles, from the underlying data store, as 
+            specified by the provided criteria.
+            </summary>
+            <param name="criteria">Filters the result set of roles</param>
+            <returns>Page of roles filtered according to the specified criteria</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.RoleFilter,``0})">
+            <summary>
+            Asynchronously retrieves a result page of composites. Each composite contains a role and its extension data, from the underlying data store, as 
+            specified by the provided criteria.
+            </summary>
+            <param name="criteria">Filters the result set of roles and the extension data</param>
+            <returns>Page of composites that contain roles and their extension data filtered according to the specified criteria</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.RoleFilter,``0})">
+            <summary>
+            Retrieves a result page of roles assigned to the specified role and their extension data from the underlying data store
+            </summary>
+            <param name="criteria">Composite Criteria that contains Filters for the result set of roles and extension</param>
+            <returns>Page of roles of the specified role and their corresponding extension data</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.Assign(EPiServer.Social.Groups.Core.RoleAssignment)">
+            <summary>
+            Assigns a role to the specified role.
+            </summary>
+            <param name="assignment">Identifies the role the role, which they are to be assigned</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.Unassign(EPiServer.Social.Groups.Core.RoleAssignment)">
+            <summary>
+            Unassigns a role from the specified role.
+            </summary>
+            <param name="assignment">Identifies the role assigment, which is to be removed</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.IsAssigned(EPiServer.Social.Groups.Core.RoleAssignment)">
+            <summary>
+            Returns true if the specified role has been assigned the
+            specified role, false otherwise.
+            </summary>
+            <param name="assignment">Identifies the role assigment, which is to be verified</param>
+            <returns>True if the role has been assigned the role, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.AssignAsync(EPiServer.Social.Groups.Core.RoleAssignment)">
+            <summary>
+            Assigns a role to the specified role.
+            </summary>
+            <param name="assignment">Identifies the role the role, which they are to be assigned</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.UnassignAsync(EPiServer.Social.Groups.Core.RoleAssignment)">
+            <summary>
+            Unassigns a role from the specified role.
+            </summary>
+            <param name="assignment">Identifies the role assigment, which is to be removed</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleRepository.IsAssignedAsync(EPiServer.Social.Groups.Core.RoleAssignment)">
+            <summary>
+            Returns true if the specified role has been assigned the
+            specified role, false otherwise.
+            </summary>
+            <param name="assignment">Identifies the role assigment, which is to be verified</param>
+            <returns>True if the role has been assigned the role, false otherwise</returns>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.IRoleService">
+            <summary>
+            The IRoleService interface describes a component responsible for facilitating 
+            the addition, removal, and retrieval of roles for social groups.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.Add(EPiServer.Social.Groups.Core.Role)">
+            <summary>
+            Adds a new role for a group.
+            </summary>
+            <param name="role">Role to be added for a group</param>
+            <returns>Role which has been added</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.AddAsync(EPiServer.Social.Groups.Core.Role)">
+            <summary>
+            Asynchronously adds a new role for a group.
+            </summary>
+            <param name="role">Role to be added for a group</param>
+            <returns>Role which has been added</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.Add``1(EPiServer.Social.Groups.Core.Role,``0)">
+            <summary>
+            Adds a role and its corresponding extension data 
+            </summary>
+            <param name="role">Role to be added</param>
+            <param name="extension">extension data to be added</param>
+            <returns>Composite of Role and extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.AddAsync``1(EPiServer.Social.Groups.Core.Role,``0)">
+            <summary>
+            Asynchronously adds a role and its corresponding extension data 
+            </summary>
+            <param name="role">Role to be added</param>
+            <param name="extension">extension data to be added</param>
+            <returns>Composite of Role and extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.Update``1(EPiServer.Social.Groups.Core.RoleId,``0)">
+            <summary>
+            Asynchronously updates the extension data corresponding to a role
+            </summary>
+            <param name="roleId">RoleId used to filter collection with</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Role of the group and extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.RoleDoesNotExistException">Thrown when the identified role does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.UpdateAsync``1(EPiServer.Social.Groups.Core.RoleId,``0)">
+            <summary>
+            Asynchronously updates the extension data corresponding to a role
+            </summary>
+            <param name="roleId">RoleId used to filter collection with</param>
+            <param name="extension">Extension data to be added</param>
+            <returns>Composite of Role of the group and extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.RoleDoesNotExistException">Thrown when the identified role does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.Remove(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Removes an existing role from the system.
+            </summary>
+            <param name="roleId">ID of the role to remove</param>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.RemoveAsync(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Asynchronously removes an existing role from the system.
+            </summary>
+            <param name="roleId">ID of the role to remove</param>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.Get(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Retrieves a role by its ID.
+            </summary>
+            <param name="roleId">ID of role to be retrieved</param>
+            <returns>Role identified by the specified ID</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.RoleDoesNotExistException">Thrown when the identified role does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.GetAsync(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Asynchronously retrieves a role by its ID.
+            </summary>
+            <param name="roleId">ID of role to be retrieved</param>
+            <returns>Role identified by the specified ID</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.RoleDoesNotExistException">Thrown when the identified role does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.Get``1(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Gets a role and its corresponding extension data 
+            </summary>
+            <param name="roleId">ID of the role to be retrieved</param>
+            <returns>Composite of role and extension data for the specified ID</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.RoleDoesNotExistException">Thrown when the identified role does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.GetAsync``1(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Asynchronously gets a role and its corresponding extension data 
+            </summary>
+            <param name="roleId">ID of the role to be retrieved</param>
+            <returns>Composite of role and extension data for the specified ID</returns>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.RoleDoesNotExistException">Thrown when the identified role does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.Get(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.RoleFilter})">
+            <summary>
+            Retrieves a page of roles as described 
+            by the specified criteria.
+            </summary>
+            <param name="criteria">Criteria by which to filter roles</param>
+            <returns>Page of roles</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.GetAsync(EPiServer.Social.Common.Criteria{EPiServer.Social.Groups.Core.RoleFilter})">
+            <summary>
+            Asynchronously retrieves a page of roles as described 
+            by the specified criteria.
+            </summary>
+            <param name="criteria">Criteria by which to filter roles</param>
+            <returns>Page of roles</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.Get``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.RoleFilter,``0})">
+            <summary>
+            Retrieves a page of roles as described by the specified criteria. The retrieved
+            roles are filtered by the type of their associated data.
+            </summary>
+            <typeparam name="TExtension">Type of data associated with the desired roles</typeparam>
+            <param name="criteria">Filters the result set of roles and their extension data</param>
+            <returns>Page of roles and their corresponding extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.GetAsync``1(EPiServer.Social.Common.CompositeCriteria{EPiServer.Social.Groups.Core.RoleFilter,``0})">
+            <summary>
+            Asynchronously retrieves a page of roles as described by the specified criteria. The retrieved
+            roles are filtered by the type of their associated data. 
+            </summary>
+            <typeparam name="TExtension">Type of data associated with the desired roles</typeparam>
+            <param name="criteria">Filters the result set of roles and their extension data</param>
+            <returns>Page of roles and their corresponding extension data</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:EPiServer.Social.Common.InvalidPageInfoException">Thrown when the page info is invalid.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.Assign(EPiServer.Social.Groups.Core.RoleAssignment)">
+            <summary>
+            Assigns a role to a particular group member.
+            </summary>
+            <param name="assignment">Describes the assignment of a role to a member</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.RoleDoesNotExistException">Thrown when the identified role does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.AssignAsync(EPiServer.Social.Groups.Core.RoleAssignment)">
+            <summary>
+            Asynchronously assigns a role to a particular group member.
+            </summary>
+            <param name="assignment">Describes the assignment of a role to a member</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters passed in are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the parameters passed in are invalid.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.RoleDoesNotExistException">Thrown when the identified role does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.Unassign(EPiServer.Social.Groups.Core.RoleAssignment)">
+            <summary>
+            Removes the assignment of a role from a particular group member.
+            </summary>
+            <param name="assignment">Describes the assignment of a role to a member</param>
+            <exception cref="T:System.ArgumentNullException">Role assignment data is null</exception>
+            <exception cref="T:System.ArgumentException">Role assignment is insufficient</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.UnassignAsync(EPiServer.Social.Groups.Core.RoleAssignment)">
+            <summary>
+            Asynchronously removes the assignment of a role from a particular group member.
+            </summary>
+            <param name="assignment">Describes the assignment of a role to a member</param>
+            <exception cref="T:System.ArgumentNullException">Role assignment data is null</exception>
+            <exception cref="T:System.ArgumentException">Role assignment is insufficient</exception>
+            <exception cref="T:EPiServer.Social.Groups.Core.MemberDoesNotExistException">Thrown when the identified member does not exist.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.IsAssigned(EPiServer.Social.Groups.Core.RoleAssignment)">
+            <summary>
+            Returns a boolean indicating whether a member has been assigned
+            to a particular role.
+            </summary>
+            <param name="assignment">Identifies the role assigment, which is to be verified</param>
+            <returns>True if the member has been assigned the role, false otherwise</returns>
+            <exception cref="T:System.ArgumentException">Role assignment is insufficient</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.IRoleService.IsAssignedAsync(EPiServer.Social.Groups.Core.RoleAssignment)">
+            <summary>
+            Asynchronously returns a boolean indicating whether a member has been assigned
+            to a particular role.
+            </summary>
+            <param name="assignment">Identifies the role assigment, which is to be verified</param>
+            <returns>True if the member has been assigned the role, false otherwise</returns>
+            <exception cref="T:System.ArgumentException">Role assignment is insufficient</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialException">Thrown when an error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialAuthenticationException">Thrown when an authentication error occurs while processing the request.</exception>
+            <exception cref="T:EPiServer.Social.Common.MaximumDataSizeExceededException">Thrown when a Social object is submitted, which exceeds the size restrictions of the system.</exception>
+            <exception cref="T:EPiServer.Social.Common.SocialCommunicationException">Thrown when errors occur communicating with the cloud services.</exception>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.MemberFilter">
+            <summary>
+            The MemberFilter class describes the specifications by which
+            member data should be retrieved.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.MemberFilter.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.MemberFilter.Group">
+            <summary>
+            Gets or sets the ID of the group to which the result
+            set should be filtered.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.MemberFilter.User">
+            <summary>
+            Gets or sets the reference of the member of a group by which the result
+            set should be filtered.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.MemberFilter.MemberIds">
+            <summary>
+            Gets and Sets the desired list of MemberIds
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.MemberFilter.Role">
+            <summary>
+            Gets or sets the ID of the role to which the result
+            set should be filtered.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.MemberSortFields">
+            <summary>
+            The MemberSortFields class exposes the fields of the 
+            Member model which are available for application in 
+            defining sorting rules for member result sets within 
+            the Social platform.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.MemberSortFields.Group">
+            <summary>
+            Gets the member Group sort field.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.MemberSortFields.User">
+            <summary>
+            Gets the member User sort field.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.MemberSortFields.Id">
+            <summary>
+            Gets the member Id sort field.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.Group">
+            <summary>
+            The Group class is a data model describing an 
+            social aggregation of members and/or content.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.Group.#ctor(System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="name">string which identifies the name of the group</param>
+            <param name="description">string which describes the group</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.Group.#ctor(EPiServer.Social.Groups.Core.GroupId,System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">Unique identifier for this group</param>
+            <param name="name">string which identifies the name of the group</param>
+            <param name="description">string which describes the group</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.Group.#ctor(EPiServer.Social.Groups.Core.GroupId,System.String,System.String,System.DateTime)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">Unique identifier for this group</param>
+            <param name="name">string which identifies the name of the group</param>
+            <param name="description">string which describes the group</param>
+            <param name="created"> Datetime denoting when the group was created</param>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.Group.Id">
+            <summary>
+            Gets the identifier representing this group.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.Group.Name">
+            <summary>
+            Gets the name of this group.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.Group.Description">
+            <summary>
+            Gets the description of this group.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.Group.Created">
+            <summary>
+            Gets the date on which the group
+            was created.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.GroupId">
+            <summary>
+            The Group class is a data model representing
+            an identifier for a Group within the social
+            platform.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.GroupId.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">String-based identifier for a group</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.GroupId.IsNullOrEmpty(EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Returns true if the specified Group has not been
+            initialized or represents an empty group identifier,
+            false otherwise.
+            </summary>
+            <param name="id">Group identifier to evaluate</param>
+            <returns>True if the Group is null or empty, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.GroupId.Create(System.String)">
+            <summary>
+            Parses a group ID from a string-based identifier.
+            </summary>
+            <param name="id">Identifer for the group</param>
+            <returns>Instance of Group representing the specified identifier</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.GroupId.Create">
+            <summary>
+            Creates an empty Group.
+            </summary>
+            <returns>Empty Group instance</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.GroupId.op_Equality(EPiServer.Social.Groups.Core.GroupId,EPiServer.Social.Groups.Core.GroupId)">
+             <summary>
+             Evaluates the equality of two Group instances.
+             </summary>
+             <param name="a">The operand on the left side of the equality operator.</param>
+             <param name="b">The operand on the right side of the equality operator.</param>
+             <returns>
+             Returns true if the specified instances are equivalent, false otherwise.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.GroupId.op_Inequality(EPiServer.Social.Groups.Core.GroupId,EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Evaluates two Group instances for inequality.
+            </summary>
+            <param name="a">The operand on the left side of the inequality operator.</param>
+            <param name="b">The operand on the right side of the inequality operator.</param>
+            <returns>
+            Returns true if the specified instances are not equivalent, false otherwise.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.GroupId.Equals(System.Object)">
+            <summary>
+            Compares this instance with another object.
+            </summary>
+            <param name="obj">the object to compare with this instance.</param>
+            <returns>
+            Returns true if this instance and another specified object, of type Group have the same 
+            value of the underlying comment identifier, else returns false.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.GroupId.GetHashCode">
+            <summary>
+            Returns a hash code representative of this Group.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.GroupId.Empty">
+            <summary>
+            Returns a newly created Group instance representing
+            an 'empty' group ID.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.GroupId.CreateEmptyGroupId">
+            <summary>
+            Creates an instance of an empty Group.
+            </summary>
+            <returns>Empty Group instance</returns>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.Association">
+            <summary>
+            The Association class is a data model describing a relationship
+            associating a resource with a social group.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.Association.#ctor(EPiServer.Social.Common.Reference,EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="resourceReference">Reference which uniquely identifies the resource assigned to a group</param>
+            <param name="groupId">ID of the group to which the resource is assigned</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.Association.#ctor(EPiServer.Social.Groups.Core.AssociationId,EPiServer.Social.Common.Reference,EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">Unique identifier for this association</param>
+            <param name="resourceReference">Reference which uniquely identifies the resource assigned to a group</param>
+            <param name="groupId">ID of the group to which the resource is assigned</param>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.Association.Id">
+            <summary>
+            Gets the unique identifier representing this association.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.Association.Resource">
+            <summary>
+            Gets the reference which uniquely identifies the resource which
+            is associated with the group.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.Association.Group">
+            <summary>
+            Gets the ID of the group to which the resource has been associated.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.Member">
+            <summary>
+            The Member class is a data model describing a relationship
+            associating a user with a social group.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.Member.#ctor(EPiServer.Social.Common.Reference,EPiServer.Social.Groups.Core.GroupId,System.Collections.Generic.IEnumerable{EPiServer.Social.Groups.Core.RoleId})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="userReference">Reference which uniquely identifies the user assigned to a group</param>
+            <param name="groupId">ID of the group to which the user is assigned</param>
+            <param name="roles">A list of RoleIds that the member has assigned to them</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.Member.#ctor(EPiServer.Social.Groups.Core.MemberId,EPiServer.Social.Common.Reference,EPiServer.Social.Groups.Core.GroupId)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">Unique identifier for this member</param>
+            <param name="userReference">Reference which uniquely identifies the user assigned to a group</param>
+            <param name="groupId">ID of the group to which the user is assigned</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.Member.#ctor(EPiServer.Social.Groups.Core.MemberId,EPiServer.Social.Common.Reference,EPiServer.Social.Groups.Core.GroupId,System.Collections.Generic.IEnumerable{EPiServer.Social.Groups.Core.RoleId})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">Unique identifier for this member</param>
+            <param name="userReference">Reference which uniquely identifies the user assigned to a group</param>
+            <param name="groupId">ID of the group to which the user is assigned</param>
+            <param name="roles">A list of RoleIds that the member has assigned to them</param>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.Member.Id">
+            <summary>
+            Gets the unique identifier representing this member.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.Member.User">
+            <summary>
+            Gets the reference which uniquely identifies the user who
+            is assigned as a member of the group.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.Member.Group">
+            <summary>
+            Gets the ID of the group to which the user has been assigned
+            as a member.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.Member.Roles">
+            <summary>
+            Gets the list of role IDs to which the user has been assigned
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.AssociationId">
+            <summary>
+            The AssociationId class is a data model representing
+            an identifier for an Association within the social
+            platform.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.AssociationId.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">String-based identifier for an association</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.AssociationId.IsNullOrEmpty(EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Returns true if the specified AssociationId has not been
+            initialized or represents an empty association identifier,
+            false otherwise.
+            </summary>
+            <param name="id">Association identifier to evaluate</param>
+            <returns>True if the AssociationId is null or empty, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.AssociationId.Create(System.String)">
+            <summary>
+            Parses an association ID from a string-based identifier.
+            </summary>
+            <param name="id">Identifer for the association</param>
+            <returns>Instance of AssociationId representing the specified identifier</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.AssociationId.Create">
+            <summary>
+            Creates an empty AssociationId.
+            </summary>
+            <returns>Empty AssociationId instance</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.AssociationId.op_Equality(EPiServer.Social.Groups.Core.AssociationId,EPiServer.Social.Groups.Core.AssociationId)">
+             <summary>
+             Evaluates the equality of two AssociationId instances.
+             </summary>
+             <param name="a">The operand on the left side of the equality operator.</param>
+             <param name="b">The operand on the right side of the equality operator.</param>
+             <returns>
+             Returns true if the specified instances are equivalent, false otherwise.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.AssociationId.op_Inequality(EPiServer.Social.Groups.Core.AssociationId,EPiServer.Social.Groups.Core.AssociationId)">
+            <summary>
+            Evaluates two AssociationId instances for inequality.
+            </summary>
+            <param name="a">The operand on the left side of the inequality operator.</param>
+            <param name="b">The operand on the right side of the inequality operator.</param>
+            <returns>
+            Returns true if the specified instances are not equivalent, false otherwise.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.AssociationId.Equals(System.Object)">
+            <summary>
+            Compares this instance with another object.
+            </summary>
+            <param name="obj">the object to compare with this instance.</param>
+            <returns>
+            Returns true if this instance and another specified object, of type AssociationId have the same 
+            value of the underlying comment identifier, else returns false.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.AssociationId.GetHashCode">
+            <summary>
+            Returns a hash code representative of this AssociationId.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.AssociationId.Empty">
+            <summary>
+            Returns a newly created AssociationId instance representing
+            an 'empty' association ID.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.AssociationId.CreateEmptyAssociationId">
+            <summary>
+            Creates an instance of an empty AssociationId.
+            </summary>
+            <returns>Empty AssociationId instance</returns>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.MemberId">
+            <summary>
+            The MemberId class is a data model representing
+            an identifier for a Member within the social
+            platform.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.MemberId.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">String-based identifier for a member</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.MemberId.IsNullOrEmpty(EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Returns true if the specified MemberId has not been
+            initialized or represents an empty member identifier,
+            false otherwise.
+            </summary>
+            <param name="id">Member identifier to evaluate</param>
+            <returns>True if the MemberId is null or empty, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.MemberId.Create(System.String)">
+            <summary>
+            Parses a member ID from a string-based identifier.
+            </summary>
+            <param name="id">Identifer for the member</param>
+            <returns>Instance of MemberId representing the specified identifier</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.MemberId.Create">
+            <summary>
+            Creates an empty MemberId.
+            </summary>
+            <returns>Empty MemberId instance</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.MemberId.op_Equality(EPiServer.Social.Groups.Core.MemberId,EPiServer.Social.Groups.Core.MemberId)">
+             <summary>
+             Evaluates the equality of two MemberId instances.
+             </summary>
+             <param name="a">The operand on the left side of the equality operator.</param>
+             <param name="b">The operand on the right side of the equality operator.</param>
+             <returns>
+             Returns true if the specified instances are equivalent, false otherwise.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.MemberId.op_Inequality(EPiServer.Social.Groups.Core.MemberId,EPiServer.Social.Groups.Core.MemberId)">
+            <summary>
+            Evaluates two MemberId instances for inequality.
+            </summary>
+            <param name="a">The operand on the left side of the inequality operator.</param>
+            <param name="b">The operand on the right side of the inequality operator.</param>
+            <returns>
+            Returns true if the specified instances are not equivalent, false otherwise.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.MemberId.Equals(System.Object)">
+            <summary>
+            Compares this instance with another object.
+            </summary>
+            <param name="obj">the object to compare with this instance.</param>
+            <returns>
+            Returns true if this instance and another specified object, of type MemberId have the same 
+            value of the underlying comment identifier, else returns false.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.MemberId.GetHashCode">
+            <summary>
+            Returns a hash code representative of this MemberId.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.MemberId.Empty">
+            <summary>
+            Returns a newly created MemberId instance representing
+            an 'empty' member ID.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.MemberId.CreateEmptyMemberId">
+            <summary>
+            Creates an instance of an empty MemberId.
+            </summary>
+            <returns>Empty MemberId instance</returns>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.Role">
+            <summary>
+            The Role class is a data structure describing
+            an individual role associated with a group
+            within the social platform.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.Role.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="name">The role name</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.Role.#ctor(EPiServer.Social.Groups.Core.RoleId,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">The role id</param>
+            <param name="name">The role name</param>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.Role.Id">
+            <summary>
+            Gets the unique identifier for this role.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.Role.Name">
+            <summary>
+            Gets the name of the role.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.RoleAssignment">
+            <summary>
+            The RoleAssignment class describes the assignment
+            relationship between a group member and a particular
+            role.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.RoleAssignment.#ctor(EPiServer.Social.Groups.Core.MemberId,EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="member">ID of the member in the assignment</param>
+            <param name="role">ID of the role in the assignment</param>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.RoleAssignment.Member">
+            <summary>
+            Gets the ID of the member to which the role
+            is assigned.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.RoleAssignment.Role">
+            <summary>
+            Gets the ID of the role which is assigned
+            to the member.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.RoleId">
+            <summary>
+            The RoleId class is a data model representing
+            an identifier for a Role within the social
+            platform.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.RoleId.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">String-based identifier for a role</param>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.RoleId.IsNullOrEmpty(EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Returns true if the specified RoleId has not been
+            initialized or represents an empty role identifier,
+            false otherwise.
+            </summary>
+            <param name="id">Role identifier to evaluate</param>
+            <returns>True if the RoleId is null or empty, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.RoleId.Create(System.String)">
+            <summary>
+            Parses a role ID from a string-based identifier.
+            </summary>
+            <param name="id">Identifer for the role</param>
+            <returns>Instance of RoleId representing the specified identifier</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.RoleId.Create">
+            <summary>
+            Creates an empty RoleId.
+            </summary>
+            <returns>Empty RoleId instance</returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.RoleId.op_Equality(EPiServer.Social.Groups.Core.RoleId,EPiServer.Social.Groups.Core.RoleId)">
+             <summary>
+             Evaluates the equality of two RoleId instances.
+             </summary>
+             <param name="a">The operand on the left side of the equality operator.</param>
+             <param name="b">The operand on the right side of the equality operator.</param>
+             <returns>
+             Returns true if the specified instances are equivalent, false otherwise.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.RoleId.op_Inequality(EPiServer.Social.Groups.Core.RoleId,EPiServer.Social.Groups.Core.RoleId)">
+            <summary>
+            Evaluates two RoleId instances for inequality.
+            </summary>
+            <param name="a">The operand on the left side of the inequality operator.</param>
+            <param name="b">The operand on the right side of the inequality operator.</param>
+            <returns>
+            Returns true if the specified instances are not equivalent, false otherwise.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.RoleId.Equals(System.Object)">
+            <summary>
+            Compares this instance with another object.
+            </summary>
+            <param name="obj">the object to compare with this instance.</param>
+            <returns>
+            Returns true if this instance and another specified object, of type RoleId have the same 
+            value of the underlying comment identifier, else returns false.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.RoleId.GetHashCode">
+            <summary>
+            Returns a hash code representative of this RoleId.
+            </summary>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.RoleId.Empty">
+            <summary>
+            Returns a newly created RoleId instance representing
+            an 'empty' role ID.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.RoleId.CreateEmptyRoleId">
+            <summary>
+            Creates an instance of an empty RoleId.
+            </summary>
+            <returns>Empty RoleId instance</returns>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.RoleFilter">
+            <summary>
+            The RoleFilter class describes the specifications by which
+            role data should be retrieved.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Social.Groups.Core.RoleFilter.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.RoleFilter.Name">
+            <summary>
+            Gets and Sets the name of the role.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.RoleFilter.RoleIds">
+            <summary>
+            Gets and Sets the desired list of roleIds
+            </summary>
+        </member>
+        <member name="T:EPiServer.Social.Groups.Core.RoleSortFields">
+            <summary>
+            The RoleSortFields class exposes the fields of the 
+            Role model which are available for application in 
+            defining sorting rules for role result sets within 
+            the Social platform.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.RoleSortFields.Name">
+            <summary>
+            Gets the role Name sort field.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Social.Groups.Core.RoleSortFields.Id">
+            <summary>
+            Gets the role Id sort field.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,234 @@
+EPISERVER SOFTWARE LICENSE
+
+SOFTWARE LICENSE
+Refer to the Episerver End User License Agreement:
+https://www.episerver.com/eula.
+
+IMPLEMENTED SOFTWARE
+Implemented Software, as defined by the Episerver End User License Agreement
+(https://www.episerver.com/eula), used in this Nuget package is listed below
+together with the corresponding license.
+
+ComponentArt Web UI
+Version 2012.1.1016.35
+Copyright 2011, ComponentArt
+Commercial License
+
+Please review the following license agreement before installing or using the Web.UI suite, any individual ComponentArt software component or other software product, and/or all related materials. If you agree to the terms herein then you must click the "YES" button during the software installation process as confirmation before you are permitted to use this software and related documents.
+
+Definitions:
+This ComponentArt Inc. End-User Software License Agreement ("EULA") is a legal agreement between you (either as an individual user, corporation or single entity) and ComponentArt Inc. ("ComponentArt") for the Web.UI suite or individual software product - which includes computer software, and may include associated media, printed materials, and "online" or electronic documentation ("SOFTWARE PRODUCT" or "SOFTWARE"). By exercising your rights to install the SOFTWARE PRODUCT, you agree to be bound by the terms of this End User License Agreement ("EULA"), including the limitations and warranty disclaimers. If you do NOT agree to the terms of this EULA, you may not install nor use the SOFTWARE PRODUCT; If this is the case, please uninstall the SOFTWARE PRODUCT from your system immediately, and destroy all copies of the SOFTWARE PRODUCT and all of its component parts, source code, associated documentation, and related materials.
+
+>SOFTWARE PRODUCT LICENSE:
+
+The SOFTWARE PRODUCT is protected by copyright laws and international copyright treaties, as well as other intellectual property laws and treaties.
+
+1. GRANT OF LICENSE.
+
+This is a license agreement, and NOT an agreement for sale. ComponentArt retains ownership of the copy of THE SOFTWARE in your possession, and all copies you may be licensed to make. ComponentArt retains all rights not expressly granted to you in this LICENSE. ComponentArt hereby grants to you, and you accept, a non-exclusive, non-transferable license to use, copy and modify THE SOFTWARE only as authorized below.
+
+Provided that you have accepted these terms contained herein by clicking the "YES" button at the end of this Agreement, this EULA grants you the following rights:
+
+Installation and Use:
+
+DEVELOPER LICENSE: For single-version licenses, you are granted a license as a single developer (individual) to the particular licensed version of the SOFTWARE PRODUCT. For subscription-based licenses, you are granted a license as a single developer (individual) to all versions of the particular product released during the period of the subscription.
+
+For the version(s) you are licensed for, you are granted a license as a single individual to distribute the SOFTWARE PRODUCT royalty-free with an unlimited number of different solutions to an unlimited number of web servers, provided they are developed solely by you. The term "different solutions" is understood to mean non-identical, non-"shrink-wrapped" applications to be resold or re-licensed by you. You may not distribute the product with more than 10 copies of an identical or similarly-functioning ("shrink-wrapped") solution or application. For royalty-free distribution of more than 10 identical or similarly-functioning copies of a solution or application, you must purchase a subscription-level license or higher, and are required to modify the SOFTWARE PRODUCT code as per ComponentArt's instructions.
+
+At no time may the SOFTWARE PRODUCT be used by more than one individual at the same time for development purposes -- nor may the SOFTWARE PRODUCT be distributed for use with applications other than those developed by you.
+
+For subscription-based licenses, you are further licensed as a single individual to distribute the SOFTWARE PRODUCT royalty-free with an unlimited number of solutions or applications to an unlimited number of web servers, provided they are developed solely by you. This includes royalty-free distribution of multiple copies of identical or similarly-functioning ("shrink-wrapped") solutions or applications. For royalty-free distribution of more than 10 identical or similarly-functioning copies of a solution or application, you are required to modify the SOFTWARE PRODUCT code as per ComponentArt's instructions to ensure it cannot be re-used for any purpose outside of your distributed application.
+
+For subscription-based licenses, you are also further licensed to view the source code to the SOFTWARE PRODUCT or part thereof, as permitted by the licensor, and modify it for your own needs. You may only re-distribute the source code as part of a compiled solution that adds significant functionality to THE SOFTWARE PRODUCT, and may not redistribute it in non-compiled form.
+
+For Developer and Subscription-based licenses, you are required to reasonably ensure that the SOFTWARE PRODUCT is not reused by or with any application other than those with which you distribute it. For example, if you install the Menu for ASP.NET control along with a packaged application on a customer's server, that customer is not permitted to use the control independent of your application, and must be informed as such.
+
+The royalty-free distribution rights defined above are not applicable to applications developed for Microsoft SharePoint platform. Special server-based licenses must be acquired from ComponentArt for all SharePoint-based applications distributing the software product.
+
+FOR ALL LICENSES: In no case shall you rent, lease, lend, redistribute nor re-license THE SOFTWARE PRODUCT or any related source code to a 3rd party individual or entity, except as outlined above. In no case shall you grant further redistribution rights for THE SOFTWARE PRODUCT to the end-users of your solution.
+
+UNDER NO CIRCUMSTANCES MAY THE SOURCE CODE OR THE COMPILED PRODUCT BE USED AS THE BASIS FOR CREATING A PRODUCT THAT CONTAINS THE SAME, OR SUBSTANTIALLY THE SAME, FUNCTIONALITY AS ANY COMPONENTART INC. PRODUCT.
+
+2. DESCRIPTION OF OTHER RIGHTS AND LIMITATIONS.
+
+MICROSOFT OFFICE 2007 USER INTERFACE: Some code and examples included with the ComponentArt Web.UI software mimic the look and behaviour of the interface introduced in the 2007 release of Microsoft Office. ComponentArt has officially licensed this UI from Microsoft for use in the Web.UI product line. Developers and organizations using Web.UI who wish to create their own products that utilize the Microsoft Office UI must similarly obtain a license from Microsoft. Detailed information on this licensing program is available at http://msdn.microsoft.com/officeui.
+
+TERMINATION: Without prejudice to any other rights, ComponentArt Inc. may terminate this EULA if you fail to comply with the terms and conditions of this EULA. In such event, you must destroy all copies of the SOFTWARE PRODUCT and all of its component parts, source code, associated documentation, and related materials.
+
+3. COPYRIGHT.
+
+All title and copyrights in and to the SOFTWARE PRODUCT (including but not limited to any images, photographs, animations, video, audio, music, text, and "applets" incorporated into the SOFTWARE PRODUCT), the accompanying printed materials, and any copies of the SOFTWARE PRODUCT are owned by ComponentArt Inc. The SOFTWARE PRODUCT is protected by Canadian and U.S. copyright laws and international treaty provisions. Therefore, you must treat the SOFTWARE PRODUCT like any other copyrighted material.
+
+4. LIMITED WARRANTY.
+
+NO WARRANTIES. ComponentArt Inc. expressly disclaims any warranty for the SOFTWARE PRODUCT. The SOFTWARE PRODUCT and any related documentation is provided "as is" without warranty of any kind, either expressed or implied, including, without limitation, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. The entire risk arising out of use or performance of the SOFTWARE PRODUCT remains with you.
+
+5. LIMITATION OF LIABILITY.
+
+NO LIABILITY FOR CONSEQUENTIAL DAMAGES. In no event shall ComponentArt Inc. or its distributors be liable for any damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or any other pecuniary loss) arising out of the use of or inability to use this ComponentArt Inc. product (THE SOFTWARE PRODUCT) and related materials, even if ComponentArt Inc. has been advised of the possibility of such damages. Because some states do not allow the exclusion or limitation of liability for consequential or incidental damages, the above limitation may not apply to you.
+
+If you have any questions regarding this End User License Agreement, please write to:
+
+ComponentArt Inc.
+511 King Street West, Suite 400
+Toronto, Ontario M5V 1K4
+Canada
+
+
+jQuery
+Version 1.2.1
+MIT
+MIT License
+
+Copyright (c) <year> <copyright holders>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+TinyMCE
+Version 3.3.9.3
+Commercial License
+License Agreement
+TinyMCE Commercial License for Episerver AB.
+
+THE TINYMCE SOFTWARE LICENSE AGREEMENT
+
+This License Agreement is a legal agreement between you  
+("LICENSEE") (either an individual or a single entity) and 
+Moxiecode Systems AB ("MOXIECODE") for the software product 
+TinyMCE which includes computer software and electronic 
+documentation (collectively the "SOFTWARE").
+
+The terms of this license is not time restricted, it will 
+remain valid for as long as the SOFTWARE is licensed under 
+the LGPL license.
+
+This license overrides the LGPL license for the SOFTWARE, 
+unless this license is found invalid.
+
+This license agreement is only valid if LICENSEE has 
+completed the payment for the commercial license.
+
+By installing, copying, or otherwise using the SOFTWARE, you 
+agree to be bound by the terms of this License Agreement.
+
+If you do not agree to the terms of this License Agreement, 
+MOXIECODE is unwilling to license the SOFTWARE. In such event,
+the LGPL license will count as the valid license agreement.
+
+YOU AGREE THAT YOUR USE OF THE SOFTWARE ACKNOWLEDGES THAT YOU 
+HAVE READ THIS LICENSE, UNDERSTAND IT, AND AGREE TO BE BOUND 
+BY ITS TERMS AND CONDITIONS.
+
+1. Using the SOFTWARE
+If you have purchased a license for the SOFTWARE, subject to 
+the terms and conditions of this Agreement, MOXIECODE grants 
+you, LICENSEE, a limited, non-exclusive, non-transferable 
+license to install or include the SOFTWARE in your own 
+software and use that copy of the SOFTWARE only in accordance 
+with this Agreement.
+
+LICENSEE may use the SOFTWARE to operate in conjunction with 
+other software.
+
+The LICENSEE is allowed to resell or redistribute the software 
+as part of another product or service.
+
+The LICENSEE is allowed to remove any copyright notices, and 
+does not need to inform users that they are using the SOFTWARE.
+
+The LICENSEE is allowed to make modifications to the software 
+without contributing back to the open source community.
+
+The LICENSEE is allowed to market the SOFTWARE as a feature in 
+their own product, without mentioning the open source variant.
+
+2. Restrictions
+LICENSEE may not:
+(i)	Sell or distribute the software completly standalone, 
+	it may only be distributed with LICENSEE products.
+(ii)	Compete with the open source version of  the SOFTWARE, 
+	for example, creating a new open source branch using 
+	this commercial version.
+(iii)	In anyway, within any timeframe, endanger the open 
+	source version of the SOFTWARE.
+(iv)	Market the SOFTWARE seperatly from LICENSEE products 
+	as their own creation.
+
+3. Termination
+This License Agreement is effective until terminated. MOXIECODE 
+may terminate this License Agreement if LICENSEE fails to comply 
+with the terms and conditions of this License Agreement. In such
+event, LICENSEE must destroy all copies of the SOFTWARE and all
+of its component parts. All provisions relating the ownership,
+disclaimer of warranties, limitation of liability and the 
+general provisions shall survive the termination of this License 
+Agreement.
+
+4. Ownership
+The SOFTWARE is licensed, NOT sold. The foregoing License 
+Agreement gives LICENSEE limited rights to use the SOFTWARE. 
+All rights, title and interest, including all copyrights, 
+in and to the SOFTWARE and any copies LICENSEE is permitted to 
+make herein are exclusively owned by MOXIECODE and/or its 
+suppliers and are protected by copyright, trademark and trade 
+secret law and international treaties. MOXIECODE retains all 
+rights not expressly granted to LICENSEE in this License 
+Agreement.
+
+5. Limited Warranty.
+MOXIECODE warrants to you that for a period of fifteen (15) days 
+from the date of purchase, as evidenced by a copy of the receipt,
+the media on which SOFTWARE is furnished (if any) will be free of
+defects in materials and workmanship under normal use. Except for
+the foregoing, SOFTWARE is provided "AS IS". Your exclusive 
+remedy and MOXIECODE's entire liability under this limited 
+warranty will be at MOXIECODE's option to replace SOFTWARE or 
+refund the fee paid for SOFTWARE.
+
+6. DISCLAIMER OF WARRANTY.
+UNLESS SPECIFIED IN THIS AGREEMENT, ALL EXPRESS OR IMPLIED 
+CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING ANY IMPLIED 
+WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR
+NON INFRINGEMENT, ARE DISCLAIMED, EXCEPT TO THE EXTENT THAT THESE
+DISCLAIMERS ARE HELD TO BE LEGALLY INVALID.
+
+7. LIMITATION OF LIABILITY.
+TO THE EXTENT NOT PROHIBITED BY LAW, IN NO EVENT WILL MOXIECODE 
+OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA,
+OR FOR SPECIAL, INDIRECT, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE
+DAMAGES, HOWEVER CAUSED REGARDLESS OF THE THEORY OF LIABILITY,
+ARISING OUT OF OR RELATED TO THE USE OF OR INABILITY TO USE 
+SOFTWARE, EVEN IF MOXIECODE HAS BEEN ADVISED OF THE POSSIBILITY
+OF SUCH DAMAGES. 
+
+In no event will MOXIECODE's liability to you, whether in contract,
+tort (including negligence), or otherwise, exceed the amount paid 
+by you for SOFTWARE under this Agreement. The foregoing limitations 
+will apply even if the above stated warranty fails of its essential 
+purpose.
+
+9. Governing Law.
+Any action related to this Agreement will be governed by Swedish law. 
+No choice of law rules of any jurisdiction will apply.
+
+10. Severability.
+If any provision of this Agreement is held to be unenforceable, This 
+Agreement will remain in effect with the provision omitted, unless 
+omission would frustrate the intent of the parties, in which case 
+this Agreement will immediately terminate.
+
+11. Entire Agreement
+This License Agreement constitutes the entire agreement between 
+LICENSEE and MOXIECODE and supersedes any other prior agreements or 
+understandings, whether oral or written, regarding the SOFTWARE. If
+a provision of this agreement is deemed null and void, invalid or 
+without effect, the remainder of this agreement shall remain in effect.
+
+This is a copy of the license, both parties have the original document 
+with signatures.
+

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Session</name>
+    </assembly>
+    <members>
+        <member name="F:EPiServer.Session.Constants.SessionIdKey">
+            <summary>
+            Cookie name used for storing Session Id.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Session.Internal.SessionOptions">
+            <summary>
+            Represent session settings
+            </summary>
+        </member>
+        <member name="P:EPiServer.Session.Internal.SessionOptions.Duration">
+            <summary>
+            Session duration in seconds.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Session.Services.Internal.DefaultSessionService">
+            <summary>
+            Default implementation for ISessionService.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Session.Services.Internal.DefaultSessionService.GetCurrentSessionId">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Session.Services.Internal.DefaultSessionStoreService">
+            <summary>
+            Contains methods to store/retrieve SessionId in Cookie
+            </summary>
+        </member>
+        <member name="M:EPiServer.Session.Services.Internal.DefaultSessionStoreService.GetSessionId">
+            <summary>
+            Get Session Id
+            </summary>
+        </member>
+        <member name="M:EPiServer.Session.Services.Internal.DefaultSessionStoreService.StoreSessionId(System.String,System.Int32)">
+            <summary>
+            Store session Id
+            </summary>
+            <param name="sessionId">Session Id value</param>
+            <param name="duration">Number of seconds until the cookie expires</param>
+        </member>
+        <member name="M:EPiServer.Session.Services.Internal.DefaultSessionStoreService.RewriteCookie(System.Int32)">
+            <summary>
+            Reset Max-Age of the SessionId cookie
+            </summary>
+        </member>
+        <member name="T:EPiServer.Session.Services.ISessionService">
+            <summary>
+            Handle Session for tracking.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Session.Services.ISessionService.GetCurrentSessionId">
+            <summary>
+            Get current Session Id for tracking.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Session.Services.ISessionStoreService.GetSessionId">
+            <summary>
+            Get Session Id
+            </summary>
+        </member>
+        <member name="M:EPiServer.Session.Services.ISessionStoreService.StoreSessionId(System.String,System.Int32)">
+            <summary>
+            Store session Id
+            </summary>
+            <param name="sessionId">Session Id value</param>
+            <param name="duration">Number of seconds before session expires</param>
+        </member>
+    </members>
+</doc>

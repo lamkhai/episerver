@@ -1,0 +1,2148 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Forms</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Forms.Configuration.IEPiServerFormsImplementationConfig">
+            <summary>
+            Interface for configuration of Forms. By default, it is implemented by EPiServer.Forms.Configuration.EPiServerFormsSection
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.IEPiServerFormsImplementationConfig.CoreController">
+            <summary>
+            CoreController for client side async submission by Forms JavaScript API
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.IEPiServerFormsImplementationConfig.DefaultUploadExtensionBlackList">
+            <summary>
+            Default blacklist extensions for FileUploadElement
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.IEPiServerFormsImplementationConfig.FormElementViewsFolder">
+            <summary>
+            Location to search for Element Block view templates
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.IEPiServerFormsImplementationConfig.WorkInNonJSMode">
+            <summary>
+            Determine Form should work in NonJS mode
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.IEPiServerFormsImplementationConfig.InjectFormOwnStylesheet">
+            <summary>
+            Determine Form should inject built-in stylesheet
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.IEPiServerFormsImplementationConfig.InjectFormOwnJQuery">
+            <summary>
+            Determine Form should inject builtin jQuery.js
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.IEPiServerFormsImplementationConfig.RenderingFormUsingDivElement">
+            <summary>
+            Indicate whether we should render our form using  a div element. This feature is for developers to customize the GUI of our form controls. 
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Configuration.EPiServerFormsConfig">
+            <summary>
+            use config in Forms.config as instance of IEPiServerFormsConfig
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsConfig.CoreController">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsConfig.DefaultUploadExtensionBlackList">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsConfig.FormElementViewsFolder">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsConfig.WorkInNonJSMode">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsConfig.InjectFormOwnStylesheet">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsConfig.InjectFormOwnJQuery">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsConfig.RenderingFormUsingDivElement">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsConfig.PreconfiguredFeeds">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsConfig.MinimumAccessRightLevelToReadFormData">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsConfig.SendMessageInHTMLFormat">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsConfig.VisitorSubmitTimeout">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsConfig.SerializingObjectUsingNameValueFormat">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsConfig.DataExportBlobProviderName">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsConfig.DefaultStorageProvider">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Configuration.EPiServerFormsSection">
+            <summary>
+            Define the root configuration section for this addon
+            </summary>    
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsSection.Instance">
+            <summary>
+            Get the instance of configuration
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsSection.MinimumAccessRightLevelToReadFormData">
+            <summary>
+            Access right at minimum level to view form submitted data
+            The minimum level is Edit
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsSection.SendMessageInHTMLFormat">
+            <summary>
+            Flag to indicates message should be send in HTML format or in Plain Text format.
+            Default is TRUE - message send in HTML format.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsSection.DefaultUploadExtensionBlackList">
+            <summary>
+            List of denied extension - WITHOUT DOT for saving data transfered
+            </summary>
+            <remarks>Subtract from "https://technet.microsoft.com/en-us/library/cc262496.aspx"</remarks>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsSection.CoreController">
+            <summary>
+            Path to controller handle all core processing ViewMode's data.
+            Default value = /EPiServer.Forms/DataSubmit
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsSection.FormElementViewsFolder">
+            <summary>
+            Path to folder for searching form element view templates.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsSection.WorkInNonJSMode">
+            <summary>
+            Flag to indicates the Form should work in non JS mode or not.
+            Default is FALSE
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsSection.InjectFormOwnJQuery">
+            <summary>
+            Flag to indicate the Form should inject it own jQuery lib or not. Default it will load its own jQuery.
+            Default is TRUE
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsSection.InjectFormOwnStylesheet">
+            <summary>
+            Flag to indicate the Form should inject it own CSS or not. Default it will load its own CSS.
+            Default is TRUE
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsSection.VisitorSubmitTimeout">
+            <summary>
+            number of days that Forms keeps the state of relation between Visitor-Forms-Submission. This will affect progressive submission cookie, and Visitor identification cookie.
+            Default value is 90.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsSection.RenderingFormUsingDivElement">
+            <summary>
+            RenderingFormUsingDivElement will decide whether we have to render the form element using a div element.
+            Default value is false.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsSection.SerializingObjectUsingNameValueFormat">
+            <summary>
+            serialize objects using "name-value" format.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsSection.DataExportBlobProviderName">
+            <summary>
+            Name of the blob provider which is used to store temporary file when exporting data.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.EPiServerFormsSection.Providers">
+            <summary>
+            Storage provider.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Configuration.FeedCollection">
+            <summary>
+            Collection of FeedConfigElement in Forms.config file.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.FeedCollection.ElementName">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Configuration.FeedCollection.Add(EPiServer.Forms.Configuration.FeedConfigElement)">
+            <summary>
+            Add an element into this collection
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="T:EPiServer.Forms.Configuration.FeedConfigElement">
+            <summary>
+            Represent configuration properties for a Feed in Forms.config file.
+            </summary>    
+        </member>
+        <member name="M:EPiServer.Forms.Configuration.FeedConfigElement.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.FeedConfigElement.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.FeedConfigElement.Description">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.FeedConfigElement.Url">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.FeedConfigElement.ProviderKey">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.FeedConfigElement.ProviderSecret">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.FeedConfigElement.KeyXPath">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.FeedConfigElement.ValueXPath">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.FeedConfigElement.CacheTimeout">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.FeedConfigElement.ExtraConfiguration">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Configuration.Internal.ProviderCollection">
+            <summary>
+            Reading storage provider collection in Forms.config.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.Internal.ProviderCollection.Providers">
+            <summary>
+            Collection of ProviderSettings.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Configuration.Internal.ProviderCollection.DefaultProvider">
+            <summary>
+            Default provider for storing data.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Configuration.Internal.ProviderCollection.FindByProviderName(System.String)">
+            <summary>
+            Find (by name) a Provider's configuration in configuration file
+            </summary>
+            <param name="providerName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Forms.ConstantsForms">
+            <summary>
+            Constant for Forms built-in implementation
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.CaptchaSessionKey">
+            <summary>
+            sessionkey to store captcha value
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.DefaultCaptchaImageWidth">
+            <summary>
+            Default Captcha image width
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.DefaultCaptchaImageHeight">
+            <summary>
+            Default Captcha image height
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.DefaultCaptchaTextLength">
+            <summary>
+            Default random text length
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.MinimumCaptchaImageWidth">
+            <summary>
+            Minimum Captcha image width
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.MaximumCaptchaImageWidth">
+            <summary>
+            Maximum Captcha image width
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.MinimumCaptchaImageHeight">
+            <summary>
+            Minimum Captcha image height
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.MaximumCaptchaImageHeight">
+            <summary>
+            Maximum Captcha image height
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.MinimumCaptchaTextLength">
+            <summary>
+            Minimum random text length
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.MaximumCaptchaTextLength">
+            <summary>
+            Maximum random text length
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.RequiredAttribute">
+            <summary>
+            Required data attribute.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.AriaRequiredAttribute">
+            <summary>
+            Aria-Required data attribute that needs to support WCAG
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.ConstantsForms.StaticResource">
+            <summary>
+            Define all static resources that use by form
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.ConstantsForms.StaticResource.JS">
+            <summary>
+            Constants for javascript
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.StaticResource.JS.EPiServerFormsSaveOriginaljQuery">
+            <summary>
+            Original jQuery
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.StaticResource.JS.FormsjQueryPath">
+            <summary>
+            Client resource jQuery minify path
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.StaticResource.JS.EPiServerFormsPrerequisitePath">
+            <summary>
+            Client resource EPiServer forms prerequisite path
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.StaticResource.JS.EPiServerFormsPrerequisite">
+            <summary>
+            EPiServer forms prerequisite
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.StaticResource.JS.FormsjQuery">
+            <summary>
+            Form own jQuery
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.StaticResource.JS.EPiServerFormsPath">
+            <summary>
+            EPiServer form path
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.StaticResource.JS.EPiServerFormsMinifyPath">
+            <summary>
+            EPiServer form minify path
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.StaticResource.JS.EPiServerForms">
+            <summary>
+            EPiServer form
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.ConstantsForms.StaticResource.Css">
+            <summary>
+            Constants for CSS
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.StaticResource.Css.EPiServerFormsPath">
+            <summary>
+            EPiServer form css path
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.ConstantsForms.StaticResource.Css.EPiServerForms">
+            <summary>
+            EPiServer form
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Controllers.IDataSubmitController">
+            <summary>
+            Controller implement this interface will be used by Form.Core to handle Post data from ViewMode's request.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Controllers.DataSubmitController">
+            <summary>    
+            By default, it is custom-routed via URL http://example.com/EPiServer.Forms/DataSubmit/Submit/?data=123
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.Controllers.DataSubmitController._contentRepository">
+            <summary>
+            Service for IContentRepository
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.Controllers.DataSubmitController._captchaGenerator">
+            <summary>
+            Service for CaptchaGenerator
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.Controllers.DataSubmitController._formBusinessService">
+            <summary>
+            Service for FormBusinessService
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.Controllers.DataSubmitController._dataSubmissionService">
+            <summary>
+            Service for DataSubmissionService
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.Controllers.DataSubmitController._workingModeService">
+            <summary>
+            Inject service to retrieve working mode.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.Controllers.DataSubmitController._antiForgeryService">
+            <summary>
+            Service for validate anti-forgery token
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.DataSubmitController.GetCaptchaImage(System.Guid)">
+            <summary>
+            Return the generated image of captcha text for the captchaElementBlock
+            </summary>
+            <param name="elementGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.DataSubmitController.Submit">
+            <summary>
+            Handle the SubmissionData from Forms JavaScript API
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.DataSubmitController.GetFormInitScript(System.Guid,System.String)">
+            <summary>
+            Generate the InitScript for form <paramref name="formGuid"/> to client-side.
+            <remarks>AllowAnonymous so this script can be render for Anonymous viewer</remarks>
+            </summary>
+            <param name="formGuid"></param>
+            <param name="formLanguage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.DataSubmitController.GetGeoData">
+            <summary>
+            This action handles data ajax requests to get user geo location 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Forms.Controllers.FormContainerBlockController">
+            <summary>
+            Default controller handles <see cref="T:EPiServer.Forms.Implementation.Elements.FormContainerBlock"/> form block.
+            Note that the FormContainerBlockController begins with "FormContainerBlock" - a convention way matching the controller with the model.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.Controllers.FormContainerBlockController._antiForgeryService">
+            <summary>
+            Service for validate anti-forgery token
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.Index(EPiServer.Forms.Implementation.Elements.FormContainerBlock)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.IsPostRequest(System.Web.HttpContextBase)">
+            <summary>
+            Check the current request is POST or GET.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.SetVisitorIdentifierIfNeeded(System.Web.HttpContextBase)">
+            <summary>
+            Check if Visitor is identified. If not, build the identifier and set to the Cookie.
+            </summary>
+            <param name="httpContext">The HTTP context.</param>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.RegisterCssResources">
+            <summary>
+            Register form own CSS resource files.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.RegisterScriptResources(EPiServer.Forms.Implementation.Elements.FormContainerBlock)">
+            <summary>
+            Register JS Form's JS resources include extra resources for form's elements.
+            </summary>
+            <param name="formContainerBlock"></param>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.RegisterScriptResources">
+            <summary>
+            Register JS Form's JS resources.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.RegisterResources(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Register JS Form's JS resources.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.GetOriginalJQuery">
+            <summary>
+                Get original jQuery object to revert after we register jQuery lib ourselve
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.GetPrerequisiteScript(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+                Get Forms' prerequisite script.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.IsCurrentFormSubmitting(EPiServer.Forms.Implementation.Elements.FormContainerBlock)">
+            <summary>
+            Determines whether current form is submitting or not.
+            </summary>
+            <param name="currentBlock">The current block.</param>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.GetCurrentStepIndex(EPiServer.Forms.Implementation.Elements.FormContainerBlock,System.String)">
+            <summary>
+            Read from TempData or Form, or QueryString to know CurrentStepIndex. If cannot guess, return 0 (first step)
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.GetFormSubmissionId(EPiServer.Forms.Implementation.Elements.FormContainerBlock)">
+            <summary>
+            Read from TempData or Form, or QueryString to know FormSubmissionId
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.GetFormSubmissionIdFromCookie(EPiServer.Forms.Implementation.Elements.FormContainerBlock)">
+            <summary>
+            Get FormSubmissionId from cookie
+            </summary>
+            <param name="currentBlock">The FormContainerBlock</param>
+            <returns>FormSubmissionId</returns>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.GetCommonMessages">
+            <summary>
+            Serialize some localized text messages to clientside context
+            </summary>        
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.GetFormExternalResources(System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Gets external resources (script, css) for the given Form container object
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormContainerBlockController.GetFormElementExtraResources(EPiServer.Forms.Implementation.Elements.FormContainerBlock,System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Gets external resources (script, css) for the form's elements
+            </summary>
+            <param name="formContainerBlock"></param>
+            <param name="scripts"></param>
+            <param name="css"></param>
+        </member>
+        <member name="T:EPiServer.Forms.Controllers.IncomingOnlyRoute">
+            <summary>
+            Only process incoming routing.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.IncomingOnlyRoute.#ctor(System.String,System.Web.Routing.IRouteHandler)">
+            <summary>
+            ctor
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="routeHandler">The route handler.</param>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.IncomingOnlyRoute.GetRouteData(System.Web.HttpContextBase)">
+            <summary>
+            When overridden in a derived class, checks whether the route matches the specified values, and if so, generates a URL and retrieves information about the route.
+            </summary>
+            <param name="httpContext">An object that encapsulates information about the HTTP request.</param>
+            <returns>
+            An object that contains the values from the route definition if the route matches the current request, or null if the route does not match the request.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.IncomingOnlyRoute.GetVirtualPath(System.Web.Routing.RequestContext,System.Web.Routing.RouteValueDictionary)">
+            <summary>
+            When overridden in a derived class, returns route information about the request.
+            </summary>
+            <remarks>
+            Implementation will always return null.
+            </remarks>
+            <param name="requestContext">An object that encapsulates information about the requested route.</param>
+            <param name="values">An object that contains the parameters for a route.</param>
+            <returns>
+            An object that contains the generated URL and information about the route, or null if the route does not match <paramref name="values"/>.
+            </returns>
+        </member>
+        <member name="T:EPiServer.Forms.Controllers.FormsMvcRouteHandler">
+            <summary>
+            Creates the custom module mvc handler when using specific module routes.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormsMvcRouteHandler.#ctor(System.Web.Mvc.IControllerFactory)">
+            <summary>
+            ctor
+            </summary>
+            <param name="controllerFactory"></param>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormsMvcRouteHandler.GetHttpHandler(System.Web.Routing.RequestContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Controllers.FormsMvcHandler">
+            <summary>
+            Controls the execution of a module's controllers.
+            We use our own mvc handler in order not to interfere with users using CMS MVC.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormsMvcHandler.#ctor(System.Web.Routing.RequestContext,System.Web.Mvc.IControllerFactory)">
+            <summary>
+            default constructor
+            </summary>
+            <param name="request"></param>
+            <param name="controllerFactory"></param>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormsMvcHandler.ProcessRequest(System.Web.HttpContextBase)">
+            <summary>
+            Processes the request synchronously.
+            </summary>
+            <param name="httpContext"></param>
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormsMvcHandler.BeginProcessRequest(System.Web.HttpContextBase,System.AsyncCallback,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Controllers.FormsMvcHandler.EndProcessRequest(System.IAsyncResult)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.FormContainerBlockDescriptor">
+            <inheritdoc />
+            <summary>Modify the icon (in EditView widget) for this Block</summary>
+        </member>
+        <member name="T:EPiServer.Forms.EditView.CaptchaElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.ChoiceElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.FileUploadElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.FormStepBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.ImageChoiceElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.NumberElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.PredefinedHiddenElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.ResetButtonElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.SelectionElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.SubmitButtonElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.TextareaElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.TextboxElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.VisitorDataHiddenElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.RangeElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.UrlElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.EditView.ParagraphTextElementBlockDescriptor">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.FormsClientResourceRegister">
+            <summary>
+            Injects the script onto pages (work both in MVC and WebForm).
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.FormsClientResourceRegister.RegisterResources(EPiServer.Framework.Web.Resources.IRequiredClientResourceList,System.Web.HttpContextBase,EPiServer.Core.PageData)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.FormsModule">
+            <summary>
+            Shell module for (gadgets of EPiServer Forms) working in EditView. This is not used, because all EditView related (gadgets, RestStore, Dojo init module ...) 
+            are stayed in Forms.UI package and init by FormsUIModule
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.FormsModule.#ctor(System.String,System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.FormsModule.CreateViewModel(EPiServer.Shell.Modules.ModuleTable,EPiServer.Framework.Web.Resources.IClientResourceService)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Helpers.Internal.CaptchaGenerator">
+            <summary>
+            Class for generate image which contain random text string.
+            For reference: http://www.codeproject.com/Articles/169371/Captcha-Image-using-C-in-ASP-NET
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="F:EPiServer.Forms.Helpers.Internal.CaptchaGenerator._formConfig">
+            <summary>
+            form config
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.CaptchaGenerator.GetImageHandler(System.Guid)">
+            <summary>
+            Gets URL to generate captcha image.
+            </summary>
+            <param name="elementGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.CaptchaGenerator.GetSessionStoreKey(System.Guid)">
+            <summary>
+            Gets the session store key.
+            </summary>
+            <param name="elementGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.CaptchaGenerator.GenerateImage(System.String,System.Int32,System.Int32)">
+            <summary>
+            Generates the captcha image.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.CaptchaGenerator.GenerateRandomCode(System.Int32)">
+            <summary>
+            Generates the random code.
+            </summary>
+            <param name="length">Number of characters contained in return string.</param>
+            <returns>A random text string.</returns>
+        </member>
+        <member name="T:EPiServer.Forms.Helpers.Internal.FormElementRendering">
+            <summary>
+            Disposable object for holding and writing to the response stream of the FormElement.    
+            </summary>
+            <example>
+            write this in MVC template using(Html.BeginElement(Model, new { @class="FormTextbox" + Model.GetValidationCssClasses(), data_f_type="textbox" })) { }
+            </example>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.FormElementRendering.#ctor(System.Web.Mvc.HtmlHelper,EPiServer.Forms.Core.ElementBlockBase,System.Web.Mvc.TagBuilder)">
+            <summary>
+            Create a new object with HtmlHelper, TagBuilder to render element to HTML
+            </summary>
+            <param name="htmlHelper">must be not null</param>
+            <param name="element"></param>
+            <param name="tagBuilder"></param>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.FormElementRendering.BuildBareAttributesOfFormElement(System.Object)">
+            <summary>
+            build html attributes for current form element
+            auto add CSS class "Form__Element"
+            auto add attribute "data-f-element-name" to indicate this element's name
+            </summary>        
+            <param name="viewData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.FormElementRendering.WriteStartTag(System.Object,System.Boolean)">
+            <summary>
+            Write start tag to htmlHelper
+            </summary>
+            <param name="viewData"></param>
+            <param name="mergeExtraElementAttributes">if true, element.GetAttributes() will be merged into building this tag</param>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.FormElementRendering.Dispose">
+            <summary>
+            Public implementation of Dispose pattern callable by consumers.
+            On disposing, we call EndFormElement to finish rendering the FormElement
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.FormElementRendering.Dispose(System.Boolean)">
+            <summary>
+            Protected implementation of Dispose pattern
+            On disposing, we call EndFormElement to finish rendering the FormElement
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:EPiServer.Forms.Helpers.Internal.HtmlExtensions">
+            <summary>
+            Extension class for using HtmlHelper to render FormElement in ASP.NET MVC template
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.HtmlExtensions.BeginElement(System.Web.Mvc.HtmlHelper,EPiServer.Forms.Core.ElementBlockBase,System.Object,System.Boolean,System.String)">
+            <summary>
+            generates <![CDATA[ <div data-f-element-name="{name}" class="{Form__Element...}">...</div> ]]>
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="element"></param>
+            <param name="viewData"></param>
+            <param name="mergeExtraElementAttributes">if true, element.GetAttributes() will be merged into building this tag</param>
+            <param name="htmlTagName">default is "div"</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.HtmlExtensions.EndElement(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Render the close tag for form element rendering
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="htmlTagName"></param>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.HtmlExtensions.EndElement(System.Web.Mvc.HtmlHelper,System.Web.Mvc.TagBuilder)">
+            <summary>
+            Render the close tag for form element rendering
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="tagBuilder"></param>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.HtmlExtensions.ValidationMessageFor(System.Web.Mvc.HtmlHelper,EPiServer.Forms.Core.ElementBlockBase,System.String)">
+            <summary>
+            Generates validation message span for form element
+            <![CDATA[
+            <span data-f-linked-name="<%: formElement.ElementName %>" data-f-validationerror class="Form__Element__ValidationError" style="<%: string.IsNullOrEmpty(errorMessage) ? "display:none" : "" %>;"><%: errorMessage %></span>
+            ]]>
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="element"></param>
+            <param name="htmlTagName">name HTML tag to render, default is "span"</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.HtmlExtensions.RenderElementsInStep(System.Web.Mvc.HtmlHelper,System.Int32,System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.Models.IFormElement})">
+            <summary>
+            Renders form elements inside a FormStep
+            </summary>
+            <param name="html">Instance of HtmlHelper class</param>
+            <param name="currentStepIndex"></param>
+            <param name="elements">Form element collection</param>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.HtmlExtensions.GenerateAntiForgeryToken(System.Web.Mvc.HtmlHelper,EPiServer.Forms.Core.IFormContainerBlock)">
+            <summary>
+            Helper to render anti forgery token.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Helpers.Internal.Util">
+            <summary>
+            Util class that contains utility methods
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Helpers.Internal.Util.GetAriaDescribedByElementName(System.String)">
+            <summary>
+            It returns the aria-describedby element id based on the elementName.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.DefaultAppendExtraInfoToRedirection">
+            <summary>
+            By default, guid, language and submissionid will be added to redirection url to Thank you page
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.DefaultAppendExtraInfoToRedirection.GetExtraInfo(EPiServer.Forms.Core.Models.FormIdentity,EPiServer.Forms.Core.Models.Submission)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.BaseClasses.ButtonElementBlockBase">
+            <summary>
+            Base class for ButtonElement.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.BaseClasses.DataElementBlockBase">
+            <summary>
+            Base class for Element having semantic data (are data field of Form).
+            These type of Element supports validating, field-mapping to other system.
+            <remarks>SubmitButton, ResetButton, ... are not Element with semantic data</remarks>
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.DataElementBlockBase.PredefinedValue">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.DataElementBlockBase.GetDefaultValue">
+            <summary>
+            Gets default value to this element.
+            Value is determined by the input (by priority)
+                (1) Manually input from user. When an Visitor select a value, it will be remember an retain in the element
+                (2) External system autofill. If we connect Form with MA system, MA system can provide information about Visitor. That information can be prefill into the element value as selected value
+                (3) Predefined value. Editor set it in EditView
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.DataElementBlockBase.GetAutofillValues">
+            <summary>
+            Gets autofill values for this form element
+            </summary>        
+            <returns>Collection of suggestion strings</returns>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.BaseClasses.HiddenElementBlockBase">
+            <summary>
+            Abstract class for all Hidden form element.
+            This element will not has description.
+            This element will not be shown in ViewMode (in summarized dialog, friendly name, ...)
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.HiddenElementBlockBase.Validators">
+            <inheritdoc />
+            <summary>Hidden element does not have validator</summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.HiddenElementBlockBase.Label">
+            <inheritdoc />
+            <summary>Hidden element does not have label, because it is not displayed for Visitor</summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.HiddenElementBlockBase.Description">
+            <inheritdoc />
+            <summary>Hidden element does not have desc, because it is not displayed for Visitor</summary>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.BaseClasses.InputElementBlockBase">
+            <summary>
+            Block Base class for all of Input Element. This will be rendered as Input on ViewMode
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.InputElementBlockBase.SatisfiedAction">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.InputElementBlockBase.ConditionCombination">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.InputElementBlockBase.Conditions">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.InputElementBlockBase.PlaceHolder">
+            <summary>
+            The placeholder attribute shows text in a field until the field is focused upon, then hides the text.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.InputElementBlockBase.GetAttributes">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.InputElementBlockBase.RenderDataList">
+            <summary>
+            Renders HTML datalist for the given form element (if current element implemented IUIExternalFieldMapping interface)
+            </summary>        
+            <returns>DataList HTML element with appropriate data</returns>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.BaseClasses.SelectionElementBlockBase`1">
+            <summary>
+            Base class for creating selection element such as radios, checkboxes, dropdown, listbox.
+            </summary>
+            <remarks>By default, the RequireValidator can be used with this Element</remarks>
+            <typeparam name="TModel">The type of the model.</typeparam>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.SelectionElementBlockBase`1.AllowMultiSelect">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.SelectionElementBlockBase`1.Feed">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.SelectionElementBlockBase`1.Items">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.SelectionElementBlockBase`1.PredefinedValue">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.SelectionElementBlockBase`1.SelfValidate(System.String@)">
+            <summary>
+            Do not allow unexpected user value (not pre-configured in this.Items)
+            </summary>
+            <param name="validationMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.SelectionElementBlockBase`1.GetItems">
+            <summary>
+            Get items to render to view mode, items might be manual input or fetching from feed.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.SelectionElementBlockBase`1.PropertyStoreFeedSelectedItem">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.SelectionElementBlockBase`1.GetFeedItems">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.SelectionElementBlockBase`1.SetDefaultValues(EPiServer.DataAbstraction.ContentType)">
+            <inheritdoc />
+            <summary>Assign default value, SelectionElement shows manual input editor's values</summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.SelectionElementBlockBase`1.CheckSelectionElementForUnexpectedValues(System.Object,System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.String[],System.String@)">
+            <summary>
+            Check for unexpected <paramref name="submittedValue"/> (submit value from Visitor). Do not accept alien value if it is not in <paramref name="preConfiguredValues"/>
+            </summary>
+            <param name="submittedValue">submitted value from Visitor</param>
+            <param name="preConfiguredValues">values of items</param>
+            <param name="allowMultiSelect"></param>
+            <param name="SelectionItemSeparator">separator to split value from <paramref name="submittedValue"/></param>
+            <param name="validationMessage"></param>
+            <returns>return false if <paramref name="submittedValue"/> contain alien value</returns>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.SelectionElementBlockBase`1.GetDefaultSelectedString(EPiServer.Forms.EditView.Models.Internal.OptionItem)">
+            <summary>
+            Return string "data-f-default-value=\"true\"" if item value in default checked values
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.SelectionElementBlockBase`1.GetDefaultSelectedString(EPiServer.Forms.EditView.Models.Internal.OptionItem,System.String)">
+            <summary>
+            Return string "data-f-default-value=\"true\"" if item value in default checked values
+            </summary>
+            <param name="item"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.BaseClasses.ValidatableElementBlockBase">
+            <summary>
+            Base class for Element having semantic data (are data field of Form).
+            Element can be applied with the Validator.
+            Some validator types can be ignore in EditView.
+            <example>Input Textbox is one kind of this class. SubmitButton, ResetButton, ... are not Element with semantic data</example>
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.Implementation.Elements.BaseClasses.ValidatableElementBlockBase._validationService">
+            <summary>
+            validation service
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.ValidatableElementBlockBase.Validators">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.ValidatableElementBlockBase.ValidatorMessages">
+            <summary>
+            Store custom validators message.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.ValidatableElementBlockBase.GetSubmittedValue">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.ValidatableElementBlockBase.GetErrorMessage">
+            <summary>
+            Get validation message (from HttpContext.Current.Items) for non-js mode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.ValidatableElementBlockBase.SelfValidate(System.String@)">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.BaseClasses.ValidatableElementBlockBase.ValidatorTypesToBeExcluded">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.BaseClasses.ValidatableElementBlockBase.GetAttributes">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.CaptchaElementBlock">
+            <summary>
+            This element will not be shown in ViewMode (in summarized dialog, friendly name, ...)
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.CaptchaElementBlock.RefreshButtonLabel">
+            <summary>
+            The text for the refresh button that presents in the current culture.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.CaptchaElementBlock.CaptchaImageHandler">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.CaptchaElementBlock.ImageWidth">
+            <summary>
+            The width of Captcha image
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.CaptchaElementBlock.ImageHeight">
+            <summary>
+            The height of Captcha image
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.CaptchaElementBlock.TextLength">
+            <summary>
+            The length of Captcha text
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.CaptchaElementBlock.Validators">
+            <summary>
+            Always use CaptchaValidator to validate this element
+            <remarks>hide from EditView</remarks>
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.CaptchaElementBlock.GetSubmittedValue">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.CaptchaElementBlock.SetDefaultValues(EPiServer.DataAbstraction.ContentType)">
+            <summary>
+            Set default width, height, text length and label for this Block
+            </summary>
+            <param name="contentType"></param>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.ChoiceElementBlock">
+            <summary>
+            This element can be rendered as Radio or Checkbox, base on property SelectionElementBlockBase.AllowMultiSelect
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ChoiceElementBlock.PlaceHolder">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.FileUploadElementBlock">
+            <summary>
+            Upload file to Form
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FileUploadElementBlock.SatisfiedAction">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FileUploadElementBlock.ConditionCombination">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FileUploadElementBlock.Conditions">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FileUploadElementBlock.FormatType">
+            <summary>
+            How to format file in DataSubmissionView
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FileUploadElementBlock.AllowMultiple">
+            <summary>
+            Allo Multi files upload
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FileUploadElementBlock.Validators">
+            <summary>
+            Gets or sets validators for an EPiServer Forms element
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.FileUploadElementBlock.GetSubmittedValue">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.FileUploadElementBlock.SelfValidate(System.String@)">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FileUploadElementBlock.FileTypes">
+            <summary>
+            This is assigned to attribute accept=file_extension|audio/*|video/*|image/*|media_type,
+            but for simpleness, just using the extensions, NOT image/*|video/*|audio/* or mapping these patterns to known extensions
+            <inheritdoc />
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FileUploadElementBlock.FileSize">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FileUploadElementBlock.SizeInBytes">
+            <summary>
+            Return file size in Bytes
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.FileUploadElementBlock.FileExtensions">
+            <summary>
+            Returns file extensions string WITH DOT for assigning to "accept" attribute of file upload
+            </summary>
+            <example>.jpg,.png,.pdf</example>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.FileUploadElementBlock.GetValidExtensions(System.String,System.String[])">
+            <summary>
+            Get list of valid (considered) extension
+            </summary>
+            <param name="extensionsString">A string contains file extensions separated by seperator characters, e.g. ", jpg, .png, ,".</param>
+            <param name="sepearators">Array of sepeartor characters, e.g. ",".</param>
+            <remarks>Suppose that considered extension is one has at least one character after DOT.</remarks>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.ImageChoiceElementBlock">
+            <summary>
+            Choice by selecting image
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ImageChoiceElementBlock.ShowSelectionInputControl">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ImageChoiceElementBlock.AllowMultiSelect">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ImageChoiceElementBlock.Items">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ImageChoiceElementBlock.PlaceHolder">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ImageChoiceElementBlock.PredefinedValue">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.ImageChoiceElementBlock.SelfValidate(System.String@)">
+            <summary>
+            Do not allow unexpected user value (not pre-configured in this.Items)
+            </summary>
+            <param name="validationMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.ImageChoiceElementBlock.GetDefaultSelectedString(EPiServer.SpecializedProperties.LinkItem)">
+            <summary>
+            Return string "data-f-default-value=\"true\"" if item value in default checked values
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.NumberElementBlock">
+            <summary>
+            Number
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.NumberElementBlock.PredefinedValue">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.NumberElementBlock.Validators">
+            <summary>
+            Always use NumericValidator to validate this element
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.NumberElementBlock.GetFormattedValue">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.ParagraphTextElementBlock">
+            <summary>
+            A block use to display information about previous entered value on ViewMode
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ParagraphTextElementBlock.SatisfiedAction">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ParagraphTextElementBlock.ConditionCombination">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ParagraphTextElementBlock.Conditions">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ParagraphTextElementBlock.DisablePlaceholdersReplacement">
+            <summary>
+            Property to indicate disable placeholders replacement or not, this feature is still unstable,
+            that need to test more with clients. If not go as expected, we reserved the right to revert our code.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ParagraphTextElementBlock.Label">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ParagraphTextElementBlock.Description">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ParagraphTextElementBlock.EditViewFriendlyTitle">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ParagraphTextElementBlock.ParagraphText">
+            <summary>
+            Text for displaying, you can put placeholder inside
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ParagraphTextElementBlock.OriginalParagraphText">
+            <summary>
+            Return original paragraph text which input by editor for render on client side.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.ParagraphTextElementBlock.FormSubmissionId">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.PredefinedHiddenElementBlock">
+            <summary>
+            Hidden with predefined value, so it acts like a tag to the SubmissionData
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.PredefinedHiddenElementBlock.EditViewFriendlyTitle">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.RangeElementBlock">
+            <summary>
+            Integer selection only
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.RangeElementBlock.Validators">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.RangeElementBlock.PlaceHolder">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.RangeElementBlock.Min">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.RangeElementBlock.Max">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.RangeElementBlock.Step">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.RangeElementBlock.PredefinedValue">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.RangeElementBlock.SetDefaultValues(EPiServer.DataAbstraction.ContentType)">
+            <summary>
+            Default value is from 0 to 10, step 1
+            </summary>
+            <param name="contentType"></param>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.RangeElementBlock.SelfValidate(System.String@)">
+            <summary>
+            value of this is expected to be a number
+            </summary>
+            <param name="validationMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.RangeElementBlock.GetRangeValue">
+            <summary>
+            Gets range value in following order:
+                External system mapping value
+                Predefined value
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.RangeElementBlock.GetFormattedValue">
+            <summary>
+            Get range value for saving into PermanentStorage
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.ResetButtonElementBlock">
+            <summary>
+            Note that reset button must be in a "form tag" for being functional
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.ResetButtonElementBlock.SetDefaultValues(EPiServer.DataAbstraction.ContentType)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.SelectionElementBlock">
+            <summary>
+            This element can be rendered as Combobox or Listbox, base on property SelectionElementBlockBase.AllowMultiSelect
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.SubmitButtonElementBlock">
+            <summary>
+            Submit button
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.SubmitButtonElementBlock.SatisfiedAction">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.SubmitButtonElementBlock.ConditionCombination">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.SubmitButtonElementBlock.Conditions">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.SubmitButtonElementBlock.FinalizeForm">
+            <summary>
+            Determine this button will finalize the form or not.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.SubmitButtonElementBlock.RedirectToPage">
+            <summary>
+            The content/page permanent Url this Form redirects to after submit.
+            </summary>
+            <remarks>For support redirecting to Commerce catalog.</remarks>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.SubmitButtonElementBlock.Image">
+            <summary>
+            Image to be the submit button, can be left blank
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.SubmitButtonElementBlock.SetDefaultValues(EPiServer.DataAbstraction.ContentType)">
+            <summary>
+            Set default for the label
+            </summary>
+            <param name="contentType"></param>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.SubmitButtonElementBlock.GetFormSubmittableStatus(System.Web.HttpContextBase)">
+            <summary>
+            Returns status for the given element whether its form contianer can be submitted or not.
+            </summary>        
+            <param name="context">The HttpContext where the form presents.</param>
+            <returns>"disabled" string or an empty string.</returns>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.TextareaElementBlock">
+            <summary>
+            Text area
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.TextareaElementBlock.PredefinedValue">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.TextboxElementBlock">
+            <summary>
+            Base class for Element Block which receive a text string value.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.UrlElementBlock">
+            <summary>
+            Take url from visitor
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.UrlElementBlock.Validators">
+            <summary>
+            Try to use RegularExpressionValidator first. If not, inject an UrlValidator to use.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Elements.VisitorDataHiddenElementBlock">
+            <summary>
+            Element for collecting visitor data (ip, geo, browser ...) using a hidden input
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.Implementation.Elements.VisitorDataHiddenElementBlock._visitorDataService">
+            <summary>
+            service
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.VisitorDataHiddenElementBlock.PredefinedValue">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.VisitorDataHiddenElementBlock.VisitorDataSources">
+            <summary>
+            Gets or sets VisitorDataSources to collect from Visitor
+            EPiServer Forms element have one property named "VisitorDataSources" that will using this descriptor to display entire visitor data sources.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Elements.VisitorDataHiddenElementBlock.EditViewFriendlyTitle">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.VisitorDataHiddenElementBlock.PropertyStoreFeedSelectedItem">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.VisitorDataHiddenElementBlock.GetFeedItems">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Elements.VisitorDataHiddenElementBlock.GetAttributes">
+            <inheritdoc />
+            Try to render value from the Default value (which in turn utilize Autofill API) if possible.
+            Otherwise, guess value from VisitorDataSource
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.FormsViewLocation">
+            <summary>
+            Default element block view location paths.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.FormsViewLocation.Order">
+            <summary>
+            Default Order is 1000
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.FormsViewLocation.Paths">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.IExcludeInSubmissionSummary">
+            <summary>
+            An element implements this interface should be excluded in the submission summary (RichText Paragraph)
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.IViewModeExternalResources">
+            <summary>
+            Should implement this interface in order to register external resources to EPiServer Forms
+            External resources can be:
+                script,
+                css
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.IViewModeExternalResources.Resources">
+            <summary>
+            Gets the resources. Each resource is represented by a Tuple, where first component is type (script or css), second component is url to the resource
+            </summary>
+            <example>
+             <code>
+             var arrRes = new List{Tuple{string, string}}();
+             arrRes.Add(new Tuple{string, string}("script", publicVirtualPath + "/ClientResources/ViewMode/jquery-ui.min.js"));
+             arrRes.Add(new Tuple{string, string}("css", publicVirtualPath + "/ClientResources/ViewMode/jquery-ui.min.css"));
+             </code>
+            </example>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.AllowedExtensionsValidationModel">
+            <summary>
+            Model for <see cref="T:EPiServer.Forms.Implementation.Validation.AllowedExtensionsValidator"/>
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.AllowedExtensionsValidationModel.Accept">
+            <summary>
+            Extensions which will be accepted.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.AllowedExtensionsValidator">
+            <summary>
+            Validator for allowed extension(s) for upload file (of FileUploadElement only)
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Validation.AllowedExtensionsValidator.Validate(EPiServer.Forms.Core.Validation.IElementValidatable)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Validation.AllowedExtensionsValidator.BuildValidationModel(EPiServer.Forms.Core.Validation.IElementValidatable)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.CaptchaValidator">
+            <summary>
+            Class for validate captcha text.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Validation.CaptchaValidator.Validate(EPiServer.Forms.Core.Validation.IElementValidatable)">
+            <summary>
+            Performs ServerSide validation on the associated Element.
+            Validate whether captcha text which sent by user and the text stored in Session is matched or not.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.DateDDMMYYYYValidator">
+            <summary>
+            Use regex to validate value as datetime (pattern is brought from XForm)
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.DateDDMMYYYYValidator.ValidationOrder">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.DateDDMMYYYYValidator.Model">
+            <summary>
+            Validate input with date pattern DD/MM/YYYY.
+            </summary>
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.DateMMDDYYYYValidator">
+            <summary>
+            Use regex to validate value as datetime (pattern is brought from XForm)
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.DateMMDDYYYYValidator.ValidationOrder">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.DateMMDDYYYYValidator.Model">
+            <summary>
+            Validate input with date pattern MM/DD/YYYY.
+            </summary>
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.DateYYYYMMDDValidator">
+            <summary>
+            Use regex to validate value as datetime (pattern is brought from XForm)
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.DateYYYYMMDDValidator.ValidationOrder">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.DateYYYYMMDDValidator.Model">
+            <summary>
+            Validate input with date pattern YYYY-MM-DD.
+            </summary>
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.EmailValidator">
+            <summary>
+            Use regex to validate value as email
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.EmailValidator.ValidationOrder">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.EmailValidator.Model">
+            <summary>
+            Email pattern also accept string empty.
+            </summary>
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.IntegerValidator">
+            <summary>
+            Use regex to validate value as integer (negative or positive)
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.IntegerValidator.ValidationOrder">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.IntegerValidator.Model">
+            <summary>
+            Accept integer value pattern.
+            </summary>
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.InternalElementValidatorBase">
+            <summary>
+            Abstract class for internal validator - This kind of Validator is used for a specified Element, and it will not show in edit view.
+            <example>CaptchaValidator is for CaptchaElement only.</example>
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.InternalElementValidatorBase.AvailableInEditView">
+            <summary>
+            Set to true will make Forms.UI does not display this validator on EditView
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.MaxFileSizeValidationModel">
+            <summary>
+            model for <see cref="T:EPiServer.Forms.Implementation.Validation.MaxFileSizeValidator"/>
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.MaxFileSizeValidationModel.SizeInBytes">
+            <summary>
+            File upload size in bytes.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.MaxFileSizeValidator">
+            <summary>
+            Validator for over max file size
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Validation.MaxFileSizeValidator.Validate(EPiServer.Forms.Core.Validation.IElementValidatable)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Validation.MaxFileSizeValidator.BuildValidationModel(EPiServer.Forms.Core.Validation.IElementValidatable)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.NumericValidator">
+            <summary>
+            Class for validate number element.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.NumericValidator.AvailableInEditView">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Validation.NumericValidator.Validate(EPiServer.Forms.Core.Validation.IElementValidatable)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.PositiveIntegerValidator">
+            <summary>
+            Using regex to accept positive integer only
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.PositiveIntegerValidator.ValidationOrder">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.PositiveIntegerValidator.Model">
+            <summary>
+            Accept integer value pattern.
+            </summary>
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.RegularExpressionValidator">
+            <summary>
+            Use regex to validate value
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.RegularExpressionValidator.ValidationOrder">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Validation.RegularExpressionValidator.Initialize(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.RegularExpressionValidator.Model">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.RequiredValidator">
+            <summary>
+            Force Visitor to put value to the element.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.RequiredValidator.ValidationOrder">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Validation.RequiredValidator.Validate(EPiServer.Forms.Core.Validation.IElementValidatable)">
+            <summary>
+            This validator does not need ValidationData, because if it executes, the require validation must perform
+            </summary>
+            <param name="targetElement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Validation.RequiredValidator.BuildValidationModel(EPiServer.Forms.Core.Validation.IElementValidatable)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.Validation.UrlValidator">
+            <summary>
+            Base on Regex, validate value as Url string
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.Implementation.Validation.UrlValidator.defaultPattern">
+            <summary>
+             Url pattern accepts string empty, schema must begin with an alphabet.
+            </summary>        
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.UrlValidator.Model">
+            <summary>
+            Return non-empty assigned-from-Editmote pattern or the default pattern.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.Validation.UrlValidator.Initialize(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.Validation.UrlValidator.AvailableInEditView">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.VisitorData.BuiltinVisitorDataSourceConfig">
+            <summary>
+            Configuration (predefined values) for built-in Visitor Data sources
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.VisitorData.BuiltinVisitorDataSourceConfig.ProfileProperties">
+            <summary>
+            Gets or sets the profile properties (collection of property name string) that used to render visitor data
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.VisitorData.BuiltinVisitorDataSourceConfig.UserAgentProperties">
+            <summary>
+            Properties of the UserAgentVisitorDataSource.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.VisitorData.BuiltinVisitorDataSourceConfig.VisitorGroupProperties">
+            <summary>
+            Properties of the VisitorGroupVisitorDataSource.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.VisitorData.BuiltinVisitorDataSourceConfig.GeoProperties">
+            <summary>
+            Properties of the GeoVisitorDataSource.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.VisitorData.GeoVisitorDataSource">
+            <summary>
+            Gets Geo information for visitor data
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.VisitorData.GeoVisitorDataSource.ClientSideMode">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.GeoVisitorDataSource.GetProperties">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.GeoVisitorDataSource.SetData(System.Object@,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.GeoVisitorDataSource.GetGeoDataAsync">
+            <summary>
+            Gets GEO information in JSON format async.
+            </summary>
+            <returns></returns>
+            change access modifiers from private to public so we can call method from controller
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.GeoVisitorDataSource.GetClientIp">
+            <summary>
+            Gets client IP address.
+            </summary>
+            <returns>IP address object</returns>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.GeoVisitorDataSource.GetClientIPAddress">
+            <summary>
+            Gets client IP address.
+            </summary>
+            <returns>IP address string</returns>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.GeoVisitorDataSource.GetGeoData(System.Net.IPAddress)">
+            <summary>
+            Get geo location data
+            </summary>
+            <param name="clientIpAddress">The client Ip address</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.GeoVisitorDataSource.GetGeoDataProcessService(EPiServer.Personalization.GeolocationProviderBase)">
+            <summary>
+            Get correspondent GeoDataProcessService base on type of GeoLocationProviders
+            </summary>
+            <param name="geoLocationProvider">The GeoLocationProvider</param>
+            <returns>GeoDataProcessService</returns>
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.VisitorData.ProfileVisitorDataSource">
+            <summary>
+            Gets profile information for visitor data
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.ProfileVisitorDataSource.SetData(System.Object@,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.ProfileVisitorDataSource.GetProperties">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.VisitorData.UserAgentVisitorDataSource">
+            <summary>
+            Gets user agent information for visitor data
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.UserAgentVisitorDataSource.SetData(System.Object@,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.UserAgentVisitorDataSource.GetProperties">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.VisitorData.VisitorDataSourceBase">
+            <summary>
+            Base class for collecting data of visitor
+            </summary>
+        </member>
+        <member name="F:EPiServer.Forms.Implementation.VisitorData.VisitorDataSourceBase._builtinVisitorDataSourceConfig">
+            <summary>
+            Built-in config for visitor datasource
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.VisitorDataSourceBase.GetLocalizationPropertyName(System.String)">
+            <summary>
+            Get localization name to display of a property 
+            </summary>
+            <param name="propertyName">Name of the property</param>
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.VisitorData.VisitorDataSourceBase.ClientSideMode">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Implementation.VisitorData.VisitorDataSourceBase.DataSourceName">
+            <summary>
+            Return friendly name from lang resource file base on current object's Type
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.VisitorDataSourceBase.SetData(System.Object@,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.VisitorDataSourceBase.GetProperties">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Implementation.VisitorData.VisitorGroupVisitorDataSource">
+            <summary>
+            Gets visitor groups information for visitor data
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.VisitorGroupVisitorDataSource.SetData(System.Object@,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Implementation.VisitorData.VisitorGroupVisitorDataSource.GetProperties">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.InitializationModule">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.InitializationModule.ConfigureContainer(EPiServer.ServiceLocation.ServiceConfigurationContext)">
+            <summary>
+            Configure the container for this module
+            </summary>
+            <param name="serviceConfigurationContext"></param>
+        </member>
+        <member name="M:EPiServer.Forms.InitializationModule.Initialize(EPiServer.Framework.Initialization.InitializationEngine)">
+            <summary>
+            Initialize this module
+            </summary>
+            <param name="context">The EPiServer initialization context</param>
+        </member>
+        <member name="M:EPiServer.Forms.InitializationModule.Uninitialize(EPiServer.Framework.Initialization.InitializationEngine)">
+            <summary>
+            (Unused)
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:EPiServer.Forms.InitializationModule.InitializeHttpEvents(System.Web.HttpApplication)">
+            <summary>
+            Initializes HTTP events such as attaching HTTP modules to events
+            </summary>
+            <param name="application">The application context</param>
+        </member>
+        <member name="M:EPiServer.Forms.InitializationModule.Preload(System.String[])">
+            <summary>
+            Preload for this module (not used)
+            </summary>
+            <param name="parameters">Any parameters required to preload this module</param>
+        </member>
+        <member name="M:EPiServer.Forms.InitializationModule.RemapToController">
+            <summary>
+            // Remap an Url (begins with EPiServer.Forms/DataSubmit) to the DataSubmitController for ViewMode submitting
+            Remap http://vnwks96:17000/EPiServer.Forms/DataSubmit/Submit/?data=SomeData to this addon's DataSubmitController
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.InitializationModule.AddVppForPublicFolderInsideThisAddOn">
+            <summary>
+            add a new VPP folders to point to this own plugin folders, 
+            so we don't need to modify the EPiServerFramework.config
+            <remarks>This is protected AddOn, so public end user cannot access its files under /se/EPiServerForms/ClientResources, ... </remarks>
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Internal.DataAnnotations.StringInRangeAttribute">
+            <summary>
+            Checking whether a string is in a range of other two properties value.
+            </summary>
+            <remarks>
+            The IsEmptyObject method in <see cref="T:EPiServer.Forms.EditView.DataAnnotations.InRangeAttribute"/> checks input value for null.
+            For object of type string, checking for null is not enough (an object of type string can be empty but not null).
+            Therefore, we need to override this method to implement our custom empty-checking logic.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Forms.Internal.DataAnnotations.StringInRangeAttribute.#ctor(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Internal.DataAnnotations.StringInRangeAttribute.IsEmptyObject(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Internal.DataAnnotations.StringInRangeAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Internal.FormParagraphTextService">
+            <summary>
+            Service for replacing placeholder with FormElement's value
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="M:EPiServer.Forms.Internal.FormParagraphTextService.GetFieldsExcludedInSubmissionSummary(EPiServer.Forms.Core.Models.IForm)">
+            <summary>
+            Returns a collection of element code which implemented IExcludeInSubmissionSummary, which should not be used in RichText Paragraph
+            </summary>
+            <param name="form">The form with its settings.</param>
+            <returns>Collection of string</returns>
+        </member>
+        <member name="M:EPiServer.Forms.Internal.FormParagraphTextService.RenderTextWithEmptyPlaceHolders(System.String,EPiServer.Forms.Core.Models.FormIdentity)">
+            <summary>
+            Render paragraph text without placeholders (wrapped by #)
+            </summary>
+            <param name="paragraphText">Original paragraph text</param>
+            <param name="formIdentity">Form identifier</param>
+            <returns>Paragraph text without placeholders</returns>
+        </member>
+        <member name="M:EPiServer.Forms.Internal.FormParagraphTextService.RenderTextWithPlaceHolders(System.String,System.Web.HttpRequestBase,EPiServer.Forms.Core.Models.Submission,EPiServer.Forms.Core.Models.FormIdentity)">
+            <summary>
+            Render paragraph text with placeholders (wrapped by #) with submission data
+            </summary>
+            <param name="paragraphText">Original paragraph text</param>
+            <param name="requestBase">Current request object</param>
+            <param name="submissionData">Form submission data</param>
+            <param name="formIdentity">Form identifier</param>
+            <returns>Paragraph text with submission data</returns>
+        </member>
+        <member name="M:EPiServer.Forms.Internal.FormParagraphTextService.HasPlaceHolder(System.Collections.Generic.IEnumerable{EPiServer.Forms.Core.Internal.PlaceHolder},EPiServer.Core.XhtmlString)">
+            <summary>
+            Check placeholders has been inserted or not
+            </summary>
+            <param name="placeHolders">List available placeholders</param>
+            <param name="paragraphText">Original paragraph text</param>
+            <returns>return true if has placeholder</returns>
+        </member>
+        <member name="T:EPiServer.Forms.Internal.GeoData.FreeGeoDataProcessService">
+            <summary>
+            This service processes the Geo Data for FreeGeoLocationProvider
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="M:EPiServer.Forms.Internal.GeoData.FreeGeoDataProcessService.ProcessGeoData(EPiServer.Personalization.IGeolocationResult)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Internal.GeoData.FreeGeolocationProvider">
+            <summary>
+            GeoLocationProvider that get data from Free Geo API
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.FreeGeolocationProvider.Capabilities">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Internal.GeoData.FreeGeolocationProvider.GetContinentCodes">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Internal.GeoData.FreeGeolocationProvider.Lookup(System.Net.IPAddress)">
+            <summary>
+            Get geo location for the ip address
+            </summary>
+            <param name="address">IP address to look up</param>
+            <returns>Geolocation data for the IP address (can be null)</returns>
+        </member>
+        <member name="M:EPiServer.Forms.Internal.GeoData.FreeGeolocationProvider.GetGeoData(System.String)">
+            <summary>
+            Async method to get GeoData from FreeGeo API
+            </summary>
+            <param name="clientIp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Forms.Internal.GeoData.FreeGeolocationProvider.GetCountryCodes(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Internal.GeoData.FreeGeolocationProvider.GetRegions(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Internal.GeoData.FreeGeolocationProvider.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <inheritdoc />
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.FreeGeolocationProvider.GeoDataProcessService">
+            <summary>
+            Return GeoDataProcessService that process geo data for user hidden visitor profiling in form
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Internal.GeoData.GenericGeoDataProcessService">
+            <summary>
+            With default GeolocationProviderBase (does not implement Form's custom ICustomGeolocationProvider, and does not has special extra info), we use this processing service to manipulate data
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="M:EPiServer.Forms.Internal.GeoData.GenericGeoDataProcessService.ProcessGeoData(EPiServer.Personalization.IGeolocationResult)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Internal.GeoData.GeolocationResult">
+            <summary>
+            DTO object wrapped result from Free-Geo and others location provider
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.ContinentCode">
+            <summary>
+            Two characters continent code based on ISO 3166.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.CountryCode">
+            <summary>
+            Two characters country code based on ISO 3166.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.Location">
+            <summary>
+            Represents the location.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.Region">
+            <summary>
+            The region within the country
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.TimeZone">
+            <summary>
+            The time zone.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.ip">
+            <summary>
+            The IP address
+            </summary>        
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.country_code">
+            <summary>
+            The country code
+            </summary>        
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.country_name">
+            <summary>
+            The country name
+            </summary>        
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.region_code">
+            <summary>
+            The region code
+            </summary>        
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.region_name">
+            <summary>
+            The region name
+            </summary>        
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.city">
+            <summary>
+            The city
+            </summary>        
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.zip_code">
+            <summary>
+            The zip code
+            </summary>        
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.time_zone">
+            <summary>
+            The time zone name
+            </summary>        
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.latitude">
+            <summary>
+            The latitude
+            </summary>        
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.GeolocationResult.longitude">
+            <summary>
+            The longitude
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Internal.GeoData.ICustomGeolocationProvider">
+            <summary>
+            Custom ceolocation provider must inherit this interface
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="P:EPiServer.Forms.Internal.GeoData.ICustomGeolocationProvider.GeoDataProcessService">
+            <summary>
+            Get the service to process geo data
+            </summary>
+            <returns>IGeoDataProcessService</returns>
+        </member>
+        <member name="T:EPiServer.Forms.Internal.GeoData.IGeoDataProcessService">
+            <summary>
+            The interface that all Form's GeoDataProcessService must inherit. If a GeoLocation
+            </summary>
+            <remarks>NOTE: This is a pre-release API that is UNSTABLE and might not satisfy the compatibility requirements as denoted by its associated normal version</remarks>
+        </member>
+        <member name="M:EPiServer.Forms.Internal.GeoData.IGeoDataProcessService.ProcessGeoData(EPiServer.Personalization.IGeolocationResult)">
+            <summary>
+            Process geo data from custom geo location provider and return usable data for Form user hidden visitor profiling
+            </summary>
+            <param name="geoLocationResult">Data from geo location provider</param>
+            <returns>result object, this might contain extra info of geo data (more than existing in <see cref="T:EPiServer.Personalization.IGeolocationResult"/>)</returns>
+        </member>
+        <member name="T:EPiServer.Forms.Internal.Security.AntiForgeryService">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Internal.Security.AntiForgeryService.GenerateToken(System.Web.Mvc.HtmlHelper,System.Web.HttpContextBase,EPiServer.Forms.Core.IFormContainerBlock)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Internal.Security.AntiForgeryService.Validate(System.Web.HttpContextBase)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.Forms.Internal.Security.DefaultAntiForgeryValidator">
+            <summary>
+            Default implement of IAntiForgeryValidator using Mvc.Net AntiForgery to parse and validate token.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Internal.Security.DefaultAntiForgeryValidator.Order">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Internal.Security.DefaultAntiForgeryValidator.Validate(System.Web.HttpContextBase)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.Forms.Internal.Security.DefaultAntiForgeryValidator.GetTokens(System.Web.HttpContextBase)">
+            <summary>
+            Get token from the current http context.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Internal.Security.IAntiForgeryService">
+            <summary>
+            Service for generating/validating anti-forgery token.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Internal.Security.IAntiForgeryService.GenerateToken(System.Web.Mvc.HtmlHelper,System.Web.HttpContextBase,EPiServer.Forms.Core.IFormContainerBlock)">
+            <summary>
+            Generate the token, and add more info into cookies/session if needed.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Internal.Security.IAntiForgeryService.Validate(System.Web.HttpContextBase)">
+            <summary>
+            Validate anti-forgery token with information in current http context.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Internal.Security.IAntiForgeryValidator">
+            <summary>
+            Interface for validator which will validate token send from client.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Forms.Internal.Security.IAntiForgeryValidator.Order">
+            <summary>
+            Order of the validator.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Internal.Security.IAntiForgeryValidator.Validate(System.Web.HttpContextBase)">
+            <summary>
+            Validate the token with information extracted from http context.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.Internal.WorkingModeService">
+            <summary>
+            Service to decide Forms is working in JS mode or not.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.Internal.WorkingModeService.IsWorkingInNonJSMode(EPiServer.Forms.Core.Models.FormIdentity,System.Web.HttpContextBase)">
+            <summary>
+            Return true if Forms is working in none-JS mode, otherwise false.
+            Default implement return value from Forms.config.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Forms.FormResourceService">
+            <summary>
+            Handle request for form's resources
+            </summary>
+        </member>
+        <member name="M:EPiServer.Forms.FormResourceService.GetFormExternalResources(System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Gets external resources (script, css) for the given Form container object
+            </summary>
+            <param name="scripts"></param>
+            <param name="css"></param>
+        </member>
+        <member name="M:EPiServer.Forms.FormResourceService.GetFormElementExtraResources(EPiServer.Forms.Implementation.Elements.FormContainerBlock,System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Gets external resources (script, css) for the form's elements
+            </summary>
+            <param name="formContainerBlock"></param>
+            <param name="scripts"></param>
+            <param name="css"></param>
+        </member>
+    </members>
+</doc>

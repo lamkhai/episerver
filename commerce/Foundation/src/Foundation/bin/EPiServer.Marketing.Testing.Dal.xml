@@ -1,0 +1,485 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Marketing.Testing.Dal</name>
+    </assembly>
+    <members>
+        <member name="M:EPiServer.Marketing.Testing.Dal.BaseRepository.#ctor(EPiServer.Marketing.Testing.Dal.DatabaseContext)">
+            <summary>
+            Build a new base repository with an EF Db context
+            (recommended to be injected via Spring.NET)
+            </summary>
+            <param name="dbContext">EF Db Context to make queries from</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.BaseRepository.SaveChanges">
+            <summary>
+            Persists all changes made in DatabaseContext to the database
+            </summary>
+            <returns>Number of rows affected</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.BaseRepository.SaveChanges(System.Int32)">
+            <summary>
+            Persists all changes made in DatabaseContext to the database
+            </summary>
+            <param name="retryCount">Number of times to retry save operation</param>
+            <returns>Number of rows affected</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.BaseRepository.GetById``1(System.Object)">
+            <summary>
+            Get a repository object by id from the ORM
+            </summary>
+            <typeparam name="T">Type of object to query for</typeparam>
+            <param name="id">Id of the object to query for</param>
+            <returns>Object of specified type with matching id. Returns null if there is no match
+            in the repository.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.BaseRepository.Save(System.Object)">
+            <summary>
+            Marks the object as modified to the ORM so it will be saved when SaveChanges is called. Use for detached entities.
+            </summary>
+            <param name="instance">Instance of the objec to save</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.BaseRepository.GetAll``1">
+            <summary>
+            Get all repository objects of the given type from the ORM.
+            </summary>
+            <typeparam name="T">Type of object to retrieve</typeparam>
+            <returns>IQueryable of all objects matching the given type from the ORM.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.BaseRepository.GetAllList``1">
+            <summary>
+            Get all repository objects of the given type from the ORM as a list.
+            </summary>
+            <typeparam name="T">Type of object to retrieve</typeparam>
+            <returns>IList of all objects matching the given type from the ORM.</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.BaseRepository.Delete``1(``0)">
+            <summary>
+            Deletes the given object from the ORM.
+            </summary>
+            <param name="instance">Instance of the object to remove</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.BaseRepository.Add(System.Object)">
+            <summary>
+            Add the given object to the database context.
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.BaseRepository.AddDetached(System.Object)">
+            <summary>
+            Add a detached object to the database context.
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.BaseRepository.UpdateDetached(System.Object)">
+            <summary>
+            Add a detached object to the database context.
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.BaseRepository.Dispose(System.Boolean)">
+            <summary>
+            Dispose of the repository by disposing of the current transaction and the database context after saving any changes.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest">
+            <summary>
+            Entity framework model class.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.Id">
+            <summary>
+            ID.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.Title">
+            <summary>
+            Test Title.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.Description">
+            <summary>
+            Test Title.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.Owner">
+            <summary>
+            Person that created the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.OriginalItemId">
+            <summary>
+            The item to be tested against.  This is the original item that will be changed out to the variant items.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.State">
+            <summary>
+            Current state of the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.StartDate">
+            <summary>
+            Date and time the test starts.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.EndDate">
+            <summary>
+            Date and time the test ends.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.ParticipationPercentage">
+            <summary>
+            Percentage of visitors that will be part of the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.LastModifiedBy">
+            <summary>
+            Last person that modified the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.ExpectedVisitorCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.ActualVisitorCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.ConfidenceLevel">
+            <summary>
+            Percentage of accuracy required.
+            Default: 95 %
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.ZScore">
+            <summary>
+            Calculated Z-Score to determine statistical significance.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.IsSignificant">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.ContentLanguage">
+            <summary>
+            Language of the site for the content being tested.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.Variants">
+            <summary>
+            List of variant items for the test.  These replace the OriginalItem during the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTest.KeyPerformanceIndicators">
+            <summary>
+            List of KeyPerformanceIndicators.  These can be time on a page, form submission, etc.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalKeyPerformanceIndicator.TestId">
+            <summary>
+            ID of the test this conversion is associated with.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalKeyPerformanceIndicator.KeyPerformanceIndicatorId">
+            <summary>
+            ID of the KPI.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalKeyPerformanceIndicator.DalABTest">
+            <summary>
+            Reference to the test this is associated with.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.EntityModel.DalTestCriteria.AddFilter(EPiServer.Marketing.Testing.Dal.EntityModel.DalABTestFilter)">
+            <summary>
+            Adds the given filter to the collection of criteria filters if the property on the filter doesn't exist
+            If the filter exists the filter will not be added
+            </summary>
+            <param name="filter">the filter to add</param>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTestFilter.Property">
+            <summary>
+            The DalABTestProperty that will be filtered on
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTestFilter.Operator">
+            <summary>
+            The operation that will be performed to filter the results set
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalABTestFilter.Value">
+            <summary>
+            The limiter value that will be used to filter the result set
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalVariant.TestId">
+            <summary>
+            Id of the test this is associated with.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalVariant.ItemId">
+            <summary>
+            Id of a variant to use instead of the original item for a test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalVariant.ItemVersion">
+            <summary>
+            Version of original item that is selected as a variant.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalVariant.IsWinner">
+            <summary>
+            True if variant won the test, false otherwise.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalVariant.Conversions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalVariant.Views">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalVariant.IsPublished">
+            <summary>
+            Marks the variant content as the one that is publshed i.e. not the draft that is part of the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.DalVariant.DalABTest">
+            <summary>
+            Reference to the test this is associated with.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.EntityModel.EntityBase.#ctor">
+            <summary>
+            Initializes a new instance of the EntityBase class.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.EntityBase.CreatedDate">
+            <summary>
+            Date this object was created
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.EntityBase.ModifiedDate">
+            <summary>
+            Date this object was updated or modified
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Dal.EntityModel.Enums.DalKeyResultType">
+            <summary>
+            Type of KPI data to save.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Dal.EntityModel.Enums.DalKeyResultType.Financial">
+            <summary>
+            A monetary value.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Dal.EntityModel.Enums.DalKeyResultType.Value">
+            <summary>
+            Any non monetary amount.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Marketing.Testing.Dal.EntityModel.Enums.DalKeyResultType.Conversion">
+            <summary>
+            Boolean conversion result used with multiple KPIs.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.Title">
+            <summary>
+            Test name.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.Description">
+            <summary>
+            Test name.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.Owner">
+            <summary>
+            Creator of the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.OriginalItemId">
+            <summary>
+            Item used to test against.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.State">
+            <summary>
+            Current state of the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.StartDate">
+            <summary>
+            Date and time the test is scheduled to start.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.EndDate">
+            <summary>
+            Date and time the test is scheduled to end.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.ParticipationPercentage">
+            <summary>
+            Percentage of users to include in the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.ConfidenceLevel">
+            <summary>
+            Percentage of accuracy required.
+            Default: 95 %
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.ZScore">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.LastModifiedBy">
+            <summary>
+            The person that last changed the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.ContentLanguage">
+            <summary>
+            Language of the site for the content being tested.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.CreatedDate">
+            <summary>
+            Date and time the test was created.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.ModifiedDate">
+            <summary>
+            Last time the test was modified.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.Variants">
+            <summary>
+            List of possible variant items.  These replace the OriginalItem during the test.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.EntityModel.IABTest.KeyPerformanceIndicators">
+            <summary>
+            List of key performance indicators.  These can be time on a page, form submission, etc.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Dal.IRepository">
+            <summary>
+            Interface for basic repository functionality
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.IRepository.SaveChanges">
+            <summary>
+            Persists modified objects to the repository immediately
+            </summary>
+            <returns>Count of objects changed</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.IRepository.SaveChanges(System.Int32)">
+            <summary>
+            Persists modified objects to the repository immediately
+            </summary>
+            <param name="retryCount">Number of times to retry the save</param>
+            <returns>Count of objects changed</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.IRepository.Save(System.Object)">
+            <summary>
+            Mark object as modified to be persisted when request is made.
+            </summary>
+            <param name="instance">Object to persist</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.IRepository.Add(System.Object)">
+            <summary>
+            Add the object to the repository
+            </summary>
+            <param name="instance">Instance of the object to be added.</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.IRepository.Delete``1(``0)">
+            <summary>
+            Deletes the object from the repository
+            </summary>
+            <param name="instance">Instance of the object to delete.</param>
+            <typeparam name="T">Type of the object to delete.</typeparam>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.IRepository.GetById``1(System.Object)">
+            <summary>
+            Retrieves the entity object by Id from the repository
+            </summary>
+            <typeparam name="T">Type of entity to retrieve</typeparam>
+            <param name="id">Id of the entity</param>
+            <returns>Entity corresponding to the given id in the repository</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.IRepository.GetAll``1">
+            <summary>
+            Retrieves all entity objects of the given type from the repository
+            </summary>
+            <typeparam name="TEntity">Type of entity to retrive</typeparam>
+            <typeparam name="T">Type of entity to retrive</typeparam>
+            <returns>IQueryable of all the entity object of the given type in the repository</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.IRepository.GetAllList``1">
+            <summary>
+            Retrieves all entity objects of the given type from the repository as a list
+            </summary>
+            <typeparam name="TEntity">Type of entity to retrive</typeparam>
+            <typeparam name="T">Type of entity to retrive</typeparam>
+            <returns>IList of all the entity object of the given type in the repository</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.IRepository.AddDetached(System.Object)">
+            <summary>
+            Add a detached object to the repository
+            </summary>
+            <param name="instance">instance of the object to attach and add</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Testing.Dal.IRepository.UpdateDetached(System.Object)">
+            <summary>
+            Update a detached object in the repository
+            </summary>
+            <param name="instance">instance of the object to attach and update</param>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Dal.Migrations._201609091719244_Initial">
+            <summary>
+               A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.Migrations._201609091719244_Initial.ResourceManager">
+            <summary>
+               Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.Migrations._201609091719244_Initial.Culture">
+            <summary>
+               Overrides the current thread's CurrentUICulture property for all
+               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.Migrations._201609091719244_Initial.DefaultSchema">
+            <summary>
+               Looks up a localized string similar to dbo.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Marketing.Testing.Dal.Migrations._201609091719244_Initial.Target">
+            <summary>
+               Looks up a localized string similar to  H4sIAAAAAAAEAO1cW2/jNhZ+X6D/QdDT7iK1kpmXNrBbZJykMHYyCcaZ7GJfBrR07BClKFekUhtFf1kf+pP2L+yRrQtJibIubpC0gzzE5uUjz+HhufCc5H+//T7+fhMy5wliQSM+cc9Gp64D3I8CylcTN5HLr79xv//uq7+Nr4Jw4zzk496m43AmFxP3Ucr1uecJ/xFCIkYh9eNIREs58qPQI0HkvTk9/dY7O/MAIVzEcpzxx4RLGsLuC36dRtyHtUwIu4kCYCJrx575DtX5QEIQa+LDxL26o3OIccejGxL/CBI3OroHsft9SZjrXDBKcFtzYEvXIZxHkkjc9PknAXMZR3w1X2MDYffbNeC4JWECMmLOy+Ft6Tp9k9LllRNzKD8RMgo7Ap69zRjlmdN7sdstGImsvEKWy21K9Y6dExe5dfEuZZ3rmKudT1mcjjzI7tEedXdsowLwxMmGnBQig5KV/pw404TJJIYJh0TGhJ04d8mCUf9fsL2PfgQ+4Qlj [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Marketing.Testing.Dal.Migrations.Configuration">
+            <summary>
+            Good example: http://martinnormark.com/entity-framework-migrations-cheat-sheet/
+            
+            Add-Migration Initial  -- creates internal migration info for upgrading to the next release for future schema changes
+            Add-Migration Version2 -- creates a new migration based off the previous one
+            Update-Database -Script -SourceMigration: $InitialDatabase 
+            Update-Database -Script -SourceMigration:Initial  -- generates the final sql script for creating the db once schema design is done
+            -SourceMigration:'migration name to come from' flag is to generate sql script from previous version to current schema (i.e. only creates sql for new schema changes)
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1022 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.ContentApi.Commerce</name>
+    </assembly>
+    <members>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.AssetContainerExtensions.GetAssets(EPiServer.Commerce.Catalog.ContentTypes.IAssetContainer,EPiServer.ContentApi.Core.UrlResolverService)">
+            <summary>
+            Get all assets of item
+            </summary>       
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.BundleContentModelBuilder">
+            <summary>
+            Building BundleContentApiModel when content is BundleContent.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.BundleContentModelBuilder.CreateCatalogContentModel(EPiServer.Commerce.Catalog.ContentTypes.BundleContent)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.CatalogContentModelBuilderBase`1">
+            <summary>
+            Base class for Model builder
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.CatalogContentModelBuilderBase`1.SortOrder">
+            <summary>
+            The builder with higher order is chosen to handle a specific content in different contexts. The Default implementation has Order 100.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.CatalogContentModelBuilderBase`1.CanHandle(EPiServer.Commerce.Catalog.ContentTypes.CatalogContentBase)">
+            <summary>
+            Whether a builder can build a model for a specific content
+            </summary>       
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.CatalogContentModelBuilderBase`1.CreateDefaultModel(EPiServer.Commerce.Catalog.ContentTypes.CatalogContentBase)">
+            <summary>
+            Create default model corresponding with the content
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.CatalogContentModelBuilderBase`1.CreateCatalogContentModel(`0)">
+            <summary>
+            Create catalog based content model corresponding with the content
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.CatalogRequiredRoleFilter">
+            <summary>
+            Customize required role filter for Commerce catalog content
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.CommerceContentModelMapper">
+            <summary>
+            Mapper to handle commerce content type
+            The mapper transforms commerce data into Commerce Models for serialization.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.CommerceContentModelMapper.CreateDefaultModel(EPiServer.Core.IContent)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.ContentApiCommerceInitialization">
+            <summary>
+            Initialize default settings for Content Delivery Commerce
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.ContentApiCommerceInitialization.ConfigureContainer(EPiServer.ServiceLocation.ServiceConfigurationContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.ContentApiCommerceInitialization.Initialize(EPiServer.Framework.Initialization.InitializationEngine)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.ContentApiCommerceInitialization.Uninitialize(EPiServer.Framework.Initialization.InitializationEngine)">
+            <inheritdoc />
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Controller.CartApiController.Get(System.Guid)">
+            <summary>
+            Gets a cart.
+            </summary>
+            <param name="cartId">The cart id.</param>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Controller.CartApiController.Put(System.Guid,EPiServer.ContentApi.Commerce.Internal.Models.Cart.CartApiModel)">
+            <summary>
+            Updates an existing cart or creates new cart as per provided model.
+            </summary>
+            <param name="cartId">The cart id.</param>
+            <param name="model">The cart model.</param>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Controller.CartApiController.Post(EPiServer.ContentApi.Commerce.Internal.Models.Cart.CartApiModel)">
+            <summary>
+            Creates new cart as per provided model.
+            </summary>
+            <param name="model">The cart model.</param>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Controller.CartApiController.Delete(System.Guid)">
+            <summary>
+            Deletes a cart as per given cartId
+            </summary>
+            <param name="cartId">The unique cart id.</param>
+            <response code="204">NoContent</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Controller.CartApiController.ConvertToOrder(System.Guid)">
+            <summary>
+            Creates an order, returns an order model and location for the resource created in the header.
+            </summary>
+            <param name="cartId">The cart id.</param>
+            <response code="201">Created</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Controller.CartApiController.PrepareCheckout(System.Guid)">
+            <summary>
+            Validates cart and returns information related to cart totals, validation messages.
+            </summary>
+            <param name="cartId">The cart id.</param>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Controller.InventoryApiController.Get(System.Guid)">
+            <summary>
+            Gets sku inventory information.
+            </summary>
+            <param name="contentId">The content id.</param>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Controller.MarketApiController.Get(System.String)">
+            <summary>
+            Gets a single market.
+            </summary>
+            <param name="id">The market id.</param>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Controller.MarketApiController.GetAll">
+            <summary>
+            Gets all markets.
+            </summary>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Controller.OrderApiController.Post(EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderInputModel)">
+            <summary>
+            Creates new order as per provided model.
+            </summary>
+            <param name="model">The order model.</param>
+            <response code="201">Created</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Controller.OrderApiController.Get(System.String)">
+            <summary>
+            Gets a order.
+            </summary>
+            <param name="orderNumber">The order number.</param>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Controller.PricingApiController.GetPricings(System.Guid[],System.String,System.String)">
+            <summary>
+            Gets sku price information.
+            </summary>
+            <param name="contentIds">The content ids.</param>
+            <param name="marketId">The market id.</param>
+            <param name="currencyCode">The currency code.</param>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Controller.WarehouseApiController.Get(System.String)">
+            <summary>
+            Gets warehouse by code.
+            </summary>
+            <param name="warehouseCode">The warehouse code.</param>
+            <response code="200">Ok</response>
+            <response code="400">Bad Request</response>
+            <response code="403">Forbidden</response>
+            <response code="404">Not Found</response>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.ICatalogContentModelBuilder">
+            <summary>
+            define model builder for CatalogContentBase
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.ICatalogContentModelBuilder.SortOrder">
+            <summary>
+            The builder with higher order is chosen to handle a specific content in different contexts. The Default implementation has Order 100.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.ICatalogContentModelBuilder.CanHandle(EPiServer.Commerce.Catalog.ContentTypes.CatalogContentBase)">
+            <summary>
+            Whether a builder can handle a specific content
+            </summary>       
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.ICatalogContentModelBuilder.CreateDefaultModel(EPiServer.Commerce.Catalog.ContentTypes.CatalogContentBase)">
+            <summary>
+            Create default model corresponding with the content
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Cart.AddressModel">
+            <summary>
+            Represents a customer address
+            todo: associate with commerce customers via business foundation?
+            todo: add more properties.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.AddressModel.FirstName">
+            <summary>
+            The first name.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.AddressModel.LastName">
+            <summary>
+            The last name.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.AddressModel.Line1">
+            <summary>
+            The line1.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.AddressModel.Line2">
+            <summary>
+            The line2.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.AddressModel.City">
+            <summary>
+            The city.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.AddressModel.CountryName">
+            <summary>
+            The country name.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.AddressModel.PostalCode">
+            <summary>
+            The postal code
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.AddressModel.RegionName">
+            <summary>
+            The region name/state
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.AddressModel.Email">
+            <summary>
+            The email.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.AddressModel.PhoneNumber">
+            <summary>
+            The phone number.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Cart.CartApiModel">
+            <summary>
+            Represents a cart.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.CartApiModel.Id">
+            <summary>
+            The cart id.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.CartApiModel.Name">
+            <summary>
+            The cart name.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.CartApiModel.CustomerId">
+            <summary>
+            The customer the cart belongs to.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.CartApiModel.Market">
+            <summary>
+            The market in which the cart is valid.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.CartApiModel.Currency">
+            <summary>
+            The currency of the market in which the cart is valid.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.CartApiModel.LastUpdated">
+            <summary>
+            The last updated timestamp.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.CartApiModel.Shipments">
+            <summary>
+            The shipments.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.CartApiModel.CouponCodes">
+            <summary>
+            The coupon codes.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Cart.CheckoutApiModel">
+            <summary>
+            Represents the response data for cart operations. 
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.CheckoutApiModel.Cart">
+            <summary>
+            The cart.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.CheckoutApiModel.Totals">
+            <summary>
+            The cart totals
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.CheckoutApiModel.AvailableShippingMethods">
+            <summary>
+            The available shipping methods per shipment.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.CheckoutApiModel.ValidationIssues">
+            <summary>
+            The validation issues per line item.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Cart.LineItemModel">
+            <summary>
+            Represents a line item.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.LineItemModel.Id">
+            <summary>
+            The line item id.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.LineItemModel.ContentId">
+            <summary>
+            The content id.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.LineItemModel.Code">
+            <summary>
+            The sku code.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.LineItemModel.PlacedPrice">
+            <summary>
+            The placed price.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.LineItemModel.Quantity">
+            <summary>
+            The quantity.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.LineItemModel.DisplayName">
+            <summary>
+            The display name.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.LineItemModel.IsGift">
+            <summary>
+            Indicates whether the line item is a gift item.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.LineItemPricesModel.LineItemId">
+            <summary>
+            The line item id.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.LineItemPricesModel.ExtendedPrice">
+            <summary>
+            The extended price.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.LineItemPricesModel.DiscountedPrice">
+            <summary>
+            The discounted price.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderApiModel">
+            <summary>
+            Represents a purchase order.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderApiModel.OrderNumber">
+            <summary>
+            The order number.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderApiModel.CustomerId">
+            <summary>
+            The customer the order belongs to.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderApiModel.Market">
+            <summary>
+            The market in which the order was placed.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderApiModel.Currency">
+            <summary>
+            The currency of the market in which the order was placed.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderApiModel.Shipments">
+            <summary>
+            The shipments of the order.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderApiModel.Totals">
+            <summary>
+            The totals of the order.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderInputModel">
+            <summary>
+            Represents a cart.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderInputModel.Name">
+            <summary>
+            The order name.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderInputModel.CustomerId">
+            <summary>
+            The customer the order belongs to.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderInputModel.Market">
+            <summary>
+            The market in which the order is valid.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderInputModel.Currency">
+            <summary>
+            The currency of the market in which the order is valid.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderInputModel.Shipments">
+            <summary>
+            The shipments.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.OrderInputModel.CouponCodes">
+            <summary>
+            The coupon codes.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.ShipmentModel.Id">
+            <summary>
+            The shipping id.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.ShipmentModel.ShippingAddress">
+            <summary>
+            The shipping address.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.ShipmentModel.ShippingMethodId">
+            <summary>
+            The shipping method id.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.ShipmentModel.LineItems">
+            <summary>
+            the line items that belong to the cart.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Cart.ShippingMethodModel">
+            <summary>
+            Represents a shipping method.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.ShippingMethodModel.ShipmentId">
+            <summary>
+            The shipping id.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.ShippingMethodModel.Id">
+            <summary>
+            The id.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.ShippingMethodModel.DisplayName">
+            <summary>
+            The display name.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.ShippingMethodModel.Price">
+            <summary>
+            The price.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.ShippingTotalsModel.ShipmentId">
+            <summary>
+            The shipping id.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.ShippingTotalsModel.ShippingCost">
+            <summary>
+            The shipping cost.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.ShippingTotalsModel.ShippingTax">
+            <summary>
+            The shipping tax.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.ShippingTotalsModel.ItemsTotal">
+            <summary>
+            The extended price total for the line items in the shipment.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.ShippingTotalsModel.LineItemPrices">
+            <summary>
+            The line item prices.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Cart.TotalsModel">
+            <summary>
+            Represents cart totals.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.TotalsModel.Total">
+            <summary>
+            The total.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.TotalsModel.SubTotal">
+            <summary>
+            The subtotal.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.TotalsModel.ShippingTotal">
+            <summary>
+            The shipping total.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.TotalsModel.HandlingTotal">
+            <summary>
+            The handling total.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.TotalsModel.TaxTotal">
+            <summary>
+            The tax total.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.TotalsModel.DiscountTotal">
+            <summary>
+            The order form discount total.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.TotalsModel.ShippingTotals">
+            <summary>
+            The shipping totals.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.LineItemValidationModel.ContentId">
+            <summary>
+            The content id.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Cart.LineItemValidationModel.Code">
+            <summary>
+            The sku code.
+            </summary>
+        </member>
+        <member name="F:EPiServer.ContentApi.Commerce.Internal.Models.Cart.LineItemValidationModel.ValidationIssues">
+            <summary>
+            The validation issues.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Content.BundleContentApiModel">
+            <summary>
+            Model that contains necessary data for commerce bundle
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Content.DictionaryMultiplePropertyModel">
+            <summary>
+            Mapped property model for <see cref="T:EPiServer.Commerce.SpecializedProperties.PropertyDictionaryMultiple"/>
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Content.NodeContentApiModel">
+            <summary>
+            Model that contains necessary data for commerce catalog node
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Content.PackageContentApiModel">
+            <summary>
+            Model that contains necessary data for commerce package
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Content.ProductContentApiModel">
+            <summary>
+            Model that contains necessary data for product
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Content.PropertyDecimalModel">
+            <summary>
+            Mapped property model for <see cref="T:EPiServer.Commerce.SpecializedProperties.PropertyDecimal"/>
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Content.PropertyDictionarySingleModel">
+            <summary>
+            Mapped property model for <see cref="T:EPiServer.Commerce.SpecializedProperties.PropertyDictionarySingle"/>
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Content.PropertyEmailAddressModel">
+            <summary>
+            Mapped property model for <see cref="T:EPiServer.Commerce.SpecializedProperties.PropertyEmailAddress"/>
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Content.PropertyGuidListModel">
+            <summary>
+            Mapped property model for <see cref="T:EPiServer.Commerce.SpecializedProperties.PropertyGuidList"/>
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Content.SeoInformationBlockPropertyModel">
+            <summary>
+            Mapped property model for <see cref="T:EPiServer.Commerce.Catalog.ContentTypes.SeoInformation"/>
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Content.VariationContentApiModel">
+            <summary>
+            Model that contains necessary data for product variant
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Inventory.InventoryApiModel">
+            <summary>
+            Represents inventory information for a single catalog entry at a single warehouse.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Inventory.InventoryApiModel.EntryCode">
+            <summary>
+            The catalog entry code.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Inventory.InventoryApiModel.WarehouseCode">
+            <summary>
+            The warehouse's information.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Inventory.InventoryApiModel.PurchaseAvailableQuantity">
+            <summary>
+            The quantity of items available for purchase.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Inventory.InventoryApiModel.PurchaseRequestedQuantity">
+            <summary>
+            The quantity of items requested for purchase and not yet completed.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Inventory.InventoryApiModel.PurchaseAvailable">
+            <summary>
+            The purchase availability date for the item and warehouse, in UTC.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Markets.MarketApiModel">
+            <summary>
+            Represents market information.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Markets.MarketApiModel.Id">
+            <summary>
+            The id.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Markets.MarketApiModel.Name">
+            <summary>
+            The name.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Markets.MarketApiModel.DefaultLanguage">
+            <summary>
+            The default language.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Markets.MarketApiModel.DefaultCurrency">
+            <summary>
+            The default currency.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Markets.MarketApiModel.Languages">
+            <summary>
+            The languages.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Markets.MarketApiModel.Currencies">
+            <summary>
+            The currencies.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Markets.MarketApiModel.Countries">
+            <summary>
+            The countries.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.DiscountedPriceModel">
+            <summary>
+            Represents a discounted price.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.DiscountedPriceModel.Description">
+            <summary>
+            The description of the discount.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.DiscountedPriceModel.DiscountedPrice">
+            <summary>
+            The discounted price.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.DiscountedPriceModel.DefaultPrice">
+            <summary>
+            The default price that be used for calculating the discounted price.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.PriceModel">
+            <summary>
+            Represents a price.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.PriceModel.Price">
+            <summary>
+            The price.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.PriceModel.PriceType">
+            <summary>
+            The price type.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.PriceModel.PriceCode">
+            <summary>
+            The price code.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.PriceModel.ValidFrom">
+            <summary>
+            The valid from date and time.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.PriceModel.ValidUntil">
+            <summary>
+            The valid until date and time.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.PriceModel.MinQuantity">
+            <summary>
+            The minimum quantity.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.PricingApiModel">
+            <summary>
+            Represents pricing data for a sku
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.PricingApiModel.EntryCode">
+            <summary>
+            The entry code.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.PricingApiModel.Prices">
+            <summary>
+            The prices.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Pricing.PricingApiModel.DiscountedPrices">
+            <summary>
+            The discounted prices.
+            </summary>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseApiModel.Name">
+            <summary>Gets or sets the warehouse name.</summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseApiModel.Modified">
+            <summary>
+            Gets or sets the timestamp at which the warehouse record was most recently updated.
+            </summary>
+            <value>The most recent update timestamp.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseApiModel.Code">
+            <summary>Gets or sets the code value.</summary>
+            <value>The code.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseApiModel.ContactInformation">
+            <summary>
+            Gets or sets the contact information for the warehouse.
+            </summary>
+            <value>The contact information for the warehouse.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseApiModel.IsFulfillmentCenter">
+            <summary>
+            Indicates whether the warehouse is a fulfillment center. This means orders can be placed from this warehouse for outgoing shipments.
+            </summary>
+            <value>A boolean indicating whether the warehouse is a fulfillment center.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseApiModel.IsPickupLocation">
+            <summary>
+            Indicates whether the warehouse is a pick-up location. This means orders can be placed from this warehouse for in-store pickups.
+            </summary>
+            <value>A boolean indicating whether the warehouse is a pickup location.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseApiModel.IsDeliveryLocation">
+            <summary>
+            Indicates whether the warehouse is a delivery location. This means this warehouse can be used as a delivery location (i.e. for future in-store pickups).
+            </summary>
+            <value>A boolean indicating whether the warehouse is a delivery location.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.FirstName">
+            <summary>Gets or sets the contacts first name.</summary>
+            <value>The contacts first name.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.LastName">
+            <summary>Gets or sets the contacts last name.</summary>
+            <value>The contacts last name.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.Organization">
+            <summary>Gets or sets the contacts organization name.</summary>
+            <value>The name of the organization to which the contact belongs.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.Line1">
+            <summary>
+            Gets or sets the primary line of the contacts physical address.
+            </summary>
+            <value>The contacts primary physical address information.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.Line2">
+            <summary>
+            Gets or sets the secondary line of the contacts physical address.
+            </summary>
+            <value>Any additional information for the contacts physical address.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.City">
+            <summary>
+            Gets or sets the city of the contacts physical address.
+            </summary>
+            <value>The city name of the contacts physical address.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.State">
+            <summary>
+            Gets or sets the state of the contacts physical address.
+            </summary>
+            <value>The state code or name of the contacts physical address.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.CountryCode">
+            <summary>
+            Gets or sets the country code of the contacts physical address.
+            </summary>
+            <value>The country code of the contacts physical address.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.CountryName">
+            <summary>
+            Gets or sets the country of the contacts physical address.
+            </summary>
+            <value>The name of the country in which the contacts physical address is located.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.PostalCode">
+            <summary>
+            Gets or sets the postal code of the contacts physical address.
+            </summary>
+            <value>The postal code of the contacts physical address.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.RegionCode">
+            <summary>
+            Gets or sets the region code of the contacts physical address.
+            </summary>
+            <value>The code identifying the region in which the contacts physical address is located.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.RegionName">
+            <summary>
+            Gets or sets the region name of the contacts physical address.
+            </summary>
+            <value>The name of the region in which the contacts physical address is located.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.DaytimePhoneNumber">
+            <summary>
+            Gets or sets the phone number at which the contact can be reached during regular work hours.
+            </summary>
+            <value>The contacts phone number during regular work hours.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.EveningPhoneNumber">
+            <summary>
+            Gets or sets the phone number at which the contact can be reached outside of regular work hours.
+            </summary>
+            <value>The contacts phone number outside regular work hours.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.FaxNumber">
+            <summary>
+            Gets or sets the phone number at which the contact can be reached by fax.
+            </summary>
+            <value>The contacts fax line phone number.</value>
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.Models.Warehouse.WarehouseContactInformationModel.Email">
+            <summary>Gets or sets the contacts email address.</summary>
+            <value>The contacts email address.</value>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.NodeContentModelBuilder">
+            <summary>
+            Building NodeContentModelBuilder when content is NodeContent.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.NodeContentModelBuilder.CreateCatalogContentModel(EPiServer.Commerce.Catalog.ContentTypes.NodeContent)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.PackageContentModelBuilder">
+            <summary>
+            Building PackageContentModelBuilder when content is PackageContent.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.PackageContentModelBuilder.CreateCatalogContentModel(EPiServer.Commerce.Catalog.ContentTypes.PackageContent)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.ProductContentModelBuilder">
+            <summary>
+            Building ProductContentApiModel when content is ProductContent.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.ProductContentModelBuilder.CreateCatalogContentModel(EPiServer.Commerce.Catalog.ContentTypes.ProductContent)">
+            <inheritdoc />
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.SeoInformationPropertyModelConverter">
+            <summary>
+            This class is used for handling the mapping between EPiServer property SeoInformation to SeoInformationPropertyModel.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.SeoInformationPropertyModelConverter.Convert(EPiServer.Core.PropertyData,EPiServer.ContentApi.Core.Serialization.ConverterContext)">
+            <inheritdoc />  
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.SeoInformationPropertyModelConverter.HasPropertyModelAssociatedWith(EPiServer.Core.PropertyData)">
+            <inheritdoc />      
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.SeoInformationPropertyModelConverter.ConvertToPropertyModel(EPiServer.Core.PropertyData,System.Globalization.CultureInfo,System.Boolean,System.Boolean)">
+            <inheritdoc />      
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.SeoInformationPropertyModelConverter.SortOrder">
+            <inheritdoc />      
+        </member>
+        <member name="P:EPiServer.ContentApi.Commerce.Internal.SeoInformationPropertyModelConverter.ModelTypes">
+            <inheritdoc />      
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Services.CartService">
+            <summary>
+            Service to manage cart
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Services.InventoryService">
+            <summary>
+            Inventory service to get inventory information.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Services.InventoryService.GetInventories(System.String)">
+            <summary>
+            Get inventory information in given catalog entry code.
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Services.OrderService">
+            <summary>
+            Service to manage cart
+            </summary>
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Services.PricingService">
+            <summary>
+            Service to retrieve sku prices.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Services.PricingService.GetCatalogEntryPrices(System.Collections.Generic.IEnumerable{System.String},Mediachase.Commerce.MarketId,Mediachase.Commerce.Currency)">
+            <summary>
+            Get catalog entry prices by given array of entry codes, marketId and currency. 
+            </summary>      
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Services.PricingService.GetPricings(System.Collections.Generic.IEnumerable{System.String},System.String,System.String)">
+            <summary>
+            Get pricing information by given array of entry codes, marketId and currencyCode.
+            </summary>        
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.Services.PromotionService">
+            <summary>
+            Wrapper service used to call <see cref="T:EPiServer.Commerce.Marketing.IPromotionEngineExtensions"/> methods.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.Services.PromotionService.GetDiscountPrices(EPiServer.Core.ContentReference,Mediachase.Commerce.IMarket,Mediachase.Commerce.Currency)">
+            <summary>
+            Get discounted prices of catalog entry.
+            </summary>       
+        </member>
+        <member name="T:EPiServer.ContentApi.Commerce.Internal.VariationContentModelBuilder">
+            <summary>
+            Building VariationContentApiModel when content is VariationContent.
+            </summary>
+        </member>
+        <member name="M:EPiServer.ContentApi.Commerce.Internal.VariationContentModelBuilder.CreateCatalogContentModel(EPiServer.Commerce.Catalog.ContentTypes.VariationContent)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
