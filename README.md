@@ -1,4 +1,4 @@
 # Episerver/Optimizely
 
 
-## [DXP Logical Architecture](https://github.com/lamkhai/episerver/docs/dxp-logical-architecture.md)
+## [DXP Logical Architecture](https://github.com/lamkhai/episerver/blob/main/docs/dxp-logical-architecture.md)
