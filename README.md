@@ -1,15 +1,11 @@
 # Episerver/Optimizely
 
-## Table of Contents
+## [1. DXP Logical Architecture](https://github.com/lamkhai/episerver/wiki/Episerver-DXP-Logical-Architecture)
 
-### [System requirements](https://github.com/lamkhai/episerver/wiki/System-requirements)
+## [2. Installation](https://github.com/lamkhai/episerver/tree/installation)
 
-### [Pre-installation set-up](https://github.com/lamkhai/episerver/wiki/Pre-installation-set-up)
+### [2.1. Before Installation](https://github.com/lamkhai/episerver/tree/db2f918a1a8f65accd28c39210504e85a5abe395)
 
-### [Installation](https://github.com/lamkhai/episerver/wiki/Installation)
+### [2.2. After Installation](https://github.com/lamkhai/episerver/tree/2f85134add9a84b19c692e948f28f256f1e57e6d)
 
-### [Troubleshooting](https://github.com/lamkhai/episerver/wiki/Troubleshooting)
-
-### [Modular set-up](#modular-set-up)
-
-The Foundation project is set up to include all Episerver’s main products. Each product is set up as a project of its own inside the main project, so if you don’t want all products, you can simply remove their projects.
+## [3. Documentation](https://github.com/lamkhai/episerver/wiki/Documentation)
