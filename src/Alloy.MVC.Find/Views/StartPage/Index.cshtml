@@ -1,0 +1,4 @@
+@using Alloy.MVC.Find
+@model PageViewModel<Alloy.MVC.Find.Models.Pages.StartPage>
+
+@Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row equal-height", tag = Global.ContentAreaTags.FullWidth })
