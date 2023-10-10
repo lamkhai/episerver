@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlloyMVC", "src\AlloyMVC\Al
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS", "src\CMS\CMS.csproj", "{86BCF448-0A63-43AD-84FB-49DB6B392CDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commerce", "src\Commerce\Commerce.csproj", "{B0AC8420-D735-4AC5-987C-6FC81D3D8E8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commerce", "src\Commerce\Commerce.csproj", "{B0AC8420-D735-4AC5-987C-6FC81D3D8E8A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlloyMVCDocker", "src\AlloyMVCDocker\AlloyMVCDocker.csproj", "{232ECEBE-761A-4A85-97B1-3062503E7E66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{B0AC8420-D735-4AC5-987C-6FC81D3D8E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0AC8420-D735-4AC5-987C-6FC81D3D8E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0AC8420-D735-4AC5-987C-6FC81D3D8E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{232ECEBE-761A-4A85-97B1-3062503E7E66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{232ECEBE-761A-4A85-97B1-3062503E7E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{232ECEBE-761A-4A85-97B1-3062503E7E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{232ECEBE-761A-4A85-97B1-3062503E7E66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
