@@ -1,0 +1,22 @@
+@using CMS.Models.Pages;
+@using EPiServer.Web.Mvc.Html;
+
+@model SitePageData
+
+<div class="block span2">
+    <div class="border">
+        Test PagePartialComponent
+        @if (Model.HasTemplate())
+        {
+            <a href="@Url.ContentUrl(Model.ContentLink)">
+                <h3>@Model.PageName</h3>
+                <p>@Html.PropertyFor(x => x.MetaKeywords)<p>
+                    <img src="@Url.ContentUrl(Model.Image)" />
+            </a>
+        }
+        else
+        {
+            <h3>@Model.PageName</h3>
+        }
+    </div>
+</div>

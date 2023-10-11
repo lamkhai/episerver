@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CMS.Controllers;
 
-[TemplateDescriptor(Default = true)]
+[TemplateDescriptor(
+    Inherited = false,
+    Description = "Default template to be used by first pages")]
 public class FirstPageController : PageControllerBase<FirstPage>
 {
     public ActionResult Index(FirstPage currentPage)
