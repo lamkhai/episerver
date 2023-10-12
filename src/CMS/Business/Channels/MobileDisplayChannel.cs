@@ -17,4 +17,12 @@ public class MobileDisplayChannel : DisplayChannel
     {
         get { return RenderingTags.Mobile; }
     }
+
+    public override string ResolutionId
+    {
+        get
+        {
+            return typeof(MobileResolution).FullName;
+        }
+    }
 }
