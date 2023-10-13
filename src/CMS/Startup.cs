@@ -2,6 +2,7 @@ using EPiServer.Cms.Shell;
 using EPiServer.Cms.UI.AspNetIdentity;
 using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
+using EPiServer.Web;
 using EPiServer.Web.Routing;
 
 namespace CMS
@@ -22,6 +23,14 @@ namespace CMS
                 AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(_webHostingEnvironment.ContentRootPath, "App_Data"));
 
                 services.Configure<SchedulerOptions>(options => options.Enabled = false);
+
+                services.Configure<DisplayOptions>(options =>
+                {
+                    options
+                    .Add("full", "/displayoptions/full", ContentAreaTags.FullWidth, "", "epi-icon__layout--full")
+                    .Add("wide", "/displayoptions/wide", ContentAreaTags.TwoThirdsWidth, "", "epi-icon__layout--two-thirds")
+                    .Add("narrow", "/displayoptions/narrow", ContentAreaTags.OneThirdWidth, "", "epi-icon__layout--one-third");
+                });
             }
 
             services
@@ -49,4 +58,12 @@ namespace CMS
             });
         }
     }
+}
+
+public static class ContentAreaTags
+{
+    public const string FullWidth = "Full";
+	 public const string TwoThirdsWidth = "Wide";
+	 public const string HalfWidth = "Half";
+	 public const string OneThirdWidth = "Narrow";
 }
