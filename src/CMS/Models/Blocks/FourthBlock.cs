@@ -1,4 +1,5 @@
 ﻿using EPiServer.Framework.DataAnnotations;
+using EPiServer.Framework.Web;
 using EPiServer.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +16,7 @@ public partial class FourthBlockTemplate : BlockComponent<FourthBlock>
     protected override IViewComponentResult InvokeComponent(FourthBlock currentContent) => throw new NotImplementedException();
 }
 
-[TemplateDescriptor(Tags = new string[] { "Mobile" })]
+[TemplateDescriptor(Tags = new string[] { RenderingTags.Mobile })]
 public partial class FourthBlockMobileTemplate : BlockComponent<FourthBlock>
 {
     protected override IViewComponentResult InvokeComponent(FourthBlock currentContent) => throw new NotImplementedException();
