@@ -12,4 +12,6 @@ public class SecondPage : SitePageData
         GroupName = SystemTabNames.Content,
         Order = 10)]
     public virtual XhtmlString MainBody { get; set; }
+
+    public virtual string Heading { get; set; }
 }

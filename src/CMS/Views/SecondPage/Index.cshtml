@@ -1,0 +1,11 @@
+@using EPiServer.Web.Mvc.Html;
+@model CMS.Models.Pages.SecondPage;
+
+ShowBanner: @Html.FullRefreshPropertiesMetaData(new[] { "ShowBanner" })
+
+<h1 @Html.EditAttributes(x => x.Heading)>
+    /* Render the Heading property, unless it it empty, then use PageName as fallback */
+    @Model.Heading ?? @Model.PageName
+</h1>
+
+@Html.PropertyFor(x => x.MainBody)
