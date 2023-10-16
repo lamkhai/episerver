@@ -1,0 +1,23 @@
+@using CMS.Models.ViewModels;
+@using EPiServer.Web.Mvc.Html;
+
+@model PreviewModel
+
+Preview:
+<div class="row">
+    <div class="span12">
+        @Html.PropertyFor(m => m.PreviewContentArea)
+    </div>
+</div>
+
+<div class="row">
+    <div class="span8">
+        @Html.PropertyFor(m => m.PreviewContentArea)
+    </div>
+</div>
+
+<div class="row">
+    <div class="span4">
+        @Html.PropertyFor(m => m.PreviewContentArea)
+    </div>
+</div>
