@@ -37,7 +37,8 @@ namespace CMS
                 .AddCmsAspNetIdentity<ApplicationUser>()
                 .AddCms()
                 .AddAdminUserRegistration()
-                .AddEmbeddedLocalization<Startup>();
+                .AddEmbeddedLocalization<Startup>()
+                .AddCmsTagHelpers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

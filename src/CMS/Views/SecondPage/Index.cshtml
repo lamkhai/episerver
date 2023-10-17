@@ -1,4 +1,5 @@
 @using EPiServer.Web.Mvc.Html;
+
 @model CMS.Models.Pages.SecondPage;
 
 ShowBanner: @Html.FullRefreshPropertiesMetaData(new[] { "ShowBanner" })
@@ -9,3 +10,111 @@ ShowBanner: @Html.FullRefreshPropertiesMetaData(new[] { "ShowBanner" })
 </h1>
 
 @Html.PropertyFor(x => x.MainBody)
+
+Category list examples
+
+<span epi-property="CategoryList" />
+
+ContentReference examples
+
+<a epi-property="ContentReference" />
+
+<a epi-property="ContentReference" href="https://custom.domain.com" data-custom-attribute="something" />
+
+<a epi-property="ContentReference" href="https://custom.domain.com" data-custom-attribute="something">Custom text</a>
+
+<span epi-property="ContentReference" />
+<p epi-property="ContentReference" />
+
+<img epi-property="ContentReference" />
+
+<a epi-property="TargetPage" class='awesome'>
+    <img epi-property="Image" class="image" alt="My Image" />
+</a>
+
+PageReference examples
+
+<a epi-property="PageReference" />
+
+<span epi-property="PageReference" />
+<p epi-property="PageReference" />
+
+ContentReference list examples
+
+<ul class="content-links" epi-property="ContentReferenceList" />
+
+<ol epi-property="ContentReferenceList" type="A" class="awesome-list" />
+
+<div class="awesome" epi-property="ContentReferenceList" />
+
+LinkItem examples
+
+<a epi-property="LinkItem" />
+
+<a epi-property="LinkItem" href="https://custom-link.com" title="Custom title" target="_parent" />
+
+<a epi-property="LinkItem" class="custom-class" title="Custom Title">Custom text</a>
+
+<img epi-property="LinkItem" />
+
+<img epi-property="LinkItem" src="https://custom-src.com" class="custom-class" title="Custom Title" />
+
+LinkItemCollection examples
+
+<ul epi-property="LinkItemCollection" class="awesome-list" />
+
+<ol epi-property="LinkItemCollection" type="A" class="awesome-list" />
+
+<div class='awesome' epi-property="LinkItemCollection" />
+
+URL examples
+
+<a epi-property="Url" class="awesome" />
+
+<img epi-property="Url" class="awesome" title='Awesome image' />
+
+XhtmlString examples
+
+<div id="xhtmlString" class="awesome" epi-property="XhtmlString" />
+
+Block examples
+
+@*<div id='TeaserBlock' class="awesome" epi-property="TeaserBlock" epi-template-tag="wide" />*@
+
+ContentArea example
+
+<div epi-property="ContentArea" epi-template-tag="fullWidth" />
+
+<div class="awesome"
+     epi-property="ContentArea"
+     epi-template-tag="wide">
+    @*<p epi-property-item class="awesome" data-attribute="@attributes" />*@
+</div>
+
+<div class="awesome"
+     epi-property="ContentArea"
+     epi-template-tag="wide">
+    <div class="children-class">
+        <p class="grand-children-class">
+            <a epi-property-item class="content-area-item" />
+        </p>
+    </div>
+</div>
+
+@functions
+{
+    @using Microsoft.AspNetCore.Mvc.TagHelpers;
+    @using Microsoft.AspNetCore.Razor.TagHelpers;
+
+    public void OnItemRendered(ContentAreaItem contentAreaItem, TagHelperContext context, TagHelperOutput output)
+    {
+        output.AddClass("customize-item", System.Text.Encodings.Web.HtmlEncoder.Default);
+    }
+}
+<div class='content-area' epi-property="ContentArea">
+    <p epi-property-item class="content-area-item" epi-on-item-rendered="OnItemRendered" />
+</div>
+
+Render client resources example
+
+<required-client-resources area="Header" />
