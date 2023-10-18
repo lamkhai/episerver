@@ -1,29 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <languages>
-  <language name="English" id="en">
-	  <contenttypes>
-		  <firstpage>
-			  <description>A description of the page type</description>
-			  <properties>
-				  <maincontentarea>
-					  <caption>Name text from XML</caption>
-					  <help>Description text from XML</help>
-				  </maincontentarea >
-			  </properties>
-		  </firstpage>
-	  </contenttypes>
-  </language>
-  <language name="Vietnamese" id="vi">
-	  <contenttypes>
-		  <firstpage>
-			  <description>Mô tả của loại trang</description>
-			  <properties>
-				  <maincontentarea>
-					  <caption>Tên văn bản từ XML</caption>
-					  <help>Văn bản mô tả từ XML</help>
-				  </maincontentarea >
-			  </properties>
-		  </firstpage>
-	  </contenttypes>
-  </language>
+
+	<language name="English" id="en">
+		<contenttypes>
+			<sitepagedata>
+				<properties>
+					<reusename>
+						<caption>Reuse Name text from ContentTypeNames.xml</caption>
+					</reusename>
+				</properties>
+			</sitepagedata>
+		</contenttypes>
+	</language>
+	<language id="en" name="English">
+		<contenttypes>
+			<icontentdata>
+				<properties>
+					<disableindexing>
+						<caption>Disable indexing</caption>
+						<help>Prevents the page from being indexed by search engines</help>
+					</disableindexing>
+				</properties>
+			</icontentdata>
+		</contenttypes>
+	</language>
+
+	<language name="English" id="en">
+		<contenttypes>
+			<firstpage>
+				<description>A description of the page type</description>
+				<properties>
+					<maincontentarea>
+						<caption>Name text from XML</caption>
+						<help>Description text from XML</help>
+					</maincontentarea >
+				</properties>
+			</firstpage>
+		</contenttypes>
+	</language>
+
+	<language name="Vietnamese" id="vi">
+		<contenttypes>
+			<firstpage>
+				<description>Mô tả của loại trang</description>
+				<properties>
+					<maincontentarea>
+						<caption>Tên văn bản từ XML</caption>
+						<help>Văn bản mô tả từ XML</help>
+					</maincontentarea >
+				</properties>
+			</firstpage>
+		</contenttypes>
+	</language>
+
 </languages>

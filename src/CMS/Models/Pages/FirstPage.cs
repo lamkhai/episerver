@@ -23,4 +23,6 @@ public class FirstPage : SitePageData
       Description = "This text can you have in XML instead"
     )]
     public virtual ContentArea MainContentArea { get; set; }
+
+    public virtual string ReuseName { get; set; }
 }
