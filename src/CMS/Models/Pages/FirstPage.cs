@@ -16,4 +16,11 @@ public class FirstPage : SitePageData
         GroupName = SystemTabNames.Content,
         Order = 10)]
     public virtual XhtmlString MainBody { get; set; }
+
+    [Display(
+      GroupName = SystemTabNames.Content,
+      Name = "This text can you have in XML instead",
+      Description = "This text can you have in XML instead"
+    )]
+    public virtual ContentArea MainContentArea { get; set; }
 }
