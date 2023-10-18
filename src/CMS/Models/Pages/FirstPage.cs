@@ -18,11 +18,16 @@ public class FirstPage : SitePageData
     public virtual XhtmlString MainBody { get; set; }
 
     [Display(
-      GroupName = SystemTabNames.Content,
+      GroupName = FirstPageSystemTabNames.Content,
       Name = "This text can you have in XML instead",
       Description = "This text can you have in XML instead"
     )]
     public virtual ContentArea MainContentArea { get; set; }
 
     public virtual string ReuseName { get; set; }
+}
+
+public static class FirstPageSystemTabNames
+{
+    public const string Content = "KhaiTestInformation";
 }

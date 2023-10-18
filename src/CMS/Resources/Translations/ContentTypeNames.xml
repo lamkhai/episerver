@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <languages>
 
+	<language name="en">
+		<groups>
+			<khaitestinformation>Group name from XML file</khaitestinformation>
+		</groups>
+	</language>
+	
 	<language name="English" id="en">
 		<contenttypes>
 			<sitepagedata>
