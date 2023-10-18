@@ -1,9 +1,11 @@
 using EPiServer.Cms.Shell;
 using EPiServer.Cms.UI.AspNetIdentity;
+using EPiServer.Framework.Localization.XmlResources;
 using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
 using EPiServer.Web;
 using EPiServer.Web.Routing;
+using System.Collections.Specialized;
 
 namespace CMS
 {
@@ -33,6 +35,12 @@ namespace CMS
                 });
 
                 services.AddEmbeddedLocalization<Startup>();
+
+                services.AddLocalizationProvider<FileXmlLocalizationProvider,
+                                                 NameValueCollection>(o =>
+                                                 {
+                                                     o[FileXmlLocalizationProvider.PhysicalPathKey] = @"c:\temp\resourceFolder";
+                                                 });
             }
 
             services
