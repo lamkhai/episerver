@@ -31,6 +31,8 @@ namespace CMS
                     .Add("wide", "/displayoptions/wide", ContentAreaTags.TwoThirdsWidth, "", "epi-icon__layout--two-thirds")
                     .Add("narrow", "/displayoptions/narrow", ContentAreaTags.OneThirdWidth, "", "epi-icon__layout--one-third");
                 });
+
+                services.AddEmbeddedLocalization<Startup>();
             }
 
             services

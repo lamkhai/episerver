@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<languages>
+  <language name="English" id="en">
+    <contenttypes>
+      <articlepage>
+        <description>Used to publish news articles on the website</description>
+        <name>Article</name>
+      </articlepage>
+    </contenttypes>
+  </language>
+  <language name="Vietnamese" id="vn">
+    <contenttypes>
+      <articlepage>
+        <description>Dùng để đăng các bài viết tin tức trên website</description>
+        <name>Article</name>
+      </articlepage>
+    </contenttypes>
+  </language>
+</languages>
