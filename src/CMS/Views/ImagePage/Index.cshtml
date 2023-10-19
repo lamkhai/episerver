@@ -1,0 +1,8 @@
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model CMS.Models.Pages.ImagePage
+
+<div>
+    <img src="@Url.ContentUrl(Model.Image)" />
+</div>
