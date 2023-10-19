@@ -41,6 +41,14 @@ namespace CMS
                 //                                 {
                 //                                     o[FileXmlLocalizationProvider.PhysicalPathKey] = @"c:\temp\resourceFolder";
                 //                                 });
+
+                //services.AddFileBlobProvider("myFileBlobProvider", @"c:\path\to\file\blobs");
+                //services.AddBlobProvider<MyCustomBlobProvider>("myCustomBlobProvider", defaultProvider: false);
+                //services.Configure<MyCustomBlobProvider>(o =>
+                //{
+                //    o.AddProvider<MyCustomBlobProvider>("anotherCustomBlobProvider");
+                //    o.DefaultProvider = "anotherCustomBlobProvider";
+                //});
             }
 
             services
