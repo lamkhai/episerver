@@ -17,4 +17,6 @@ public class ImagePage : PageData
       Order = 1)]
     [UIHint(UIHint.Image)]
     public virtual ContentReference Image { get; set; }
+
+    public virtual string BlobPathToReadWrite { get; set; }
 }
