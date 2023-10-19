@@ -1,0 +1,10 @@
+@using EPiServer.Web.Mvc.Html;
+@model CMS.Models.Blocks.ThirdBlock
+
+<div>
+
+    <h2>@Html.PropertyFor(x => x.Heading)</h2>
+
+    <img src="@Url.ContentUrl(Model.Image)" />
+
+</div>

@@ -36,11 +36,11 @@ namespace CMS
 
                 services.AddEmbeddedLocalization<Startup>();
 
-                services.AddLocalizationProvider<FileXmlLocalizationProvider,
-                                                 NameValueCollection>(o =>
-                                                 {
-                                                     o[FileXmlLocalizationProvider.PhysicalPathKey] = @"c:\temp\resourceFolder";
-                                                 });
+                //services.AddLocalizationProvider<FileXmlLocalizationProvider,
+                //                                 NameValueCollection>(o =>
+                //                                 {
+                //                                     o[FileXmlLocalizationProvider.PhysicalPathKey] = @"c:\temp\resourceFolder";
+                //                                 });
             }
 
             services

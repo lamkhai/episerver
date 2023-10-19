@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <languages>
-  <language name="English" id="en"></language>
+  <language name="English" id="en">
+	  <mystring>my string</mystring>
+	  <subnode>
+		  <myotherstring>my other string</myotherstring>
+	  </subnode>
+  </language>
 </languages>
