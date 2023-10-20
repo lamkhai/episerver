@@ -59,7 +59,7 @@ namespace CMS
             }
 
             services
-                .AddCmsAspNetIdentity<ApplicationUser>()
+                .AddCmsAspNetIdentity<ApplicationUser>()//(configureSqlServerOptions: o => o.MigrationsAssembly("CMS"));
                 .AddCms()
                 .AddAdminUserRegistration()
                 .AddEmbeddedLocalization<Startup>()
