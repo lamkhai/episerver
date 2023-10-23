@@ -6,11 +6,13 @@ using EPiServer.Security;
 using EPiServer.ServiceLocation;
 using EPiServer.Web;
 using EPiServer.Web.Routing;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
 using System.Collections.Specialized;
 using System.Security.Claims;
 using System.Text;
+using static CMS.Globals;
 
 namespace CMS
 {
@@ -56,6 +58,7 @@ namespace CMS
                 //});
 
                 ConfigureAzureADService(services);
+                //ConfigureMixedAuthenticationService(services);
             }
 
             services
@@ -149,13 +152,34 @@ namespace CMS
                     };
                 });
         }
-    }
-}
 
-public static class ContentAreaTags
-{
-    public const string FullWidth = "Full";
-    public const string TwoThirdsWidth = "Wide";
-    public const string HalfWidth = "Half";
-    public const string OneThirdWidth = "Narrow";
+        private void ConfigureMixedAuthenticationService(IServiceCollection services)
+        {
+            services
+                .AddAuthentication(options =>
+                {
+                    options.DefaultScheme = Schemes.Policy;
+                    options.DefaultAuthenticateScheme = Schemes.Policy;
+                })
+                .AddCookie(Schemes.Default)
+                .AddCookie(Schemes.Another)
+                .AddOpenIdConnect(Schemes.Oidc, options =>
+                {
+                    options.SignInScheme = Schemes.Another;
+                    options.SignOutScheme = Schemes.Another;
+                })
+                .AddPolicyScheme(Schemes.Policy, null, options =>
+                {
+                    options.ForwardDefaultSelector = ctx =>
+                    {
+                        if (ctx.Request.Path.StartsWithSegments("episerver", StringComparison.OrdinalIgnoreCase))
+                        {
+                            return Schemes.Oidc;
+                        }
+                        return Schemes.Default;
+                    };
+                })
+                ;
+        }
+    }
 }

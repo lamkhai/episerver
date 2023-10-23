@@ -50,6 +50,8 @@ public class Globals
         public const string HalfWidth = "half";
         public const string NarrowWidth = "narrow";
         public const string NoRenderer = "norenderer";
+        public const string TwoThirdsWidth = "Wide";
+        public const string OneThirdWidth = "Narrow";
     }
 
     /// <summary>
@@ -66,4 +68,13 @@ public class Globals
     /// Virtual path to folder with static graphics, such as "/gfx/"
     /// </summary>
     public const string StaticGraphicsFolderPath = "/gfx/";
+
+    public static class Schemes
+    {
+        public const string Oidc = "oidc";
+
+        public const string Default = "a-scheme";
+        public const string Another = "another-scheme";
+        public const string Policy = "policy-scheme";
+    }
 }
