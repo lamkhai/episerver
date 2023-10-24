@@ -21,6 +21,10 @@ namespace Foundation.Features.CatalogContent.Services
         IEnumerable<ProductVariation> ListVariations(ContentReference referenceToProduct);
         IEnumerable<ProductVariation> GetProductByVariant(ContentReference variation);
         IEnumerable<ContentReference> ListParentProduct(EntryContentBase entryContent);
+
+        // Research: Add/Remove a product variant
+        void AddVariation(ContentReference referenceToProduct, ContentReference referenceToVariation);
+        void RemoveVariation(ContentReference referenceToProduct, ContentReference referenceToVariation);
     }
 
     public class ProductService : IProductService
@@ -247,6 +251,37 @@ namespace Foundation.Features.CatalogContent.Services
         {
             var parentProductLinks = entryContent.GetParentProducts();
             return parentProductLinks;
+        }
+        #endregion
+
+        #region Research: Add/Remove a product variant
+        public void AddVariation(ContentReference referenceToProduct, ContentReference referenceToVariation)
+        {
+            var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+            var newVariation = new ProductVariation
+            {
+                SortOrder = 100,
+                Parent = referenceToProduct,
+                Child = referenceToVariation
+            };
+            relationRepository.UpdateRelation(newVariation);
+        }
+
+        public void RemoveVariation(ContentReference referenceToProduct, ContentReference referenceToVariation)
+        {
+            var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+
+            // Define a relation matching the one to remove, or use
+            // GetRelations to find the one you want to remove and pass that to
+            // RemoveRelation
+            var relationToRemove = new ProductVariation
+            {
+                Parent = referenceToProduct,
+                Child = referenceToVariation
+            };
+
+            // Removes matching ProductVariation, or no action if no match exists
+            relationRepository.RemoveRelation(relationToRemove);
         }
         #endregion
     }
