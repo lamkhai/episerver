@@ -16,6 +16,11 @@ namespace Foundation.Features.CatalogContent.Services
         string GetSiblingVariantCodeBySize(string siblingCode, string size);
         IEnumerable<VariationContent> GetVariants(ProductContent currentContent);
         IEnumerable<RecommendedProductTileViewModel> GetRecommendedProductTileViewModels(IEnumerable<Recommendation> recommendations);
+
+        // Research: Get a product's variants
+        IEnumerable<ProductVariation> ListVariations(ContentReference referenceToProduct);
+        IEnumerable<ProductVariation> GetProductByVariant(ContentReference variation);
+        IEnumerable<ContentReference> ListParentProduct(EntryContentBase entryContent);
     }
 
     public class ProductService : IProductService
@@ -222,5 +227,27 @@ namespace Foundation.Features.CatalogContent.Services
             var discountedPrice = _promotionService.GetDiscountPrice(new CatalogKey(entry.Code), market.MarketId, currency);
             return discountedPrice?.UnitPrice ?? originalPrice;
         }
+
+        #region Research: Get a product's variants
+        public IEnumerable<ProductVariation> ListVariations(ContentReference referenceToProduct)
+        {
+            var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+            var variations = relationRepository.GetChildren<ProductVariation>(referenceToProduct);
+            return variations;
+        }
+
+        public IEnumerable<ProductVariation> GetProductByVariant(ContentReference variation)
+        {
+            var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+            var products = relationRepository.GetParents<ProductVariation>(variation);
+            return products;
+        }
+
+        public IEnumerable<ContentReference> ListParentProduct(EntryContentBase entryContent)
+        {
+            var parentProductLinks = entryContent.GetParentProducts();
+            return parentProductLinks;
+        }
+        #endregion
     }
 }
