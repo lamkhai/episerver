@@ -6,11 +6,29 @@ namespace Foundation.Features.CatalogContent.Services;
 
 public interface IBundleService
 {
+    IEnumerable<BundleEntry> GetBundleByEntry(ContentReference entry);
+    IEnumerable<ContentReference> GetParentBundles(EntryContentBase entryContent);
     IEnumerable<BundleEntry> ListBundleEntries(ContentReference referenceToBundle); // Retrieve entries from a bundle
 }
 
 public class BundleService : IBundleService
 {
+    public IEnumerable<BundleEntry> GetBundleByEntry(ContentReference entry)
+    {
+        var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+
+        // Relations between bundle and bundle entry is BundleEntry
+        var bundleRelations = relationRepository.GetParents<BundleEntry>(entry);
+
+        return bundleRelations;
+    }
+
+    public IEnumerable<ContentReference> GetParentBundles(EntryContentBase entryContent)
+    {
+        var bundleLinks = entryContent.GetParentBundles();
+        return bundleLinks;
+    }
+
     public IEnumerable<BundleEntry> ListBundleEntries(ContentReference referenceToBundle)
     {
         var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
