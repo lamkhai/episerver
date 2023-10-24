@@ -1,7 +1,4 @@
-using EPiServer.DataAnnotations;
-using Foundation.Features.Shared;
 using Foundation.Features.Shared.EditorDescriptors;
-using Foundation.Infrastructure;
 
 namespace Foundation.Features.NamedCarts.SharedCart
 {
@@ -10,7 +7,7 @@ namespace Foundation.Features.NamedCarts.SharedCart
         Description = "Page to manage organization's shared cart.",
         GroupName = GroupNames.Commerce,
         AvailableInEditMode = false)]
-    [ImageUrl("/icons/cms/pages/cms-icon-page-08.png")]
+    [ImageUrl("/icons/cms/pages/CMS-icon-page-08.png")]
     public class SharedCartPage : FoundationPageData, IDisableOPE
     {
     }

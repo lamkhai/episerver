@@ -1,9 +1,5 @@
 ﻿using EPiServer.Security;
 using EPiServer.Shell;
-using EPiServer.Shell.Navigation;
-using Microsoft.AspNetCore.Http;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Foundation.Infrastructure.Cms
 {
@@ -31,6 +27,11 @@ namespace Foundation.Infrastructure.Cms
             {
                 SortIndex = 200,
                 Paths = new[] { "foundation/promotions", "foundation/editPromotionCoupons" }
+            });
+
+            menuItems.Add(new UrlMenuItem("Comments Manager", MainMenuPath + "/commentsmanager", "/episerver/foundation/moderation")
+            {
+                SortIndex = 200,
             });
 
             return menuItems;

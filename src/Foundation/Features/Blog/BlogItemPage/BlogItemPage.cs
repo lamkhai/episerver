@@ -1,9 +1,3 @@
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using Foundation.Features.Shared;
-using Foundation.Infrastructure;
-using System.ComponentModel.DataAnnotations;
-
 namespace Foundation.Features.Blog.BlogItemPage
 {
     [ContentType(DisplayName = "Blog Item Page",
@@ -11,7 +5,7 @@ namespace Foundation.Features.Blog.BlogItemPage
         Description = "Blog Item Page created underneath the start page and moved to the right area",
         GroupName = GroupNames.Blog)]
     [AvailableContentTypes(Availability.Specific, Include = new[] { typeof(BlogListPage.BlogListPage), typeof(BlogItemPage) })]
-    [ImageUrl("/icons/cms/pages/cms-icon-page-18.png")]
+    [ImageUrl("/icons/cms/pages/CMS-icon-page-18.png")]
     public class BlogItemPage : FoundationPageData
     {
         [Display(GroupName = SystemTabNames.Content, Order = 10)]

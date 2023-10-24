@@ -1,10 +1,3 @@
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using Foundation.Features.Shared;
-using Foundation.Infrastructure;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
 namespace Foundation.Features.Blocks.RatingBlock
 {
     /// <summary>
@@ -14,7 +7,7 @@ namespace Foundation.Features.Blocks.RatingBlock
         GUID = "069e2c52-fd48-49c5-8993-7a0347ea1f78",
         Description = "Configures the frontend view properties of a rating block",
         GroupName = GroupNames.Social)]
-    [ImageUrl("~/assets/icons/cms/blocks/cms-icon-block-25.png")]
+    [ImageUrl("~/icons/cms/blocks/CMS-icon-block-25.png")]
     public class RatingBlock : FoundationBlockData
     {
         /// <summary>

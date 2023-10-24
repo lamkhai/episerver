@@ -1,12 +1,3 @@
-using EPiServer.Core;
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using EPiServer.Shell.ObjectEditing;
-using EPiServer.Web;
-using Foundation.Features.Shared;
-using Foundation.Infrastructure;
-using System.ComponentModel.DataAnnotations;
-
 namespace Foundation.Features.Blocks.CallToActionBlock
 {
     [ContentType(DisplayName = "Call To Action Block",
@@ -26,7 +17,7 @@ namespace Foundation.Features.Blocks.CallToActionBlock
         public virtual XhtmlString Subtext { get; set; }
 
         [Display(Name = "Text color", GroupName = SystemTabNames.Content, Order = 30)]
-        [ClientEditor(ClientEditingClass = "foundation/editors/ColorPicker")]
+        [ClientEditor(ClientEditingClass = "foundation/Editors/ColorPicker")]
         public virtual string TextColor { get; set; }
         #endregion
 

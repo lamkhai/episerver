@@ -1,10 +1,4 @@
-using EPiServer.Core;
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
 using Foundation.Features.Locations.Blocks;
-using Foundation.Features.Shared;
-using Foundation.Infrastructure;
-using System.ComponentModel.DataAnnotations;
 
 namespace Foundation.Features.Locations.LocationListPage
 {
@@ -12,7 +6,7 @@ namespace Foundation.Features.Locations.LocationListPage
         GUID = "597afd14-391b-4e99-8e4f-8827e3e82354",
         Description = "Used to display a list of all locations",
         GroupName = TabNames.Location)]
-    [ImageUrl("/icons/cms/pages/cms-icon-page-27.png")]
+    [ImageUrl("/icons/cms/pages/CMS-icon-page-27.png")]
     [AvailableContentTypes(Availability = Availability.Specific, Include = new[] { typeof(LocationItemPage.LocationItemPage) })]
     public class LocationListPage : FoundationPageData
     {

@@ -1,11 +1,3 @@
-using EPiServer.Core;
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using EPiServer.Shell.ObjectEditing;
-using EPiServer.Web;
-using Foundation.Features.Shared;
-using System.ComponentModel.DataAnnotations;
-
 namespace Foundation.Features.StandardPage
 {
     [ContentType(DisplayName = "Standard Page",
@@ -17,7 +9,7 @@ namespace Foundation.Features.StandardPage
     {
         [CultureSpecific]
         [Searchable(false)]
-        [ClientEditor(ClientEditingClass = "foundation/editors/ColorPicker")]
+        [ClientEditor(ClientEditingClass = "foundation/Editors/ColorPicker")]
         [Display(Name = "Title color", GroupName = SystemTabNames.Content, Order = 210)]
         public virtual string TitleColor
         {
@@ -26,7 +18,7 @@ namespace Foundation.Features.StandardPage
         }
 
         [Searchable(false)]
-        [ClientEditor(ClientEditingClass = "foundation/editors/ColorPicker")]
+        [ClientEditor(ClientEditingClass = "foundation/Editors/ColorPicker")]
         [Display(Name = "Background color", GroupName = SystemTabNames.Content, Order = 220)]
         public virtual string BackgroundColor
         {

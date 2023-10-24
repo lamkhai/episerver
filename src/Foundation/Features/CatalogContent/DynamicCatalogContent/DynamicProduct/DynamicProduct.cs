@@ -1,5 +1,4 @@
 ﻿using EPiServer.Commerce.Catalog.DataAnnotations;
-using EPiServer.DataAnnotations;
 using Foundation.Features.CatalogContent.Product;
 
 namespace Foundation.Features.CatalogContent.DynamicCatalogContent.DynamicProduct
@@ -9,7 +8,7 @@ namespace Foundation.Features.CatalogContent.DynamicCatalogContent.DynamicProduc
         MetaClassName = "DynamicProduct",
         DisplayName = "Dynamic Product",
         Description = "Dynamic product supports mutiple options")]
-    [ImageUrl("/icons/cms/pages/cms-icon-page-23.png")]
+    [ImageUrl("/icons/cms/pages/CMS-icon-page-23.png")]
     public class DynamicProduct : GenericProduct
     {
     }

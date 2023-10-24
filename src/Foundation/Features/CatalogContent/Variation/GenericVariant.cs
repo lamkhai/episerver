@@ -1,20 +1,12 @@
-using EPiServer.Commerce.Catalog.ContentTypes;
 using EPiServer.Commerce.Catalog.DataAnnotations;
-using EPiServer.Core;
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using EPiServer.Shell.ObjectEditing;
 using EPiServer.SpecializedProperties;
-using EPiServer.Web;
 using Foundation.Features.Blocks.ElevatedRoleBlock;
-using Foundation.Features.Shared;
 using Foundation.Infrastructure.Commerce.Models.EditorDescriptors;
-using System.ComponentModel.DataAnnotations;
 
 namespace Foundation.Features.CatalogContent.Variation
 {
     [CatalogContentType(DisplayName = "Generic Variant", GUID = "1aaa2c58-c424-4c37-81b0-77e76d254eb0", Description = "Generic variant supports multiple variation types")]
-    [ImageUrl("/icons/cms/pages/cms-icon-page-23.png")]
+    [ImageUrl("/icons/cms/pages/CMS-icon-page-23.png")]
     public class GenericVariant : VariationContent, IProductRecommendations, IFoundationContent/*, IDashboardItem*/
     {
         [Tokenize]
@@ -41,6 +33,7 @@ namespace Foundation.Features.CatalogContent.Variation
 
         [CultureSpecific]
         [Display(Name = "Content area", Order = 20)]
+        [AllowedTypes(new[] { typeof(IContentData) })]
         public virtual ContentArea ContentArea { get; set; }
 
         [CultureSpecific]

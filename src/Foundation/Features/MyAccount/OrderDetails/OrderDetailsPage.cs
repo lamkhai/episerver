@@ -1,8 +1,3 @@
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using Foundation.Features.Shared;
-using Foundation.Infrastructure;
-
 namespace Foundation.Features.MyAccount.OrderDetails
 {
     [ContentType(DisplayName = "Order Details Page",
@@ -10,7 +5,7 @@ namespace Foundation.Features.MyAccount.OrderDetails
         Description = "Page for customer to view their order",
         GroupName = GroupNames.Commerce,
         AvailableInEditMode = false)]
-    [ImageUrl("/icons/cms/pages/cms-icon-page-15.png")]
+    [ImageUrl("/icons/cms/pages/CMS-icon-page-15.png")]
     public class OrderDetailsPage : FoundationPageData
     {
     }

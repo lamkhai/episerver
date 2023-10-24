@@ -56,22 +56,22 @@
             </div>
         </div>
 
+        @* Main Content *@
+        <div class="row">
+            <div class="col-12">
+                <div @Html.EditAttributes(x => x.CurrentContent.MainBody)>
+                    @Html.PropertyFor(m => m.CurrentContent.MainBody)
+                </div>
+            </div>
+        </div>
+        <br />
+
         @* Content Area *@
         <div class="row">
             <div class="col-12">
                 @Html.PropertyFor(x => x.CurrentContent.MainContentArea, new { CssClass = "equal-height" })
             </div>
         </div>
-
-        @* Main Content *@
-        <div class="row">
-            <div class="col-12">
-                <div @Html.EditAttributes(x => x.CurrentContent.MainBody)>
-                    @Html.Raw(@Model.CurrentContent.MainBody)
-                </div>
-            </div>
-        </div>
-        <br />
 
         @* Tags *@
         <div class="row">
@@ -82,8 +82,8 @@
 
                     foreach (var tag in Model.Tags)
                     {
-                        <a class="tag link" title="@tag.DisplayName" href="@tag.Url" style="margin-left: 5px">
-                            #@tag.DisplayName
+                        <a class="tag link" title="@tag.Title" href="@tag.Url" style="margin-left: 5px">
+                            #@tag.Title
                         </a>
                     }
                 }

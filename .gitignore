@@ -83,3 +83,4 @@ src/Foundation/License.config
 rebuild.cmd
 resetup.cmd
 /log.txt
+/src/TestF/*
