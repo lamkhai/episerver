@@ -8,6 +8,7 @@ public interface IPackageService
     IEnumerable<PackageEntry> GetPackageByEntry(ContentReference entry);
     IEnumerable<ContentReference> GetParentPackages(EntryContentBase entryContent);
     IEnumerable<PackageEntry> ListPackageEntries(ContentReference referenceToPackage); // Retrieve entries from a package
+    void RemovePackageEntry(ContentReference referenceToPackage, ContentReference referenceToPackageOrVariation);
     void UpdatePackageEntry(ContentReference referenceToPackage, ContentReference referenceToPackageOrVariation, decimal newQuantity);
 }
 
@@ -52,6 +53,23 @@ public class PackageService : IPackageService
         // Relations to package entries are of type PackageEntry
         var packageEntries = relationRepository.GetChildren<PackageEntry>(referenceToPackage);
         return packageEntries;
+    }
+
+    public void RemovePackageEntry(ContentReference referenceToPackage, ContentReference referenceToPackageOrVariation)
+    {
+        var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+
+        // Define a relation matching the one to remove, or use
+        // GetRelations to find the one you want to remove and pass that to
+        // RemoveRelation
+        var relationToRemove = new PackageEntry
+        {
+            Parent = referenceToPackage,
+            Child = referenceToPackageOrVariation
+        };
+
+        // Removes matching PackageEntry, or no action if no match exists
+        relationRepository.RemoveRelation(relationToRemove);
     }
 
     public void UpdatePackageEntry(ContentReference referenceToPackage, ContentReference referenceToPackageOrVariation, decimal newQuantity)

@@ -8,6 +8,7 @@ public interface IBundleService
     IEnumerable<BundleEntry> GetBundleByEntry(ContentReference entry);
     IEnumerable<ContentReference> GetParentBundles(EntryContentBase entryContent);
     IEnumerable<BundleEntry> ListBundleEntries(ContentReference referenceToBundle); // Retrieve entries from a bundle
+    void RemoveBundleEntry(ContentReference referenceToBundle, ContentReference referenceToProductOrVariation);
     void UpdateBundleEntry(ContentReference referenceToBundle, ContentReference referenceToProductOrVariation, decimal newQuantity);
 }
 
@@ -52,6 +53,23 @@ public class BundleService : IBundleService
         // Relations to bundle entries are of type BundleEntry
         var bundleEntries = relationRepository.GetChildren<BundleEntry>(referenceToBundle);
         return bundleEntries;
+    }
+
+    public void RemoveBundleEntry(ContentReference referenceToBundle, ContentReference referenceToProductOrVariation)
+    {
+        var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+
+        // Define a relation matching the one to remove, or use
+        // GetRelations to find the one you want to remove and pass that to
+        // RemoveRelation
+        var relationToRemove = new BundleEntry
+        {
+            Parent = referenceToBundle,
+            Child = referenceToProductOrVariation
+        };
+
+        // Removes matching BundleEntry, or no action if no match exists
+        relationRepository.RemoveRelation(relationToRemove);
     }
 
     public void UpdateBundleEntry(ContentReference referenceToBundle, ContentReference referenceToProductOrVariation, decimal newQuantity)
