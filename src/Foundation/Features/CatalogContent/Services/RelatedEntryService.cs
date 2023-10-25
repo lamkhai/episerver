@@ -6,6 +6,7 @@ public interface IRelatedEntryService
 {
     void AddAssociation(ContentReference referenceToEntry, ContentReference referenceToRelatedEntry);
     IEnumerable<Association> ListAssociations(ContentReference referenceToEntry);
+    void RemoveAssociation(ContentReference referenceToEntry, ContentReference referenceToRelatedEntry);
 }
 
 public class RelatedEntryService : IRelatedEntryService
@@ -38,5 +39,31 @@ public class RelatedEntryService : IRelatedEntryService
         var associationRepository = ServiceLocator.Current.GetInstance<IAssociationRepository>();
         var associations = associationRepository.GetAssociations(referenceToEntry);
         return associations;
+    }
+
+    public void RemoveAssociation(ContentReference referenceToEntry, ContentReference referenceToRelatedEntry)
+    {
+        var associationRepository = ServiceLocator.Current.GetInstance<IAssociationRepository>();
+        // Define an association matching the one to remove, or use
+        // GetAssociations to find the one you want to remove and pass that to
+        // RemoveAssociation
+        var relationToRemove = new Association
+        {
+            // Group with name is required to match the correct association
+            Group = new AssociationGroup
+            {
+                Name = "CrossSell"
+            },
+            // Source is required here to match the correct association
+            Source = referenceToEntry,
+            Target = referenceToRelatedEntry,
+            // Type with id is required to match the correct association
+            Type = new AssociationType
+            {
+                Id = AssociationType.DefaultTypeId
+            }
+        };
+        // Removes matching Association, or no action if no match exists
+        associationRepository.RemoveAssociation(relationToRemove);
     }
 }
