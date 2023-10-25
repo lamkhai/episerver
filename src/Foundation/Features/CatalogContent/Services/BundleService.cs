@@ -8,6 +8,7 @@ public interface IBundleService
     IEnumerable<BundleEntry> GetBundleByEntry(ContentReference entry);
     IEnumerable<ContentReference> GetParentBundles(EntryContentBase entryContent);
     IEnumerable<BundleEntry> ListBundleEntries(ContentReference referenceToBundle); // Retrieve entries from a bundle
+    void UpdateBundleEntry(ContentReference referenceToBundle, ContentReference referenceToProductOrVariation, decimal newQuantity);
 }
 
 public class BundleService : IBundleService
@@ -51,5 +52,23 @@ public class BundleService : IBundleService
         // Relations to bundle entries are of type BundleEntry
         var bundleEntries = relationRepository.GetChildren<BundleEntry>(referenceToBundle);
         return bundleEntries;
+    }
+
+    public void UpdateBundleEntry(ContentReference referenceToBundle, ContentReference referenceToProductOrVariation, decimal newQuantity)
+    {
+        var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+        var bundleEntries = relationRepository.GetChildren<BundleEntry>(referenceToBundle);
+
+        // Find the matching BundleEntry by comparing the child, ignoring versions since relations are not version specific
+        var matchingEntry = bundleEntries.FirstOrDefault(r => r.Child.CompareToIgnoreWorkID(referenceToProductOrVariation));
+
+        // Update if there was a matching entry
+        if (matchingEntry != null)
+        {
+            // Set new data
+            matchingEntry.Quantity = newQuantity;
+
+            relationRepository.UpdateRelation(matchingEntry);
+        }
     }
 }

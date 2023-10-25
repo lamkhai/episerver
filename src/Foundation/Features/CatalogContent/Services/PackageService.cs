@@ -8,6 +8,7 @@ public interface IPackageService
     IEnumerable<PackageEntry> GetPackageByEntry(ContentReference entry);
     IEnumerable<ContentReference> GetParentPackages(EntryContentBase entryContent);
     IEnumerable<PackageEntry> ListPackageEntries(ContentReference referenceToPackage); // Retrieve entries from a package
+    void UpdatePackageEntry(ContentReference referenceToPackage, ContentReference referenceToPackageOrVariation, decimal newQuantity);
 }
 
 public class PackageService : IPackageService
@@ -51,5 +52,23 @@ public class PackageService : IPackageService
         // Relations to package entries are of type PackageEntry
         var packageEntries = relationRepository.GetChildren<PackageEntry>(referenceToPackage);
         return packageEntries;
+    }
+
+    public void UpdatePackageEntry(ContentReference referenceToPackage, ContentReference referenceToPackageOrVariation, decimal newQuantity)
+    {
+        var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+        var packageEntries = relationRepository.GetChildren<PackageEntry>(referenceToPackage);
+
+        // Find the matching PackageEntry by comparing the child, ignoring versions since relations are not version specific
+        var matchingEntry = packageEntries.FirstOrDefault(r => r.Child.CompareToIgnoreWorkID(referenceToPackageOrVariation));
+
+        // Update if there was a matching entry
+        if (matchingEntry != null)
+        {
+            // Set new data
+            matchingEntry.Quantity = newQuantity;
+
+            relationRepository.UpdateRelation(matchingEntry);
+        }
     }
 }
