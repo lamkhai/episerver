@@ -149,6 +149,11 @@ namespace Foundation.Infrastructure
             _services.AddSingleton<ISchemaDataMapper<GenericProduct>, GenericProductSchemaDataMapper>();
             _services.AddSingleton<ISchemaDataMapper<LocationItemPage>, LocationItemPageSchemaDataMapper>();
             _services.AddSingleton<PromotionEngineContentLoader, FoundationPromotionEngineContentLoader>();
+
+            _services.AddSingleton<IBundleService, BundleService>();
+            _services.AddSingleton<ICategorizationService, CategorizationService>();
+            _services.AddSingleton<IPackageService, PackageService>();
+            _services.AddSingleton<IRelatedEntryService, RelatedEntryService>();
         }
 
         public void Initialize(InitializationEngine context)
