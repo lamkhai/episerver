@@ -83,5 +83,24 @@ namespace Foundation.Features.NewProducts
                 content.StopPublish,
             };
         }
+
+        public void ConversionSampleCode(CatalogContentBase content)
+        {
+            var catalogContext = CatalogContext.Current;
+            var referenceConverter = ServiceLocator.Current.GetInstance<ReferenceConverter>();
+            if (content is EntryContentBase)
+            {
+                //convert from ContentReference to catalog object id
+                var entryId = referenceConverter.GetObjectId(content.ContentLink);
+                var entry = catalogContext.GetCatalogEntryDto(entryId,
+                    new CatalogEntryResponseGroup(CatalogEntryResponseGroup.ResponseGroup.CatalogEntryFull));
+
+                //do something with the entry
+
+                //Covert from catalog object id to ContentReference
+                var contentType = referenceConverter.GetContentType(content.ContentLink);
+                var contentLink = referenceConverter.GetContentLink(entryId, contentType, 0);
+            }
+        }
     }
 }
