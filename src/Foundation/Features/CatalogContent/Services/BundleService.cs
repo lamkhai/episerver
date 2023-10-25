@@ -2,10 +2,9 @@
 
 namespace Foundation.Features.CatalogContent.Services;
 
-// Research: Get the entries of a bundle
-
 public interface IBundleService
 {
+    void AddBundleEntry(ContentReference referenceToBundle, ContentReference referenceToProductOrVariation);
     IEnumerable<BundleEntry> GetBundleByEntry(ContentReference entry);
     IEnumerable<ContentReference> GetParentBundles(EntryContentBase entryContent);
     IEnumerable<BundleEntry> ListBundleEntries(ContentReference referenceToBundle); // Retrieve entries from a bundle
@@ -13,6 +12,22 @@ public interface IBundleService
 
 public class BundleService : IBundleService
 {
+    public void AddBundleEntry(ContentReference referenceToBundle, ContentReference referenceToProductOrVariation)
+    {
+        var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+
+        var newBundleEntry = new BundleEntry
+        {
+            GroupName = "GroupX",
+            Quantity = 1.0m,
+            SortOrder = 100,
+            Parent = referenceToBundle,
+            Child = referenceToProductOrVariation
+        };
+
+        relationRepository.UpdateRelation(newBundleEntry);
+    }
+
     public IEnumerable<BundleEntry> GetBundleByEntry(ContentReference entry)
     {
         var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();

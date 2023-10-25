@@ -2,10 +2,9 @@
 
 namespace Foundation.Features.CatalogContent.Services;
 
-// Research: Get the entries of a package
-
 public interface IPackageService
 {
+    void AddPackageEntry(ContentReference referenceToPackage, ContentReference referenceToPackageOrVariation);
     IEnumerable<PackageEntry> GetPackageByEntry(ContentReference entry);
     IEnumerable<ContentReference> GetParentPackages(EntryContentBase entryContent);
     IEnumerable<PackageEntry> ListPackageEntries(ContentReference referenceToPackage); // Retrieve entries from a package
@@ -13,6 +12,22 @@ public interface IPackageService
 
 public class PackageService : IPackageService
 {
+    public void AddPackageEntry(ContentReference referenceToPackage, ContentReference referenceToPackageOrVariation)
+    {
+        var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+
+        var newPackageEntry = new PackageEntry
+        {
+            GroupName = "GroupX",
+            Quantity = 1.0m,
+            SortOrder = 100,
+            Parent = referenceToPackage,
+            Child = referenceToPackageOrVariation
+        };
+
+        relationRepository.UpdateRelation(newPackageEntry);
+    }
+
     public IEnumerable<PackageEntry> GetPackageByEntry(ContentReference entry)
     {
         var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
