@@ -1,9 +1,11 @@
 ﻿using EPiServer.Commerce.Catalog.Linking;
+using EPiServer.Framework.Initialization;
 
 namespace Foundation.Features.CatalogContent.Services;
 
 public interface IRelatedEntryService
 {
+    void AddAssociationGroup(InitializationEngine context);
     void AddAssociation(ContentReference referenceToEntry, ContentReference referenceToRelatedEntry);
     IEnumerable<Association> ListAssociations(ContentReference referenceToEntry);
     void RemoveAssociation(ContentReference referenceToEntry, ContentReference referenceToRelatedEntry);
@@ -32,6 +34,14 @@ public class RelatedEntryService : IRelatedEntryService
             }
         };
         associationRepository.UpdateAssociation(newAssociation);
+    }
+
+    public void AddAssociationGroup(InitializationEngine context)
+    {
+        // Add predefined selections CrossSell
+        // If they already exist nothing will be added
+        var associationDefinitionRepository = context.Locate.Advanced.GetInstance<GroupDefinitionRepository<AssociationGroupDefinition>>();
+        associationDefinitionRepository.Add(new AssociationGroupDefinition { Name = "LK: CrossSell (AddAssociationGroup)" });
     }
 
     public IEnumerable<Association> ListAssociations(ContentReference referenceToEntry)
