@@ -7,6 +7,7 @@ public interface IOrderBuilder<TOrderGroup>
     where TOrderGroup : class, IOrderGroup
 {
     TOrderGroup Create(string name);
+    void Delete(OrderReference orderLink);
     TOrderGroup Load(int orderGroupId);
     TOrderGroup Load(OrderReference orderReference);
     IEnumerable<TOrderGroup> LoadAllForContactId(string name);
@@ -24,6 +25,11 @@ public class OrderBuilder<TOrderGroup> : IOrderBuilder<TOrderGroup>
     public virtual TOrderGroup Create(string name)
     {
         return OrderRepository.Create<TOrderGroup>(ContactId, name);
+    }
+
+    public virtual void Delete(OrderReference orderLink)
+    {
+        OrderRepository.Delete(orderLink);
     }
 
     public virtual TOrderGroup Load(int orderGroupId)
