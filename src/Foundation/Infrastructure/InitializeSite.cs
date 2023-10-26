@@ -153,6 +153,7 @@ namespace Foundation.Infrastructure
             _services.AddSingleton<IBundleService, BundleService>();
             _services.AddSingleton<ICategorizationService, CategorizationService>();
             _services.AddSingleton<IPackageService, PackageService>();
+            _services.AddSingleton<Features.Pricing.IPricingService, Features.Pricing.PricingService>();
             _services.AddSingleton<IRelatedEntryService, RelatedEntryService>();
         }
 
