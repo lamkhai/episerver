@@ -20,6 +20,7 @@ public class OrderBuilder<TOrderGroup> : IOrderBuilder<TOrderGroup>
     where TOrderGroup : class, IOrderGroup
 {
     protected readonly IOrderRepository OrderRepository = ServiceLocator.Current.GetInstance<IOrderRepository>();
+
     protected readonly Guid ContactId = PrincipalInfo.CurrentPrincipal.GetContactId();
 
     public virtual TOrderGroup Create(string name)

@@ -161,9 +161,11 @@ namespace Foundation.Infrastructure
             _services.AddSingleton<IWarehouseBuilder, WarehouseBuilder>();
 
             _services.AddSingleton(typeof(IOrderBuilder<>), typeof(OrderBuilder<>));
-            _services.AddSingleton<ICartBuilder, CartBuilder>();
+            _services.AddSingleton(typeof(ICartBuilder<>), typeof(CartBuilder<>));
             _services.AddSingleton<IPurchaseOrderBuilder, PurchaseOrderBuilder>();
             _services.AddSingleton<IPaymentPlanBuilder, PaymentPlanBuilder>();
+
+            _services.AddSingleton<IOrderGroupFactoryBuilder, OrderGroupFactoryBuilder>();
         }
 
         public void Initialize(InitializationEngine context)
