@@ -19,6 +19,7 @@ using Foundation.Features.Checkout.Services;
 using Foundation.Features.Checkout.ViewModels;
 using Foundation.Features.Header;
 using Foundation.Features.Home;
+using Foundation.Features.LKBuilders;
 using Foundation.Features.Locations.LocationItemPage;
 using Foundation.Features.Locations.LocationListPage;
 using Foundation.Features.MyAccount.AddressBook;
@@ -155,6 +156,9 @@ namespace Foundation.Infrastructure
             _services.AddSingleton<IPackageService, PackageService>();
             _services.AddSingleton<Features.Pricing.IPricingService, Features.Pricing.PricingService>();
             _services.AddSingleton<IRelatedEntryService, RelatedEntryService>();
+
+            _services.AddSingleton<IInventoryBuilder, InventoryBuilder>();
+            _services.AddSingleton<IWarehouseBuilder, WarehouseBuilder>();
         }
 
         public void Initialize(InitializationEngine context)
