@@ -10,6 +10,9 @@ public interface IOrderBuilder<TOrderGroup>
     TOrderGroup Load(int orderGroupId);
     TOrderGroup Load(OrderReference orderReference);
     IEnumerable<TOrderGroup> LoadAllForContactId(string name);
+    OrderReference Save(TOrderGroup order);
+    OrderReference SaveAsPaymentPlan(TOrderGroup order);
+    OrderReference SaveAsPurchaseOrder(TOrderGroup order);
 }
 
 public class OrderBuilder<TOrderGroup> : IOrderBuilder<TOrderGroup>
@@ -36,5 +39,20 @@ public class OrderBuilder<TOrderGroup> : IOrderBuilder<TOrderGroup>
     public virtual IEnumerable<TOrderGroup> LoadAllForContactId(string name)
     {
         return OrderRepository.Load<TOrderGroup>(ContactId, name);
+    }
+
+    public virtual OrderReference Save(TOrderGroup order)
+    {
+        return OrderRepository.Save(order);
+    }
+
+    public virtual OrderReference SaveAsPaymentPlan(TOrderGroup order)
+    {
+        return OrderRepository.SaveAsPaymentPlan(order);
+    }
+
+    public virtual OrderReference SaveAsPurchaseOrder(TOrderGroup order)
+    {
+        return OrderRepository.SaveAsPurchaseOrder(order);
     }
 }
