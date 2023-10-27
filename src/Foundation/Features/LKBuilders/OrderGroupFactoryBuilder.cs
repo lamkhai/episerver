@@ -5,6 +5,7 @@ public interface IOrderGroupFactoryBuilder<TOrderGroup>
 {
     IOrderForm CreateOrderForm(TOrderGroup orderGroup, OrderFormModel model);
 
+    void WorkWithAddresses(TOrderGroup orderGroup, AddressModel model);
     void WorkWithLineItems(TOrderGroup orderGroup, LineItemModel model);
     void WorkWithPayments(TOrderGroup orderGroup);
     void WorkWithShipment(TOrderGroup orderGroup);
@@ -29,6 +30,26 @@ public class OrderGroupFactoryBuilder<TOrderGroup> : IOrderGroupFactoryBuilder<T
         }
 
         return orderForm;
+    }
+
+    public virtual void WorkWithAddresses(TOrderGroup orderGroup, AddressModel model)
+    {
+        var address = OrderGroupFactory.CreateOrderAddress(orderGroup);
+
+        //Use Id to reuse
+        address.Id = model?.Id;
+        orderGroup.GetFirstForm().Payments.First().BillingAddress = address;
+
+        //Since there is already an address with model?.Id it will use that address instead of creating another one on the order.
+        var reuseOtherAddress = OrderGroupFactory.CreateOrderAddress(orderGroup);
+        reuseOtherAddress.Id = model?.Id;
+        orderGroup.GetFirstShipment().ShippingAddress = reuseOtherAddress;
+
+        //Region Name and Region Code should be used when dealing with states
+        address.RegionName = model?.RegionName;
+        address.RegionCode = model?.RegionCode;
+        address.CountryCode = model?.CountryCode;
+        address.CountryName = model?.CountryName;
     }
 
     public virtual void WorkWithLineItems(TOrderGroup orderGroup, LineItemModel model)
@@ -108,6 +129,15 @@ public class OrderGroupFactoryBuilder<TOrderGroup> : IOrderGroupFactoryBuilder<T
         //Remove shipment from second form (b2b)
         orderGroup.Forms.Last().Shipments.Remove(shipment);
     }
+}
+
+public class AddressModel
+{
+    public string Id { get; set; }
+    public string RegionName { get; set; }
+    public string RegionCode { get; set; }
+    public string CountryCode { get; set; }
+    public string CountryName { get; set; }
 }
 
 public class LineItemModel
