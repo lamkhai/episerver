@@ -1,9 +1,14 @@
-﻿namespace Foundation.Features.LKBuilders;
+﻿using EPiServer.Security;
+using Mediachase.Commerce.Orders;
+
+namespace Foundation.Features.LKBuilders;
 
 public interface IOrderGroupFactoryBuilder<TOrderGroup>
     where TOrderGroup : class, IOrderGroup
 {
     IOrderForm CreateOrderForm(TOrderGroup orderGroup, OrderFormModel model);
+
+    void WorkWithPayments(TOrderGroup orderGroup);
     void WorkWithShipment(TOrderGroup orderGroup);
 }
 
@@ -26,6 +31,34 @@ public class OrderGroupFactoryBuilder<TOrderGroup> : IOrderGroupFactoryBuilder<T
         }
 
         return orderForm;
+    }
+
+    public virtual void WorkWithPayments(TOrderGroup orderGroup)
+    {
+        //Create and add payment to first form
+        var creditCard = OrderGroupFactory.CreateCardPayment(orderGroup);
+        var invoice = OrderGroupFactory.CreatePayment(orderGroup);
+
+        //Pass in OrderGroupFactory for unit testing as a from will be created if there is none on the cart.
+        orderGroup.AddPayment(creditCard, OrderGroupFactory);
+        orderGroup.AddPayment(invoice, OrderGroupFactory);
+
+        //Set address after adding to collection becasue of limitation in implementation
+        creditCard.BillingAddress = OrderGroupFactory.CreateOrderAddress(orderGroup);
+
+        //Create and add payment to second form (b2b)
+        var secondForm = orderGroup.Forms.Last();
+        orderGroup.AddPayment(secondForm, creditCard);
+        orderGroup.AddPayment(secondForm, invoice);
+
+        //Set address after adding to collection becasue of limitation in implementation
+        creditCard.BillingAddress = OrderGroupFactory.CreateOrderAddress(orderGroup);
+
+        //Remove payment from first form
+        orderGroup.GetFirstForm().Payments.Remove(invoice);
+
+        //Remove payment from second form (b2b)
+        orderGroup.Forms.Last().Payments.Remove(invoice);
     }
 
     public virtual void WorkWithShipment(TOrderGroup orderGroup)
