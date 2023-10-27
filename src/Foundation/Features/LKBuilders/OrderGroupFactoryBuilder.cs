@@ -1,9 +1,14 @@
-﻿namespace Foundation.Features.LKBuilders;
+﻿using EPiServer.Core.Internal;
+using EPiServer.Security;
+using Mediachase.Commerce.Orders;
+
+namespace Foundation.Features.LKBuilders;
 
 public interface IOrderGroupFactoryBuilder<TOrderGroup>
     where TOrderGroup : class, IOrderGroup
 {
     IOrderForm CreateOrderForm(TOrderGroup orderGroup, OrderFormModel model);
+    IOrderNote CreateOrderNote(TOrderGroup orderGroup, OrderNoteModel model);
 
     void WorkWithAddresses(TOrderGroup orderGroup, AddressModel model);
     void WorkWithLineItems(TOrderGroup orderGroup, LineItemModel model);
@@ -30,6 +35,22 @@ public class OrderGroupFactoryBuilder<TOrderGroup> : IOrderGroupFactoryBuilder<T
         }
 
         return orderForm;
+    }
+
+    public virtual IOrderNote CreateOrderNote(TOrderGroup orderGroup, OrderNoteModel model)
+    {
+        var note = OrderGroupFactory.CreateOrderNote(orderGroup);
+
+        if (model != null)
+        {
+            note.CustomerId = model.CustomerId;
+            note.Type = model.Type.ToString();
+            note.Title = model.Title;
+            note.Detail = model.Detail;
+            note.Created = DateTime.UtcNow;
+        }
+
+        return note;
     }
 
     public virtual void WorkWithAddresses(TOrderGroup orderGroup, AddressModel model)
@@ -148,4 +169,12 @@ public class LineItemModel
 public class OrderFormModel
 {
     public string Name { get; set; }
+}
+
+public class OrderNoteModel
+{
+    public Guid CustomerId { get; set; }
+    public OrderNoteTypes Type { get; set; }
+    public string Title { get; set; }
+    public string Detail { get; set; }
 }

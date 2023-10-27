@@ -6,8 +6,8 @@ namespace Foundation.Features.LKBuilders;
 public interface IOrderBuilder<TOrderGroup>
     where TOrderGroup : class, IOrderGroup
 {
+    void AddNoteToOrderGroup(TOrderGroup orderGroup, OrderNoteModel model);
     TOrderGroup Create(string name);
-    IOrderForm CreateOrderForm(TOrderGroup orderGroup, string name);
     void Delete(OrderReference orderLink);
     TOrderGroup Load(int orderGroupId);
     TOrderGroup Load(OrderReference orderReference);
@@ -20,22 +20,29 @@ public interface IOrderBuilder<TOrderGroup>
 public class OrderBuilder<TOrderGroup> : IOrderBuilder<TOrderGroup>
     where TOrderGroup : class, IOrderGroup
 {
-    protected readonly IOrderGroupFactory OrderGroupFactory = ServiceLocator.Current.GetInstance<IOrderGroupFactory>();
     protected readonly IOrderRepository OrderRepository = ServiceLocator.Current.GetInstance<IOrderRepository>();
 
     protected readonly Guid ContactId = PrincipalInfo.CurrentPrincipal.GetContactId();
 
+    private readonly IOrderGroupFactoryBuilder<TOrderGroup> _orderGroupFactoryBuilder;
+
+    public OrderBuilder(IOrderGroupFactoryBuilder<TOrderGroup> orderGroupFactoryBuilder)
+    {
+        _orderGroupFactoryBuilder = orderGroupFactoryBuilder;
+    }
+
+    public virtual void AddNoteToOrderGroup(TOrderGroup orderGroup, OrderNoteModel model)
+    {
+        var note = _orderGroupFactoryBuilder.CreateOrderNote(orderGroup, model);
+
+        orderGroup.Notes.Add(note);
+
+        OrderRepository.Save(orderGroup);
+    }
+
     public virtual TOrderGroup Create(string name)
     {
         return OrderRepository.Create<TOrderGroup>(ContactId, name);
-    }
-
-    public virtual IOrderForm CreateOrderForm(TOrderGroup orderGroup, string name)
-    {
-        var orderForm = OrderGroupFactory.CreateOrderForm(orderGroup);
-        orderGroup.Forms.Add(orderForm);
-        orderForm.Name = name;
-        return orderForm;
     }
 
     public virtual void Delete(OrderReference orderLink)
