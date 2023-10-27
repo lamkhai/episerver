@@ -168,6 +168,7 @@ namespace Foundation.Infrastructure
             _services.AddSingleton(typeof(ILineItemValidatorBuilder<>), typeof(LineItemValidatorBuilder<>));
             _services.AddSingleton(typeof(IOrderGroupFactoryBuilder<>), typeof(OrderGroupFactoryBuilder<>));
             _services.AddSingleton(typeof(IPlacedPriceProcessorBuilder<>), typeof(PlacedPriceProcessorBuilder<>));
+            _services.AddSingleton(typeof(IPromotionEngineBuilder<>), typeof(PromotionEngineBuilder<>));
         }
 
         public void Initialize(InitializationEngine context)
