@@ -1,13 +1,11 @@
-﻿using EPiServer.Security;
-using Mediachase.Commerce.Orders;
-
-namespace Foundation.Features.LKBuilders;
+﻿namespace Foundation.Features.LKBuilders;
 
 public interface IOrderGroupFactoryBuilder<TOrderGroup>
     where TOrderGroup : class, IOrderGroup
 {
     IOrderForm CreateOrderForm(TOrderGroup orderGroup, OrderFormModel model);
 
+    void WorkWithLineItems(TOrderGroup orderGroup, LineItemModel model);
     void WorkWithPayments(TOrderGroup orderGroup);
     void WorkWithShipment(TOrderGroup orderGroup);
 }
@@ -31,6 +29,34 @@ public class OrderGroupFactoryBuilder<TOrderGroup> : IOrderGroupFactoryBuilder<T
         }
 
         return orderForm;
+    }
+
+    public virtual void WorkWithLineItems(TOrderGroup orderGroup, LineItemModel model)
+    {
+        //add line item to first shipment on first form
+        var lineItem = OrderGroupFactory.CreateLineItem(model?.Code, orderGroup);
+
+        //use orderFactory for unit testing
+        orderGroup.AddLineItem(lineItem, OrderGroupFactory);
+
+        //add line item to second shipment on first form
+        var shipment = orderGroup.GetFirstForm().Shipments.Last();
+        orderGroup.AddLineItem(shipment, lineItem);
+
+        //add line item to second form first shipment
+        var orderForm = orderGroup.Forms.Last();
+
+        //add orderFactory for unit testing 
+        orderGroup.AddLineItem(orderForm, lineItem, OrderGroupFactory);
+
+        //remove line item from first form first shipment 
+        orderGroup.GetFirstShipment().LineItems.Remove(lineItem);
+
+        //remove line item from first form second shipment
+        orderGroup.GetFirstForm().Shipments.Last().LineItems.Remove(lineItem);
+
+        //remove line item from second form first shipment (b2b)
+        orderGroup.Forms.Last().Shipments.First().LineItems.Remove(lineItem);
     }
 
     public virtual void WorkWithPayments(TOrderGroup orderGroup)
@@ -82,6 +108,11 @@ public class OrderGroupFactoryBuilder<TOrderGroup> : IOrderGroupFactoryBuilder<T
         //Remove shipment from second form (b2b)
         orderGroup.Forms.Last().Shipments.Remove(shipment);
     }
+}
+
+public class LineItemModel
+{
+    public string Code { get; set; }
 }
 
 public class OrderFormModel
