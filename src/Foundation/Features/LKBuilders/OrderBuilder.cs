@@ -24,7 +24,7 @@ public class OrderBuilder<TOrderGroup> : IOrderBuilder<TOrderGroup>
 
     protected readonly Guid ContactId = PrincipalInfo.CurrentPrincipal.GetContactId();
 
-    private readonly IOrderGroupFactoryBuilder<TOrderGroup> _orderGroupFactoryBuilder;
+    protected readonly IOrderGroupFactoryBuilder<TOrderGroup> _orderGroupFactoryBuilder;
 
     public OrderBuilder(IOrderGroupFactoryBuilder<TOrderGroup> orderGroupFactoryBuilder)
     {

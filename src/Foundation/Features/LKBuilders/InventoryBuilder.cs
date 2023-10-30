@@ -53,7 +53,7 @@ public class InventoryBuilder : IInventoryBuilder
     {
         var inventoryService = ServiceLocator.Current.GetInstance<IInventoryService>();
         inventoryService.DeleteByWarehouse(warehouseCode);
-    }​
+    }
 
     // Inserts the specified inventory records.
     public void InsertInventories(IEnumerable<InventoryRecord> records)

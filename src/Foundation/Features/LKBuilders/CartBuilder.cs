@@ -10,6 +10,10 @@ public interface ICartBuilder<TCart> : IOrderBuilder<TCart>
 public class CartBuilder<TCart> : OrderBuilder<TCart>, ICartBuilder<TCart>
     where TCart : class, ICart
 {
+    public CartBuilder(IOrderGroupFactoryBuilder<TCart> orderGroupFactoryBuilder) : base(orderGroupFactoryBuilder)
+    {
+    }
+
     public virtual TCart LoadCart(string orderTypeName)
     {
         return OrderRepository.LoadCart<TCart>(ContactId, orderTypeName);
