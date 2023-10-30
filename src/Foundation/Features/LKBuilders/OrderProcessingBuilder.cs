@@ -8,6 +8,7 @@ public interface IOrderProcessingBuilder<TOrderGroup>
 {
     IEnumerable<RewardDescription> ApplyDiscounts(TOrderGroup orderGroup);
     IEnumerable<PaymentProcessingResult> ProcessPayments(TOrderGroup orderGroup);
+    void UpdateInventoryOrRemoveLineItems(TOrderGroup orderGroup);
     bool UpdatePlacedPrice(TOrderGroup orderGroup);
     void Validate(TOrderGroup orderGroup);
 }
@@ -15,6 +16,7 @@ public interface IOrderProcessingBuilder<TOrderGroup>
 public class OrderProcessingBuilder<TOrderGroup> : IOrderProcessingBuilder<TOrderGroup>
     where TOrderGroup : class, IOrderGroup
 {
+    protected readonly IInventoryProcessor InventoryProcessor = ServiceLocator.Current.GetInstance<IInventoryProcessor>();
     protected readonly ILineItemValidator LineItemValidator = ServiceLocator.Current.GetInstance<ILineItemValidator>();
     protected readonly IOrderGroupCalculator OrderGroupCalculator = ServiceLocator.Current.GetInstance<IOrderGroupCalculator>();
     protected readonly IPaymentProcessor PaymentProcessor = ServiceLocator.Current.GetInstance<IPaymentProcessor>();
@@ -34,6 +36,18 @@ public class OrderProcessingBuilder<TOrderGroup> : IOrderProcessingBuilder<TOrde
     {
         //Process payments for the cart
         return orderGroup.ProcessPayments(PaymentProcessor, OrderGroupCalculator);
+    }
+
+    public virtual void UpdateInventoryOrRemoveLineItems(TOrderGroup orderGroup)
+    {
+        var validationIssues = new Dictionary<ILineItem, ValidationIssue>();
+
+        //Update Inventory on cart
+        orderGroup.UpdateInventoryOrRemoveLineItems((item, issue) => validationIssues.Add(item, issue), InventoryProcessor);
+
+        //Update inventory on shipment line items
+        var shipment = orderGroup.GetFirstShipment();
+        InventoryProcessor.UpdateInventoryOrRemoveLineItem(shipment, (item, issue) => validationIssues.Add(item, issue));
     }
 
     public virtual bool UpdatePlacedPrice(TOrderGroup orderGroup)
