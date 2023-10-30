@@ -8,9 +8,11 @@ public interface IOrderProcessingBuilder<TOrderGroup>
 {
     IEnumerable<RewardDescription> ApplyDiscounts(TOrderGroup orderGroup);
     IEnumerable<PaymentProcessingResult> ProcessPayments(TOrderGroup orderGroup);
-    void UpdateInventoryOrRemoveLineItems(TOrderGroup orderGroup);
     bool UpdatePlacedPrice(TOrderGroup orderGroup);
-    void Validate(TOrderGroup orderGroup);
+
+    Dictionary<ILineItem, ValidationIssue> AdjustInventoryOrRemoveLineItems(TOrderGroup orderGroup);
+    Dictionary<ILineItem, ValidationIssue> UpdateInventoryOrRemoveLineItems(TOrderGroup orderGroup);
+    Dictionary<ILineItem, ValidationIssue> ValidateOrRemoveLineItems(TOrderGroup orderGroup);
 }
 
 public class OrderProcessingBuilder<TOrderGroup> : IOrderProcessingBuilder<TOrderGroup>
@@ -22,7 +24,7 @@ public class OrderProcessingBuilder<TOrderGroup> : IOrderProcessingBuilder<TOrde
     protected readonly IPaymentProcessor PaymentProcessor = ServiceLocator.Current.GetInstance<IPaymentProcessor>();
     protected readonly IPlacedPriceProcessor PlacedPriceProcessor = ServiceLocator.Current.GetInstance<IPlacedPriceProcessor>();
     protected readonly IPromotionEngine PromotionEngine = ServiceLocator.Current.GetInstance<IPromotionEngine>();
-    
+
     public virtual IEnumerable<RewardDescription> ApplyDiscounts(TOrderGroup orderGroup)
     {
         //run apply discounts on the cart
@@ -36,18 +38,6 @@ public class OrderProcessingBuilder<TOrderGroup> : IOrderProcessingBuilder<TOrde
     {
         //Process payments for the cart
         return orderGroup.ProcessPayments(PaymentProcessor, OrderGroupCalculator);
-    }
-
-    public virtual void UpdateInventoryOrRemoveLineItems(TOrderGroup orderGroup)
-    {
-        var validationIssues = new Dictionary<ILineItem, ValidationIssue>();
-
-        //Update Inventory on cart
-        orderGroup.UpdateInventoryOrRemoveLineItems((item, issue) => validationIssues.Add(item, issue), InventoryProcessor);
-
-        //Update inventory on shipment line items
-        var shipment = orderGroup.GetFirstShipment();
-        InventoryProcessor.UpdateInventoryOrRemoveLineItem(shipment, (item, issue) => validationIssues.Add(item, issue));
     }
 
     public virtual bool UpdatePlacedPrice(TOrderGroup orderGroup)
@@ -68,7 +58,35 @@ public class OrderProcessingBuilder<TOrderGroup> : IOrderProcessingBuilder<TOrde
             orderGroup.MarketId, orderGroup.Currency, (item, issue) => validationIssues.Add(item, issue));
     }
 
-    public virtual void Validate(TOrderGroup orderGroup)
+    public virtual Dictionary<ILineItem, ValidationIssue> AdjustInventoryOrRemoveLineItems(TOrderGroup orderGroup)
+    {
+        var validationIssues = new Dictionary<ILineItem, ValidationIssue>();
+
+        //Adjust Inventory on cart
+        orderGroup.AdjustInventoryOrRemoveLineItems((item, issue) => validationIssues.Add(item, issue), InventoryProcessor);
+
+        //Adjust inventory on shipment line items
+        var shipment = orderGroup.GetFirstShipment();
+        InventoryProcessor.AdjustInventoryOrRemoveLineItem(shipment, orderGroup.OrderStatus, (item, issue) => validationIssues.Add(item, issue));
+
+        return validationIssues;
+    }
+
+    public virtual Dictionary<ILineItem, ValidationIssue> UpdateInventoryOrRemoveLineItems(TOrderGroup orderGroup)
+    {
+        var validationIssues = new Dictionary<ILineItem, ValidationIssue>();
+
+        //Update Inventory on cart
+        orderGroup.UpdateInventoryOrRemoveLineItems((item, issue) => validationIssues.Add(item, issue), InventoryProcessor);
+
+        //Update inventory on shipment line items
+        var shipment = orderGroup.GetFirstShipment();
+        InventoryProcessor.UpdateInventoryOrRemoveLineItem(shipment, (item, issue) => validationIssues.Add(item, issue));
+
+        return validationIssues;
+    }
+
+    public virtual Dictionary<ILineItem, ValidationIssue> ValidateOrRemoveLineItems(TOrderGroup orderGroup)
     {
         var validationIssues = new Dictionary<ILineItem, ValidationIssue>();
 
@@ -81,5 +99,7 @@ public class OrderProcessingBuilder<TOrderGroup> : IOrderProcessingBuilder<TOrde
         {
             //Check validationIssues for problems
         }
+
+        return validationIssues;
     }
 }
