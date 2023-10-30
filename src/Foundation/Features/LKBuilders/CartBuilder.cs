@@ -4,6 +4,8 @@ public interface ICartBuilder<TCart> : IOrderBuilder<TCart>
     where TCart : class, ICart
 {
     void AddLineItem(TCart cart, LineItemModel model);
+    bool RemoveLineItem(TCart cart, LineItemModel model);
+
     TCart LoadCart(string orderTypeName);
     TCart LoadOrCreateCart(string orderTypeName);
 }
@@ -34,6 +36,17 @@ public class CartBuilder<TCart> : OrderBuilder<TCart>, ICartBuilder<TCart>
             var shipment = cart.GetFirstShipment();
             cart.UpdateLineItemQuantity(shipment, lineItem, lineItem.Quantity + model.Quantity);
         }
+    }
+
+    public virtual bool RemoveLineItem(TCart cart, LineItemModel model)
+    {
+        var lineItem = cart.GetAllLineItems().FirstOrDefault(x => x.Code == model.Code && !x.IsGift);
+        if (lineItem != null)
+        {
+            var shipment = cart.GetFirstShipment();
+            return shipment.LineItems.Remove(lineItem);
+        }
+        return false;
     }
 
     public virtual TCart LoadCart(string orderTypeName)
