@@ -5,7 +5,6 @@ public interface ICartBuilder<TCart> : IOrderBuilder<TCart>
 {
     TCart LoadCart(string orderTypeName);
     TCart LoadOrCreateCart(string orderTypeName);
-    IEnumerable<PaymentProcessingResult> ProcessPayments(TCart cart);
 }
 
 public class CartBuilder<TCart> : OrderBuilder<TCart>, ICartBuilder<TCart>
@@ -26,11 +25,5 @@ public class CartBuilder<TCart> : OrderBuilder<TCart>, ICartBuilder<TCart>
     public virtual TCart LoadOrCreateCart(string orderTypeName)
     {
         return OrderRepository.LoadOrCreateCart<TCart>(ContactId, orderTypeName);
-    }
-
-    public virtual IEnumerable<PaymentProcessingResult> ProcessPayments(TCart cart)
-    {
-        //Process payments for the cart
-        return cart.ProcessPayments(PaymentProcessor, OrderGroupCalculator);
     }
 }
