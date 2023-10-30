@@ -5,11 +5,15 @@ public interface ICartBuilder<TCart> : IOrderBuilder<TCart>
 {
     TCart LoadCart(string orderTypeName);
     TCart LoadOrCreateCart(string orderTypeName);
+    IEnumerable<PaymentProcessingResult> ProcessPayments(TCart cart);
 }
 
 public class CartBuilder<TCart> : OrderBuilder<TCart>, ICartBuilder<TCart>
     where TCart : class, ICart
 {
+    protected readonly IOrderGroupCalculator OrderGroupCalculator = ServiceLocator.Current.GetInstance<IOrderGroupCalculator>();
+    protected readonly IPaymentProcessor PaymentProcessor = ServiceLocator.Current.GetInstance<IPaymentProcessor>();
+
     public CartBuilder(IOrderGroupFactoryBuilder<TCart> orderGroupFactoryBuilder) : base(orderGroupFactoryBuilder)
     {
     }
@@ -22,5 +26,11 @@ public class CartBuilder<TCart> : OrderBuilder<TCart>, ICartBuilder<TCart>
     public virtual TCart LoadOrCreateCart(string orderTypeName)
     {
         return OrderRepository.LoadOrCreateCart<TCart>(ContactId, orderTypeName);
+    }
+
+    public virtual IEnumerable<PaymentProcessingResult> ProcessPayments(TCart cart)
+    {
+        //Process payments for the cart
+        return cart.ProcessPayments(PaymentProcessor, OrderGroupCalculator);
     }
 }
