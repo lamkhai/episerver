@@ -11,9 +11,36 @@ public interface ILineItemCalculatorBuilder
     Money GetSalesTax(IEnumerable<ILineItem> lineitems, IMarket market, Currency currency, IOrderAddress shippingAddress);
 }
 
-public class LineItemCalculatorBuilder : ILineItemCalculatorBuilder
+public class LineItemCalculatorBuilder : DefaultLineItemCalculator, ILineItemCalculatorBuilder
 {
     protected readonly ILineItemCalculator LineItemCalculator = ServiceLocator.Current.GetInstance<ILineItemCalculator>();
+
+    public LineItemCalculatorBuilder(ITaxCalculator taxCalculator) : base(taxCalculator)
+    {
+    }
+
+    protected override Money CalculateExtendedPrice(ILineItem lineItem, Currency currency)
+    {
+        return new Money(0, currency);
+    }
+    protected override Money CalculateSalesTax(ILineItem lineItem, IMarket market, Currency currency, IOrderAddress shippingAddress)
+    {
+        return new Money(0, currency);
+    }
+    protected override void ValidateExtendedPrice(Money money)
+    {
+        if (money.Amount <= 0)
+        {
+            throw new ValidationException("Extended price must be greater than 0");
+        }
+    }
+    protected override void ValidateSalesTax(Money money)
+    {
+        if (money.Amount <= 0)
+        {
+            throw new ValidationException("Sales tax must be greater than 0");
+        }
+    }
 
     public virtual Money GetDiscountedPrice(ILineItem lineItem, Currency currency)
     {
@@ -38,38 +65,5 @@ public class LineItemCalculatorBuilder : ILineItemCalculatorBuilder
     public virtual Money GetSalesTax(IEnumerable<ILineItem> lineitems, IMarket market, Currency currency, IOrderAddress shippingAddress)
     {
         return LineItemCalculator.GetSalesTax(lineitems, market, currency, shippingAddress);
-    }
-}
-
-public class LineItemCalculatorSample : DefaultLineItemCalculator
-{
-    public LineItemCalculatorSample(ITaxCalculator taxCalculator) : base(taxCalculator)
-    {
-    }
-
-    protected override Money CalculateExtendedPrice(ILineItem lineItem, Currency currency)
-    {
-        return new Money(0, currency);
-    }
-
-    protected override Money CalculateSalesTax(ILineItem lineItem, IMarket market, Currency currency, IOrderAddress shippingAddress)
-    {
-        return new Money(0, currency);
-    }
-
-    protected override void ValidateExtendedPrice(Money money)
-    {
-        if (money.Amount <= 0)
-        {
-            throw new ValidationException("Extended price must be greater than 0");
-        }
-    }
-
-    protected override void ValidateSalesTax(Money money)
-    {
-        if (money.Amount <= 0)
-        {
-            throw new ValidationException("Sales tax must be greater than 0");
-        }
     }
 }

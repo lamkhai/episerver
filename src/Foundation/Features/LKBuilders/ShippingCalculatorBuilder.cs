@@ -15,53 +15,16 @@ public interface IShippingCalculatorBuilder
     ShippingTotals GetShippingTotals(IShipment shipment, IMarket market, Currency currency);
 }
 
-public class ShippingCalculatorBuilder : IShippingCalculatorBuilder
+public class ShippingCalculatorBuilder : DefaultShippingCalculator, IShippingCalculatorBuilder
 {
     protected readonly IShippingCalculator ShippingCalculator = ServiceLocator.Current.GetInstance<IShippingCalculator>();
 
-    public virtual Money GetDiscountedShippingAmount(IShipment shipment, IMarket market, Currency currency)
-    {
-        return ShippingCalculator.GetDiscountedShippingAmount(shipment, market, currency);
-    }
-
-    public virtual Money GetSalesTax(IShipment shipment, IMarket market, Currency currency)
-    {
-        return ShippingCalculator.GetSalesTax(shipment, market, currency);
-    }
-
-    public virtual Money GetShippingCost(IShipment shipment, IMarket market, Currency currency)
-    {
-        return ShippingCalculator.GetShippingCost(shipment, market, currency);
-    }
-
-    public virtual Money GetShippingItemsTotal(IShipment shipment, Currency currency)
-    {
-        return ShippingCalculator.GetShippingItemsTotal(shipment, currency);
-    }
-
-    public virtual Money GetShippingReturnItemsTotal(IShipment shipment, Currency currency)
-    {
-        return ShippingCalculator.GetShippingReturnItemsTotal(shipment, currency);
-    }
-
-    public virtual Money GetShippingTax(IShipment shipment, IMarket market, Currency currency)
-    {
-        return ShippingCalculator.GetShippingTax(shipment, market, currency);
-    }
-
-    public virtual ShippingTotals GetShippingTotals(IShipment shipment, IMarket market, Currency currency)
-    {
-        return ShippingCalculator.GetShippingTotals(shipment, market, currency);
-    }
-}
-
-public class ShippingCalculatorOverridingDefault : DefaultShippingCalculator
-{
-    public ShippingCalculatorOverridingDefault(ILineItemCalculator lineItemCalculator,
-                                               IReturnLineItemCalculator returnLineItemCalculator,
-                                               ITaxCalculator taxCalculator,
-                                               IEnumerable<IShippingPlugin> shippingPlugins,
-                                               IEnumerable<IShippingGateway> shippingGateways)
+    public ShippingCalculatorBuilder(
+        ILineItemCalculator lineItemCalculator,
+        IReturnLineItemCalculator returnLineItemCalculator,
+        ITaxCalculator taxCalculator,
+        IEnumerable<IShippingPlugin> shippingPlugins,
+        IEnumerable<IShippingGateway> shippingGateways)
       : base(lineItemCalculator, returnLineItemCalculator, taxCalculator, shippingPlugins, shippingGateways)
     { }
 
@@ -101,7 +64,6 @@ public class ShippingCalculatorOverridingDefault : DefaultShippingCalculator
             throw new ValidationException("Shipping cost must be greater than 0");
         }
     }
-
     protected override void ValidateShippingItemTotal(Money money)
     {
         if (money.Amount <= 0)
@@ -109,7 +71,6 @@ public class ShippingCalculatorOverridingDefault : DefaultShippingCalculator
             throw new ValidationException("Shipping item total must be greater than 0");
         }
     }
-
     protected override void ValidateShippingTax(Money money)
     {
         if (money.Amount <= 0)
@@ -117,12 +78,46 @@ public class ShippingCalculatorOverridingDefault : DefaultShippingCalculator
             throw new ValidationException("Shipping tax must be greater than 0");
         }
     }
-
     protected override void ValidateSalesTax(Money money)
     {
         if (money.Amount <= 0)
         {
             throw new ValidationException("Sales tax must be greater than 0");
         }
+    }
+
+    public virtual Money GetDiscountedShippingAmount(IShipment shipment, IMarket market, Currency currency)
+    {
+        return ShippingCalculator.GetDiscountedShippingAmount(shipment, market, currency);
+    }
+
+    public virtual Money GetSalesTax(IShipment shipment, IMarket market, Currency currency)
+    {
+        return ShippingCalculator.GetSalesTax(shipment, market, currency);
+    }
+
+    public virtual Money GetShippingCost(IShipment shipment, IMarket market, Currency currency)
+    {
+        return ShippingCalculator.GetShippingCost(shipment, market, currency);
+    }
+
+    public virtual Money GetShippingItemsTotal(IShipment shipment, Currency currency)
+    {
+        return ShippingCalculator.GetShippingItemsTotal(shipment, currency);
+    }
+
+    public virtual Money GetShippingReturnItemsTotal(IShipment shipment, Currency currency)
+    {
+        return ShippingCalculator.GetShippingReturnItemsTotal(shipment, currency);
+    }
+
+    public virtual Money GetShippingTax(IShipment shipment, IMarket market, Currency currency)
+    {
+        return ShippingCalculator.GetShippingTax(shipment, market, currency);
+    }
+
+    public virtual ShippingTotals GetShippingTotals(IShipment shipment, IMarket market, Currency currency)
+    {
+        return ShippingCalculator.GetShippingTotals(shipment, market, currency);
     }
 }
