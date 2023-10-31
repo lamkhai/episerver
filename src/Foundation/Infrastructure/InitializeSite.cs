@@ -171,6 +171,7 @@ namespace Foundation.Infrastructure
             _services.AddSingleton<ILineItemCalculatorBuilder, LineItemCalculatorBuilder>();
             _services.AddSingleton<IOrderFormCalculatorBuilder, OrderFormCalculatorBuilder>();
             _services.AddSingleton<IOrderGroupCalculatorBuilder, OrderGroupCalculatorBuilder>();
+            _services.AddSingleton<IReturnLineItemCalculatorBuilder, ReturnLineItemCalculatorBuilder>();
             _services.AddSingleton<IShippingCalculatorBuilder, ShippingCalculatorBuilder>();
             _services.AddSingleton<ITaxCalculatorBuilder, TaxCalculatorBuilder>();
         }
