@@ -170,6 +170,7 @@ namespace Foundation.Infrastructure
             
             _services.AddSingleton<ILineItemCalculatorBuilder, LineItemCalculatorBuilder>();
             _services.AddSingleton<IShippingCalculatorBuilder, ShippingCalculatorBuilder>();
+            _services.AddSingleton<ITaxCalculatorBuilder, TaxCalculatorBuilder>();
         }
 
         public void Initialize(InitializationEngine context)
