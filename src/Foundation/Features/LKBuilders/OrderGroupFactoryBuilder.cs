@@ -164,6 +164,8 @@ public class AddressModel
 public class LineItemModel
 {
     public string Code { get; set; }
+    public string DisplayName { get; set; }
+    public decimal Quantity { get; set; }
 }
 
 public class OrderFormModel
