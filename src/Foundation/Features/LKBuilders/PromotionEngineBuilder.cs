@@ -1,5 +1,4 @@
-﻿using EPiServer.Commerce.Marketing;
-using Mediachase.Commerce.Orders;
+﻿using Mediachase.Commerce.Orders;
 
 namespace Foundation.Features.LKBuilders;
 
@@ -8,8 +7,10 @@ public interface IPromotionEngineBuilder
     IEnumerable<RewardDescription> Calculate();
     IEnumerable<RewardDescription> Evaluate(ContentReference entryLink);
     IEnumerable<RewardDescription> Evaluate(IEnumerable<ContentReference> entryLinks);
+    PromotionFilterContext Filter(PromotionFilterContext filterContext, IEnumerable<string> couponCodes);
     IEnumerable<DiscountedEntry> GetPrices(ContentReference entryLink);
     IEnumerable<PromotionItems> GetPromotionItemsForCampaign(ContentReference campaign);
+    void Report(IEnumerable<PromotionInformation> appliedPromotions);
 }
 
 public class PromotionEngineBuilder : IPromotionEngineBuilder
@@ -41,6 +42,31 @@ public class PromotionEngineBuilder : IPromotionEngineBuilder
         return PromotionEngine.Evaluate(entryLinks);
     }
 
+    public virtual PromotionFilterContext Filter(PromotionFilterContext filterContext, IEnumerable<string> couponCodes)
+    {
+        foreach (var promotion in filterContext.IncludedPromotions)
+        {
+            var couponCode = promotion.Coupon.Code;
+            if (String.IsNullOrEmpty(couponCode))
+            {
+                continue;
+            }
+
+            if (couponCodes.Contains(couponCode, StringComparer.OrdinalIgnoreCase))
+            {
+                filterContext.AddCouponCode(promotion.ContentGuid, couponCode);
+            }
+            else
+            {
+                filterContext.ExcludePromotion(
+                  promotion,
+                  FulfillmentStatus.CouponCodeRequired,
+                  filterContext.RequestedStatuses.HasFlag(RequestFulfillmentStatus.NotFulfilled));
+            }
+        }
+        return filterContext;
+    }
+
     public virtual IEnumerable<DiscountedEntry> GetPrices(ContentReference entryLink)
     {
         // var market = currentMarket.GetCurrentMarket();
@@ -51,5 +77,10 @@ public class PromotionEngineBuilder : IPromotionEngineBuilder
     public virtual IEnumerable<PromotionItems> GetPromotionItemsForCampaign(ContentReference campaign)
     {
         return PromotionEngine.GetPromotionItemsForCampaign(campaign);
+    }
+
+    public void Report(IEnumerable<PromotionInformation> appliedPromotions)
+    {
+        // Store any information needed about the coupon codes that were used.
     }
 }
