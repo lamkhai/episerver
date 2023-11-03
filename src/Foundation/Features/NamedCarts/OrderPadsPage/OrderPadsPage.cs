@@ -1,7 +1,4 @@
-using EPiServer.DataAnnotations;
-using Foundation.Features.Shared;
 using Foundation.Features.Shared.EditorDescriptors;
-using Foundation.Infrastructure;
 
 namespace Foundation.Features.NamedCarts.OrderPadsPage
 {
@@ -10,7 +7,7 @@ namespace Foundation.Features.NamedCarts.OrderPadsPage
         Description = "Page to manage an organization member's order pad",
         GroupName = GroupNames.Commerce,
         AvailableInEditMode = false)]
-    [ImageUrl("/icons/cms/pages/cms-icon-page-15.png")]
+    [ImageUrl("/icons/cms/pages/CMS-icon-page-15.png")]
     public class OrderPadsPage : FoundationPageData, IDisableOPE
     {
     }

@@ -1,13 +1,7 @@
 ﻿using EPiServer.Cms.Shell.UI.ObjectEditing.EditorDescriptors;
-using EPiServer.Core;
-using EPiServer.DataAnnotations;
 using EPiServer.PlugIn;
-using EPiServer.Shell.ObjectEditing;
-using Foundation.Infrastructure;
 using Foundation.Infrastructure.Cms;
 using Foundation.Infrastructure.Cms.Settings;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace Foundation.Features.Settings
 {
@@ -58,15 +52,15 @@ namespace Foundation.Features.Settings
         public virtual IList<ColorModel> ButtonTextColor { get; set; }
 
         [Display(Name = "Banner background color", GroupName = TabNames.Colors, Order = 60)]
-        [ClientEditor(ClientEditingClass = "foundation/editors/ColorPicker")]
+        [ClientEditor(ClientEditingClass = "foundation/Editors/ColorPicker")]
         public virtual string BannerBackgroundColor { get; set; }
 
         [Display(Name = "Banner text color", GroupName = TabNames.Colors, Order = 70)]
-        [ClientEditor(ClientEditingClass = "foundation/editors/ColorPicker")]
+        [ClientEditor(ClientEditingClass = "foundation/Editors/ColorPicker")]
         public virtual string BannerTextColor { get; set; }
 
         [Display(Name = "Link color", GroupName = TabNames.Colors, Order = 80)]
-        [ClientEditor(ClientEditingClass = "foundation/editors/ColorPicker")]
+        [ClientEditor(ClientEditingClass = "foundation/Editors/ColorPicker")]
         public virtual string LinkColor { get; set; }
 
         #endregion
@@ -78,7 +72,7 @@ namespace Foundation.Features.Settings
         public string ColorName { get; set; }
 
         [Display(Name = "Color code")]
-        [ClientEditor(ClientEditingClass = "foundation/editors/ColorPicker")]
+        [ClientEditor(ClientEditingClass = "foundation/Editors/ColorPicker")]
         public string ColorCode { get; set; }
     }
 

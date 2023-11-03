@@ -1,8 +1,5 @@
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
 using EPiServer.Find.Api.Querying;
 using EPiServer.Find.Api.Querying.Filters;
-using System.ComponentModel.DataAnnotations;
 
 namespace Foundation.Features.Blocks.ProductFilterBlocks
 {
@@ -10,7 +7,7 @@ namespace Foundation.Features.Blocks.ProductFilterBlocks
         GUID = "efcb0aef-5427-49bb-ab1b-2b429a2f2cc3",
         Description = "Filter product search blocks by field values",
         GroupName = "Commerce")]
-    [ImageUrl("/icons/cms/pages/cms-icon-page-14.png")]
+    [ImageUrl("/icons/cms/pages/CMS-icon-page-14.png")]
     public class StringFilterBlock : FilterBaseBlock
     {
         [CultureSpecific(true)]

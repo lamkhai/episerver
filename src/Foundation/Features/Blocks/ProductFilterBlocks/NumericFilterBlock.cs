@@ -1,11 +1,7 @@
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
 using EPiServer.Find.Api.Querying;
 using EPiServer.Find.Api.Querying.Filters;
 using EPiServer.Find.Framework;
-using EPiServer.Shell.ObjectEditing;
 using Foundation.Infrastructure.Find;
-using System.ComponentModel.DataAnnotations;
 
 namespace Foundation.Features.Blocks.ProductFilterBlocks
 {
@@ -13,7 +9,7 @@ namespace Foundation.Features.Blocks.ProductFilterBlocks
         GUID = "7747D13C-D029-4CB5-B020-549676123AC4",
         Description = "Filter product search blocks by field values",
         GroupName = "Commerce")]
-    [ImageUrl("/icons/cms/pages/cms-icon-page-14.png")]
+    [ImageUrl("/icons/cms/pages/CMS-icon-page-14.png")]
     public class NumericFilterBlock : FilterBaseBlock
     {
         [CultureSpecific(true)]

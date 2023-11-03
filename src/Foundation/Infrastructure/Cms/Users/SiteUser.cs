@@ -1,9 +1,7 @@
 using EPiServer.Cms.UI.AspNetIdentity;
 using Microsoft.AspNetCore.Identity;
-using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace Foundation.Infrastructure.Cms.Users
 {
@@ -18,6 +16,7 @@ namespace Foundation.Infrastructure.Cms.Users
 
         [NotMapped] public string Password { get; set; }
 
+        [NotMapped]
         public bool NewsLetter { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(IUserClaimsPrincipalFactory<SiteUser> manager)

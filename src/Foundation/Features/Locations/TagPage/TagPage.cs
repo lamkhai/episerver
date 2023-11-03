@@ -1,17 +1,10 @@
-using EPiServer.Core;
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using Foundation.Features.Shared;
-using Foundation.Infrastructure;
-using System.ComponentModel.DataAnnotations;
-
 namespace Foundation.Features.Locations.TagPage
 {
     [ContentType(DisplayName = "Tags Page",
         GUID = "fc83ded1-be4a-40fe-99b2-9ab739b018d5",
         Description = "Used to define a Tag",
         GroupName = GroupNames.Content)]
-    [ImageUrl("/icons/cms/pages/cms-icon-page-27.png")]
+    [ImageUrl("/icons/cms/pages/CMS-icon-page-27.png")]
     public class TagPage : FoundationPageData
     {
         [Display(GroupName = SystemTabNames.Content, Order = 10)]

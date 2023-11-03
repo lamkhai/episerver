@@ -1,22 +1,15 @@
 ﻿using EPiServer.Cms.Shell.UI.ObjectEditing.EditorDescriptors;
 using EPiServer.Commerce.Catalog.DataAnnotations;
-using EPiServer.Core;
-using EPiServer.DataAnnotations;
 using EPiServer.PlugIn;
-using EPiServer.Shell.ObjectEditing;
 using EPiServer.Validation;
-using EPiServer.Web;
 using Foundation.Features.CatalogContent.Variation;
 using Foundation.Infrastructure.Commerce.Models.EditorDescriptors;
 using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
 
 namespace Foundation.Features.CatalogContent.DynamicCatalogContent.DynamicVariation
 {
     [CatalogContentType(DisplayName = "Dynamic Variant", GUID = "11c2960f-79d6-4876-8d8a-6b7bc8cfe869", Description = "Dynamic variant supports multiple options")]
-    [ImageUrl("/icons/cms/pages/cms-icon-page-23.png")]
+    [ImageUrl("/icons/cms/pages/CMS-icon-page-23.png")]
     public class DynamicVariant : GenericVariant
     {
         [BackingType(typeof(VariantGroupPropertyList))]

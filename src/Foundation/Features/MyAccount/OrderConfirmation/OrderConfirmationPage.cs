@@ -1,10 +1,3 @@
-using EPiServer.Core;
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using Foundation.Features.Shared;
-using Foundation.Infrastructure;
-using System.ComponentModel.DataAnnotations;
-
 namespace Foundation.Features.MyAccount.OrderConfirmation
 {
     [ContentType(DisplayName = "Order Confirmation Page",
@@ -13,7 +6,7 @@ namespace Foundation.Features.MyAccount.OrderConfirmation
         GroupName = GroupNames.Commerce,
         AvailableInEditMode = false)]
     [AvailableContentTypes(Availability = Availability.None)]
-    [ImageUrl("/icons/cms/pages/cms-icon-page-08.png")]
+    [ImageUrl("/icons/cms/pages/CMS-icon-page-08.png")]
     public class OrderConfirmationPage : FoundationPageData
     {
         [CultureSpecific]

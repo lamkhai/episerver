@@ -1,16 +1,10 @@
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using Foundation.Features.Shared;
-using Foundation.Infrastructure;
-using System.ComponentModel.DataAnnotations;
-
 namespace Foundation.Features.Blocks.SubscriptionBlock
 {
     [ContentType(DisplayName = "Subscription Block",
         GUID = "e6b96293-60dd-46a9-8289-603f4a5e19fd",
         Description = "Configures the properties of a subscription block frontend view",
         GroupName = GroupNames.Social)]
-    [ImageUrl("~/assets/icons/cms/blocks/cms-icon-block-25.png")]
+    [ImageUrl("~/icons/cms/blocks/CMS-icon-block-25.png")]
     public class SubscriptionBlock : FoundationBlockData
     {
         /// <summary>

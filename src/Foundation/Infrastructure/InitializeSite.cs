@@ -1,21 +1,14 @@
 ﻿//using EPiBootstrapArea;
 //using EPiBootstrapArea.Initialization;
-using EPiServer;
 using EPiServer.Commerce.Internal.Migration;
 using EPiServer.Commerce.Marketing.Internal;
-using EPiServer.Commerce.Order;
-using EPiServer.Core;
 using EPiServer.Find.ClientConventions;
 using EPiServer.Find.Commerce;
 using EPiServer.Find.Framework;
 using EPiServer.Find.UnifiedSearch;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
-using EPiServer.ServiceLocation;
 using EPiServer.Shell.ContentQuery;
-using EPiServer.Web;
-using EPiServer.Web.Mvc;
-using EPiServer.Web.Routing;
 using Foundation.Features.Blog.BlogItemPage;
 using Foundation.Features.CatalogContent;
 using Foundation.Features.CatalogContent.Product;
@@ -26,6 +19,7 @@ using Foundation.Features.Checkout.Services;
 using Foundation.Features.Checkout.ViewModels;
 using Foundation.Features.Header;
 using Foundation.Features.Home;
+using Foundation.Features.LKBuilders;
 using Foundation.Features.Locations.LocationItemPage;
 using Foundation.Features.Locations.LocationListPage;
 using Foundation.Features.MyAccount.AddressBook;
@@ -35,14 +29,10 @@ using Foundation.Features.MyOrganization;
 using Foundation.Features.MyOrganization.Budgeting;
 using Foundation.Features.MyOrganization.Organization;
 using Foundation.Features.Search;
-using Foundation.Features.Settings;
-using Foundation.Features.Shared;
 using Foundation.Features.Stores;
 using Foundation.Infrastructure.Cms;
 using Foundation.Infrastructure.Cms.Settings;
-using Foundation.Infrastructure.Commerce.Extensions;
 using Foundation.Infrastructure.Commerce.GiftCard;
-using Foundation.Infrastructure.Commerce.Markets;
 using Foundation.Infrastructure.Display;
 using Foundation.Infrastructure.Find.Facets;
 using Foundation.Infrastructure.Find.Facets.Config;
@@ -54,9 +44,6 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using PowerSlice;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Foundation.Infrastructure
 {
@@ -163,6 +150,33 @@ namespace Foundation.Infrastructure
             _services.AddSingleton<ISchemaDataMapper<GenericProduct>, GenericProductSchemaDataMapper>();
             _services.AddSingleton<ISchemaDataMapper<LocationItemPage>, LocationItemPageSchemaDataMapper>();
             _services.AddSingleton<PromotionEngineContentLoader, FoundationPromotionEngineContentLoader>();
+
+            _services.AddSingleton<IBundleService, BundleService>();
+            _services.AddSingleton<ICategorizationService, CategorizationService>();
+            _services.AddSingleton<IPackageService, PackageService>();
+            _services.AddSingleton<Features.Pricing.IPricingService, Features.Pricing.PricingService>();
+            _services.AddSingleton<IRelatedEntryService, RelatedEntryService>();
+
+            _services.AddSingleton<IInventoryBuilder, InventoryBuilder>();
+            _services.AddSingleton<IWarehouseBuilder, WarehouseBuilder>();
+
+            _services.AddSingleton(typeof(IOrderBuilder<>), typeof(OrderBuilder<>));
+            _services.AddSingleton(typeof(ICartBuilder<>), typeof(CartBuilder<>));
+            _services.AddSingleton<IPurchaseOrderBuilder, PurchaseOrderBuilder>();
+            _services.AddSingleton<IPaymentPlanBuilder, PaymentPlanBuilder>();
+
+            _services.AddSingleton(typeof(IOrderGroupFactoryBuilder<>), typeof(OrderGroupFactoryBuilder<>));
+            _services.AddSingleton(typeof(IOrderProcessingBuilder<>), typeof(OrderProcessingBuilder<>));
+            
+            _services.AddSingleton<ILineItemCalculatorBuilder, LineItemCalculatorBuilder>();
+            _services.AddSingleton<IOrderFormCalculatorBuilder, OrderFormCalculatorBuilder>();
+            _services.AddSingleton<IOrderGroupCalculatorBuilder, OrderGroupCalculatorBuilder>();
+            _services.AddSingleton<IPromotionEngineBuilder, PromotionEngineBuilder>();
+            _services.AddSingleton<IPromotionTypeHandlerBuilder, PromotionTypeHandlerBuilder>();
+            _services.AddSingleton<IReturnLineItemCalculatorBuilder, ReturnLineItemCalculatorBuilder>();
+            _services.AddSingleton<IReturnOrderFormCalculatorBuilder, ReturnOrderFormCalculatorBuilder>();
+            _services.AddSingleton<IShippingCalculatorBuilder, ShippingCalculatorBuilder>();
+            _services.AddSingleton<ITaxCalculatorBuilder, TaxCalculatorBuilder>();
         }
 
         public void Initialize(InitializationEngine context)

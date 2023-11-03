@@ -1,23 +1,11 @@
-using EPiServer;
-using EPiServer.Commerce.Catalog.ContentTypes;
 using EPiServer.Commerce.Catalog.Linking;
-using EPiServer.Core;
 using EPiServer.Filters;
 using EPiServer.Globalization;
 using EPiServer.Personalization.Commerce.Tracking;
-using EPiServer.Web.Routing;
 using Foundation.Features.CatalogContent.Product;
 using Foundation.Features.CatalogContent.Variation;
 using Foundation.Features.Stores;
-using Foundation.Infrastructure.Commerce.Extensions;
-using Foundation.Infrastructure.Commerce.Markets;
-using Mediachase.Commerce;
-using Mediachase.Commerce.Catalog;
-using Mediachase.Commerce.Pricing;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 
 namespace Foundation.Features.CatalogContent.Services
 {
@@ -28,6 +16,15 @@ namespace Foundation.Features.CatalogContent.Services
         string GetSiblingVariantCodeBySize(string siblingCode, string size);
         IEnumerable<VariationContent> GetVariants(ProductContent currentContent);
         IEnumerable<RecommendedProductTileViewModel> GetRecommendedProductTileViewModels(IEnumerable<Recommendation> recommendations);
+
+        // Research: Get a product's variants
+        IEnumerable<ProductVariation> ListVariations(ContentReference referenceToProduct);
+        IEnumerable<ProductVariation> GetProductByVariant(ContentReference variation);
+        IEnumerable<ContentReference> ListParentProduct(EntryContentBase entryContent);
+
+        // Research: Add/Remove a product variant
+        void AddVariation(ContentReference referenceToProduct, ContentReference referenceToVariation);
+        void RemoveVariation(ContentReference referenceToProduct, ContentReference referenceToVariation);
     }
 
     public class ProductService : IProductService
@@ -234,5 +231,58 @@ namespace Foundation.Features.CatalogContent.Services
             var discountedPrice = _promotionService.GetDiscountPrice(new CatalogKey(entry.Code), market.MarketId, currency);
             return discountedPrice?.UnitPrice ?? originalPrice;
         }
+
+        #region Research: Get a product's variants
+        public IEnumerable<ProductVariation> ListVariations(ContentReference referenceToProduct)
+        {
+            var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+            var variations = relationRepository.GetChildren<ProductVariation>(referenceToProduct);
+            return variations;
+        }
+
+        public IEnumerable<ProductVariation> GetProductByVariant(ContentReference variation)
+        {
+            var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+            var products = relationRepository.GetParents<ProductVariation>(variation);
+            return products;
+        }
+
+        public IEnumerable<ContentReference> ListParentProduct(EntryContentBase entryContent)
+        {
+            var parentProductLinks = entryContent.GetParentProducts();
+            return parentProductLinks;
+        }
+        #endregion
+
+        #region Research: Add/Remove a product variant
+        public void AddVariation(ContentReference referenceToProduct, ContentReference referenceToVariation)
+        {
+            var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+            var newVariation = new ProductVariation
+            {
+                SortOrder = 100,
+                Parent = referenceToProduct,
+                Child = referenceToVariation
+            };
+            relationRepository.UpdateRelation(newVariation);
+        }
+
+        public void RemoveVariation(ContentReference referenceToProduct, ContentReference referenceToVariation)
+        {
+            var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+
+            // Define a relation matching the one to remove, or use
+            // GetRelations to find the one you want to remove and pass that to
+            // RemoveRelation
+            var relationToRemove = new ProductVariation
+            {
+                Parent = referenceToProduct,
+                Child = referenceToVariation
+            };
+
+            // Removes matching ProductVariation, or no action if no match exists
+            relationRepository.RemoveRelation(relationToRemove);
+        }
+        #endregion
     }
 }

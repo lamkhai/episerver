@@ -1,10 +1,3 @@
-using EPiServer.Core;
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using Foundation.Features.Shared;
-using Foundation.Infrastructure;
-using System.ComponentModel.DataAnnotations;
-
 namespace Foundation.Features.NamedCarts.DefaultCart
 {
     [ContentType(DisplayName = "Cart Page",
@@ -12,7 +5,7 @@ namespace Foundation.Features.NamedCarts.DefaultCart
         Description = "Page for managing cart",
         GroupName = GroupNames.Commerce,
         AvailableInEditMode = false)]
-    [ImageUrl("/icons/cms/pages/cms-icon-page-08.png")]
+    [ImageUrl("/icons/cms/pages/CMS-icon-page-08.png")]
     public class CartPage : FoundationPageData
     {
         [CultureSpecific]

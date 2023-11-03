@@ -12962,6 +12962,7 @@ ul.none-style-type {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  display: block !important;
 }
 .screen-width-block .screen-width-wrapper {
   width: 100%;
@@ -13216,7 +13217,7 @@ li.current {
   align-items: center;
   position: relative;
 }
-.mobile-navigation__logo > img {
+.mobile-navigation__logo img {
   max-height: 70px;
 }
 .mobile-navigation__search-box {
@@ -13268,6 +13269,7 @@ li.current {
   background-color: #ffffff;
   z-index: 1000;
   border-right: 1px solid #eeeeee;
+  padding-top: 36px;
 }
 .offside-navbar__tab-content {
   width: 100%;
@@ -13817,6 +13819,11 @@ a[class^=button-], a[class*=button-] {
   transform: rotate(45deg);
 }
 
+.damimageasset > img {
+  max-width: 100%;
+  height: auto;
+}
+
 .dropdown {
   outline: 1px solid #eee;
   outline-offset: -1px;
@@ -14044,6 +14051,27 @@ a[class^=button-], a[class*=button-] {
 .list-group--header .list-group--header__item p {
   margin-bottom: 0;
 }
+.list-group--header .list-group--header__item:has(.content__betbest) {
+  border: 2px solid #ff8110;
+  padding: 1rem;
+  background-color: rgba(255, 129, 16, 0.05);
+  position: relative;
+}
+.list-group--header .list-group--header__item:has(.content__betbest):hover {
+  background-color: rgba(255, 129, 16, 0.1);
+}
+.list-group--header .list-group--header__item:has(.content__betbest):after {
+  content: "Best Bet";
+  position: absolute;
+  right: 1rem;
+  text-transform: uppercase;
+  color: #ff8110;
+  font-size: smaller;
+}
+.list-group--header .list-group--header__item:has(.content__betbest) svg {
+  fill: #fff;
+  stroke: #ff8110;
+}
 
 .list-event {
   padding-top: 15px;
@@ -14198,6 +14226,20 @@ ul.loyal--group {
 ul.loyal--group li {
   width: 100%;
   padding: 8px;
+}
+
+div.row:has(.jsProducts) h2:before, div.row:has(.jsProducts) .h2:before {
+  content: 'Product Results for: "';
+  font-weight: 100;
+}
+
+div.row:has(.jsProducts) h2:after, div.row:has(.jsProducts) .h2:after {
+  content: '"';
+  font-weight: 100;
+}
+
+#contentResult h2:after, #contentResult .h2:after {
+  content: " Results";
 }
 
 .loading-box {
@@ -14541,7 +14583,24 @@ ul.loyal--group li {
   margin: 0px;
 }
 .formcontainerblock .EPiServerForms .FormSubmitButton {
-  width: 100%;
+  display: inline-block;
+  border-radius: 0;
+  min-width: 100px;
+  font-size: 0.875rem;
+  line-height: 0.875rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px 20px;
+  border: 1px solid black;
+  user-select: none;
+  background-color: transparent;
+  transition: color 0.15s;
+  text-decoration: none;
+  min-height: 40px;
+  min-width: 100px;
+  margin-top: 10px;
 }
 .formcontainerblock .EPiServerForms .block.submitbuttonelementblock {
   vertical-align: bottom;

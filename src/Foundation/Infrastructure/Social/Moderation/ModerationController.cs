@@ -1,6 +1,4 @@
 ﻿using Foundation.Social.Services;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Foundation.Social.Moderation
 {
@@ -10,7 +8,7 @@ namespace Foundation.Social.Moderation
 
         public ModerationController(ICommentManagerService commentManagerService) => _commentManagerService = commentManagerService;
 
-        //[MenuItem("/global/extensions/commentsmanager", TextResourceKey = "/Shared/CommentsManager", SortIndex = 400)]
+        [Route("episerver/foundation/moderation")]
         [HttpGet]
         public ActionResult Index()
         {
@@ -19,10 +17,11 @@ namespace Foundation.Social.Moderation
                 Comments = _commentManagerService.Get(1, 100, out var total).ToList(),
             };
 
-            return View(model);
+            return View("/Infrastructure/Social/Views/Moderation/Index.cshtml", model);
         }
 
         [HttpPost]
+        [Route("episerver/foundation/moderation/approve")]
         public ActionResult Approve(string id)
         {
             _commentManagerService.Approve(id);
@@ -34,6 +33,7 @@ namespace Foundation.Social.Moderation
         }
 
         [HttpPost]
+        [Route("episerver/foundation/moderation/delete")]
         public ActionResult Delete(string id)
         {
             _commentManagerService.Delete(id);

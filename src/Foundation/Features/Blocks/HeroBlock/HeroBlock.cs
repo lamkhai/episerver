@@ -1,14 +1,3 @@
-using EPiServer;
-using EPiServer.Core;
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using EPiServer.Shell.ObjectEditing;
-using EPiServer.Web;
-using Foundation.Features.Shared;
-using Foundation.Features.Shared.SelectionFactories;
-using Foundation.Infrastructure;
-using System.ComponentModel.DataAnnotations;
-
 namespace Foundation.Features.Blocks.HeroBlock
 {
     [ContentType(DisplayName = "Hero Block",
@@ -64,13 +53,16 @@ namespace Foundation.Features.Blocks.HeroBlock
         [Display(Name = "Text placement", Order = 20)]
         public virtual string CalloutContentAlignment { get; set; }
 
-        [ClientEditor(ClientEditingClass = "foundation/editors/ColorPicker")]
+        [ClientEditor(ClientEditingClass = "foundation/Editors/ColorPicker")]
         [Display(Name = "Text color", Description = "Sets text color of callout content", Order = 30)]
         public virtual string CalloutTextColor { get; set; }
 
-        [ClientEditor(ClientEditingClass = "foundation/editors/ColorPicker")]
+        [ClientEditor(ClientEditingClass = "foundation/Editors/ColorPicker")]
         [Display(Name = "Background color", Order = 40)]
         public virtual string BackgroundColor { get; set; }
+
+        [Display(Name = "Background color behind text only", Order = 41)]
+        public virtual bool BackgroundColorBehindText { get; set; }
 
         [Range(0, 1.0, ErrorMessage = "Opacity only allows value between 0 and 1")]
         [Display(Name = "Callout opacity (0 to 1)", Order = 50)]
@@ -95,6 +87,7 @@ namespace Foundation.Features.Blocks.HeroBlock
             Padding = "p-1";
             Margin = "m-0";
             BackgroundColor = "#00000000";
+            BackgroundColorBehindText = false;
             CalloutOpacity = 1;
             CalloutPosition = "center";
             CalloutContentAlignment = "left";
