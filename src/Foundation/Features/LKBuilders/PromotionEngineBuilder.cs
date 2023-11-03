@@ -1,4 +1,5 @@
-﻿using Mediachase.Commerce.Orders;
+﻿using EPiServer.Commerce.Marketing;
+using Mediachase.Commerce.Orders;
 
 namespace Foundation.Features.LKBuilders;
 
@@ -26,7 +27,8 @@ public class PromotionEngineBuilder : IPromotionEngineBuilder
     public virtual IEnumerable<RewardDescription> Calculate()
     {
         var cart = _cartBuilder.LoadOrCreateCart(Cart.DefaultName);
-        return PromotionEngine.Run(cart);
+        // cart.ApplyDiscounts(PromotionEngine, new PromotionEngineSettings() { ExclusionLevel = ExclusionLevel.Unit });
+        return PromotionEngine.Run(cart, new PromotionEngineSettings() { ExclusionLevel = ExclusionLevel.Unit });
     }
 
     public virtual IEnumerable<RewardDescription> Evaluate(ContentReference entryLink)
